@@ -17,8 +17,8 @@ const steps = [
         iconBg: "bg-blue-100",
     },
     {
-        title: "Open Your ZeeQue Franchise",
-        description: "Partner with us and grow your own ZeeQue branch with our support.",
+        title: "Open Your Zeeque Preschool Franchise",
+        description: "Partner with us and grow your own Zeeque Preschool branch with our support.",
         buttonText: "Contact Now",
         buttonHref: "/franchise",
         buttonColor: "bg-[#0b8641] hover:bg-[#097036] text-white",
@@ -57,7 +57,7 @@ export default function ChooseNextStep() {
                         Choose Your <span className="text-primary">Next Step</span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 font-body text-lg">
-                        Select one of the options below to continue your journey with ZeeQue.
+                        Select one of the options below to continue your journey with Zeeque Preschool.
                     </p>
                 </motion.div>
 

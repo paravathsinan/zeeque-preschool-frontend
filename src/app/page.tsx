@@ -10,7 +10,7 @@ import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+    <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
       {/* Floating Header Container */}
       <div className="w-full relative z-50">
         {/* Full-width Top Header */}
@@ -18,9 +18,12 @@ export default function Home() {
           <TopHeader />
         </div>
 
-        {/* Constrained Navbar */}
-        <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-800 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-700 px-4 xl:px-8 transition-colors duration-300">
-          <Navbar />
+        {/* Constrained Navbar Wrapper with Hero Background Color */}
+        <div className="w-full bg-[#FFE7B1] dark:bg-slate-900 transition-colors duration-300">
+          {/* Constrained Navbar */}
+          <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-800 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
+            <Navbar />
+          </div>
         </div>
       </div>
 

@@ -64,7 +64,7 @@ export default function NewsAndEvents() {
                             News & <span className="text-[#0052ff]">Events</span>
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400 font-body text-lg mt-3 max-w-lg">
-                            Stay updated with the latest happenings at ZeeQue Preschool.
+                            Stay updated with the latest happenings at Zeeque Preschool.
                         </p>
                     </div>
                     <Link

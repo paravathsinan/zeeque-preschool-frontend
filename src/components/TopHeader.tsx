@@ -31,7 +31,7 @@ export default function TopHeader() {
                 <div className="flex items-center gap-6">
                     <div className="flex items-center gap-2 group cursor-pointer">
                         <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center transition-transform group-hover:scale-110">
-                            <Phone className="w-3 h-3 text-white" />
+                            <Phone className="w-3 h-3 text-white group-hover:animate-ringing origin-center transition-transform" />
                         </div>
                         <span className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">+1 809 659 8454</span>
                     </div>

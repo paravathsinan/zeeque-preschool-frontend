@@ -30,10 +30,10 @@ export default function WhoWeAre() {
                         Who we are
                     </span>
                     <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-[54px] leading-[1.1] mb-6">
-                        ZeeQue Preschool Network
+                        Zeeque Preschool Network
                     </h2>
                     <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-6">
-                        ZeeQue Preschool is a unique and state of the art Early Childhood Care and Education program specially designed for children between 3 to 6 years of age, spanning three developmental stages: Lower, Middle, and Upper (LZQ, MZQ, and UZQ).
+                        Zeeque Preschool is a unique and state of the art Early Childhood Care and Education program specially designed for children between 3 to 6 years of age, spanning three developmental stages: Lower, Middle, and Upper (LZQ, MZQ, and UZQ).
                     </p>
                     <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-10">
                         We draw upon a diverse range of educational approaches, methods, and techniques, all geared towards nurturing creativity, collaboration, and joyful learning.
@@ -77,7 +77,7 @@ export default function WhoWeAre() {
                         {/* Top Right Image */}
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-4 sm:translate-y-8">
                             <Image
-                                src="https://images.unsplash.com/photo-1519340333755-56e9c1d04061?q=80&w=800&auto=format&fit=crop"
+                                src="https://images.unsplash.com/photo-1509062522246-3755f77d5227?q=80&w=800&auto=format&fit=crop"
                                 alt="Children learning"
                                 fill
                                 className="object-cover"

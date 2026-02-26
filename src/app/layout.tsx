@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito, Pangolin } from "next/font/google";
 import "./globals.css";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const nunito = Nunito({
   variable: "--font-nunito",
@@ -14,8 +15,8 @@ const pangolin = Pangolin({
 });
 
 export const metadata: Metadata = {
-  title: "Kidscholl - Happy Place Where Little Mind Grow Bright",
-  description: "Preschool website template built with Next.js",
+  title: "Zeeque Preschool - Happy Place Where Little Minds Grow Bright",
+  description: "Zeeque Preschool - A unique and state-of-the-art Early Childhood Care and Education program.",
 };
 
 export default function RootLayout({
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${nunito.variable} ${pangolin.variable} antialiased`}
       >
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );

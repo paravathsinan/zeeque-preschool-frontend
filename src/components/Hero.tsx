@@ -8,12 +8,14 @@ export default function Hero() {
     return (
         <section className="relative w-full pt-16 pb-48 overflow-hidden z-0">
 
-            {/* Background Shapes */}
-            {/* These will be aligned absolute as per the reference image */}
+            {/* Premium Solid Background */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#FFE7B1] dark:bg-slate-900 -z-10">
+                {/* Pure CSS Grid Overlay for premium texture */}
+                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-
-
-
+                {/* Soft Frosted Glass Blend Layer */}
+                <div className="absolute inset-0 dark:bg-slate-950/40 backdrop-blur-[50px]" />
+            </div>
 
             <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                 {/* Bottom Cloud/Wavy pattern can be an SVG or banner shape */}

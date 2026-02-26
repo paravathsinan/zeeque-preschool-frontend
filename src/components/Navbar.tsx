@@ -2,49 +2,76 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, ArrowRight, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { ChevronDown, ArrowRight, Menu, X, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+    const pathname = usePathname();
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [isDarkMode, setIsDarkMode] = useState(false);
+
+    useEffect(() => {
+        // Enforce light mode on initial visit
+        if (typeof window !== "undefined") {
+            document.documentElement.classList.remove("dark");
+            setIsDarkMode(false);
+        }
+    }, []);
+
+    const toggleTheme = () => {
+        setIsDarkMode(!isDarkMode);
+        if (typeof window !== "undefined") {
+            document.documentElement.classList.toggle("dark");
+        }
+    };
 
     const navLinks = [
         { name: "Home", href: "/", hasDropdown: false },
         {
-            name: "Pages", href: "/pages", hasDropdown: true,
+            name: "About", hasDropdown: true,
             subLinks: [
                 { name: "About Us", href: "/about" },
-                { name: "Pricing Plan", href: "/pricing" },
-                { name: "Image Gallery", href: "/gallery" },
-                { name: "Apply For Admission!", href: "/admission" },
-                { name: "404", href: "/404" },
-            ]
-        },
-        {
-            name: "Teacher", href: "/teacher", hasDropdown: true,
-            subLinks: [
-                { name: "Teachers", href: "/teachers" },
-                { name: "Teacher Details", href: "/teacher-details" },
-            ]
-        },
-        {
-            name: "Programs", href: "/programs", hasDropdown: true,
-            subLinks: [
+                { name: "Mission and Vision", href: "/mission-and-vision" },
+                { name: "Features", href: "/features" },
                 { name: "Programs", href: "/programs" },
-                { name: "Program Details", href: "/program-details" },
+                { name: "Curriculum", href: "/curriculum" },
+                { name: "Our Team", href: "/our-team" },
             ]
         },
         {
-            name: "Blog", href: "/blog", hasDropdown: true,
+            name: "Careers", hasDropdown: true,
             subLinks: [
-                { name: "Blog Grid", href: "/blog-grid" },
-                { name: "Blog Standard", href: "/blog-standard" },
-                { name: "Blog Details", href: "/blog-details" },
+                { name: "Teacher Trainees", href: "/teacher-trainees" },
+                { name: "ZET Registration", href: "/zet-registration" },
+                { name: "Grade Stream Teacher Trainees", href: "/grade-stream-teacher-trainees" },
+                { name: "Result", href: "/result" },
+            ]
+        },
+        { name: "Institution", href: "#", hasDropdown: false },
+        {
+            name: "Updates", hasDropdown: true,
+            subLinks: [
+                { name: "Events", href: "/events" },
+                { name: "Gallery", href: "/gallery" },
+                { name: "Downloads", href: "/downloads" },
+                { name: "Notifications", href: "/notifications" },
+                { name: "FAQ", href: "/faq" },
             ]
         },
         { name: "Contact", href: "/contact", hasDropdown: false },
     ];
+
+    const isLinkActive = (link: typeof navLinks[number]) => {
+        if (link.href === "/" && pathname === "/") return true;
+        if (link.href === "/" && pathname !== "/") return false;
+        if (link.href && pathname === link.href) return true;
+        if (link.hasDropdown && link.subLinks) {
+            return link.subLinks.some((sub) => pathname === sub.href);
+        }
+        return false;
+    };
 
     const toggleMobileDropdown = (name: string) => {
         if (openDropdown === name) {
@@ -55,11 +82,11 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="w-full bg-transparent dark:bg-slate-900 relative z-50 transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-8 py-3 flex justify-between items-center">
+        <nav className="w-full bg-transparent relative z-50 transition-colors duration-300">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 md:py-4 flex justify-between items-center gap-4">
 
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2">
+                <Link href="/" className="flex items-center gap-2 shrink-0">
                     <Image
                         src="/images/logo/logo-new.svg"
                         alt="Zeeque Logo"
@@ -71,17 +98,25 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Navigation Links */}
-                <div className="hidden lg:flex items-center gap-8">
+                <div className="hidden lg:flex items-center lg:gap-6 xl:gap-10">
                     {navLinks.map((link) => (
                         <div key={link.name} className="relative group">
-                            <Link
-                                href={link.href}
-                                className={`flex items-center gap-1 font-heading font-bold text-[17px] transition-colors py-4 ${link.name === 'Home' ? 'text-primary' : 'text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary'
-                                    }`}
-                            >
-                                {link.name}
-                                {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
-                            </Link>
+                            {link.href ? (
+                                <Link
+                                    href={link.href}
+                                    className={`flex items-center gap-1 font-heading font-bold text-[17px] transition-colors py-4 ${isLinkActive(link) ? 'text-primary' : 'text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary'}`}
+                                >
+                                    {link.name}
+                                    {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
+                                </Link>
+                            ) : (
+                                <button
+                                    className="flex items-center gap-1 font-heading font-bold text-[17px] transition-colors py-4 text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary cursor-pointer select-none border-none bg-transparent outline-none m-0 p-0"
+                                >
+                                    {link.name}
+                                    {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
+                                </button>
+                            )}
 
                             {/* Dropdown Menu */}
                             {link.hasDropdown && link.subLinks && (
@@ -102,7 +137,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Right Actions */}
-                <div className="flex items-center gap-2 sm:gap-4">
+                <div className="flex items-center gap-2 sm:gap-4 shrink-0">
 
                     <Link
                         href="/enroll"
@@ -130,28 +165,44 @@ export default function Navbar() {
                         {navLinks.map((link) => (
                             <div key={link.name} className="flex flex-col border-b border-gray-50 dark:border-slate-800 last:border-0">
                                 <div className="flex items-center justify-between py-3">
-                                    <Link
-                                        href={link.href}
-                                        className={`font-heading font-bold text-[16px] ${link.name === 'Home' ? 'text-primary' : 'text-[#222222] dark:text-gray-200'}`}
-                                        onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
-                                    >
-                                        {link.name}
-                                    </Link>
+                                    {link.href ? (
+                                        <Link
+                                            href={link.href}
+                                            className={`font-heading font-bold text-[16px] ${isLinkActive(link) ? 'text-primary' : 'text-[#222222] dark:text-gray-200'}`}
+                                            onClick={() => !link.hasDropdown && setIsMobileMenuOpen(false)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <button
+                                            className={`font-heading font-bold text-[16px] text-left cursor-pointer border-none bg-transparent outline-none flex-1 select-none text-[#222222] dark:text-gray-200`}
+                                            onClick={() => {
+                                                if (link.hasDropdown) {
+                                                    toggleMobileDropdown(link.name);
+                                                }
+                                            }}
+                                        >
+                                            {link.name}
+                                        </button>
+                                    )}
                                     {link.hasDropdown && (
-                                        <button onClick={() => toggleMobileDropdown(link.name)} className="p-1">
-                                            <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180 text-primary' : 'text-gray-400'}`} />
+                                        <button
+                                            onClick={() => toggleMobileDropdown(link.name)}
+                                            className={`p-2 transition-transform duration-300 ${openDropdown === link.name ? 'rotate-180 text-primary' : 'text-gray-400'}`}
+                                        >
+                                            <ChevronDown className="w-5 h-5" />
                                         </button>
                                     )}
                                 </div>
 
                                 {/* Mobile Dropdown */}
                                 {link.hasDropdown && openDropdown === link.name && link.subLinks && (
-                                    <div className="flex flex-col pl-4 pb-3 space-y-2">
+                                    <div className="flex flex-col pl-4 pb-4 space-y-1">
                                         {link.subLinks.map((sublink) => (
                                             <Link
                                                 key={sublink.name}
                                                 href={sublink.href}
-                                                className="text-sm font-medium text-gray-600 hover:text-primary py-1"
+                                                className={`text-[15px] font-medium py-2 px-3 rounded-lg transition-colors ${pathname === sublink.href ? 'bg-primary/10 text-primary' : 'text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary'}`}
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
                                                 {sublink.name}

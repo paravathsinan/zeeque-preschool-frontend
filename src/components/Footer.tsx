@@ -41,7 +41,7 @@ export default function Footer() {
                             <Link href="/" className="inline-block mb-6">
                                 <Image
                                     src="/images/logo/logo-new.svg"
-                                    alt="ZeeQue"
+                                    alt="Zeeque Preschool"
                                     width={140}
                                     height={55}
                                     className="object-contain"
@@ -61,7 +61,7 @@ export default function Footer() {
 
                                 <div className="flex items-center gap-3 group">
                                     <div className="w-9 h-9 rounded-lg bg-[#0052ff]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0052ff]/20 transition-colors">
-                                        <Phone className="w-4 h-4 text-[#0052ff]" />
+                                        <Phone className="w-4 h-4 text-[#0052ff] group-hover:animate-ringing origin-center transition-transform" />
                                     </div>
                                     <div className="text-gray-400 font-body text-sm group-hover:text-gray-300 transition-colors">
                                         <p>+91 9072500435</p>
@@ -162,7 +162,7 @@ export default function Footer() {
             <div className="bg-[#12121f] py-5">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 text-center">
                     <p className="text-gray-500 font-body text-sm">
-                        All Rights Reserved by <span className="text-[#ef4225] font-medium">ZeeQue</span> - 2013 to 2026
+                        All Rights Reserved by <span className="text-[#ef4225] font-medium">Zeeque Preschool</span> - 2013 to 2026
                     </p>
                 </div>
             </div>

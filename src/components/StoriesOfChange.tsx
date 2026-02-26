@@ -20,14 +20,14 @@ const testimonials = [
         role: "Parent",
         avatar: "FR",
         color: "bg-[#0052ff]",
-        text: "I have seen a tremendous change in my son after joining ZeeQue. His behavior, character, attitude, speech, language & spelling has improved remarkably. The teachers are very dedicated and caring. I'm truly grateful for the positive impact ZeeQue has had on my child's overall development.",
+        text: "I have seen a tremendous change in my son after joining Zeeque Preschool. His behavior, character, attitude, speech, language & spelling has improved remarkably. The teachers are very dedicated and caring. I'm truly grateful for the positive impact Zeeque Preschool has had on my child's overall development.",
     },
     {
         name: "Aysha Shareef",
         role: "Parent",
         avatar: "AS",
         color: "bg-[#0b8641]",
-        text: "ZeeQue Preschool has been a wonderful experience for our family. My child has blossomed both academically and socially. The creative teaching methods and the warm, nurturing environment have made learning a joyful experience. We couldn't be happier with the progress our little one has made.",
+        text: "Zeeque Preschool has been a wonderful experience for our family. My child has blossomed both academically and socially. The creative teaching methods and the warm, nurturing environment have made learning a joyful experience. We couldn't be happier with the progress our little one has made.",
     },
 ];
 
