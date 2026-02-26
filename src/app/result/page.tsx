@@ -31,7 +31,7 @@ export default function ResultPortalPage() {
                 <div className="hidden lg:block w-full bg-white dark:bg-slate-800 rounded-t-[40px] shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden max-w-[1140px] mx-auto">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-800 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 lg:border-t-0 rounded-[40px] lg:rounded-t-none">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 lg:border-t-0 rounded-[40px] lg:rounded-t-none">
                     <Navbar />
                 </div>
             </div>

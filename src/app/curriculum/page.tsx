@@ -39,10 +39,10 @@ export default function CurriculumPage() {
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-slate-800 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-slate-900 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-800 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
                     <Navbar />
                 </div>
             </div>
