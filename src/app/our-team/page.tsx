@@ -257,7 +257,7 @@ export default function OurTeamPage() {
                             Whether you&apos;re a parent looking for the best start for your child, or an educator passionate about shaping young minds — we&apos;d love to hear from you.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="/enroll" className="flex items-center gap-2 bg-[#ffb606] text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all">
+                            <Link href="https://admission.zeeque.in/" className="flex items-center gap-2 bg-[#ffb606] text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all">
                                 Enroll Now <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                             </Link>
                             <Link href="/contact" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">

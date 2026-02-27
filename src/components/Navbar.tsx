@@ -49,7 +49,7 @@ export default function Navbar() {
                 { name: "Result", href: "/result" },
             ]
         },
-        { name: "Institution", href: "#", hasDropdown: false },
+        { name: "Institution", href: "/institution", hasDropdown: false },
         {
             name: "Updates", hasDropdown: true,
             subLinks: [
@@ -57,7 +57,7 @@ export default function Navbar() {
                 { name: "Gallery", href: "/gallery" },
                 { name: "Downloads", href: "/downloads" },
                 { name: "Notifications", href: "/notifications" },
-                { name: "FAQ", href: "/faq" },
+                { name: "Kids' Magazines", href: "https://magazine.myzeeque.com/" },
             ]
         },
         { name: "Contact", href: "/contact", hasDropdown: false },
@@ -140,7 +140,7 @@ export default function Navbar() {
                 <div className="flex items-center gap-2 sm:gap-4 shrink-0">
 
                     <Link
-                        href="/enroll"
+                        href="https://admission.zeeque.in/"
                         className="hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                     >
                         Enroll Now
@@ -215,7 +215,7 @@ export default function Navbar() {
 
                         <div className="mt-6 flex flex-col gap-4">
                             <Link
-                                href="/enroll"
+                                href="https://admission.zeeque.in/"
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="flex items-center justify-center gap-2 bg-[#ffb606] text-white w-full py-3 rounded-xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all opacity-100"
                             >

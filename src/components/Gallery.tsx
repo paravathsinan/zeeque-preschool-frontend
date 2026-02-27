@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const galleryImages = [
     { src: "/images/gallery/659cf71996662425490851jpeg.jpg", alt: "Kids group activity" },
@@ -56,8 +57,8 @@ export default function Gallery() {
                 </motion.div>
 
                 {/* Masonry-style Grid */}
-                <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
-                    {galleryImages.map((img, index) => (
+                <div className="columns-2 md:columns-3 gap-4 space-y-4">
+                    {galleryImages.slice(0, 3).map((img, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -85,6 +86,23 @@ export default function Gallery() {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* CTA Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.3 }}
+                    className="mt-12 text-center"
+                >
+                    <Link
+                        href="/gallery"
+                        className="inline-flex items-center gap-2 bg-[#0b8641] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#097337] shadow-[4px_4px_0_0_#065126] hover:shadow-[2px_2px_0_0_#065126] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
+                    >
+                        More Photos
+                        <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+                    </Link>
+                </motion.div>
             </div>
 
             {/* Lightbox Modal */}

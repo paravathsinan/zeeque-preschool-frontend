@@ -2,10 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Play, Sparkles, User, Palette } from "lucide-react";
-import { motion } from "framer-motion";
+import { Play, User, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function WhoWeAre() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <section className="py-20 lg:py-32 bg-white dark:bg-slate-900 relative overflow-hidden">
 
@@ -77,26 +80,38 @@ export default function WhoWeAre() {
                         {/* Top Right Image */}
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-4 sm:translate-y-8">
                             <Image
-                                src="https://images.unsplash.com/photo-1509062522246-3755f77d5227?q=80&w=800&auto=format&fit=crop"
+                                src="/images/gallery/gallery photos/IMG_5246.JPG"
                                 alt="Children learning"
                                 fill
                                 className="object-cover"
                             />
                         </div>
 
-                        {/* Bottom Wide Image */}
-                        <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer">
-                            <Image
-                                src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1200&auto=format&fit=crop"
-                                alt="Child playing with paper plane"
-                                fill
-                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                            />
+                        {/* Bottom Wide Video Card */}
+                        <div
+                            className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer"
+                            onClick={() => setIsModalOpen(true)}
+                        >
+                            {/* Background Video */}
+                            <video
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                poster="/images/gallery/page-title.jpg"
+                            >
+                                <source src="https://videos.pexels.com/video-files/5896379/5896379-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+                            </video>
 
-                            {/* Video Play Button Overlay */}
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                                <div className="w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#e83e8c] shadow-[0_0_30px_rgba(255,255,255,0.4)] group-hover:scale-110 transition-transform duration-300">
-                                    <Play className="w-8 h-8 ml-1 fill-current" />
+                            {/* Dark Overlay & Play Button */}
+                            <div className="absolute inset-0 bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                                <div className="relative flex items-center justify-center">
+                                    {/* Subtle Pulse Animation */}
+                                    <div className="absolute w-[120%] h-[120%] bg-white/20 rounded-full animate-ping duration-[3000ms]"></div>
+                                    <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center text-[#ED5D74] shadow-[0_0_30px_rgba(0,0,0,0.2)] transition-transform duration-300 group-hover:scale-110 z-10">
+                                        <Play className="w-8 h-8 ml-1 fill-current" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -107,6 +122,48 @@ export default function WhoWeAre() {
                 </motion.div>
 
             </div>
+
+            {/* YouTube Modal */}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+                        onClick={() => setIsModalOpen(false)}
+                    >
+                        <motion.div
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeOut" }}
+                            className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors border border-white/10"
+                                onClick={() => setIsModalOpen(false)}
+                                aria-label="Close video"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                            {/* Lazy Loaded YouTube Iframe */}
+                            <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/IRYHainW3U0?autoplay=1"
+                                title="YouTube video player"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerPolicy="strict-origin-when-cross-origin"
+                                allowFullScreen
+                                className="w-full h-full border-0 bg-black"
+                            ></iframe>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </section>
     );
 }

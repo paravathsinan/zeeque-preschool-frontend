@@ -3,8 +3,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, PhoneCall } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+
+const heroImages = [
+    "/images/bg/hero-section.jpg",
+    "/images/gallery/gallery photos/IMG_5246.JPG",
+    "/images/gallery/gallery photos/IMG_5282.JPG",
+    "/images/gallery/gallery photos/IMG_5316.JPG",
+    "/images/gallery/gallery photos/IMG_5744 (2) - Copy.JPG",
+    "/images/gallery/gallery photos/IMG_5781.JPG",
+    "/images/gallery/gallery photos/IMG_5836 (2) - Copy.JPG",
+    "/images/gallery/gallery photos/IMG_6331 - Copy.JPG",
+    "/images/gallery/gallery photos/RYZ03180.JPG"
+];
+
 export default function Hero() {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, []);
     return (
         <section className="relative w-full pt-16 pb-48 overflow-hidden z-0">
 
@@ -55,20 +77,20 @@ export default function Hero() {
                         className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8 mt-6 lg:mt-8"
                     >
                         <Link
-                            href="/explore"
+                            href="https://admission.zeeque.in/"
                             className="group flex items-center justify-center gap-3 bg-primary text-white px-8 py-3.5 rounded-[15px] font-heading font-medium text-[19px] hover:bg-[#d93a1e] transition-all shadow-[4px_4px_0_0_#fbaf01] hover:shadow-[2px_2px_0_0_#fbaf01] hover:translate-y-[2px] hover:translate-x-[2px]"
                         >
-                            Explore More
+                            Enroll Now
                             <ArrowRight strokeWidth={2.5} className="w-[22px] h-[22px]" />
                         </Link>
 
                         <div className="flex items-center gap-3">
                             <div className="relative group cursor-pointer inline-flex">
-                                <Image src="/images/icon/banner-icon1.png" alt="Phone" width={55} height={55} className="object-contain group-hover:scale-110 transition-transform duration-300" />
+                                <Image src="/images/icon/banner-icon1.png" alt="Phone" width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
                             </div>
                             <div className="flex flex-col justify-center text-left">
-                                <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Call Now</span>
-                                <span className="font-heading font-extrabold text-primary text-[22px] sm:text-[26px] tracking-wide leading-none">+29 494 999 773</span>
+                                <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Admission Counsellor</span>
+                                <span className="font-heading font-extrabold text-primary text-[22px] sm:text-[26px] tracking-wide leading-none">+91 9072500435</span>
                             </div>
                         </div>
                     </motion.div>
@@ -91,15 +113,30 @@ export default function Hero() {
 
                         {/* Main Image Blob */}
                         <div
-                            className="absolute inset-4 overflow-hidden shadow-2xl bg-yellow-100 dark:bg-slate-800"
-                            style={{ borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%' }}
+                            className="absolute inset-4 shadow-2xl bg-yellow-100 dark:bg-slate-800"
+                            style={{
+                                borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
+                                overflow: 'hidden'
+                            }}
                         >
-                            <Image
-                                src="/images/bg/hero-section.jpg"
-                                alt="Child Learning"
-                                fill
-                                className="object-cover"
-                            />
+                            <AnimatePresence>
+                                <motion.div
+                                    key={currentImageIndex}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.8 }}
+                                    className="absolute inset-0 w-full h-full"
+                                >
+                                    <Image
+                                        src={heroImages[currentImageIndex]}
+                                        alt="Child Learning"
+                                        fill
+                                        className="object-cover"
+                                        priority={currentImageIndex === 0}
+                                    />
+                                </motion.div>
+                            </AnimatePresence>
                         </div>
 
                         {/* Floating Admission Badge */}

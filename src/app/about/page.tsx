@@ -700,7 +700,7 @@ export default function AboutPage() {
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
-                                href="/enroll"
+                                href="https://admission.zeeque.in/"
                                 className="flex items-center gap-2 bg-[#ffb606] text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                             >
                                 Enroll Now
