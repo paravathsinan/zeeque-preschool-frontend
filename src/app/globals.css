@@ -25,8 +25,8 @@
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-text-muted: var(--color-text-muted);
-  --font-heading: var(--font-nunito), 'Nunito', sans-serif;
-  --font-body: var(--font-pangolin), 'Pangolin', sans-serif;
+  --font-heading: var(--font-kumbh-sans), 'Kumbh Sans', sans-serif;
+  --font-body: var(--font-kumbh-sans), 'Kumbh Sans', sans-serif;
 }
 
 body {

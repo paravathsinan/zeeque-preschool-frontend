@@ -1,17 +1,12 @@
 import type { Metadata } from "next";
-import { Nunito, Pangolin } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const nunito = Nunito({
-  variable: "--font-nunito",
-  subsets: ["latin"],
-});
-
-const pangolin = Pangolin({
-  weight: "400",
-  variable: "--font-pangolin",
-  subsets: ["latin"],
+const kumbhSans = localFont({
+  src: "../../public/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf",
+  variable: "--font-kumbh-sans",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunito.variable} ${pangolin.variable} antialiased`}
+        className={`${kumbhSans.variable} antialiased`}
       >
         {children}
         <ScrollToTop />
