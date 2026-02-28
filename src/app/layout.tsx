@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${kumbhSans.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
         <ScrollToTop />

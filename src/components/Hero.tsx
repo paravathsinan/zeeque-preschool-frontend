@@ -78,10 +78,10 @@ export default function Hero() {
                     >
                         <Link
                             href="https://admission.zeeque.in/"
-                            className="group flex items-center justify-center gap-3 bg-primary text-white px-8 py-3.5 rounded-[15px] font-heading font-medium text-[19px] hover:bg-[#d93a1e] transition-all shadow-[4px_4px_0_0_#fbaf01] hover:shadow-[2px_2px_0_0_#fbaf01] hover:translate-y-[2px] hover:translate-x-[2px]"
+                            className="flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3.5 rounded-2xl font-heading font-bold text-[19px] tracking-wide hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                         >
                             Enroll Now
-                            <ArrowRight strokeWidth={2.5} className="w-[22px] h-[22px]" />
+                            <ArrowRight className="w-5 h-5 stroke-[2.5]" />
                         </Link>
 
                         <div className="flex items-center gap-3">

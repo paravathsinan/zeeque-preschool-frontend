@@ -23,7 +23,7 @@ const steps = [
         buttonHref: "https://franchise.zeeque.in/",
         buttonColor: "bg-[#0b8641] hover:bg-[#097036] text-white",
         buttonShadow: "shadow-[4px_4px_0_0_#054421] hover:shadow-[2px_2px_0_0_#054421]",
-        cardStyle: "bg-emerald-50/50 border-2 border-emerald-100 lg:-translate-y-4",
+        cardStyle: "bg-emerald-50/50 border-2 border-emerald-100",
         icon: <Building className="w-10 h-10 text-[#0b8641]" strokeWidth={2} />,
         iconBg: "bg-emerald-100",
     },

@@ -56,8 +56,8 @@ export default function Gallery() {
                     </p>
                 </motion.div>
 
-                {/* Masonry-style Grid */}
-                <div className="columns-2 md:columns-3 gap-4 space-y-4">
+                {/* Uniform Image Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {galleryImages.slice(0, 3).map((img, index) => (
                         <motion.div
                             key={index}
@@ -65,16 +65,16 @@ export default function Gallery() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, margin: "-30px" }}
                             transition={{ duration: 0.5, delay: 0.05 * index, ease: "easeOut" }}
-                            className="break-inside-avoid cursor-pointer group"
+                            className="cursor-pointer group"
                             onClick={() => openLightbox(index)}
                         >
-                            <div className="relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300">
+                            <div className="relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 aspect-[4/3]">
                                 <Image
                                     src={img.src}
                                     alt={img.alt}
-                                    width={400}
-                                    height={300}
-                                    className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 />
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">

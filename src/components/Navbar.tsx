@@ -120,12 +120,12 @@ export default function Navbar() {
 
                             {/* Dropdown Menu */}
                             {link.hasDropdown && link.subLinks && (
-                                <div className="absolute top-14 left-0 min-w-[200px] bg-white dark:bg-slate-800 shadow-xl rounded-xl py-4 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 border border-gray-100 dark:border-slate-700">
+                                <div className="absolute top-14 left-0 min-w-[200px] bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl py-4 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 border border-white/40 dark:border-slate-700/50">
                                     {link.subLinks.map((sublink) => (
                                         <Link
                                             key={sublink.name}
                                             href={sublink.href}
-                                            className="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-orange-50 dark:hover:bg-slate-700 transition-colors"
+                                            className="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-orange-50/50 dark:hover:bg-slate-700/50 transition-colors"
                                         >
                                             {sublink.name}
                                         </Link>
@@ -160,7 +160,7 @@ export default function Navbar() {
 
             {/* Mobile Navigation Menu */}
             {isMobileMenuOpen && (
-                <div className="lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-lg border-t border-gray-100 dark:border-slate-800 rounded-b-2xl overflow-hidden z-50 transition-colors duration-300">
+                <div className="lg:hidden absolute top-full left-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg border-t border-gray-100/50 dark:border-slate-800/50 rounded-b-2xl overflow-hidden z-50 transition-colors duration-300">
                     <div className="flex flex-col py-4 px-6 max-h-[70vh] overflow-y-auto">
                         {navLinks.map((link) => (
                             <div key={link.name} className="flex flex-col border-b border-gray-50 dark:border-slate-800 last:border-0">
@@ -217,7 +217,7 @@ export default function Navbar() {
                             <Link
                                 href="https://admission.zeeque.in/"
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className="flex items-center justify-center gap-2 bg-[#ffb606] text-white w-full py-3 rounded-xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all opacity-100"
+                                className="flex items-center justify-center gap-2 w-full bg-[#ffb606] text-white py-3 rounded-2xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                             >
                                 Enroll Now
                                 <ArrowRight className="w-5 h-5 stroke-[2.5]" />

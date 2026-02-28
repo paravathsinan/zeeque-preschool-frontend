@@ -44,7 +44,7 @@ export default function WhoWeAre() {
 
                     <Link
                         href="/about"
-                        className="inline-flex items-center justify-center bg-[#e83e8c] text-white px-10 py-3.5 rounded-full font-heading font-bold text-[16px] uppercase tracking-wide hover:bg-[#c02870] hover:scale-105 transition-all duration-300 shadow-[0_8px_20px_rgba(232,62,140,0.3)]"
+                        className="inline-flex items-center justify-center bg-[#e83e8c] hover:bg-[#d5307b] text-white px-10 py-3.5 rounded-[14px] font-heading font-extrabold text-[17px] uppercase tracking-wide transition-all shadow-[4px_4px_0_0_#c02870] hover:shadow-[2px_2px_0_0_#c02870] hover:translate-y-[2px] hover:translate-x-[2px]"
                     >
                         Know More
                     </Link>

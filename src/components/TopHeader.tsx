@@ -3,10 +3,13 @@
 import { Phone, Mail, MapPin, LogIn, Facebook, Twitter, Instagram, Linkedin, Youtube, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import LoginModal from "./LoginModal";
 
 export default function TopHeader() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
+
+    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -83,12 +86,20 @@ export default function TopHeader() {
                         )}
                     </div>
 
-                    <Link href="https://zeeque.in/login" className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-2.5 rounded-full font-bold transition-colors">
+                    <button
+                        onClick={() => setIsLoginModalOpen(true)}
+                        className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-2.5 rounded-full font-bold transition-colors"
+                    >
                         <LogIn className="w-[18px] h-[18px]" />
                         Login
-                    </Link>
+                    </button>
                 </div>
             </div>
+
+            <LoginModal
+                isOpen={isLoginModalOpen}
+                onClose={() => setIsLoginModalOpen(false)}
+            />
         </div>
     );
 }

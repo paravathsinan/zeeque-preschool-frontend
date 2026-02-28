@@ -71,7 +71,7 @@ export default function NewsAndEvents() {
                         href="/events"
                         className="inline-flex items-center gap-2 text-[#0052ff] font-heading font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
                     >
-                        View All Events
+                        View All Articles
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
                     </Link>
                 </motion.div>
