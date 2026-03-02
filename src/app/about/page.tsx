@@ -136,11 +136,12 @@ const stagger: Variants = {
 function StatCard({ value, suffix, label, color }: { value: number; suffix: string; label: string; color: string }) {
     const { count, ref } = useCounter(value, 2000);
     return (
-        <div ref={ref} className="text-center">
-            <div className="font-heading font-extrabold text-5xl md:text-6xl mb-2" style={{ color }}>
+        <div ref={ref} className="bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-gray-200/40 dark:border-slate-700/40 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group">
+            <div className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl mb-2 text-[#222] dark:text-white group-hover:text-[#EF4225] transition-colors duration-300">
                 {count}{suffix}
             </div>
-            <div className="font-body text-gray-600 dark:text-gray-300 text-lg">{label}</div>
+            <div className="w-8 h-0.5 bg-[#EF4225]/60 mx-auto mb-3 rounded-full" />
+            <div className="font-body font-medium text-gray-500 dark:text-gray-400 text-[15px] group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">{label}</div>
         </div>
     );
 }
@@ -165,7 +166,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
                 {/* Background decorations */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#fbaf01]/10 animate-pulse" />
@@ -229,8 +230,8 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-10 lg:mb-0"
                     >
-                        <span className="text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-sm mb-3 flex items-center gap-2">
-                            <Sparkles className="w-4 h-4" />
+                        <span className="text-amber-600 dark:text-amber-400 font-body font-semibold text-sm mb-3 flex items-center gap-2 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-amber-200/50 dark:border-amber-700/30 w-fit">
+                            <Sparkles className="w-4 h-4 fill-amber-400/40" />
                             Who We Are
                         </span>
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
@@ -278,7 +279,7 @@ export default function AboutPage() {
                     >
                         <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
-                                <Image src="https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?q=80&w=800&auto=format&fit=crop" alt="Children in classroom" fill className="object-cover" />
+                                <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Children in classroom" fill className="object-cover" />
                             </div>
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-6">
                                 <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Children reading" fill className="object-cover" />
@@ -292,9 +293,9 @@ export default function AboutPage() {
                         </div>
 
                         {/* Floating badge */}
-                        <div className="absolute -bottom-4 -left-4 bg-[#fbaf01] text-white rounded-2xl px-5 py-3 shadow-lg z-20 hidden sm:flex items-center gap-2 animate-bounce">
-                            <Star className="w-5 h-5 fill-white" />
-                            <span className="font-heading font-bold text-sm">Since 2013</span>
+                        <div className="absolute -bottom-4 -left-4 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-full px-4 py-2.5 shadow-2xl z-20 hidden sm:flex items-center gap-2 border border-white/40 dark:border-slate-700/40">
+                            <Star className="w-4 h-4 text-amber-500 fill-amber-400/60" />
+                            <span className="font-body font-semibold text-xs text-gray-800 dark:text-gray-200 tracking-wide">Since 2013</span>
                         </div>
                     </motion.div>
                 </div>
@@ -318,7 +319,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-sm mb-3 block">Our Approach</span>
+                        <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30 mx-auto">Our Approach</span>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Theme-Based, <span className="text-[#fbaf01]">Play Way</span> Method
                         </h2>
@@ -332,23 +333,17 @@ export default function AboutPage() {
                             {
                                 title: "Learn Through Play",
                                 description: "Children acquire life skills naturally through structured and free play at their own pace, building confidence and curiosity.",
-                                icon: Baby,
-                                color: "#e83e8c",
-                                bg: "bg-[#e83e8c]/5",
+                                image: "/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG",
                             },
                             {
                                 title: "Creative Sessions",
                                 description: "Every day is fun-filled with creative, engaging sessions focusing on personality development, art, and hands-on exploration.",
-                                icon: Palette,
-                                color: "#fbaf01",
-                                bg: "bg-[#fbaf01]/5",
+                                image: "/images/gallery/gallery photos/RYZ03180.JPG",
                             },
                             {
                                 title: "Multilingual Education",
                                 description: "Children are trained to communicate, read, and write in Arabic, English, and Malayalam — because the limit of language is the limit of the world.",
-                                icon: GraduationCap,
-                                color: "#0052ff",
-                                bg: "bg-[#0052ff]/5",
+                                image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
                             },
                         ].map((item, i) => (
                             <motion.div
@@ -358,16 +353,19 @@ export default function AboutPage() {
                                 whileInView="visible"
                                 viewport={{ once: true, margin: "-80px" }}
                                 variants={fadeUp}
-                                className={`${item.bg} dark:bg-slate-800/50 rounded-3xl p-8 border-2 border-transparent hover:border-gray-100 dark:hover:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-default`}
+                                className="relative rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group cursor-default min-h-[320px]"
                             >
-                                <div
-                                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
-                                    style={{ backgroundColor: `${item.color}15` }}
-                                >
-                                    <item.icon className="w-8 h-8" style={{ color: item.color }} />
+                                <Image
+                                    src={item.image}
+                                    alt={item.title}
+                                    fill
+                                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                                <div className="absolute bottom-0 left-0 right-0 p-7">
+                                    <h3 className="font-heading font-bold text-white text-xl mb-2">{item.title}</h3>
+                                    <p className="text-gray-200 font-body text-sm leading-relaxed">{item.description}</p>
                                 </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-3">{item.title}</h3>
-                                <p className="text-gray-600 dark:text-gray-300 font-body leading-relaxed">{item.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -377,7 +375,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Our Values
                ══════════════════════════════════ */}
-            <section className="py-16 md:py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -386,7 +384,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#ef4225] font-heading font-bold uppercase tracking-wider text-sm mb-3 block">What We Stand For</span>
+                        <span className="text-rose-600 dark:text-rose-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-rose-50/80 dark:bg-rose-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-rose-200/50 dark:border-rose-700/30 mx-auto">What We Stand For</span>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Our Core <span className="text-[#ef4225]">Values</span>
                         </h2>
@@ -420,7 +418,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 5: A Day at ZeeQue
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -429,8 +427,8 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-sm mb-3 block flex items-center justify-center gap-2">
-                            <Clock className="w-4 h-4" />
+                        <span className="text-amber-600 dark:text-amber-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-amber-200/50 dark:border-amber-700/30 mx-auto">
+                            <Clock className="w-4 h-4 fill-amber-400/40" />
                             Daily Routine
                         </span>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
@@ -486,7 +484,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 6: Infrastructure & Facilities
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -495,7 +493,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#0052ff] font-heading font-bold uppercase tracking-wider text-sm mb-3 block">World-Class Setup</span>
+                        <span className="text-blue-600 dark:text-blue-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-blue-50/80 dark:bg-blue-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-blue-200/50 dark:border-blue-700/30 mx-auto">World-Class Setup</span>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Infrastructure & <span className="text-[#0052ff]">Facilities</span>
                         </h2>
@@ -529,7 +527,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 7: Activities & Events
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -538,7 +536,7 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-sm mb-3 block">Fun Beyond Classrooms</span>
+                        <span className="text-violet-600 dark:text-violet-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-violet-50/80 dark:bg-violet-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-violet-200/50 dark:border-violet-700/30 mx-auto">Fun Beyond Classrooms</span>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Activities & <span className="text-[#7c3aed]">Events</span>
                         </h2>
@@ -581,7 +579,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 8: Teacher Support
                ══════════════════════════════════ */}
-            <section className="py-16 md:py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
 
@@ -604,14 +602,14 @@ export default function AboutPage() {
                             </div>
 
                             {/* Floating card */}
-                            <div className="absolute -bottom-6 -right-4 bg-white dark:bg-slate-800 rounded-2xl p-5 shadow-xl border-2 border-gray-100 dark:border-slate-700 z-20 hidden sm:block">
+                            <div className="absolute -bottom-6 -right-4 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-white/40 dark:border-slate-700/40 z-20 hidden sm:block">
                                 <div className="flex items-center gap-3">
-                                    <div className="w-12 h-12 rounded-xl bg-[#0fb85c]/10 flex items-center justify-center">
-                                        <Users className="w-6 h-6 text-[#0fb85c]" />
+                                    <div className="w-11 h-11 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                                        <Users className="w-5 h-5 text-emerald-500" />
                                     </div>
                                     <div>
-                                        <div className="font-heading font-extrabold text-[#222] dark:text-white text-2xl">3</div>
-                                        <div className="text-gray-500 dark:text-gray-400 text-xs font-body">Mentors per Class</div>
+                                        <div className="font-heading font-extrabold text-[#222] dark:text-white text-xl leading-none">3</div>
+                                        <div className="text-gray-500 dark:text-gray-400 text-[11px] font-body font-medium tracking-wide">Mentors per Class</div>
                                     </div>
                                 </div>
                             </div>
@@ -625,7 +623,7 @@ export default function AboutPage() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="w-full lg:w-1/2"
                         >
-                            <span className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-sm mb-3 block">Expert Care</span>
+                            <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30">Expert Care</span>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Teacher <span className="text-[#0fb85c]">Support</span> System
                             </h2>
@@ -656,9 +654,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 9: Stats Counter
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-24 bg-gradient-to-r from-[#ef4225] to-[#e83e8c] relative overflow-hidden">
-                {/* Pattern overlay */}
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
+            <section className="py-10 md:py-14 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
@@ -666,10 +662,10 @@ export default function AboutPage() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="grid grid-cols-2 lg:grid-cols-4 gap-10"
+                        className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
                     >
                         {stats.map((stat) => (
-                            <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} color="white" />
+                            <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} color="" />
                         ))}
                     </motion.div>
                 </div>
@@ -678,7 +674,7 @@ export default function AboutPage() {
             {/* ══════════════════════════════════
                 SECTION 10: CTA
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 {/* Decorative shapes */}
                 <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 pointer-events-none hidden lg:block" />
                 <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-[#e83e8c]/5 pointer-events-none hidden lg:block" />
@@ -690,7 +686,7 @@ export default function AboutPage() {
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
                     >
-                        <div className="text-5xl mb-6">🎓</div>
+
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Ready to Give Your Child the <span className="text-primary">Best Start?</span>
                         </h2>

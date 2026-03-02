@@ -1,15 +1,14 @@
 "use client";
 
-import { Phone, Mail, MapPin, LogIn, Facebook, Twitter, Instagram, Linkedin, Youtube, Sun, Moon } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Sun, Moon } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import LoginModal from "./LoginModal";
 
 export default function TopHeader() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
 
-    const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
 
     useEffect(() => {
         setMounted(true);
@@ -57,7 +56,7 @@ export default function TopHeader() {
                 {/* Right Side: Actions & Social */}
                 <div className="flex items-center gap-6">
                     {/* Social Links */}
-                    <div className="flex items-center gap-4 border-r border-gray-200 dark:border-gray-700 pr-6 mr-2">
+                    <div className="flex items-center gap-4">
                         <Link href="https://www.facebook.com/zeequepreschool" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-80 transition-opacity">
                             <Facebook className="w-[18px] h-[18px] stroke-[2]" />
                         </Link>
@@ -86,20 +85,8 @@ export default function TopHeader() {
                         )}
                     </div>
 
-                    <button
-                        onClick={() => setIsLoginModalOpen(true)}
-                        className="flex items-center gap-2 bg-primary hover:opacity-90 text-white px-6 py-2.5 rounded-full font-bold transition-colors"
-                    >
-                        <LogIn className="w-[18px] h-[18px]" />
-                        Login
-                    </button>
                 </div>
             </div>
-
-            <LoginModal
-                isOpen={isLoginModalOpen}
-                onClose={() => setIsLoginModalOpen(false)}
-            />
         </div>
     );
 }

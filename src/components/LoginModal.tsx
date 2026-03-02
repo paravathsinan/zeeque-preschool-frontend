@@ -1,10 +1,21 @@
 "use client";
 
-import { X, Eye, EyeOff, Send } from "lucide-react";
+import { X, Eye, EyeOff, Send, CheckCircle, AlertCircle } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const loginSchema = z.object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email address"),
+    password: z.string().min(6, "Password must be at least 6 characters"),
+});
+
+type LoginFormData = z.infer<typeof loginSchema>;
 
 interface LoginModalProps {
     isOpen: boolean;
@@ -13,6 +24,46 @@ interface LoginModalProps {
 
 export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
     const [showPassword, setShowPassword] = useState(false);
+    const [loginRole, setLoginRole] = useState<'ao' | 'franchise' | 'admin'>('ao');
+    const [shakeFields, setShakeFields] = useState<Record<string, boolean>>({});
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, touchedFields, dirtyFields },
+        reset,
+    } = useForm<LoginFormData>({
+        resolver: zodResolver(loginSchema),
+        mode: "onTouched",
+    });
+
+    const onSubmit = (data: LoginFormData) => {
+        console.log("Form submitted:", { ...data, role: loginRole });
+        // Handle form submission here
+    };
+
+    const onError = (fieldErrors: Record<string, unknown>) => {
+        const newShake: Record<string, boolean> = {};
+        Object.keys(fieldErrors).forEach((key) => { newShake[key] = true; });
+        setShakeFields(newShake);
+        setTimeout(() => setShakeFields({}), 400);
+    };
+
+    const getFieldState = (fieldName: keyof LoginFormData) => {
+        const hasError = !!errors[fieldName];
+        const isTouched = !!touchedFields[fieldName];
+        const isDirty = !!dirtyFields[fieldName];
+        const isValid = isTouched && isDirty && !hasError;
+        return { hasError: isTouched && hasError, isValid };
+    };
+
+    const getInputClasses = (fieldName: keyof LoginFormData) => {
+        const { hasError, isValid } = getFieldState(fieldName);
+        const base = "w-full bg-[#F3F4F6] dark:bg-slate-800/50 border rounded-[20px] py-4 px-5 pr-12 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all duration-300 font-medium text-[15px]";
+        if (hasError) return `${base} border-red-400 dark:border-red-500 focus:ring-2 focus:ring-red-400/50 ${shakeFields[fieldName] ? 'animate-shake' : ''}`;
+        if (isValid) return `${base} border-green-400 dark:border-green-500 focus:ring-2 focus:ring-green-400/50`;
+        return `${base} border-transparent focus:ring-2 focus:ring-[#ffb606]/50 focus:shadow-[0_0_15px_rgba(255,182,6,0.15)]`;
+    };
 
     // Prevent body scroll when modal is open
     useEffect(() => {
@@ -52,15 +103,36 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                         {/* LEFT PANEL - Form Area */}
                         <div className="w-full lg:w-[45%] p-8 sm:p-12 lg:p-16 flex flex-col justify-center relative bg-gradient-to-b from-[#FAF9F6] to-[#F3F0E6] dark:from-slate-900 dark:to-slate-950">
 
-                            {/* Logo Pill */}
-                            <div className="absolute top-8 left-8 sm:top-10 sm:left-12 mb-8">
-                                <div className="px-4 py-1.5 rounded-full border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md text-sm font-bold text-gray-800 dark:text-gray-100 shadow-sm flex items-center gap-2">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-[#F4A261]" />
-                                    <span>Zeeque</span>
-                                </div>
-                            </div>
 
                             <div className="max-w-md mx-auto w-full mt-12 lg:mt-0">
+                                <div className="mb-6 inline-flex">
+                                    <div className="px-4 py-1.5 rounded-full border border-gray-200/60 dark:border-gray-700/60 bg-white/60 dark:bg-slate-800/60 backdrop-blur-md text-sm font-bold text-gray-800 dark:text-gray-100 shadow-sm flex items-center gap-2">
+                                        <div className="w-2.5 h-2.5 rounded-full bg-[#F4A261]" />
+                                        <span>Zeeque</span>
+                                    </div>
+                                </div>
+
+                                {/* Login Role Tabs */}
+                                <div className="flex gap-2 mb-6">
+                                    {[
+                                        { key: 'ao' as const, label: 'AO', activeClass: 'bg-gradient-to-br from-[#4361EE] to-[#3A56D4] text-white shadow-lg shadow-blue-500/20' },
+                                        { key: 'franchise' as const, label: 'Franchise', activeClass: 'bg-gradient-to-br from-[#2DC653] to-[#1FAB40] text-white shadow-lg shadow-green-500/20' },
+                                        { key: 'admin' as const, label: 'Admin', activeClass: 'bg-gradient-to-br from-[#7B61FF] to-[#6345E0] text-white shadow-lg shadow-purple-500/20' },
+                                    ].map((role) => (
+                                        <button
+                                            key={role.key}
+                                            type="button"
+                                            onClick={() => setLoginRole(role.key)}
+                                            className={`px-5 py-2 rounded-full text-[13px] font-bold transition-all duration-300 ${loginRole === role.key
+                                                ? role.activeClass
+                                                : 'bg-white/60 dark:bg-slate-800/60 text-gray-600 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700/60 hover:bg-white dark:hover:bg-slate-700/80'
+                                                }`}
+                                        >
+                                            {role.label}
+                                        </button>
+                                    ))}
+                                </div>
+
                                 <h2 className="text-3xl sm:text-[40px] leading-tight font-heading font-extrabold text-[#1A1A1A] dark:text-white mb-2 tracking-tight">
                                     Create an account
                                 </h2>
@@ -68,34 +140,98 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                     Sign up and get 30 day free trial
                                 </p>
 
-                                <form className="space-y-4">
+                                <form className="space-y-4" onSubmit={handleSubmit(onSubmit, onError)} noValidate>
+                                    {/* Name Field */}
                                     <div>
-                                        <input
-                                            type="text"
-                                            placeholder="Amélie Laurent"
-                                            className="w-full bg-[#F3F4F6] dark:bg-slate-800/50 border border-transparent rounded-[20px] py-4 px-5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]/50 focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-medium text-[15px]"
-                                        />
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                placeholder="Full Name"
+                                                {...register("name")}
+                                                className={getInputClasses("name")}
+                                            />
+                                            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                                                {getFieldState("name").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+                                                {getFieldState("name").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                            </div>
+                                        </div>
+                                        <AnimatePresence>
+                                            {getFieldState("name").hasError && (
+                                                <motion.p
+                                                    initial={{ opacity: 0, y: -4 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -4 }}
+                                                    className="text-red-500 text-[12px] font-medium mt-1.5 ml-5"
+                                                >
+                                                    {errors.name?.message}
+                                                </motion.p>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
+
+                                    {/* Email Field */}
                                     <div>
-                                        <input
-                                            type="email"
-                                            placeholder="amélielelaurent7622@gmail.com"
-                                            className="w-full bg-[#F3F4F6] dark:bg-slate-800/50 border border-transparent rounded-[20px] py-4 px-5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]/50 focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-medium text-[15px]"
-                                        />
+                                        <div className="relative">
+                                            <input
+                                                type="email"
+                                                placeholder="Email Address"
+                                                {...register("email")}
+                                                className={getInputClasses("email")}
+                                            />
+                                            <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
+                                                {getFieldState("email").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+                                                {getFieldState("email").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                            </div>
+                                        </div>
+                                        <AnimatePresence>
+                                            {getFieldState("email").hasError && (
+                                                <motion.p
+                                                    initial={{ opacity: 0, y: -4 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -4 }}
+                                                    className="text-red-500 text-[12px] font-medium mt-1.5 ml-5"
+                                                >
+                                                    {errors.email?.message}
+                                                </motion.p>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
-                                    <div className="relative">
-                                        <input
-                                            type={showPassword ? "text" : "password"}
-                                            placeholder="••••••••••••"
-                                            className="w-full bg-[#F3F4F6] dark:bg-slate-800/50 border border-transparent rounded-[20px] py-4 px-5 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F9C74F]/50 focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-medium text-[15px]"
-                                        />
-                                        <button
-                                            type="button"
-                                            onClick={() => setShowPassword(!showPassword)}
-                                            className="absolute right-5 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-                                        >
-                                            {showPassword ? <EyeOff className="w-[18px] h-[18px]" /> : <Eye className="w-[18px] h-[18px]" />}
-                                        </button>
+
+                                    {/* Password Field */}
+                                    <div>
+                                        <div className="relative">
+                                            <input
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="••••••••••••"
+                                                {...register("password")}
+                                                className={getInputClasses("password")}
+                                            />
+                                            <div className="absolute right-5 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                                                <span className="pointer-events-none">
+                                                    {getFieldState("password").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+                                                    {getFieldState("password").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                                </span>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setShowPassword(!showPassword)}
+                                                    className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
+                                                >
+                                                    {showPassword ? <EyeOff className="w-[18px] h-[18px]" /> : <Eye className="w-[18px] h-[18px]" />}
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <AnimatePresence>
+                                            {getFieldState("password").hasError && (
+                                                <motion.p
+                                                    initial={{ opacity: 0, y: -4 }}
+                                                    animate={{ opacity: 1, y: 0 }}
+                                                    exit={{ opacity: 0, y: -4 }}
+                                                    className="text-red-500 text-[12px] font-medium mt-1.5 ml-5"
+                                                >
+                                                    {errors.password?.message}
+                                                </motion.p>
+                                            )}
+                                        </AnimatePresence>
                                     </div>
 
                                     <div className="pt-6 mt-4 border-t border-dashed border-gray-100 dark:border-slate-800">
@@ -216,13 +352,22 @@ export default function LoginModal({ isOpen, onClose }: LoginModalProps) {
                                     transition={{ delay: 0.3, duration: 0.6 }}
                                     className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl p-4 rounded-[24px] shadow-[0_15px_50px_-12px_rgba(0,0,0,0.2)] border border-white/60 dark:border-slate-700/50 flex gap-2 sm:gap-3"
                                 >
-                                    {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day, i) => {
-                                        const date = 22 + i;
-                                        const isSelected = day === 'Wed';
+                                    {Array.from({ length: 7 }).map((_, i) => {
+                                        const today = new Date();
+                                        const currentDayIndex = today.getDay();
+                                        const isToday = i === currentDayIndex;
+
+                                        const diff = i - currentDayIndex;
+                                        const thisDate = new Date(today);
+                                        thisDate.setDate(today.getDate() + diff);
+                                        const dayNumber = thisDate.getDate();
+
+                                        const weekday = new Intl.DateTimeFormat('en-US', { weekday: 'short' }).format(thisDate);
+
                                         return (
-                                            <div key={day} className={`flex flex-col items-center justify-center w-11 h-14 rounded-[14px] transition-all duration-300 ${isSelected ? 'bg-gradient-to-br from-[#F9C74F] to-[#F4A261] text-white font-bold shadow-lg shadow-orange-500/20 scale-110' : 'text-gray-500 dark:text-gray-400 bg-white/40 dark:bg-slate-700/40 hover:bg-white/80 dark:hover:bg-slate-700/80'}`}>
-                                                <span className={`text-[10px] mb-0.5 font-medium ${isSelected ? 'text-white/90' : ''}`}>{day}</span>
-                                                <span className={`text-[15px] leading-none ${isSelected ? 'text-white font-extrabold' : 'text-gray-900 dark:text-white font-bold'}`}>{date}</span>
+                                            <div key={i} className={`flex flex-col items-center justify-center w-11 h-14 rounded-[14px] transition-all duration-300 ${isToday ? 'bg-gradient-to-br from-[#F9C74F] to-[#F4A261] text-white font-bold shadow-lg shadow-orange-500/20 scale-110' : 'text-gray-500 dark:text-gray-400 bg-white/40 dark:bg-slate-700/40 hover:bg-white/80 dark:hover:bg-slate-700/80'}`}>
+                                                <span className={`text-[10px] mb-0.5 font-medium ${isToday ? 'text-white/90' : ''}`}>{weekday}</span>
+                                                <span className={`text-[15px] leading-none ${isToday ? 'text-white font-extrabold' : 'text-gray-900 dark:text-white font-bold'}`}>{dayNumber}</span>
                                             </div>
                                         );
                                     })}

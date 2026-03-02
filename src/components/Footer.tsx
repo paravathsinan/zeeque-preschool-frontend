@@ -160,10 +160,13 @@ export default function Footer() {
 
             {/* Bottom Copyright Bar */}
             <div className="bg-[#12121f] py-5">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 text-center">
+                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 flex flex-col sm:flex-row items-center justify-between gap-2">
                     <p className="text-gray-500 font-body text-sm">
                         All Rights Reserved by <span className="text-[#ef4225] font-medium">Zeeque Preschool</span> - 2013 to 2026
                     </p>
+                    <Link href="/terms-and-conditions" className="text-gray-500 font-body text-sm hover:text-white transition-colors">
+                        Terms and Conditions
+                    </Link>
                 </div>
             </div>
         </footer>
