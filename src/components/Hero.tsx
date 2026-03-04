@@ -170,7 +170,7 @@ export default function Hero() {
             {/* Wavy bottom divider */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
                 <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
+                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-[#0B1023]" />
                 </svg>
             </div>
 
