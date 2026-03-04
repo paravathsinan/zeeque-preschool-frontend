@@ -119,7 +119,7 @@ export default function AIChatBot() {
                         </div>
 
                         {/* Quick Actions */}
-                        {messages.length <= 1 && (
+                        {(
                             <div className="px-4 py-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0">
                                 <p className="text-xs text-gray-400 dark:text-gray-500 font-body mb-2">Quick actions</p>
                                 <div className="flex flex-wrap gap-2">

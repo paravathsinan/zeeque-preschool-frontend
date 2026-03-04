@@ -5,8 +5,8 @@ import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, FileDown, Folder, Plus, MoreVertical, X, Upload, FolderPlus } from "lucide-react";
-import { useState, useRef } from "react";
+import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, Upload, FolderPlus, Undo2, ArrowLeft, FileText } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 const initialFolders = [
     { name: "Admi. Design 2026", href: "#" },
@@ -27,7 +27,10 @@ export default function DownloadsPage() {
     const [newFolderName, setNewFolderName] = useState("");
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
     const [openMenu, setOpenMenu] = useState<number | null>(null);
+    const [openFolder, setOpenFolder] = useState<number | null>(null);
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    const [deletedFolder, setDeletedFolder] = useState<{ folder: { name: string; href: string }; index: number } | null>(null);
 
     const handleAddFolder = () => {
         if (newFolderName.trim()) {
@@ -45,9 +48,28 @@ export default function DownloadsPage() {
     };
 
     const handleDeleteFolder = (index: number) => {
+        const folder = folders[index];
+        setDeletedFolder({ folder, index });
         setFolders(folders.filter((_, i) => i !== index));
         setOpenMenu(null);
     };
+
+    const handleUndoDelete = () => {
+        if (deletedFolder) {
+            const newFolders = [...folders];
+            newFolders.splice(deletedFolder.index, 0, deletedFolder.folder);
+            setFolders(newFolders);
+            setDeletedFolder(null);
+        }
+    };
+
+    // Auto-dismiss undo toast after 5 seconds
+    useEffect(() => {
+        if (deletedFolder) {
+            const timer = setTimeout(() => setDeletedFolder(null), 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [deletedFolder]);
 
     return (
         <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
@@ -177,9 +199,9 @@ export default function DownloadsPage() {
                                 transition={{ duration: 0.4, delay: index * 0.04 }}
                             >
                                 <div className="relative group">
-                                    <Link
-                                        href={folder.href}
-                                        className="flex items-center gap-4 bg-gray-50 dark:bg-slate-800 border border-gray-200/70 dark:border-slate-700 rounded-xl px-5 py-4 hover:bg-blue-50/60 dark:hover:bg-slate-750 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-md transition-all duration-200 group/card"
+                                    <button
+                                        onClick={() => setOpenFolder(index)}
+                                        className="flex items-center gap-4 bg-gray-50 dark:bg-slate-800 border border-gray-200/70 dark:border-slate-700 rounded-xl px-5 py-4 hover:bg-blue-50/60 dark:hover:bg-slate-750 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-md transition-all duration-200 group/card w-full text-left"
                                     >
                                         {/* Folder icon */}
                                         <div className="flex-shrink-0">
@@ -189,7 +211,7 @@ export default function DownloadsPage() {
                                         <span className="font-body text-[15px] text-[#222] dark:text-gray-200 truncate flex-1 group-hover/card:text-blue-600 dark:group-hover/card:text-blue-300 transition-colors duration-200">
                                             {folder.name}
                                         </span>
-                                    </Link>
+                                    </button>
 
                                     {/* Kebab menu button */}
                                     <button
@@ -226,6 +248,65 @@ export default function DownloadsPage() {
                     </div>
                 </div>
             </section>
+
+            {/* ═══════ Open Folder View Modal ═══════ */}
+            <AnimatePresence>
+                {openFolder !== null && folders[openFolder] && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
+                        onClick={() => setOpenFolder(null)}
+                    >
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                            className="bg-white dark:bg-slate-800 rounded-[28px] shadow-2xl border border-gray-200 dark:border-slate-700 w-full max-w-lg overflow-hidden"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Header */}
+                            <div className="flex items-center gap-4 p-6 border-b border-gray-100 dark:border-slate-700">
+                                <button
+                                    onClick={() => setOpenFolder(null)}
+                                    className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
+                                >
+                                    <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                                </button>
+                                <FolderOpen className="w-6 h-6 text-blue-500 fill-blue-200 dark:fill-blue-500/30" />
+                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg flex-1 truncate">
+                                    {folders[openFolder].name}
+                                </h3>
+                                <button
+                                    onClick={() => setOpenFolder(null)}
+                                    className="w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
+                                >
+                                    <X className="w-4 h-4 text-gray-400" />
+                                </button>
+                            </div>
+
+                            {/* Content - Empty state */}
+                            <div className="p-8 flex flex-col items-center justify-center min-h-[280px] text-center">
+                                <div className="w-20 h-20 rounded-3xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center mb-5">
+                                    <FileText className="w-10 h-10 text-gray-300 dark:text-gray-500" />
+                                </div>
+                                <h4 className="font-heading font-bold text-[#222] dark:text-white text-base mb-2">
+                                    No files yet
+                                </h4>
+                                <p className="text-gray-400 dark:text-gray-500 font-body text-sm max-w-xs mb-6">
+                                    This folder is empty. Files added to this folder will appear here.
+                                </p>
+                                <button className="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-xl font-heading font-bold text-sm hover:bg-blue-600 transition-colors">
+                                    <Upload className="w-4 h-4" />
+                                    Upload Files
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* ═══════ Add Folder Modal ═══════ */}
             <AnimatePresence>
@@ -329,6 +410,36 @@ export default function DownloadsPage() {
                                 </button>
                             </div>
                         </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
+            {/* ── Undo Delete Toast ── */}
+            <AnimatePresence>
+                {deletedFolder && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 50 }}
+                        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+                        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] bg-slate-900 dark:bg-slate-700 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 min-w-[320px]"
+                    >
+                        <Undo2 className="w-5 h-5 text-gray-400 shrink-0" />
+                        <span className="font-body text-sm flex-1">
+                            <strong>&quot;{deletedFolder.folder.name}&quot;</strong> deleted
+                        </span>
+                        <button
+                            onClick={handleUndoDelete}
+                            className="px-4 py-1.5 bg-primary text-white rounded-xl font-heading font-bold text-sm hover:bg-primary/90 transition-colors shrink-0"
+                        >
+                            Undo
+                        </button>
+                        <button
+                            onClick={() => setDeletedFolder(null)}
+                            className="text-gray-400 hover:text-white transition-colors"
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
                     </motion.div>
                 )}
             </AnimatePresence>
