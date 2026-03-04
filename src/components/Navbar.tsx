@@ -136,12 +136,12 @@ export default function Navbar() {
 
                                 {/* Dropdown Menu */}
                                 {link.hasDropdown && link.subLinks && (
-                                    <div className="absolute top-14 left-0 min-w-[200px] bg-white/60 dark:bg-[#0F172A] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl py-4 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 border border-white/40 dark:border-slate-800/50">
+                                    <div className="absolute top-14 left-0 min-w-[220px] bg-white/80 dark:bg-[#0F172A]/95 backdrop-blur-2xl shadow-[0_12px_40px_rgba(0,0,0,0.12)] rounded-2xl py-3 px-2 flex flex-col gap-0.5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-3 group-hover:translate-y-0 border border-white/50 dark:border-slate-700/50">
                                         {link.subLinks.map((sublink) => (
                                             <Link
                                                 key={sublink.name}
                                                 href={sublink.href}
-                                                className="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-orange-50/50 dark:hover:bg-slate-800/50 transition-colors"
+                                                className="px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary rounded-xl hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50/50 dark:hover:from-slate-800/80 dark:hover:to-slate-700/50 transition-all duration-200 hover:pl-5 hover:shadow-sm"
                                             >
                                                 {sublink.name}
                                             </Link>
@@ -156,16 +156,16 @@ export default function Navbar() {
                     <div className="flex items-center gap-2 sm:gap-4 shrink-0">
 
                         {/* Notification Icon */}
-                        <Link href="/notifications" className="hidden lg:flex relative w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all">
-                            <Bell className="w-[18px] h-[18px]" />
+                        <Link href="/notifications" className="group hidden lg:flex relative w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all">
+                            <Bell className="w-[18px] h-[18px] group-hover:animate-ringing origin-top transition-transform" />
                         </Link>
 
                         <button
                             onClick={() => setIsLoginModalOpen(true)}
-                            className="hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
+                            className="group hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                         >
                             Login
-                            <LogIn className="w-5 h-5 stroke-[2.5]" />
+                            <LogIn className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
 
 

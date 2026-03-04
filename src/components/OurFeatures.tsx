@@ -112,25 +112,24 @@ export default function OurFeatures() {
                         >
                             {features.map((feature, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="group bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-400 hover:-translate-y-2 border border-gray-100 dark:border-slate-700">
-                                        {/* Image */}
-                                        <div className="relative h-56 overflow-hidden">
-                                            <Image
-                                                src={feature.image}
-                                                alt={feature.title}
-                                                fill
-                                                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                            />
-                                            {/* Gradient overlay at bottom of image */}
-                                            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/20 to-transparent" />
-                                        </div>
+                                    <div className="group relative h-[380px] rounded-[28px] overflow-hidden cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_20px_60px_rgba(0,0,0,0.2)]">
+                                        {/* Background Image */}
+                                        <Image
+                                            src={feature.image}
+                                            alt={feature.title}
+                                            fill
+                                            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                        />
 
-                                        {/* Content */}
-                                        <div className="p-6 sm:p-8">
-                                            <h3 className="font-heading font-bold text-[#c13088] text-xl mb-3 group-hover:text-[#a02470] transition-colors">
+                                        {/* Gradient overlay for text readability */}
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                        {/* Content at bottom */}
+                                        <div className="absolute bottom-0 left-0 right-0 p-7">
+                                            <h3 className="font-heading font-extrabold text-white text-xl mb-2 tracking-tight drop-shadow-md">
                                                 {feature.title}
                                             </h3>
-                                            <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] leading-relaxed line-clamp-3">
+                                            <p className="text-white/75 font-body text-[14px] leading-relaxed line-clamp-2">
                                                 {feature.description}
                                             </p>
                                         </div>
@@ -139,16 +138,16 @@ export default function OurFeatures() {
                             ))}
                         </Swiper>
 
-                        {/* Navigation Buttons - Below Cards */}
+                        {/* Navigation Buttons - Glassmorphism */}
                         <div className="flex items-center justify-center gap-4 mt-10">
                             <button
-                                className="features-prev w-12 h-12 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center text-[#EF4047] hover:bg-[#EF4047] hover:text-white transition-all duration-300 border border-gray-100 dark:border-slate-700"
+                                className="features-prev w-12 h-12 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(239,64,71,0.15)] flex items-center justify-center text-[#EF4047] hover:bg-[#EF4047] hover:text-white transition-all duration-300 border border-white/50 dark:border-slate-700/50 hover:scale-105 active:scale-95"
                                 aria-label="Previous"
                             >
                                 <ArrowLeft className="w-5 h-5" strokeWidth={2.5} />
                             </button>
                             <button
-                                className="features-next w-12 h-12 bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-xl flex items-center justify-center text-[#EF4047] hover:bg-[#EF4047] hover:text-white transition-all duration-300 border border-gray-100 dark:border-slate-700"
+                                className="features-next w-12 h-12 bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_30px_rgba(239,64,71,0.15)] flex items-center justify-center text-[#EF4047] hover:bg-[#EF4047] hover:text-white transition-all duration-300 border border-white/50 dark:border-slate-700/50 hover:scale-105 active:scale-95"
                                 aria-label="Next"
                             >
                                 <ArrowRight className="w-5 h-5" strokeWidth={2.5} />

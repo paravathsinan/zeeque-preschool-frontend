@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import TopHeader from "@/components/TopHeader";
@@ -11,10 +11,10 @@ export default function ZETRegistration() {
     const [enrollmentNumber, setEnrollmentNumber] = useState("");
 
     return (
-        <main className="min-h-screen bg-white font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-900 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
             {/* Floating Header Container */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
                     <TopHeader />
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
@@ -27,7 +27,7 @@ export default function ZETRegistration() {
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="font-heading font-extrabold text-[#444] text-4xl mb-12"
+                    className="font-heading font-extrabold text-[#444] dark:text-white text-4xl mb-12"
                 >
                     ZET Registration
                 </motion.h1>
@@ -39,12 +39,12 @@ export default function ZETRegistration() {
                     className="relative z-10 w-full max-w-[600px] px-4"
                 >
                     {/* Cyan Outer Card */}
-                    <div className="bg-[#4fc3f7] rounded-[20px] p-6 shadow-xl">
+                    <div className="bg-[#4fc3f7] dark:bg-[#0288d1] rounded-[20px] p-6 shadow-xl">
                         {/* White Inner Card */}
-                        <div className="bg-white rounded-[15px] p-10 md:p-12 shadow-sm">
+                        <div className="bg-white dark:bg-slate-800 rounded-[15px] p-10 md:p-12 shadow-sm">
                             <div className="space-y-6">
                                 <div>
-                                    <label htmlFor="enrollment" className="block text-gray-700 font-bold mb-3 text-lg">
+                                    <label htmlFor="enrollment" className="block text-gray-700 dark:text-gray-200 font-bold mb-3 text-lg">
                                         Enrollment Number
                                     </label>
                                     <input
@@ -52,7 +52,7 @@ export default function ZETRegistration() {
                                         type="text"
                                         value={enrollmentNumber}
                                         onChange={(e) => setEnrollmentNumber(e.target.value)}
-                                        className="w-full bg-[#f0f4f8] border-none rounded-xl px-6 py-4 text-gray-700 font-semibold focus:outline-none focus:ring-2 focus:ring-[#4fc3f7]/50 transition-all text-lg"
+                                        className="w-full bg-[#f0f4f8] dark:bg-slate-700 border-none rounded-xl px-6 py-4 text-gray-700 dark:text-gray-200 font-semibold focus:outline-none focus:ring-2 focus:ring-[#4fc3f7]/50 transition-all text-lg dark:placeholder-gray-400"
                                         placeholder="Enter your enrollment number"
                                     />
                                 </div>
@@ -68,7 +68,7 @@ export default function ZETRegistration() {
                 </motion.div>
 
                 {/* Decorative Landscape Background */}
-                <div className="absolute bottom-0 left-0 w-full h-[400px] pointer-events-none -z-10 bg-[#fffcf2]">
+                <div className="absolute bottom-0 left-0 w-full h-[400px] pointer-events-none -z-10 bg-[#fffcf2] dark:bg-slate-950">
                     <svg className="absolute bottom-0 left-0 w-full h-full" viewBox="0 0 1440 320" preserveAspectRatio="none">
                         <path fill="#8bc34a" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,213.3C672,224,768,224,864,197.3C960,171,1056,117,1152,101.3C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
                         <path fill="#7cb342" fillOpacity="0.8" d="M0,256L60,240C120,224,240,192,360,192C480,192,600,224,720,234.7C840,245,960,235,1080,213.3C1200,192,1320,160,1380,144L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>

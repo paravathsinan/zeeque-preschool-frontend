@@ -1,4 +1,4 @@
-import TopHeader from "@/components/TopHeader";
+﻿import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ChooseNextStep from "@/components/ChooseNextStep";
@@ -14,7 +14,7 @@ export default function Home() {
       {/* Floating Header Container */}
       <div className="w-full relative z-50">
         {/* Full-width Top Header */}
-        <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+        <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
           <TopHeader />
         </div>
 

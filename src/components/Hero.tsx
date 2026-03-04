@@ -78,10 +78,12 @@ export default function Hero() {
                     >
                         <Link
                             href="https://admission.zeeque.in/"
-                            className="flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3.5 rounded-2xl font-heading font-bold text-[19px] tracking-wide hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3.5 rounded-2xl font-heading font-bold text-[19px] tracking-wide hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                         >
                             Enroll Now
-                            <ArrowRight className="w-5 h-5 stroke-[2.5]" />
+                            <ArrowRight className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
                         </Link>
 
                         <div className="flex items-center gap-3">
@@ -163,6 +165,13 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
+            </div>
+
+            {/* Wavy bottom divider */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
+                <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
+                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
+                </svg>
             </div>
 
         </section>

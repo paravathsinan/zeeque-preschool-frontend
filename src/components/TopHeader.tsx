@@ -12,22 +12,25 @@ export default function TopHeader() {
 
     useEffect(() => {
         setMounted(true);
-        // Enforce light mode on initial visit
         if (typeof window !== "undefined") {
-            document.documentElement.classList.remove("dark");
-            setIsDarkMode(false);
+            const saved = localStorage.getItem("theme");
+            const prefersDark = saved === "dark";
+            setIsDarkMode(prefersDark);
+            document.documentElement.classList.toggle("dark", prefersDark);
         }
     }, []);
 
     const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
+        const next = !isDarkMode;
+        setIsDarkMode(next);
         if (typeof window !== "undefined") {
-            document.documentElement.classList.toggle("dark");
+            document.documentElement.classList.toggle("dark", next);
+            localStorage.setItem("theme", next ? "dark" : "light");
         }
     };
 
     return (
-        <div className="hidden lg:block w-full bg-transparent py-4 text-sm">
+        <div className="hidden lg:block w-full bg-transparent dark:bg-[#020618] py-4 text-sm">
             <div className="max-w-7xl mx-auto px-8 flex justify-between items-center">
                 {/* Left Side: Contact Info */}
                 <div className="flex items-center gap-6">

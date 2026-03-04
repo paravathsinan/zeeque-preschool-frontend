@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -62,7 +62,7 @@ export default function MissionVisionPage() {
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
                     <TopHeader />
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
@@ -73,7 +73,7 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner (kept as-is)
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-8 left-[8%] w-20 h-20 rounded-full bg-[#0fb85c]/10 animate-pulse" />
                     <div className="absolute top-24 right-[12%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
@@ -105,7 +105,7 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Mission & Vision — Big Side-by-Side
                ══════════════════════════════════ */}
-            <section className="py-16 md:py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-10 w-40 h-40 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden xl:block animate-spin" style={{ animationDuration: "30s" }} />
                     <div className="absolute bottom-20 left-10 w-24 h-24 rounded-full bg-[#e83e8c]/5 hidden xl:block" />
@@ -211,35 +211,11 @@ export default function MissionVisionPage() {
                 <WavyDivider fill="#fffcf2" darkFill="dark:fill-slate-950" />
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 3: Quote Banner with Image
-               ══════════════════════════════════ */}
-            <section className="py-16 lg:py-24 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-                        className="relative rounded-[32px] overflow-hidden shadow-2xl border-4 border-white/50 dark:border-slate-700">
-                        <div className="relative aspect-[21/9] md:aspect-[3/1]">
-                            <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1400&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#0fb85c]/85 via-[#0fb85c]/50 to-transparent" />
-                        </div>
-                        <div className="absolute inset-0 flex items-center p-8 md:p-14">
-                            <div className="max-w-xl">
-                                <div className="text-4xl mb-3">💡</div>
-                                <blockquote className="font-heading font-extrabold text-white text-2xl md:text-3xl lg:text-4xl leading-tight mb-4">
-                                    &ldquo;One Who Is Illumined At The Beginning Is Illumined At The End&rdquo;
-                                </blockquote>
-                                <p className="text-white/80 font-body text-base md:text-lg">— Ibn Athaillah, 13th-century Alexandrian Philosopher</p>
-                                <p className="text-white/60 font-body text-sm mt-3 bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 inline-block">This timeless wisdom forms the foundation of everything we do at Zeeque Preschool ✨</p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ══════════════════════════════════
                 SECTION 4: Core Values — Colorful Grid
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#e83e8c]/10 hidden xl:block" />
                     <div className="absolute top-20 right-[15%] text-7xl opacity-[0.06] hidden lg:block">💎</div>
@@ -264,7 +240,6 @@ export default function MissionVisionPage() {
                             <motion.div key={v.title} custom={i} variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-[28px] p-7 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-[60px] opacity-[0.06] group-hover:opacity-[0.12] transition-opacity" style={{ backgroundColor: v.color }} />
-                                <div className="absolute bottom-3 right-3 text-4xl opacity-10 group-hover:opacity-25 transition-opacity">{v.emoji}</div>
 
                                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md" style={{ background: `linear-gradient(135deg, ${v.color}20, ${v.color}10)` }}>
                                     <v.icon className="w-8 h-8" style={{ color: v.color }} />
@@ -281,7 +256,7 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 5: Islamic Foundation — Image + Content
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[5%] text-7xl opacity-[0.05] hidden lg:block">🕌</div>
                     <div className="absolute bottom-20 right-[8%] w-32 h-32 rounded-full border-4 border-dashed border-[#0fb85c]/10 hidden xl:block" />
@@ -303,7 +278,6 @@ export default function MissionVisionPage() {
                             <div className="space-y-4">
                                 {islamicPillars.map((item) => (
                                     <div key={item.title} className="flex items-start gap-4 group bg-gray-50 dark:bg-slate-800 rounded-2xl p-5 border border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                                        <div className="text-3xl">{item.emoji}</div>
                                         <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${item.color}20, ${item.color}10)` }}>
                                             <item.icon className="w-6 h-6" style={{ color: item.color }} />
                                         </div>
@@ -318,13 +292,9 @@ export default function MissionVisionPage() {
 
                         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=800&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
+                                <Image src="/images/side-visuals/spiritual-foundation.png" alt="Children learning" fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/40 to-transparent" />
-                                <div className="absolute bottom-6 left-6 right-6">
-                                    <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                                        <p className="font-heading font-bold text-[#222] dark:text-white text-sm text-center">&ldquo;Guiding little hearts with wisdom and love&rdquo; 💚</p>
-                                    </div>
-                                </div>
+
                             </div>
 
                             <div className="absolute -bottom-5 -left-5 bg-[#0fb85c] text-white rounded-2xl px-6 py-4 shadow-xl z-20 hidden sm:flex items-center gap-3">
@@ -344,7 +314,7 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 6: Objectives — Playful Grid
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[10%] text-7xl opacity-[0.05] hidden lg:block">🧭</div>
                     <div className="absolute bottom-10 left-[15%] text-6xl opacity-[0.05] hidden lg:block">🚀</div>
@@ -371,10 +341,8 @@ export default function MissionVisionPage() {
                                 <motion.div key={obj.title} custom={i} variants={fadeUp}
                                     className="relative bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
                                     <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-[60px] opacity-[0.06] group-hover:opacity-[0.12] transition-opacity" style={{ backgroundColor: color }} />
-                                    <div className="absolute bottom-3 right-3 text-4xl opacity-10 group-hover:opacity-25 transition-opacity">{obj.emoji}</div>
 
                                     <div className="relative z-10">
-                                        <div className="text-3xl mb-3">{obj.emoji}</div>
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${color}20, ${color}10)` }}>
                                             <obj.icon className="w-7 h-7" style={{ color }} />
                                         </div>
@@ -392,7 +360,7 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 7: What Makes Us Different — Big Cards with Images
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-20 left-[5%] text-7xl opacity-[0.05] hidden lg:block">🏆</div>
                     <div className="absolute bottom-20 right-[8%] w-20 h-20 rounded-full bg-[#fbaf01]/5 hidden xl:block" />
@@ -418,7 +386,7 @@ export default function MissionVisionPage() {
                         ].map((item, i) => (
                             <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                                 className="bg-gradient-to-br from-gray-50 to-white dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-3 right-3 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{item.emoji}</div>
+
 
                                 <div className="flex items-start gap-5">
                                     <div className="w-16 h-16 rounded-2xl flex-shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md" style={{ background: `linear-gradient(135deg, ${item.color}25, ${item.color}10)` }}>
@@ -439,45 +407,9 @@ export default function MissionVisionPage() {
             </section>
 
             {/* ══════════════════════════════════
-                SECTION 8: Journey Banner
-               ══════════════════════════════════ */}
-            <section className="py-20 lg:py-24 bg-gradient-to-r from-[#0052ff] via-[#7c3aed] to-[#0fb85c] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] text-5xl opacity-20">🚀</div>
-                    <div className="absolute bottom-10 right-[15%] text-4xl opacity-20">🌟</div>
-                    <div className="absolute top-1/2 left-[30%] text-3xl opacity-15">✨</div>
-                </div>
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white">
-                        <div className="text-5xl mb-5">🚀</div>
-                        <h2 className="font-heading font-extrabold text-4xl md:text-5xl leading-[1.1] mb-5">The Journey Begins with a Single Step</h2>
-                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90 mb-8">
-                            At Zeeque Preschool, the first steps in a child&apos;s educational journey define their entire future. Our proven ECCE program, rooted in Islamic values and modern pedagogy, ensures every child begins with the brightest possible start.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-                            {[
-                                { val: "12+", label: "Years", emoji: "📅" },
-                                { val: "50+", label: "Centers", emoji: "🏫" },
-                                { val: "5000+", label: "Students", emoji: "👧" },
-                                { val: "200+", label: "Mentors", emoji: "👩‍🏫" },
-                            ].map((s) => (
-                                <div key={s.label} className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-4 text-center border border-white/20">
-                                    <div className="text-2xl mb-1">{s.emoji}</div>
-                                    <div className="font-heading font-extrabold text-3xl mb-1">{s.val}</div>
-                                    <div className="font-body text-sm opacity-80">{s.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════
                 SECTION 9: Growth Pillars
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[10%] text-7xl opacity-[0.05] hidden lg:block">🌳</div>
                     <div className="absolute bottom-10 left-[5%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10 hidden xl:block" />
@@ -503,9 +435,8 @@ export default function MissionVisionPage() {
                         ].map((pillar, i) => (
                             <motion.div key={pillar.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group text-center relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-4xl opacity-10 group-hover:opacity-20 transition-opacity">{pillar.emoji}</div>
 
-                                <div className="text-4xl mb-4">{pillar.emoji}</div>
+
                                 <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-md" style={{ background: `linear-gradient(135deg, ${pillar.color}20, ${pillar.color}10)` }}>
                                     <pillar.icon className="w-8 h-8" style={{ color: pillar.color }} />
                                 </div>
@@ -523,17 +454,16 @@ export default function MissionVisionPage() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* ══════════════════════════════════
                 SECTION 10: CTA
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden lg:block" />
                     <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-[#0fb85c]/5 hidden lg:block" />
-                    <div className="absolute top-20 right-[20%] text-6xl opacity-[0.06] hidden lg:block">🎓</div>
-                    <div className="absolute bottom-20 left-[15%] text-5xl opacity-[0.06] hidden lg:block">🌈</div>
+
                 </div>
 
                 <div className="max-w-[800px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -547,21 +477,21 @@ export default function MissionVisionPage() {
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
+                            <Link href="https://admission.zeeque.in/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
                                 {/* Subtle micro-pulse inner highlight */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                                <span className="relative z-10">Enroll Now 🎉</span>
+                                <span className="relative z-10">Enroll Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
                             <Link href="/about" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
-                                Learn About Us 📖
+                                Learn About Us
                             </Link>
                         </div>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             <Footer />
-        </main>
+        </main >
     );
 }
