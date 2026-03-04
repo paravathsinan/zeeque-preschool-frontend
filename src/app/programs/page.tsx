@@ -144,7 +144,7 @@ export default function ProgramsPage() {
                                 <Baby className="w-4 h-4" /> Flagship Program
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                3 Year <span className="text-[#0fb85c]">Kindergarten</span> 🌱
+                                3 Year <span className="text-[#0fb85c]">Kindergarten</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 Zeeque Preschool&apos;s <strong className="text-[#222] dark:text-white">three-year Kindergarten package</strong> is designed for children aged 3 to 6, taking them through a carefully structured journey across three progressive stages — each building on the previous to create a strong foundation for lifelong learning.
@@ -188,7 +188,7 @@ export default function ProgramsPage() {
 
                     {/* LZQ / MZQ / UZQ Cards */}
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="mt-20">
-                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl text-center mb-4">The Three Stages of Growth 🌈</h3>
+                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl text-center mb-4">The Three Stages of Growth</h3>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg text-center max-w-2xl mx-auto mb-12">Each stage is thoughtfully designed to match the developmental needs of the child&apos;s age group.</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -249,7 +249,7 @@ export default function ProgramsPage() {
                                 <School className="w-4 h-4" /> Primary Education
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Grade Stream <span className="text-[#0052ff]">(I to IV)</span> 📖
+                                Grade Stream <span className="text-[#0052ff]">(I to IV)</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 <strong className="text-[#222] dark:text-white">Zeeque Preschool English Medium Primary Madrasa</strong> extends the Zeeque Preschool philosophy into formal primary education. Covering Grades I through IV, this program continues the seamless blend of academic excellence and Islamic values education.
@@ -300,7 +300,7 @@ export default function ProgramsPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white mb-14">
-                        <div className="text-5xl mb-5">👩‍🏫</div>
+                        {/* Removed emoji div */}
                         <h2 className="font-heading font-extrabold text-4xl md:text-5xl leading-[1.1] mb-5">Teacher Training Programs</h2>
                         <p className="font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
                             Great teachers create great futures. Zeeque Preschool invests heavily in training educators with specialized programs that produce the highest quality early childhood and primary teachers.
@@ -413,7 +413,7 @@ export default function ProgramsPage() {
                                 <HandHeart className="w-4 h-4" /> Unique Initiative
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Parent Empowerment <span className="text-[#fbaf01]">Programme</span> 👪
+                                Parent Empowerment <span className="text-[#fbaf01]">Programme</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 We have a unique system of <strong className="text-[#222] dark:text-white">Parent Empowerment Programme (PEP)</strong>. Our trainers regularly impart parent empowerment training based on a prescribed syllabus, ensuring parents are active partners in their child&apos;s educational journey.
