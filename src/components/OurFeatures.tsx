@@ -50,7 +50,7 @@ export default function OurFeatures() {
     return (
         <section className="relative overflow-hidden">
             {/* Top Pink Background */}
-            <div className="bg-[#EF4047] pt-20 pb-44 relative">
+            <div className="bg-[#EF4047] pt-10 pb-36 relative">
                 {/* Subtle pattern overlay */}
                 <div
                     className="absolute inset-0 opacity-[0.06] pointer-events-none"
@@ -79,7 +79,7 @@ export default function OurFeatures() {
             </div>
 
             {/* Cards Carousel - overlapping the pink/white split */}
-            <div className="bg-white dark:bg-slate-900 pb-20">
+            <div className="bg-white dark:bg-slate-900 pb-10">
                 <div className="max-w-[1200px] mx-auto px-4 xl:px-8 relative z-20 -mt-28">
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}

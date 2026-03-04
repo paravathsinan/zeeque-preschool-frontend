@@ -29,7 +29,7 @@ export default function GradeStreamTeacherTraineesPage() {
                 <div className="hidden lg:block w-full bg-white dark:bg-slate-800 border-b border-dashed border-gray-200 dark:border-slate-700">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800">
                     <Navbar />
                 </div>
             </div>
@@ -41,7 +41,7 @@ export default function GradeStreamTeacherTraineesPage() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/zeeque images/hero-section.jpg"
+                        src="/images/gallery/page-title.jpg"
                         alt="Zeeque Preschool Building"
                         fill
                         className="object-cover"

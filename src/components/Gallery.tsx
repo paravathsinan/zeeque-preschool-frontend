@@ -7,9 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const galleryImages = [
-    { src: "/images/gallery/659cf71996662425490851jpeg.jpg", alt: "Kids group activity" },
-    { src: "/images/gallery/659cf8008284c851243362jpg.jpg", alt: "Classroom learning" },
-    { src: "/images/gallery/659cf80085693885115214jpg.jpg", alt: "Creative play" },
+    { src: "/images/gallery/gallery photos/IMG_5768 - Copy.JPG", alt: "Kids group activity" },
+    { src: "/images/gallery/gallery photos/IMG_5812 - Copy.JPG", alt: "Classroom learning" },
+    { src: "/images/gallery/gallery photos/IMG_5928 - Copy.JPG", alt: "Creative play" },
     { src: "/images/gallery/659cf80087c4f343934456jpg.jpg", alt: "Art and crafts" },
     { src: "/images/gallery/659cf8008ca94809301637jpg.jpg", alt: "Outdoor fun" },
     { src: "/images/gallery/659cf8008ef6f279072207jpg.jpg", alt: "Reading time" },
@@ -32,7 +32,7 @@ export default function Gallery() {
     };
 
     return (
-        <section className="py-20 lg:py-28 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
 
             {/* Playful decorative elements */}
             <div className="absolute top-10 left-10 w-20 h-20 rounded-full border-4 border-dotted border-[#0b8641]/20 pointer-events-none hidden lg:block" />

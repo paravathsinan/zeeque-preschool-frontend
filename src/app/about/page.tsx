@@ -155,10 +155,10 @@ export default function AboutPage() {
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-slate-900 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
                 </div>
             </div>
@@ -281,8 +281,8 @@ export default function AboutPage() {
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
                                 <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Children in classroom" fill className="object-cover" />
                             </div>
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-6">
-                                <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop" alt="Children reading" fill className="object-cover" />
+                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
+                                <Image src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG" alt="Children reading" fill className="object-cover" />
                             </div>
                             <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
                                 <Image src="/images/gallery/page-title.jpg" alt="Kids playing together" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />

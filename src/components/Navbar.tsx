@@ -15,17 +15,20 @@ export default function Navbar() {
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
     useEffect(() => {
-        // Enforce light mode on initial visit
         if (typeof window !== "undefined") {
-            document.documentElement.classList.remove("dark");
-            setIsDarkMode(false);
+            const saved = localStorage.getItem("theme");
+            const prefersDark = saved === "dark";
+            setIsDarkMode(prefersDark);
+            document.documentElement.classList.toggle("dark", prefersDark);
         }
     }, []);
 
     const toggleTheme = () => {
-        setIsDarkMode(!isDarkMode);
+        const next = !isDarkMode;
+        setIsDarkMode(next);
         if (typeof window !== "undefined") {
-            document.documentElement.classList.toggle("dark");
+            document.documentElement.classList.toggle("dark", next);
+            localStorage.setItem("theme", next ? "dark" : "light");
         }
     };
 
@@ -86,7 +89,17 @@ export default function Navbar() {
     return (
         <>
             <nav className="w-full bg-transparent relative z-50 transition-colors duration-300">
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 md:py-4 flex justify-between items-center gap-4">
+                {/* Hero-style Dark Mode Background (Only visible in dark mode via opacity, or by using block/hidden) */}
+                <div className="absolute inset-x-0 inset-y-0 rounded-b-[40px] overflow-hidden pointer-events-none hidden dark:block">
+                    {/* Solid Base */}
+                    <div className="absolute inset-0 bg-[#020618]" />
+                    {/* Pure CSS Grid Overlay for premium texture */}
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
+                    {/* Soft Frosted Glass Blend Layer */}
+                    <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[50px]" />
+                </div>
+
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 md:py-4 flex justify-between items-center gap-4 relative z-10">
 
                     {/* Logo */}
                     <Link href="/" className="flex items-center gap-2 shrink-0">
@@ -123,12 +136,12 @@ export default function Navbar() {
 
                                 {/* Dropdown Menu */}
                                 {link.hasDropdown && link.subLinks && (
-                                    <div className="absolute top-14 left-0 min-w-[200px] bg-white/60 dark:bg-slate-800/60 backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl py-4 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 border border-white/40 dark:border-slate-700/50">
+                                    <div className="absolute top-14 left-0 min-w-[200px] bg-white/60 dark:bg-[#0F172A] backdrop-blur-xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] rounded-xl py-4 flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 transform translate-y-2 group-hover:translate-y-0 border border-white/40 dark:border-slate-800/50">
                                         {link.subLinks.map((sublink) => (
                                             <Link
                                                 key={sublink.name}
                                                 href={sublink.href}
-                                                className="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-orange-50/50 dark:hover:bg-slate-700/50 transition-colors"
+                                                className="px-6 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-orange-50/50 dark:hover:bg-slate-800/50 transition-colors"
                                             >
                                                 {sublink.name}
                                             </Link>
@@ -154,6 +167,7 @@ export default function Navbar() {
                             Login
                             <LogIn className="w-5 h-5 stroke-[2.5]" />
                         </button>
+
 
                         {/* Mobile Menu Toggle */}
                         <button

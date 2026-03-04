@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const kumbhSans = localFont({
   src: "../../public/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf",
@@ -10,7 +11,7 @@ const kumbhSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Zeeque Preschool - Happy Place Where Little Minds Grow Bright",
+  title: "India's Fastest Growing Islamic Preschool Network | ZeeQue",
   description: "Zeeque Preschool - A unique and state-of-the-art Early Childhood Care and Education program.",
 };
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       >
         {children}
         <ScrollToTop />
+        <WhatsAppButton />
       </body>
     </html>
   );

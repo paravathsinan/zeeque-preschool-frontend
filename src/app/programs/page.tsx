@@ -38,10 +38,10 @@ export default function ProgramsPage() {
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-slate-900 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
                 </div>
             </div>
@@ -100,26 +100,27 @@ export default function ProgramsPage() {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: "3 Year KG", subtitle: "Ages 3-6", desc: "Our flagship three-year kindergarten journey through LZQ, MZQ, and UZQ stages.", emoji: "👶", color: "#0fb85c", icon: Baby, tag: "For Children" },
-                            { title: "Grade Stream", subtitle: "Std I-IV", desc: "Zeeque Preschool English Medium Primary Madrasa — extending our quality education to primary grades.", emoji: "📖", color: "#0052ff", icon: School, tag: "For Students" },
-                            { title: "Diploma in ECCE", subtitle: "6 Months / 35 Days", desc: "Comprehensive preschool teacher training programme with residential options.", emoji: "🎓", color: "#7c3aed", icon: GraduationCap, tag: "For Teachers" },
-                            { title: "TTGS", subtitle: "Residential", desc: "Teacher Training for Grade Level — residential training for madrasa primary teachers.", emoji: "👩‍🏫", color: "#e83e8c", icon: BookOpen, tag: "For Teachers" },
-                            { title: "PEP", subtitle: "Ongoing", desc: "Parent Empowerment Programme — keeping parents informed and involved in their child's growth.", emoji: "👪", color: "#fbaf01", icon: HandHeart, tag: "For Parents" },
+                            { title: "3 Year KG", subtitle: "Ages 3-6", desc: "Our flagship three-year kindergarten journey through LZQ, MZQ, and UZQ stages.", color: "#0fb85c", tag: "For Children" },
+                            { title: "Grade Stream", subtitle: "Std I-IV", desc: "Zeeque Preschool English Medium Primary Madrasa — extending our quality education to primary grades.", color: "#0052ff", tag: "For Students" },
+                            { title: "Diploma in ECCE", subtitle: "6 Months / 35 Days", desc: "Comprehensive preschool teacher training programme with residential options.", color: "#7c3aed", tag: "For Teachers" },
+                            { title: "TTGS", subtitle: "Residential", desc: "Teacher Training for Grade Level — residential training for madrasa primary teachers.", color: "#e83e8c", tag: "For Teachers" },
+                            { title: "PEP", subtitle: "Ongoing", desc: "Parent Empowerment Programme — keeping parents informed and involved in their child's growth.", color: "#fbaf01", tag: "For Parents" },
                         ].map((p, i) => (
                             <motion.div key={p.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{p.emoji}</div>
-
-                                <div className="flex items-center gap-2 mb-4">
-                                    <span className="text-xs font-heading font-bold uppercase tracking-wider px-3 py-1 rounded-full" style={{ backgroundColor: `${p.color}15`, color: p.color }}>{p.tag}</span>
+                                className="relative bg-white dark:bg-slate-800 rounded-[24px] overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] hover:-translate-y-2 transition-all duration-400 group">
+                                {/* Left accent bar */}
+                                <div className="absolute left-0 top-0 bottom-0 w-1 group-hover:w-1.5 transition-all duration-300 rounded-r-full" style={{ backgroundColor: p.color }} />
+                                <div className="p-7 pl-8">
+                                    <div className="flex items-center justify-between mb-5">
+                                        <span className="text-[11px] font-heading font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border" style={{ backgroundColor: `${p.color}08`, color: p.color, borderColor: `${p.color}25` }}>{p.tag}</span>
+                                        <span className="font-heading font-bold text-xs px-2.5 py-1 rounded-lg" style={{ backgroundColor: `${p.color}12`, color: p.color }}>{p.subtitle}</span>
+                                    </div>
+                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-3 group-hover:translate-x-0.5 transition-transform duration-300">{p.title}</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{p.desc}</p>
+                                    <div className="mt-5 flex items-center gap-2 font-heading font-bold text-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300" style={{ color: p.color }}>
+                                        Learn more <ArrowRight className="w-4 h-4" />
+                                    </div>
                                 </div>
-                                <div className="text-4xl mb-3">{p.emoji}</div>
-                                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${p.color}20, ${p.color}10)` }}>
-                                    <p.icon className="w-7 h-7" style={{ color: p.color }} />
-                                </div>
-                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-1">{p.title}</h3>
-                                <p className="font-heading font-bold text-sm mb-3" style={{ color: p.color }}>{p.subtitle}</p>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{p.desc}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -171,7 +172,7 @@ export default function ProgramsPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?q=80&w=800&auto=format&fit=crop" alt="Children in kindergarten" fill className="object-cover" />
+                                <Image src="/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG" alt="Children in kindergarten" fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -left-3 bg-[#0fb85c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -209,9 +210,6 @@ export default function ProgramsPage() {
                                 },
                             ].map((s) => (
                                 <div key={s.stage} className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                    <div className="absolute top-2 right-2 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{s.emoji}</div>
-
-                                    <div className="text-4xl mb-3">{s.emoji}</div>
                                     <div className="flex items-center gap-3 mb-3">
                                         <span className="font-heading font-extrabold text-2xl" style={{ color: s.color }}>{s.stage}</span>
                                         <span className="bg-gray-100 dark:bg-slate-700 rounded-full px-3 py-1 font-heading font-bold text-xs text-gray-500 dark:text-gray-400">{s.year}</span>
@@ -401,7 +399,7 @@ export default function ProgramsPage() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1531983412531-1f49a365ffed?q=80&w=1000&auto=format&fit=crop" alt="Parents and children" fill className="object-cover" />
+                                <Image src="/images/side-visuals/pep_side_visual.png" alt="Parents and children" fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#fbaf01]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#fbaf01] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">

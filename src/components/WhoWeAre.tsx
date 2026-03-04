@@ -10,7 +10,7 @@ export default function WhoWeAre() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section className="py-20 lg:py-32 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
 
             {/* Decorative Background Elements */}
 
@@ -70,7 +70,7 @@ export default function WhoWeAre() {
                         {/* Top Left Image */}
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
                             <Image
-                                src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop"
+                                src="/images/gallery/gallery photos/IMG_5316.JPG"
                                 alt="Children reading"
                                 fill
                                 className="object-cover"

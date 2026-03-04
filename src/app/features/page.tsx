@@ -49,10 +49,10 @@ export default function FeaturesPage() {
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-slate-900 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
                 </div>
             </div>
@@ -60,7 +60,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#ef4225]/10 animate-pulse" />
                     <div className="absolute top-20 right-[15%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
@@ -96,7 +96,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Quran, Tradition & Culture
                ══════════════════════════════════ */}
-            <section className="py-16 md:py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block">🕌</div>
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#0fb85c]/10 hidden xl:block" />
@@ -142,7 +142,7 @@ export default function FeaturesPage() {
                                     <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
                                 </div>
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Kids reading together" fill className="object-cover" />
+                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together" fill className="object-cover" />
                                 </div>
                             </div>
                             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#0fb85c] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -158,7 +158,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 3: Language Foundation
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-20 left-[5%] text-8xl opacity-[0.04] hidden lg:block">🌍</div>
                 </div>
@@ -213,7 +213,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Character Building
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-20 right-[10%] text-8xl opacity-[0.04] hidden lg:block">🏅</div>
                 </div>
@@ -267,7 +267,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 5: Stress-free + Play Way (Combined)
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[5%] text-8xl opacity-[0.04] hidden lg:block">🎮</div>
                     <div className="absolute bottom-20 right-[8%] text-7xl opacity-[0.04] hidden lg:block">🧸</div>
@@ -351,7 +351,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 6: Mentoring + On-site Support
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
@@ -402,43 +402,11 @@ export default function FeaturesPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 7: Child-Friendly Classrooms
-               ══════════════════════════════════ */}
-            <section className="py-20 lg:py-24 bg-gradient-to-r from-[#0052ff] via-[#7c3aed] to-[#e83e8c] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center text-white">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <div className="text-5xl mb-5">🏫</div>
-                        <h2 className="font-heading font-extrabold text-4xl md:text-5xl leading-[1.1] mb-5">Child-Friendly Smart Classrooms</h2>
-                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90 mb-10">
-                            Our classrooms are professionally designed, child-sized wonderlands equipped with multimedia, colorful learning resources, and ample space for movement — because the environment itself is a teacher.
-                        </p>
-
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                            {[
-                                { name: "Multimedia Support", emoji: "💻" },
-                                { name: "Colorful Decor", emoji: "🎨" },
-                                { name: "Child-Sized Furniture", emoji: "🪑" },
-                                { name: "Learning Toys", emoji: "🧸" },
-                                { name: "Interactive Boards", emoji: "📋" },
-                                { name: "Reading Corner", emoji: "📚" },
-                            ].map((f) => (
-                                <div key={f.name} className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 group">
-                                    <div className="text-3xl mb-2 group-hover:scale-125 transition-transform duration-300">{f.emoji}</div>
-                                    <p className="font-heading font-bold text-xs">{f.name}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ══════════════════════════════════
                 SECTION 8: Infrastructure & Facilities
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 bg-[#ef4225]/10 text-[#ef4225] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
@@ -497,7 +465,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 9: R&D
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
@@ -548,7 +516,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 10: All Features Summary Grid
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
                         <div className="text-5xl mb-4">📋</div>
@@ -583,7 +551,7 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 11: CTA
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-28 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden lg:block" />
                     <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-[#0fb85c]/5 hidden lg:block" />

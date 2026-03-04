@@ -38,7 +38,7 @@ const fadeUp: Variants = {
 
 export default function StoriesOfChange() {
     return (
-        <section className="py-20 lg:py-28 bg-[#f5f0e8] dark:bg-slate-950 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-[#f5f0e8] dark:bg-slate-950 relative overflow-hidden">
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
 
@@ -92,7 +92,7 @@ export default function StoriesOfChange() {
 
                             {/* Quote mark + Testimonial Text */}
                             <div className="relative">
-                                <span className="text-[#fbaf01]/50 text-3xl font-serif absolute -left-1 -top-3 leading-none">&ldquo;</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-quote w-8 h-8 text-[#fbaf01]" aria-hidden="true"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
                                 <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] sm:text-[16px] leading-[1.85] pl-4">
                                     {testimonial.text}
                                 </p>

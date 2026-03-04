@@ -43,7 +43,7 @@ const events = [
 
 export default function NewsAndEvents() {
     return (
-        <section className="py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
 
             {/* Playful background doodles */}
             <div className="absolute top-8 right-16 w-24 h-24 rounded-full border-[6px] border-dotted border-[#fbaf01]/20 pointer-events-none hidden lg:block" />

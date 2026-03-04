@@ -5,41 +5,82 @@ import Link from "next/link";
 import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { motion } from "framer-motion";
-import { ChevronRight, Calendar, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronRight, Calendar, Sparkles, MapPin, Clock, ArrowRight } from "lucide-react";
+import { useState } from "react";
 
-const eventsGallery = [
+const newsData = [
     {
-        src: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=800&auto=format&fit=crop",
-        alt: "Kids playing outside",
-        className: "col-span-1 row-span-2 rounded-[40px] rounded-tr-none md:rounded-[60px] md:rounded-tr-none aspect-[3/4] md:aspect-auto h-full",
+        id: 1,
+        title: "Admissions Open for 2026-27",
+        date: "March 15, 2026",
+        description: "We are delighted to announce that admissions for the upcoming academic year are now open. Secure a bright future for your child today.",
+        image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
+        category: "Announcement"
     },
     {
-        src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop",
-        alt: "Classroom activity",
-        className: "col-span-1 row-span-1 rounded-[30px] rounded-br-none aspect-square",
+        id: 2,
+        title: "New Smart Classrooms Introduced",
+        date: "February 28, 2026",
+        description: "Experience our newly designed child-friendly smart classrooms equipped with the latest multimedia learning tools and colorful decor.",
+        image: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=600&auto=format&fit=crop",
+        category: "Campus"
     },
     {
-        src: "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?q=80&w=800&auto=format&fit=crop",
-        alt: "Art and craft",
-        className: "col-span-1 row-span-1 rounded-[30px] rounded-tl-none aspect-square h-full",
-    },
-    {
-        src: "https://images.unsplash.com/photo-1516627145497-ae6968895b74?q=80&w=1200&auto=format&fit=crop",
-        alt: "Sports day",
-        className: "col-span-2 md:col-span-1 row-span-1 rounded-[40px] rounded-bl-none aspect-[2/1] md:aspect-auto",
+        id: 3,
+        title: "Parent Orientation Program",
+        date: "February 10, 2026",
+        description: "A successful orientation program was held for new parents to understand our curriculum, approach, and the ZeeQue vision deeply.",
+        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop",
+        category: "Community"
     }
 ];
 
+const eventsData = [
+    {
+        id: 1,
+        title: "Annual Sports Day",
+        date: "April 12, 2026",
+        time: "09:00 AM - 01:00 PM",
+        location: "Main Playground",
+        description: "Get ready to witness our little champions showcase their athletic skills, teamwork, and sportsmanship in a day full of fun events.",
+        image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
+        color: "#ef4225"
+    },
+    {
+        id: 2,
+        title: "Colors Day Celebration",
+        date: "May 05, 2026",
+        time: "10:00 AM - 12:30 PM",
+        location: "Campus Hall",
+        description: "A vibrant day where children dress in their favorite colors, engage in creative arts, and learn about the beauty of the spectrum.",
+        image: "/images/gallery/gallery photos/IMG_5781.JPG",
+        color: "#fbaf01"
+    },
+    {
+        id: 3,
+        title: "Meelad Day Reflections",
+        date: "June 20, 2026",
+        time: "09:30 AM - 11:30 AM",
+        location: "Auditorium",
+        description: "A special and peaceful gathering where kids recite beautiful surahs, perform adhkars, and learn about the importance of sharing and caring.",
+        image: "/images/gallery/gallery photos/IMG_6331 - Copy.JPG",
+        color: "#0fb85c"
+    }
+];
+
+
 export default function EventsPage() {
+    const [activeTab, setActiveTab] = useState<'news' | 'events'>('news');
+
     return (
         <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-slate-900 border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
+                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] border-b border-dashed border-gray-200 dark:border-slate-700 transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-slate-900 rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 px-4 xl:px-8 transition-colors duration-300 relative z-50">
+                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300 relative z-50">
                     <Navbar />
                 </div>
             </div>
@@ -125,11 +166,7 @@ export default function EventsPage() {
                                 By observing these different days we create opportunities for children to expand their knowledge base and to explore their immediate environment.
                             </p>
 
-                            <div className="bg-orange-50 dark:bg-slate-800 rounded-2xl p-6 mt-8 border-l-4 border-[#ffb606]">
-                                <p className="text-gray-700 dark:text-gray-200 font-medium italic">
-                                    * trained teachers and the children who completed the three-year course.
-                                </p>
-                            </div>
+
                         </div>
                     </motion.div>
 
@@ -141,27 +178,151 @@ export default function EventsPage() {
                         transition={{ duration: 0.7 }}
                         className="lg:w-1/2 w-full relative"
                     >
-                        <div className="grid grid-cols-2 grid-rows-2 gap-4 h-[400px] md:h-[500px]">
-                            {eventsGallery.map((img, i) => (
-                                <div key={i} className={`relative overflow-hidden group shadow-lg ${img.className}`}>
-                                    <Image
-                                        src={img.src}
-                                        alt={img.alt}
-                                        fill
-                                        className="object-cover group-hover:scale-110 transition-transform duration-700"
-                                    />
-                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
-                                </div>
-                            ))}
+                        <div className="relative overflow-hidden rounded-[32px] shadow-2xl group h-[400px] md:h-[500px]">
+                            <Image
+                                src="/images/gallery/gallery photos/RYZ03180.JPG"
+                                alt="Kids playing outside"
+                                fill
+                                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                         </div>
-                        {/* Decorative Badge */}
-                        <div className="absolute bottom-10 right-0 lg:-right-6 bg-white dark:bg-slate-800 rounded-full px-6 py-4 shadow-xl z-20 flex items-center gap-3 animate-bounce shadow-[#0fb85c]/20 max-md:hidden">
-                            <div className="w-10 h-10 rounded-full bg-[#0fb85c]/10 flex items-center justify-center">
-                                <Calendar className="w-5 h-5 text-[#0fb85c]" />
-                            </div>
-                            <span className="font-heading font-bold text-sm text-[#222] dark:text-white">Daily Activities</span>
-                        </div>
+
                     </motion.div>
+
+                </div>
+            </section>
+
+            {/* ══════════════════════════════════
+                SECTION 3: News & Events Tabs
+               ══════════════════════════════════ */}
+            <section className="py-16 md:py-24 bg-[#f8f9fa] dark:bg-slate-950/50 relative">
+                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
+
+                    {/* Header & Tabs */}
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
+                        <div>
+                            <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-3xl md:text-4xl leading-[1.2] mb-2 text-center md:text-left">
+                                Latest <span className="text-[#0052ff]">Updates</span>
+                            </h2>
+                            <p className="text-gray-500 dark:text-gray-400 font-body text-center md:text-left">
+                                Stay informed about what&apos;s happening at ZeeQue.
+                            </p>
+                        </div>
+
+                        {/* Toggle Buttons */}
+                        <div className="flex items-center p-1.5 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700">
+                            <button
+                                onClick={() => setActiveTab('news')}
+                                className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'news'
+                                        ? 'bg-[#0052ff] text-white shadow-md'
+                                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    }`}
+                            >
+                                News
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('events')}
+                                className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'events'
+                                        ? 'bg-[#fbaf01] text-white shadow-md'
+                                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    }`}
+                            >
+                                Events
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="min-h-[440px]">
+                        <AnimatePresence mode="wait">
+                            {activeTab === 'news' ? (
+                                <motion.div
+                                    key="news"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                                >
+                                    {newsData.map((news) => (
+                                        <div key={news.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group">
+                                            <div className="relative h-[220px] overflow-hidden">
+                                                <Image src={news.image} alt={news.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-heading font-bold text-[#0052ff]">
+                                                    {news.category}
+                                                </div>
+                                            </div>
+                                            <div className="p-6 flex flex-col h-[calc(100%-220px)]">
+                                                <div className="flex items-center gap-2 text-gray-400 dark:text-gray-500 text-xs font-body mb-3 shrink-0">
+                                                    <Calendar className="w-3.5 h-3.5" />
+                                                    {news.date}
+                                                </div>
+                                                <h3 className="font-heading font-bold text-xl text-[#222] dark:text-white mb-3 group-hover:text-[#0052ff] transition-colors line-clamp-2 shrink-0">
+                                                    {news.title}
+                                                </h3>
+                                                <p className="text-gray-600 dark:text-gray-400 text-sm font-body line-clamp-3 mb-5 leading-relaxed flex-grow">
+                                                    {news.description}
+                                                </p>
+                                                <Link href="#" className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#0052ff] hover:gap-2.5 transition-all mt-auto shrink-0">
+                                                    Read Full Story <ArrowRight className="w-4 h-4" />
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="events"
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -20 }}
+                                    transition={{ duration: 0.4 }}
+                                    className="grid grid-cols-1 md:grid-cols-3 gap-6"
+                                >
+                                    {eventsData.map((event) => (
+                                        <div key={event.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group translate-y-0 hover:-translate-y-1">
+                                            <div className="relative h-[220px] overflow-hidden">
+                                                <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                                <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
+                                                    <div className="bg-white dark:bg-slate-800 text-center rounded-xl p-2 shadow-sm min-w-[50px]">
+                                                        <div className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase">{event.date.split(' ')[0]}</div>
+                                                        <div className="text-xl font-heading font-extrabold" style={{ color: event.color }}>{event.date.split(' ')[1].replace(',', '')}</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="p-6 flex flex-col h-[calc(100%-220px)]">
+                                                <h3 className="font-heading font-bold text-xl text-[#222] dark:text-white mb-4 line-clamp-2 shrink-0">
+                                                    {event.title}
+                                                </h3>
+
+                                                <div className="space-y-2 mb-5 shrink-0">
+                                                    <div className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400 font-body">
+                                                        <Clock className="w-4 h-4 mt-0.5 text-gray-400" />
+                                                        <span>{event.time}</span>
+                                                    </div>
+                                                    <div className="flex items-start gap-2 text-sm text-gray-500 dark:text-gray-400 font-body">
+                                                        <MapPin className="w-4 h-4 mt-0.5 text-gray-400" />
+                                                        <span>{event.location}</span>
+                                                    </div>
+                                                </div>
+
+                                                <p className="text-gray-600 dark:text-gray-400 text-sm font-body line-clamp-2 mb-5 flex-grow">
+                                                    {event.description}
+                                                </p>
+
+                                                <Link href="#" className="flex items-center justify-center w-full py-2.5 rounded-xl font-heading font-bold text-sm transition-colors shrink-0 hover:opacity-90 active:scale-[0.98]"
+                                                    style={{ backgroundColor: `${event.color}15`, color: event.color }}>
+                                                    Event Details
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
 
                 </div>
             </section>
