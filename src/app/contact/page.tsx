@@ -34,14 +34,8 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-                {/* Background decorations */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#fbaf01]/10 animate-pulse" />
-                    <div className="absolute top-20 right-[15%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-10 left-[20%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
-                    <div className="absolute top-1/2 right-[8%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                </div>
+            <section className="relative py-8 md:py-12 lg:py-16 overflow-hidden">
+
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
@@ -89,7 +83,7 @@ export default function ContactPage() {
                                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
                             </div>
                             {/* Floating decorative card */}
-                            <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-xl border border-gray-100 dark:border-slate-700 hidden sm:block">
+                            <div className="absolute -bottom-6 -left-6 bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl rounded-3xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/50 dark:border-white/10 hidden sm:block">
                                 <div className="flex items-center gap-4">
                                     <div className="w-12 h-12 rounded-2xl bg-[#0fb85c] flex items-center justify-center text-white">
                                         <Headphones className="w-6 h-6" />
@@ -115,7 +109,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Intro / Welcome
                ══════════════════════════════════ */}
-            <section className="py-20 bg-white dark:bg-slate-900 overflow-hidden">
+            <section className="py-10 bg-white dark:bg-slate-900 overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -150,7 +144,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 3: Contact Form & Info
                ══════════════════════════════════ */}
-            <section className="py-20 bg-gradient-to-b from-white to-[#fffcf2] dark:from-slate-900 dark:to-slate-950 relative overflow-hidden">
+            <section className="py-10 bg-gradient-to-b from-white to-[#fffcf2] dark:from-slate-900 dark:to-slate-950 relative overflow-hidden">
                 {/* Background decorative blob */}
                 <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute top-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
@@ -294,7 +288,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Map Section
                ══════════════════════════════════ */}
-            <section className="py-20 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-10 pb-24 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -311,10 +305,10 @@ export default function ContactPage() {
                                 </div>
                                 <div>
                                     <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-1">Visit Our Campus</h3>
-                                    <p className="text-gray-500 dark:text-gray-400 font-body text-sm">Please come and speak with us to learn how we can help your child be best prepared.</p>
+                                    <p className="text-gray-500 dark:text-gray-400 font-body text-sm max-w-xs">Please come and speak with us to learn how we can help your child be best prepared.</p>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap gap-3">
+                            <div className="flex flex-nowrap gap-3">
                                 <button className="bg-[#7c3aed] text-white px-6 py-3 rounded-xl font-heading font-bold text-sm flex items-center gap-2 hover:bg-[#6d28d9] transition-all">
                                     Open Maps <ArrowRight className="w-4 h-4" />
                                 </button>
@@ -364,47 +358,54 @@ export default function ContactPage() {
                         </div>
                     </motion.div>
                 </div>
+
+                {/* Wavy bottom divider */}
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-20">
+                    <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
+                        <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
+                    </svg>
+                </div>
             </section>
 
             {/* ══════════════════════════════════
                 SECTION 5: Immediate Assistance (CTA)
                ══════════════════════════════════ */}
-            <section className="py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-r from-primary to-[#e83e8c] rounded-[50px] p-12 md:p-20 text-center text-white relative overflow-hidden shadow-2xl shadow-primary/20"
+                        className="bg-gradient-to-br from-primary via-[#d63384] to-[#e83e8c] rounded-[40px] p-10 md:p-14 text-center text-white relative overflow-hidden shadow-[0_20px_60px_rgba(239,66,37,0.25)]"
                     >
                         {/* Decorative elements */}
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
+                        <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
 
-                        <div className="relative z-10 max-w-3xl mx-auto">
-                            <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-10 transform -rotate-12">
-                                <MessageSquare className="w-10 h-10 text-white" />
+                        <div className="relative z-10 max-w-2xl mx-auto">
+                            <div className="w-14 h-14 bg-white/15 backdrop-blur-xl rounded-2xl flex items-center justify-center mx-auto mb-8 transform -rotate-12 border border-white/20">
+                                <MessageSquare className="w-7 h-7 text-white" />
                             </div>
-                            <h2 className="font-heading font-extrabold text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight">
+                            <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl mb-5 leading-tight">
                                 Need Immediate Assistance?
                             </h2>
-                            <p className="text-white/80 font-body text-lg md:text-xl mb-12 leading-relaxed">
-                                Our team is always available to support parents and students. Reach out to us by phone, email, or visit our campus to take the next step in your child&apos;s academic journey with confidence.
+                            <p className="text-white/70 font-body text-base md:text-lg mb-10 leading-relaxed max-w-xl mx-auto">
+                                Reach out to us by phone, email, or visit our campus to take the next step in your child&apos;s academic journey.
                             </p>
-                            <div className="flex flex-wrap justify-center gap-5">
+                            <div className="flex flex-wrap justify-center gap-4">
                                 <Link
                                     href="tel:+91000000000"
-                                    className="bg-white text-primary px-10 py-5 rounded-2xl font-heading font-extrabold text-lg shadow-xl shadow-black/10 hover:scale-105 active:scale-95 transition-all flex items-center gap-3 group"
+                                    className="bg-white text-primary px-8 py-4 rounded-2xl font-heading font-bold text-base shadow-lg shadow-black/10 hover:scale-[1.03] active:scale-95 transition-all flex items-center gap-2.5 group"
                                 >
-                                    <Phone className="w-5 h-5 group-hover:animate-ringing origin-center transition-transform" />
+                                    <Phone className="w-4.5 h-4.5 group-hover:animate-ringing origin-center transition-transform" />
                                     Call Us Now
                                 </Link>
                                 <Link
                                     href="mailto:contact@zeeque.in"
-                                    className="bg-white/10 backdrop-blur-md border-2 border-white/20 text-white px-10 py-5 rounded-2xl font-heading font-extrabold text-lg hover:bg-white/20 transition-all flex items-center gap-3"
+                                    className="bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-heading font-bold text-base hover:bg-white/20 transition-all flex items-center gap-2.5"
                                 >
-                                    <Mail className="w-5 h-5" />
+                                    <Mail className="w-4.5 h-4.5" />
                                     Send Email
                                 </Link>
                             </div>
