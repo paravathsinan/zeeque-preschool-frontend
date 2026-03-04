@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { ChevronDown, ArrowRight, Menu, X, Sun, Moon, LogIn, Bell } from "lucide-react";
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
+import SignInModal from "./SignInModal";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -13,6 +14,7 @@ export default function Navbar() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+    const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
@@ -252,6 +254,19 @@ export default function Navbar() {
             <LoginModal
                 isOpen={isLoginModalOpen}
                 onClose={() => setIsLoginModalOpen(false)}
+                onSwitchToSignIn={() => {
+                    setIsLoginModalOpen(false);
+                    setIsSignInModalOpen(true);
+                }}
+            />
+
+            <SignInModal
+                isOpen={isSignInModalOpen}
+                onClose={() => setIsSignInModalOpen(false)}
+                onSwitchToSignUp={() => {
+                    setIsSignInModalOpen(false);
+                    setIsLoginModalOpen(true);
+                }}
             />
         </>
     );

@@ -1,12 +1,16 @@
 "use client";
 
-import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Sun, Moon } from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, Youtube, Sun, Moon, CloudDownload } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import AdmissionFormModal from "./AdmissionFormModal";
+import SignInModal from "./SignInModal";
 
 export default function TopHeader() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
+    const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
+    const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
 
 
 
@@ -54,6 +58,14 @@ export default function TopHeader() {
                         </div>
                         <span className="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">Zahra Park, Koduvally, Kozhikode, Kerala</span>
                     </Link>
+
+                    <div onClick={() => setIsAdmissionModalOpen(true)} className="flex items-center gap-2 group cursor-pointer border-l border-gray-200 dark:border-gray-800 pl-6 ml-2">
+                        <CloudDownload className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-primary transition-colors" strokeWidth={1.5} />
+                        <div className="flex flex-col leading-tight">
+                            <span className="text-sm font-medium text-gray-800 dark:text-gray-200 group-hover:text-primary transition-colors">Download</span>
+                            <span className="text-[11px] text-gray-500 dark:text-gray-400 group-hover:text-primary transition-colors">Admission Form</span>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Right Side: Actions & Social */}
@@ -90,6 +102,20 @@ export default function TopHeader() {
 
                 </div>
             </div>
+
+            <AdmissionFormModal
+                isOpen={isAdmissionModalOpen}
+                onClose={() => setIsAdmissionModalOpen(false)}
+            />
+
+            <SignInModal
+                isOpen={isSignInModalOpen}
+                onClose={() => setIsSignInModalOpen(false)}
+                onSwitchToSignUp={() => {
+                    setIsSignInModalOpen(false);
+                    // The "Enroll Now" mapping to LoginModal is in Hero/Navbar.
+                }}
+            />
         </div>
     );
 }
