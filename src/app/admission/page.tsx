@@ -73,7 +73,7 @@ const newsEvents = [
         date: "April 20, 2025",
         description: "An opportunity for parents to discuss their child's progress and development with our mentors.",
         color: "#0fb85c",
-        image: "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?q=80&w=600&auto=format&fit=crop",
+        image: "/images/gallery/actiivites/659cf71996662425490851jpeg.jpg",
     },
     {
         title: "Summer Camp Registration Open",

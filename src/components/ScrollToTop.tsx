@@ -44,7 +44,7 @@ export default function ScrollToTop() {
                     }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-8 right-8 z-[100] w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 cursor-pointer group transition-colors overflow-hidden"
+                    className="fixed bottom-[6.5rem] right-8 z-[100] w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 cursor-pointer group transition-colors overflow-hidden"
                     aria-label="Scroll to top"
                 >
                     {/* Animated background glow */}

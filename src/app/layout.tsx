@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import AIChatBot from "@/components/AIChatBot";
 
 const kumbhSans = localFont({
   src: "../../public/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf",
@@ -28,6 +29,7 @@ export default function RootLayout({
       >
         {children}
         <ScrollToTop />
+        <AIChatBot />
         <WhatsAppButton />
       </body>
     </html>

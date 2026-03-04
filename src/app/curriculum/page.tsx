@@ -124,7 +124,7 @@ export default function CurriculumPage() {
                                     <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
                                 </div>
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?q=80&w=600&auto=format&fit=crop" alt="Kids in classroom" fill className="object-cover" />
+                                    <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Kids in classroom" fill className="object-cover" />
                                 </div>
                             </div>
                             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -165,8 +165,7 @@ export default function CurriculumPage() {
                         ].map((d, i) => (
                             <motion.div key={d.title} custom={i} variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-4xl opacity-10 group-hover:opacity-25 transition-opacity">{d.emoji}</div>
-                                <div className="text-3xl mb-3">{d.emoji}</div>
+
                                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${d.color}20, ${d.color}10)` }}>
                                     <d.icon className="w-7 h-7" style={{ color: d.color }} />
                                 </div>
