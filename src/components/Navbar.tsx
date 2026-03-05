@@ -15,8 +15,10 @@ export default function Navbar() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         if (typeof window !== "undefined") {
             const saved = localStorage.getItem("theme");
             const prefersDark = saved === "dark";
@@ -170,10 +172,21 @@ export default function Navbar() {
                             <LogIn className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
 
+                        {/* Mobile Theme Toggle */}
+                        {mounted && (
+                            <button
+                                onClick={toggleTheme}
+                                className="lg:hidden ml-2 w-10 h-10 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-105 overflow-hidden"
+                                aria-label="Toggle Theme"
+                            >
+                                <Sun className={`absolute w-5 h-5 transition-all duration-500 ${isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'}`} />
+                                <Moon className={`absolute w-5 h-5 transition-all duration-500 ${!isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
+                            </button>
+                        )}
 
                         {/* Mobile Menu Toggle */}
                         <button
-                            className="lg:hidden ml-2 w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-primary transition-transform hover:scale-105"
+                            className="lg:hidden ml-2 w-10 h-10 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-105"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         >
                             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

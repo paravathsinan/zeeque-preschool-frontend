@@ -141,21 +141,21 @@ export default function Hero() {
                             </AnimatePresence>
                         </div>
 
-                        {/* Floating Admission Badge */}
-                        <div className="absolute top-[40%] -right-4 sm:-right-8 flex flex-col items-center sm:items-end z-30 drop-shadow-xl animate-bounce-slow">
+                        {/* Floating Admission Badge (3D Styled) */}
+                        <div className="absolute top-[40%] -right-4 sm:-right-8 flex flex-col items-center sm:items-end z-30 drop-shadow-2xl animate-bounce-slow transform-gpu perspective-1000">
                             {/* Red School Badge */}
-                            <div className="bg-[#ef4225] text-white px-5 py-1.5 rounded-full text-xs sm:text-sm font-heading font-bold uppercase tracking-widest mb-[-12px] sm:mr-8 relative z-10 shadow-sm -top-[1px]">
+                            <div className="bg-gradient-to-b from-[#ff5e45] to-[#ef4225] text-white px-5 py-1.5 rounded-full text-xs sm:text-sm font-heading font-bold uppercase tracking-widest mb-[-12px] sm:mr-8 relative z-10 shadow-[0_4px_0_0_#c42f17,0_8px_15px_rgba(239,66,37,0.4)] border border-[#ff7a66]/30 -top-[1px] transform rotate-[-2deg] hover:translate-y-[2px] hover:shadow-[0_2px_0_0_#c42f17,0_4px_8px_rgba(239,66,37,0.4)] transition-all cursor-default">
                                 School
                             </div>
 
                             {/* Orange Admission Badge */}
-                            <div className="bg-[#fbaf01] text-white px-6 sm:px-10 py-2 sm:py-3 rounded-[20px] sm:rounded-[30px] rounded-br-sm text-lg sm:text-2xl font-heading font-extrabold shadow-lg relative z-20">
+                            <div className="bg-gradient-to-b from-[#ffc83d] to-[#fbaf01] text-[#222222] px-6 sm:px-10 py-2 sm:py-3 rounded-[20px] sm:rounded-[30px] rounded-br-sm text-lg sm:text-2xl font-heading font-extrabold shadow-[0_6px_0_0_#d89600,0_12px_20px_rgba(251,175,1,0.3)] border border-[#ffd566]/50 relative z-20 transform rotate-[1deg] hover:translate-y-[3px] hover:shadow-[0_3px_0_0_#d89600,0_6px_10px_rgba(251,175,1,0.3)] transition-all cursor-default">
                                 ADMISSION
                             </div>
 
                             {/* Red Open Badge */}
-                            <div className="bg-[#ef4225] text-white px-6 sm:px-8 py-2 rounded-full text-lg sm:text-xl font-heading font-extrabold flex items-center gap-2 mt-[-10px] sm:ml-8 relative z-30 shadow-md">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#fbaf01] -ml-2">
+                            <div className="bg-gradient-to-b from-[#ff5e45] to-[#ef4225] text-white px-6 sm:px-8 py-2 rounded-full text-lg sm:text-xl font-heading font-extrabold flex items-center gap-2 mt-[-10px] sm:ml-8 relative z-30 shadow-[0_5px_0_0_#c42f17,0_10px_15px_rgba(239,66,37,0.4)] border border-[#ff7a66]/30 transform rotate-[-1deg] hover:translate-y-[2px] hover:shadow-[0_3px_0_0_#c42f17,0_6px_8px_rgba(239,66,37,0.4)] transition-all cursor-default">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#ffe082] -ml-2 drop-shadow-sm">
                                     <path d="m3 11 18-5v12L3 14v-3z"></path>
                                     <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
                                 </svg>

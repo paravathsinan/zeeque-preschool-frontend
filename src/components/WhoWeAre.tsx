@@ -101,7 +101,7 @@ export default function WhoWeAre() {
                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                 poster="/images/gallery/page-title.jpg"
                             >
-                                <source src="https://videos.pexels.com/video-files/5896379/5896379-uhd_2560_1440_24fps.mp4" type="video/mp4" />
+                                <source src="/videos/ZAHRATUL_QUR_AN_THE_ZEE_QUE_PRESCHOOL_ENGLISH_PROMO_VIDEO_1080P - Trim.mp4" type="video/mp4" />
                             </video>
 
                             {/* Dark Overlay & Play Button */}
