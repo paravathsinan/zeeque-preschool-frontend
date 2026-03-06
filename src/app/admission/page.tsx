@@ -348,6 +348,7 @@ export default function AdmissionPage() {
                                         src={event.image}
                                         alt={event.title}
                                         fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 285px"
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />

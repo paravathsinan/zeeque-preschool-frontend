@@ -19,9 +19,10 @@ interface SignInModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSwitchToSignUp?: () => void;
+    onForgotPassword?: () => void;
 }
 
-export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }: SignInModalProps) {
+export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgotPassword }: SignInModalProps) {
     const [showPassword, setShowPassword] = useState(false);
     const [loginRole, setLoginRole] = useState<'ao' | 'franchise' | 'admin'>('ao');
     const [shakeFields, setShakeFields] = useState<Record<string, boolean>>({});
@@ -209,9 +210,13 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp }: SignI
                                     </div>
 
                                     <div className="flex justify-end pr-2 pt-0.5">
-                                        <Link href="#" className="text-[11px] font-bold text-[#4361EE] hover:text-[#3A56D4] transition-colors">
+                                        <button
+                                            type="button"
+                                            onClick={onForgotPassword}
+                                            className="text-[11px] font-bold text-[#4361EE] hover:text-[#3A56D4] transition-colors"
+                                        >
                                             Forgot Password?
-                                        </Link>
+                                        </button>
                                     </div>
 
                                     <div className="pt-2 mt-1 border-t border-dashed border-gray-200/60 dark:border-slate-800">

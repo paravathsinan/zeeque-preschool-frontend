@@ -25,6 +25,7 @@ const welcomeMessage: Message = {
 
 export default function AIChatBot() {
     const [isOpen, setIsOpen] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
     const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
     const [inputText, setInputText] = useState("");
     const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -36,6 +37,13 @@ export default function AIChatBot() {
     useEffect(() => {
         scrollToBottom();
     }, [messages]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowPopup(true);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleQuickAction = (action: typeof quickActions[0]) => {
         const userMsg: Message = { id: Date.now(), text: action.label, isBot: false };
@@ -160,6 +168,55 @@ export default function AIChatBot() {
                 )}
             </AnimatePresence>
 
+            {/* Tooltip Popup */}
+            <AnimatePresence>
+                {showPopup && !isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8, y: 20, transformOrigin: "bottom right" }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.8, y: 10, transition: { duration: 0.2 } }}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                        className="fixed bottom-[104px] right-8 z-[90] cursor-pointer group/tooltip perspective-1000"
+                        onClick={() => {
+                            setIsOpen(true);
+                            setShowPopup(false);
+                        }}
+                    >
+                        <motion.div
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                            className="relative bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3 pr-10 rounded-[22px] shadow-[0_12px_40px_-8px_rgba(0,0,0,0.2)] dark:shadow-[0_12px_40px_-8px_rgba(0,0,0,0.6)] border border-white/50 dark:border-slate-700/50 flex items-center gap-3.5 w-max max-w-[280px] group-hover/tooltip:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.25)] transition-shadow duration-300"
+                        >
+                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4DB8FF] to-[#3A95E4] flex items-center justify-center shrink-0 shadow-inner">
+                                <Bot className="w-5 h-5 text-white" />
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-[14px] font-bold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-0.5">
+                                    Have doubts?
+                                </span>
+                                <span className="text-[12px] text-gray-500 dark:text-gray-400 font-body leading-tight">
+                                    Ask our AI assistant
+                                </span>
+                            </div>
+
+                            <button
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowPopup(false);
+                                }}
+                                className="absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:text-gray-200 dark:hover:bg-slate-700 transition-colors"
+                                aria-label="Close popup"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+
+                            {/* Triangle Pointer pointing down towards the FAB */}
+                            <div className="absolute -bottom-2 right-[22px] w-4 h-4 bg-white/95 dark:bg-slate-800/95 transform rotate-45 shadow-[4px_4px_10px_rgba(0,0,0,0.02)] border-b border-r border-white/50 dark:border-slate-700/50 backdrop-blur-md"></div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Floating Button */}
             <motion.button
                 initial={{ opacity: 0, scale: 0 }}
@@ -167,13 +224,16 @@ export default function AIChatBot() {
                 transition={{ delay: 1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
                 whileHover={{ scale: 1.1, translateY: -3 }}
                 whileTap={{ scale: 0.9 }}
-                onClick={() => setIsOpen(!isOpen)}
-                className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-gradient-to-br from-[#7c3aed] via-[#9333ea] to-[#6d28d9] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(124,58,237,0.4)] hover:shadow-[0_12px_40px_rgba(124,58,237,0.5)] cursor-pointer group overflow-hidden border-2 border-white/20"
+                onClick={() => {
+                    setIsOpen(!isOpen);
+                    setShowPopup(false);
+                }}
+                className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(77,184,255,0.4)] hover:shadow-[0_12px_40px_rgba(77,184,255,0.6)] cursor-pointer group overflow-hidden border-2 border-white/20"
                 aria-label="Open AI chat"
             >
                 {/* Pulse ring */}
                 {!isOpen && (
-                    <span className="absolute inset-0 rounded-full animate-ping bg-[#7c3aed]/20" style={{ animationDuration: "2.5s" }} />
+                    <span className="absolute inset-0 rounded-full animate-ping bg-white/40" style={{ animationDuration: "2.5s" }} />
                 )}
 
                 {/* Shimmer sweep */}
@@ -203,7 +263,7 @@ export default function AIChatBot() {
                             transition={{ duration: 0.2 }}
                             className="relative z-10"
                         >
-                            <Bot className="w-6 h-6" />
+                            <MessageCircle className="w-6 h-6" />
                         </motion.div>
                     )}
                 </AnimatePresence>

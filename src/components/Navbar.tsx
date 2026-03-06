@@ -7,6 +7,7 @@ import { ChevronDown, ArrowRight, Menu, X, Sun, Moon, LogIn, Bell } from "lucide
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
 import SignInModal from "./SignInModal";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 
 export default function Navbar() {
     const pathname = usePathname();
@@ -15,6 +16,7 @@ export default function Navbar() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+    const [isForgotPasswordModalOpen, setIsForgotPasswordModalOpen] = useState(false);
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -165,7 +167,7 @@ export default function Navbar() {
                         </Link>
 
                         <button
-                            onClick={() => setIsLoginModalOpen(true)}
+                            onClick={() => setIsSignInModalOpen(true)}
                             className="group hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                         >
                             Login
@@ -252,7 +254,7 @@ export default function Navbar() {
 
                             <div className="mt-6 flex flex-col gap-4">
                                 <button
-                                    onClick={() => { setIsLoginModalOpen(true); setIsMobileMenuOpen(false); }}
+                                    onClick={() => { setIsSignInModalOpen(true); setIsMobileMenuOpen(false); }}
                                     className="flex items-center justify-center gap-2 w-full bg-[#ffb606] text-white py-3 rounded-2xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                                 >
                                     Login
@@ -280,6 +282,15 @@ export default function Navbar() {
                     setIsSignInModalOpen(false);
                     setIsLoginModalOpen(true);
                 }}
+                onForgotPassword={() => {
+                    setIsSignInModalOpen(false);
+                    setIsForgotPasswordModalOpen(true);
+                }}
+            />
+
+            <ForgotPasswordModal
+                isOpen={isForgotPasswordModalOpen}
+                onClose={() => setIsForgotPasswordModalOpen(false)}
             />
         </>
     );

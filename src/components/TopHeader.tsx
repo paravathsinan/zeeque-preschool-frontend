@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import AdmissionFormModal from "./AdmissionFormModal";
 import SignInModal from "./SignInModal";
+import ForgotPasswordModal from "./ForgotPasswordModal";
 
 export default function TopHeader() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
     const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
+    const [isForgotPasswordModalOpen, setIsForgotPasswordModalOpen] = useState(false);
 
 
 
@@ -113,8 +115,17 @@ export default function TopHeader() {
                 onClose={() => setIsSignInModalOpen(false)}
                 onSwitchToSignUp={() => {
                     setIsSignInModalOpen(false);
-                    // The "Enroll Now" mapping to LoginModal is in Hero/Navbar.
+                    // The "Enquiry Now" mapping to LoginModal is in Hero/Navbar.
                 }}
+                onForgotPassword={() => {
+                    setIsSignInModalOpen(false);
+                    setIsForgotPasswordModalOpen(true);
+                }}
+            />
+
+            <ForgotPasswordModal
+                isOpen={isForgotPasswordModalOpen}
+                onClose={() => setIsForgotPasswordModalOpen(false)}
             />
         </div>
     );

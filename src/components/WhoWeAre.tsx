@@ -89,7 +89,7 @@ export default function WhoWeAre() {
 
                         {/* Bottom Wide Video Card */}
                         <div
-                            className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer"
+                            className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer border-2 border-white/10"
                             onClick={() => setIsModalOpen(true)}
                         >
                             {/* Background Video */}
@@ -98,18 +98,18 @@ export default function WhoWeAre() {
                                 loop
                                 muted
                                 playsInline
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                className="absolute inset-0 w-full h-full object-cover scale-[1.3] transition-transform duration-700 group-hover:scale-[1.4]"
                                 poster="/images/gallery/page-title.jpg"
                             >
                                 <source src="/videos/ZAHRATUL_QUR_AN_THE_ZEE_QUE_PRESCHOOL_ENGLISH_PROMO_VIDEO_1080P - Trim.mp4" type="video/mp4" />
                             </video>
 
-                            {/* Dark Overlay & Play Button */}
-                            <div className="absolute inset-0 bg-black/50 transition-colors duration-300 flex items-center justify-center">
+                            {/* Refined Dark Overlay & Play Button */}
+                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
                                 <div className="relative flex items-center justify-center">
                                     {/* Subtle Pulse Animation */}
-                                    <div className="absolute w-[120%] h-[120%] bg-white/20 rounded-full animate-ping duration-[3000ms]"></div>
-                                    <div className="relative w-20 h-20 bg-white rounded-full flex items-center justify-center text-[#ED5D74] shadow-[0_0_30px_rgba(0,0,0,0.2)] transition-transform duration-300 group-hover:scale-110 z-10">
+                                    <div className="absolute w-[140%] h-[140%] bg-white/10 rounded-full animate-ping duration-[3000ms]"></div>
+                                    <div className="relative w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#e83e8c] shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-white z-10">
                                         <Play className="w-8 h-8 ml-1 fill-current" />
                                     </div>
                                 </div>

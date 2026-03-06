@@ -121,10 +121,10 @@ export default function CurriculumPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
+                                    <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Children learning" fill sizes="(max-width: 768px) 50vw, 285px" className="object-cover" />
                                 </div>
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Kids in classroom" fill className="object-cover" />
+                                    <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Kids in classroom" fill sizes="(max-width: 768px) 50vw, 285px" className="object-cover" />
                                 </div>
                             </div>
                             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -422,10 +422,10 @@ export default function CurriculumPage() {
                             Experience a curriculum that&apos;s been refined over 12+ years covering 50+ learning centers, backed by dedicated R&D and loved by 5000+ families.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="https://admission.zeeque.in/" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
+                            <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
                                 {/* Subtle micro-pulse inner highlight */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                                <span className="relative z-10">Enroll Now</span>
+                                <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
                             <Link href="/programs" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
