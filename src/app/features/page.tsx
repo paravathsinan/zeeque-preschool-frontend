@@ -139,10 +139,10 @@ export default function FeaturesPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning" fill className="object-cover" />
+                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill className="object-cover" />
                                 </div>
                                 <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together" fill className="object-cover" />
+                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill className="object-cover" />
                                 </div>
                             </div>
                             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#0fb85c] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -198,7 +198,7 @@ export default function FeaturesPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=800&auto=format&fit=crop" alt="Children learning languages" fill className="object-cover" />
+                                <Image src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=800&auto=format&fit=crop" alt="Children having fun while developing multilingual skills at ZeeQue Preschool in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0052ff]/30 to-transparent" />
                                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
                                     <p className="font-heading font-bold text-[#222] dark:text-white text-sm text-center">&ldquo;The limit of language is the limit of the world&rdquo; 🌏</p>
@@ -356,7 +356,7 @@ export default function FeaturesPage() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1000&auto=format&fit=crop" alt="Teachers with children" fill className="object-cover" />
+                                <Image src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1000&auto=format&fit=crop" alt="Dedicated mentors providing personalized care to children at ZeeQue Preschool in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#e83e8c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#e83e8c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -500,7 +500,7 @@ export default function FeaturesPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Research and learning" fill className="object-cover" />
+                                <Image src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Educational experts researching cutting-edge early childhood methods for the ZeeQue Curriculum in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#7c3aed]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#7c3aed] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">

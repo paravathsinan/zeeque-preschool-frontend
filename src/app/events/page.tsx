@@ -16,7 +16,8 @@ const newsData = [
         date: "March 15, 2026",
         description: "We are delighted to announce that admissions for the upcoming academic year are now open. Secure a bright future for your child today.",
         image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
-        category: "Announcement"
+        category: "Announcement",
+        alt: "Admissions open announcement with smiling preschool students at ZeeQue Preschool in Kerala."
     },
     {
         id: 2,
@@ -24,7 +25,8 @@ const newsData = [
         date: "February 28, 2026",
         description: "Experience our newly designed child-friendly smart classrooms equipped with the latest multimedia learning tools and colorful decor.",
         image: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=600&auto=format&fit=crop",
-        category: "Campus"
+        category: "Campus",
+        alt: "Newly designed, child-friendly smart classrooms ready for students at ZeeQue Preschool in Kerala."
     },
     {
         id: 3,
@@ -32,7 +34,8 @@ const newsData = [
         date: "February 10, 2026",
         description: "A successful orientation program was held for new parents to understand our curriculum, approach, and the ZeeQue vision deeply.",
         image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop",
-        category: "Community"
+        category: "Community",
+        alt: "Parents and teachers interacting during a successful orientation program at ZeeQue Preschool in Kerala."
     }
 ];
 
@@ -45,7 +48,8 @@ const eventsData = [
         location: "Main Playground",
         description: "Get ready to witness our little champions showcase their athletic skills, teamwork, and sportsmanship in a day full of fun events.",
         image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
-        color: "#ef4225"
+        color: "#ef4225",
+        alt: "Little champions participating in Annual Sports Day on the main playground at ZeeQue Preschool in Kerala."
     },
     {
         id: 2,
@@ -55,7 +59,8 @@ const eventsData = [
         location: "Campus Hall",
         description: "A vibrant day where children dress in their favorite colors, engage in creative arts, and learn about the beauty of the spectrum.",
         image: "/images/gallery/gallery photos/IMG_5781.JPG",
-        color: "#fbaf01"
+        color: "#fbaf01",
+        alt: "Children dressed in vibrant colors celebrating Colors Day in the campus hall at ZeeQue Preschool in Kerala."
     },
     {
         id: 3,
@@ -65,7 +70,8 @@ const eventsData = [
         location: "Auditorium",
         description: "A special and peaceful gathering where kids recite beautiful surahs, perform adhkars, and learn about the importance of sharing and caring.",
         image: "/images/gallery/gallery photos/IMG_6331 - Copy.JPG",
-        color: "#0fb85c"
+        color: "#0fb85c",
+        alt: "Kids performing adhkars and reciting surahs during Meelad Day in the auditorium at ZeeQue Preschool in Kerala."
     }
 ];
 
@@ -181,7 +187,7 @@ export default function EventsPage() {
                         <div className="relative overflow-hidden rounded-[32px] shadow-2xl group h-[400px] md:h-[500px]">
                             <Image
                                 src="/images/gallery/gallery photos/RYZ03180.JPG"
-                                alt="Kids playing outside"
+                                alt="Happy children enjoying outdoor play activities at ZeeQue Preschool in Kerala."
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-700"
                             />
@@ -215,8 +221,8 @@ export default function EventsPage() {
                             <button
                                 onClick={() => setActiveTab('news')}
                                 className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'news'
-                                        ? 'bg-[#0052ff] text-white shadow-md'
-                                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    ? 'bg-[#0052ff] text-white shadow-md'
+                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                                     }`}
                             >
                                 News
@@ -224,8 +230,8 @@ export default function EventsPage() {
                             <button
                                 onClick={() => setActiveTab('events')}
                                 className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'events'
-                                        ? 'bg-[#fbaf01] text-white shadow-md'
-                                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    ? 'bg-[#fbaf01] text-white shadow-md'
+                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                                     }`}
                             >
                                 Events
@@ -248,7 +254,7 @@ export default function EventsPage() {
                                     {newsData.map((news) => (
                                         <div key={news.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group">
                                             <div className="relative h-[220px] overflow-hidden">
-                                                <Image src={news.image} alt={news.title} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <Image src={news.image} alt={news.alt} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
                                                 <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-heading font-bold text-[#0052ff]">
                                                     {news.category}
                                                 </div>
@@ -283,7 +289,7 @@ export default function EventsPage() {
                                     {eventsData.map((event) => (
                                         <div key={event.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group translate-y-0 hover:-translate-y-1">
                                             <div className="relative h-[220px] overflow-hidden">
-                                                <Image src={event.image} alt={event.title} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                                <Image src={event.image} alt={event.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                                                     <div className="bg-white dark:bg-slate-800 text-center rounded-xl p-2 shadow-sm min-w-[50px]">

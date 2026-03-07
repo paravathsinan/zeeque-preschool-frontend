@@ -292,7 +292,7 @@ export default function MissionVisionPage() {
 
                         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.2 }} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="/images/side-visuals/spiritual-foundation.png" alt="Children learning" fill className="object-cover" />
+                                <Image src="/images/side-visuals/spiritual-foundation.png" alt="Young students learning Islamic values and foundations at Zeeque Preschool in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/40 to-transparent" />
 
                             </div>

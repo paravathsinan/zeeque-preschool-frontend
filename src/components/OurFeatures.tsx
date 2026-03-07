@@ -14,35 +14,40 @@ const features = [
         description:
             "They are trained to communicate, read and write in Arabic, English and Malayalam and We believe the limit of language means the limit of the world.",
         image:
-            "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=800&auto=format&fit=crop",
+            "/images/gallery/actiivites/659cf71996662425490851jpeg.jpg",
+        alt: "Children learning to read and write in Arabic, English, and Malayalam at Zeeque Preschool, Kerala.",
     },
     {
         title: "Character is Everything",
         description:
             "Spiritual education being fused together with temporal knowledge, children get the best of both worlds and As the character formation is our priority.",
         image:
-            "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=800&auto=format&fit=crop",
+            "/images/gallery/actiivites/659cf8008284c851243362jpg.jpg",
+        alt: "Students receiving spiritual and temporal education focusing on character formation at our Kerala preschool.",
     },
     {
         title: "Stress-free Learning",
         description:
             "The children are free. They learn in a stress-free environment. We are following completely stress free, fun filled curriculum.",
         image:
-            "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=800&auto=format&fit=crop",
+            "/images/gallery/actiivites/659cf80085693885115214jpg.jpg",
+        alt: "Kids enjoying a fun-filled, stress-free learning environment at Zeeque Islamic preschool in Kozhikode.",
     },
     {
         title: "Creative Expression",
         description:
             "Art, music, and drama are woven into everyday learning, helping children express themselves with confidence and joy.",
         image:
-            "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop",
+            "/images/gallery/actiivites/659cf80087c4f343934456jpg.jpg",
+        alt: "Toddlers engaging in art, music, and drama activities to boost confidence at our Montessori.",
     },
     {
         title: "Physical Development",
         description:
             "Through structured play and outdoor activities, children develop motor skills, coordination, and a love for an active lifestyle.",
         image:
-            "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?q=80&w=800&auto=format&fit=crop",
+            "/images/gallery/actiivites/659cf8008ca94809301637jpg.jpg",
+        alt: "Children participating in structured outdoor play and sports activities at our Kerala preschool campus.",
     },
 ];
 
@@ -116,7 +121,7 @@ export default function OurFeatures() {
                                         {/* Background Image */}
                                         <Image
                                             src={feature.image}
-                                            alt={feature.title}
+                                            alt={feature.alt}
                                             fill
                                             className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                         />

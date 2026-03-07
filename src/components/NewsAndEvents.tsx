@@ -16,6 +16,7 @@ const events = [
             "Join us for an exciting annual day filled with performances, art exhibitions, and fun activities by our little stars!",
         image:
             "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?q=80&w=800&auto=format&fit=crop",
+        alt: "Children performing during the colorful Annual Day Celebration at Zeeque Preschool, Kerala.",
     },
     {
         title: "Parent-Teacher Conference",
@@ -27,6 +28,7 @@ const events = [
             "An opportunity for parents and teachers to discuss child development, progress reports, and upcoming curriculum plans.",
         image:
             "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
+        alt: "Parents and teachers discussing child development securely at our leading Kerala preschool.",
     },
     {
         title: "Little Artists Exhibition",
@@ -38,6 +40,7 @@ const events = [
             "Watch our young learners showcase their creativity through paintings, crafts, and collaborative art projects.",
         image:
             "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop",
+        alt: "Young learners showcasing creative paintings at the Zeeque Islamic Montessori art exhibition.",
     },
 ];
 
@@ -95,7 +98,7 @@ export default function NewsAndEvents() {
                                 <div className="relative h-52 overflow-hidden">
                                     <Image
                                         src={event.image}
-                                        alt={event.title}
+                                        alt={event.alt}
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />

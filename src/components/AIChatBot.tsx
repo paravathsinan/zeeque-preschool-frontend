@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot } from "lucide-react";
+import { MessageCircle, X, Send, Bot, Volume2, VolumeX } from "lucide-react";
 
 interface Message {
     id: number;
@@ -28,7 +28,34 @@ export default function AIChatBot() {
     const [showPopup, setShowPopup] = useState(false);
     const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
     const [inputText, setInputText] = useState("");
+    const [isMuted, setIsMuted] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    // Audio refs
+    const sendSound = useRef<HTMLAudioElement | null>(null);
+    const receiveSound = useRef<HTMLAudioElement | null>(null);
+
+    useEffect(() => {
+        // Initialize audio objects with softer, standard messaging pop sounds
+        sendSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3'); // soft click/send pop
+        receiveSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3'); // soft ping/receive pop
+    }, []);
+
+    const playSound = useCallback((type: 'send' | 'receive') => {
+        if (isMuted) return;
+
+        try {
+            if (type === 'send' && sendSound.current) {
+                sendSound.current.currentTime = 0;
+                sendSound.current.play().catch(e => console.log('Audio play failed:', e));
+            } else if (type === 'receive' && receiveSound.current) {
+                receiveSound.current.currentTime = 0;
+                receiveSound.current.play().catch(e => console.log('Audio play failed:', e));
+            }
+        } catch (error) {
+            console.log('Audio playback error', error);
+        }
+    }, [isMuted]);
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -41,15 +68,17 @@ export default function AIChatBot() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowPopup(true);
-        }, 2000);
+        }, 3000);
         return () => clearTimeout(timer);
     }, []);
 
     const handleQuickAction = (action: typeof quickActions[0]) => {
+        playSound('send');
         const userMsg: Message = { id: Date.now(), text: action.label, isBot: false };
         setMessages((prev) => [...prev, userMsg]);
 
         setTimeout(() => {
+            playSound('receive');
             const botMsg: Message = { id: Date.now() + 1, text: action.response, isBot: true };
             setMessages((prev) => [...prev, botMsg]);
         }, 600);
@@ -57,11 +86,13 @@ export default function AIChatBot() {
 
     const handleSend = () => {
         if (!inputText.trim()) return;
+        playSound('send');
         const userMsg: Message = { id: Date.now(), text: inputText, isBot: false };
         setMessages((prev) => [...prev, userMsg]);
         setInputText("");
 
         setTimeout(() => {
+            playSound('receive');
             const botMsg: Message = {
                 id: Date.now() + 1,
                 text: "Thanks for your message! Our team will get back to you shortly. In the meantime, feel free to use the quick action buttons above for instant answers.",
@@ -81,7 +112,7 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="fixed bottom-[6.5rem] right-8 z-[100] w-[360px] h-[480px] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"
+                        className="fixed bottom-8 right-8 z-[110] w-[360px] h-[480px] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"
                     >
                         {/* Header */}
                         <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#7c3aed] p-5 flex items-center gap-3 shrink-0">
@@ -95,12 +126,25 @@ export default function AIChatBot() {
                                     <span className="text-white/70 text-xs font-body">Online</span>
                                 </div>
                             </div>
-                            <button
-                                onClick={() => setIsOpen(false)}
-                                className="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
-                            >
-                                <X className="w-4 h-4 text-white" />
-                            </button>
+                            <div className="flex items-center gap-1">
+                                <button
+                                    onClick={() => setIsMuted(!isMuted)}
+                                    className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
+                                    title={isMuted ? "Unmute sounds" : "Mute sounds"}
+                                >
+                                    {isMuted ? (
+                                        <VolumeX className="w-4 h-4 text-white/80" />
+                                    ) : (
+                                        <Volume2 className="w-4 h-4 text-white/80" />
+                                    )}
+                                </button>
+                                <button
+                                    onClick={() => setIsOpen(false)}
+                                    className="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
+                                >
+                                    <X className="w-4 h-4 text-white" />
+                                </button>
+                            </div>
                         </div>
 
                         {/* Messages */}
@@ -176,7 +220,7 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: 10, transition: { duration: 0.2 } }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                        className="fixed bottom-[104px] right-8 z-[90] cursor-pointer group/tooltip perspective-1000"
+                        className="fixed bottom-[114px] right-8 z-[110] cursor-pointer group/tooltip perspective-1000"
                         onClick={() => {
                             setIsOpen(true);
                             setShowPopup(false);
@@ -185,17 +229,14 @@ export default function AIChatBot() {
                         <motion.div
                             animate={{ y: [0, -6, 0] }}
                             transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                            className="relative bg-white/95 dark:bg-slate-800/95 backdrop-blur-md p-3 pr-10 rounded-[22px] shadow-[0_12px_40px_-8px_rgba(0,0,0,0.2)] dark:shadow-[0_12px_40px_-8px_rgba(0,0,0,0.6)] border border-white/50 dark:border-slate-700/50 flex items-center gap-3.5 w-max max-w-[280px] group-hover/tooltip:shadow-[0_16px_40px_-8px_rgba(0,0,0,0.25)] transition-shadow duration-300"
+                            className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl p-4 pr-12 rounded-[24px] shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border border-white/40 dark:border-slate-700/40 flex items-start gap-4 w-max max-w-[340px] group-hover/tooltip:shadow-[0_8px_32px_0_rgba(31,38,135,0.25)] transition-all duration-300"
                         >
-                            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#4DB8FF] to-[#3A95E4] flex items-center justify-center shrink-0 shadow-inner">
-                                <Bot className="w-5 h-5 text-white" />
-                            </div>
-                            <div className="flex flex-col">
-                                <span className="text-[14px] font-bold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-0.5">
+                            <div className="flex flex-col mt-0.5">
+                                <span className="text-[15px] font-extrabold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-1">
                                     Have doubts?
                                 </span>
-                                <span className="text-[12px] text-gray-500 dark:text-gray-400 font-body leading-tight">
-                                    Ask our AI assistant
+                                <span className="text-[13px] text-gray-600 dark:text-gray-300 font-body leading-relaxed">
+                                    Ask <strong className="font-bold text-gray-800 dark:text-white">Zeeque AI Assistant</strong> about our admissions, trilingual programs, or fee structures.
                                 </span>
                             </div>
 
@@ -204,57 +245,46 @@ export default function AIChatBot() {
                                     e.stopPropagation();
                                     setShowPopup(false);
                                 }}
-                                className="absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center text-gray-400 hover:text-gray-700 hover:bg-gray-100 dark:hover:text-gray-200 dark:hover:bg-slate-700 transition-colors"
+                                className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 bg-white/40 hover:bg-white/80 dark:text-gray-300 dark:hover:text-white dark:bg-slate-700/40 dark:hover:bg-slate-700/80 transition-colors backdrop-blur-md border border-white/30 dark:border-slate-600/30"
                                 aria-label="Close popup"
                             >
                                 <X className="w-4 h-4" />
                             </button>
 
                             {/* Triangle Pointer pointing down towards the FAB */}
-                            <div className="absolute -bottom-2 right-[22px] w-4 h-4 bg-white/95 dark:bg-slate-800/95 transform rotate-45 shadow-[4px_4px_10px_rgba(0,0,0,0.02)] border-b border-r border-white/50 dark:border-slate-700/50 backdrop-blur-md"></div>
+                            <div className="absolute -bottom-2 right-[22px] w-4 h-4 bg-white/50 dark:bg-slate-800/50 transform rotate-45 border-b border-r border-white/40 dark:border-slate-700/40 backdrop-blur-xl"></div>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Floating Button */}
-            <motion.button
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-                whileHover={{ scale: 1.1, translateY: -3 }}
-                whileTap={{ scale: 0.9 }}
-                onClick={() => {
-                    setIsOpen(!isOpen);
-                    setShowPopup(false);
-                }}
-                className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(77,184,255,0.4)] hover:shadow-[0_12px_40px_rgba(77,184,255,0.6)] cursor-pointer group overflow-hidden border-2 border-white/20"
-                aria-label="Open AI chat"
-            >
-                {/* Pulse ring */}
+            {/* Floating Button or Chat Popup */}
+            <AnimatePresence>
                 {!isOpen && (
-                    <span className="absolute inset-0 rounded-full animate-ping bg-white/40" style={{ animationDuration: "2.5s" }} />
-                )}
+                    <motion.button
+                        key="fab"
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0, transition: { duration: 0.2 } }}
+                        transition={{ delay: 1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        whileHover={{ scale: 1.1, translateY: -3 }}
+                        whileTap={{ scale: 0.9 }}
+                        onClick={() => {
+                            setIsOpen(true);
+                            setShowPopup(false);
+                        }}
+                        className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(77,184,255,0.4)] hover:shadow-[0_12px_40px_rgba(77,184,255,0.6)] cursor-pointer group overflow-hidden border-2 border-white/20"
+                        aria-label="Open AI chat"
+                    >
+                        {/* Pulse ring */}
+                        <span className="absolute inset-0 rounded-full animate-ping bg-white/40" style={{ animationDuration: "2.5s" }} />
 
-                {/* Shimmer sweep */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out" />
+                        {/* Shimmer sweep */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out" />
 
-                {/* Inner glass ring */}
-                <div className="absolute inset-[3px] rounded-full border border-white/15" />
+                        {/* Inner glass ring */}
+                        <div className="absolute inset-[3px] rounded-full border border-white/15" />
 
-                <AnimatePresence mode="wait">
-                    {isOpen ? (
-                        <motion.div
-                            key="close"
-                            initial={{ rotate: -90, opacity: 0 }}
-                            animate={{ rotate: 0, opacity: 1 }}
-                            exit={{ rotate: 90, opacity: 0 }}
-                            transition={{ duration: 0.2 }}
-                            className="relative z-10"
-                        >
-                            <X className="w-6 h-6" />
-                        </motion.div>
-                    ) : (
                         <motion.div
                             key="open"
                             initial={{ rotate: 90, opacity: 0 }}
@@ -265,9 +295,9 @@ export default function AIChatBot() {
                         >
                             <MessageCircle className="w-6 h-6" />
                         </motion.div>
-                    )}
-                </AnimatePresence>
-            </motion.button>
+                    </motion.button>
+                )}
+            </AnimatePresence>
         </>
     );
 }

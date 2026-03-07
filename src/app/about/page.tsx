@@ -279,13 +279,13 @@ export default function AboutPage() {
                     >
                         <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
-                                <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Children in classroom" fill className="object-cover" />
+                                <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Children engaging in group activities in a spacious ZeeQue Preschool classroom in Kerala." fill className="object-cover" />
                             </div>
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
-                                <Image src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG" alt="Children reading" fill className="object-cover" />
+                                <Image src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG" alt="Early learners enjoying a reading session at our Islamic Montessori preschool in Kerala." fill className="object-cover" />
                             </div>
                             <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
-                                <Image src="/images/gallery/page-title.jpg" alt="Kids playing together" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                <Image src="/images/gallery/page-title.jpg" alt="Happy kids running and playing together outdoors at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
                                     <span className="text-white font-heading font-bold text-lg">Where Every Child Shines ✨</span>
                                 </div>
@@ -334,16 +334,19 @@ export default function AboutPage() {
                                 title: "Learn Through Play",
                                 description: "Children acquire life skills naturally through structured and free play at their own pace, building confidence and curiosity.",
                                 image: "/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG",
+                                alt: "Children acquiring life skills through play at ZeeQue Preschool in Kerala.",
                             },
                             {
                                 title: "Creative Sessions",
                                 description: "Every day is fun-filled with creative, engaging sessions focusing on personality development, art, and hands-on exploration.",
                                 image: "/images/gallery/gallery photos/RYZ03180.JPG",
+                                alt: "Children participating in creative arts and hands-on exploration in Kerala.",
                             },
                             {
                                 title: "Multilingual Education",
                                 description: "Children are trained to communicate, read, and write in Arabic, English, and Malayalam — because the limit of language is the limit of the world.",
                                 image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
+                                alt: "Students learning languages in a vibrant classroom at ZeeQue Preschool in Kerala.",
                             },
                         ].map((item, i) => (
                             <motion.div
@@ -357,7 +360,7 @@ export default function AboutPage() {
                             >
                                 <Image
                                     src={item.image}
-                                    alt={item.title}
+                                    alt={item.alt}
                                     fill
                                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                                 />
@@ -594,7 +597,7 @@ export default function AboutPage() {
                             <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
                                 <Image
                                     src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1000&auto=format&fit=crop"
-                                    alt="Teachers with children"
+                                    alt="Dedicated ZeeQue mentors interacting joyfully with preschool children in Kerala."
                                     fill
                                     className="object-cover"
                                 />

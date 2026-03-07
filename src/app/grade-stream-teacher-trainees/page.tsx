@@ -41,11 +41,10 @@ export default function GradeStreamTeacherTraineesPage() {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 z-0">
                     <Image
-                        src="/images/gallery/page-title.jpg"
-                        alt="Zeeque Preschool Building"
+                        src="/images/gallery/IMG_5740.JPG"
+                        alt="Modern exterior of Zeeque Preschool building in Kozhikode, Kerala."
                         fill
                         className="object-cover"
-                        priority
                     />
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
                 </div>
@@ -220,7 +219,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
                                             />
-                                            <Image src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width={20} height={20} alt="WhatsApp" className="absolute right-6 top-1/2 -translate-y-1/2 opacity-40" />
+                                            <Image src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width={20} height={20} alt="WhatsApp contact icon for grade stream teacher trainee queries at Zeeque Preschool Kerala" className="absolute right-6 top-1/2 -translate-y-1/2 opacity-40" />
                                         </div>
                                     </div>
 

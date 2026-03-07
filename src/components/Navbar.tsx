@@ -111,7 +111,7 @@ export default function Navbar() {
                     <Link href="/" className="flex items-center gap-2 shrink-0">
                         <Image
                             src="/images/logo/logo-new.svg"
-                            alt="Zeeque Logo"
+                            alt="Zeeque Preschool - Islamic Studies & Montessori Education in Kozhikode, Kerala."
                             width={110}
                             height={30}
                             className="object-contain"

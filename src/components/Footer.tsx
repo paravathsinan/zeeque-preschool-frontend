@@ -41,7 +41,7 @@ export default function Footer() {
                             <Link href="/" className="inline-block mb-6">
                                 <Image
                                     src="/images/logo/logo-new.svg"
-                                    alt="Zeeque Preschool"
+                                    alt="Zeeque Preschool - Islamic Studies & Montessori Education in Kozhikode, Kerala."
                                     width={140}
                                     height={55}
                                     className="object-contain"

@@ -172,7 +172,7 @@ export default function ProgramsPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG" alt="Children in kindergarten" fill className="object-cover" />
+                                <Image src="/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG" alt="Happy toddlers engaging in Montessori activities at Zeeque Preschool in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -left-3 bg-[#0fb85c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -276,7 +276,7 @@ export default function ProgramsPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="Primary school classroom" fill className="object-cover" />
+                                <Image src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="Bright and spacious primary school classroom setup at Zeeque Preschool Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0052ff]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#0052ff] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -399,7 +399,7 @@ export default function ProgramsPage() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="/images/side-visuals/pep_side_visual.png" alt="Parents and children" fill className="object-cover" />
+                                <Image src="/images/side-visuals/pep_side_visual.png" alt="Parents actively participating with their children in the preschool environment at Zeeque Preschool Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#fbaf01]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#fbaf01] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">

@@ -23,7 +23,7 @@ const steps = [
     },
     {
         title: "Open Your Zeeque Preschool Franchise",
-        description: "Partner with us to create and grow your own trusted preschool.",
+        description: "Join 152+ successful branches to grow your own trusted preschool.",
         buttonText: "Contact Now",
         buttonHref: "https://franchise.zeeque.in/",
         gradient: "from-[#10b981] to-[#34d399]",

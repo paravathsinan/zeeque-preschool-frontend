@@ -14,7 +14,7 @@ export default function WhatsAppButton() {
         >
             <Image
                 src="/images/icon/whatsapp-svgrepo-com.svg"
-                alt="WhatsApp"
+                alt="Contact Zeeque Preschool Kozhikode instantly via WhatsApp."
                 width={56}
                 height={56}
                 className="w-full h-full"

@@ -60,6 +60,7 @@ const newsEvents = [
         description: "Join us for a spectacular showcase of talent, creativity, and achievements from our little stars.",
         color: "#e83e8c",
         image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop",
+        alt: "Kids performing on stage at ZeeQue Preschool Annual Day celebration in Kerala.",
     },
     {
         title: "ZeeQue Fest – Fun & Learning",
@@ -67,6 +68,7 @@ const newsEvents = [
         description: "A day filled with games, competitions, art exhibitions, and live performances by our students.",
         color: "#0052ff",
         image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
+        alt: "Children participating in fun activities during ZeeQue Fest in Kerala.",
     },
     {
         title: "Parent-Teacher Meeting",
@@ -74,6 +76,7 @@ const newsEvents = [
         description: "An opportunity for parents to discuss their child's progress and development with our mentors.",
         color: "#0fb85c",
         image: "/images/gallery/actiivites/659cf71996662425490851jpeg.jpg",
+        alt: "Parents and teachers discussing child progress at ZeeQue Preschool in Kerala.",
     },
     {
         title: "Summer Camp Registration Open",
@@ -81,6 +84,7 @@ const newsEvents = [
         description: "Exciting summer camp with art, sports, nature exploration, and creative workshops for kids.",
         color: "#fbaf01",
         image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=600&auto=format&fit=crop",
+        alt: "Kids exploring nature during the ZeeQue Preschool Summer Camp in Kerala.",
     },
 ];
 
@@ -346,7 +350,7 @@ export default function AdmissionPage() {
                                 <div className="relative h-44 overflow-hidden">
                                     <Image
                                         src={event.image}
-                                        alt={event.title}
+                                        alt={event.alt}
                                         fill
                                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 285px"
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"

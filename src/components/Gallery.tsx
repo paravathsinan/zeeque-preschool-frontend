@@ -7,16 +7,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 const galleryImages = [
-    { src: "/images/gallery/gallery photos/IMG_5768 - Copy.JPG", alt: "Kids group activity" },
-    { src: "/images/gallery/gallery photos/IMG_5812 - Copy.JPG", alt: "Classroom learning" },
-    { src: "/images/gallery/gallery photos/IMG_5928 - Copy.JPG", alt: "Creative play" },
-    { src: "/images/gallery/659cf80087c4f343934456jpg.jpg", alt: "Art and crafts" },
-    { src: "/images/gallery/659cf8008ca94809301637jpg.jpg", alt: "Outdoor fun" },
-    { src: "/images/gallery/659cf8008ef6f279072207jpg.jpg", alt: "Reading time" },
-    { src: "/images/gallery/659cf80091901738547727jpg.jpg", alt: "Music class" },
-    { src: "/images/gallery/659cf80093641587912646jpg.jpg", alt: "Sports day" },
-    { src: "/images/gallery/659cf800960be985886235jpg.jpg", alt: "Science exploration" },
-    { src: "/images/gallery/659cf8009863e170741363jpg.jpg", alt: "Fun moments" },
+    { src: "/images/gallery/gallery photos/IMG_5768 - Copy.JPG", alt: "Preschool children engaging in group activities at our Islamic Montessori in Kozhikode, Kerala." },
+    { src: "/images/gallery/gallery photos/IMG_5812 - Copy.JPG", alt: "Students participating in interactive classroom learning at Zeeque Preschool in Kerala." },
+    { src: "/images/gallery/gallery photos/IMG_5928 - Copy.JPG", alt: "Toddlers enjoying creative play time in our safe preschool environment in Kozhikode, Kerala." },
+    { src: "/images/gallery/659cf80087c4f343934456jpg.jpg", alt: "Kids expressing themselves through arts and crafts at our Kerala Montessori preschool." },
+    { src: "/images/gallery/659cf8008ca94809301637jpg.jpg", alt: "Happy children having outdoor fun in the structured play area at Zeeque Preschool." },
+    { src: "/images/gallery/659cf8008ef6f279072207jpg.jpg", alt: "Young students focusing during reading time in our dedicated learning spaces in Kozhikode." },
+    { src: "/images/gallery/659cf80091901738547727jpg.jpg", alt: "Children experiencing joyful music class activities at our top-rated Kerala preschool." },
+    { src: "/images/gallery/659cf80093641587912646jpg.jpg", alt: "Kids participating actively in Sports day events at Zeeque Islamic preschool." },
+    { src: "/images/gallery/659cf800960be985886235jpg.jpg", alt: "Students engaging in hands-on science exploration at our modern Kerala preschool facility." },
+    { src: "/images/gallery/659cf8009863e170741363jpg.jpg", alt: "Joyful fun moments captured at Zeeque Preschool in Kozhikode, Kerala." },
 ];
 
 export default function Gallery() {

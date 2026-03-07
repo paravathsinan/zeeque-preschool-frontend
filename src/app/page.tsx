@@ -1,4 +1,4 @@
-﻿import TopHeader from "@/components/TopHeader";
+import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ChooseNextStep from "@/components/ChooseNextStep";
@@ -7,7 +7,9 @@ import OurFeatures from "@/components/OurFeatures";
 import StoriesOfChange from "@/components/StoriesOfChange";
 import NewsAndEvents from "@/components/NewsAndEvents";
 import Gallery from "@/components/Gallery";
+import StatsSection from "@/components/StatsSection";
 import Footer from "@/components/Footer";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
@@ -34,6 +36,7 @@ export default function Home() {
       <StoriesOfChange />
       <NewsAndEvents />
       <Gallery />
+      <StatsSection />
       <Footer />
     </main>
   );

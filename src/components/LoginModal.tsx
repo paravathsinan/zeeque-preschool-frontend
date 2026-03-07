@@ -295,7 +295,7 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignIn }: LoginM
                             {/* Stock photo of teamwork */}
                             <Image
                                 src="/images/gallery/page-title.jpg"
-                                alt="Team collaborating"
+                                alt="Dedicated staff collaborating to improve early education at Zeeque Preschool, Kerala."
                                 fill
                                 className="object-cover blur-[1px] scale-[1.02]"
                                 priority

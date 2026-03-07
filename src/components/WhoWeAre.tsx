@@ -51,7 +51,7 @@ export default function WhoWeAre() {
 
                     {/* Abstract Hand-drawn style decorative kids (Left Bottom) */}
                     <div className="absolute -bottom-10 -left-10 lg:-left-20 xl:-left-40 hidden lg:block w-64 h-64 pointer-events-none opacity-80 z-[-1]">
-                        <Image src="/images/shape/kindergarden-shape3.png" alt="Decoration" fill className="object-contain" />
+                        <Image src="/images/shape/kindergarden-shape3.png" alt="Abstract hand-drawn decoration at Zeeque Preschool in Kozhikode." fill className="object-contain" />
                     </div>
                 </motion.div>
 
@@ -71,7 +71,7 @@ export default function WhoWeAre() {
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
                             <Image
                                 src="/images/gallery/gallery photos/IMG_5316.JPG"
-                                alt="Children reading"
+                                alt="Young students reading books together in the bright Zeeque Preschool library, Kerala."
                                 fill
                                 className="object-cover"
                             />
@@ -81,7 +81,7 @@ export default function WhoWeAre() {
                         <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-4 sm:translate-y-8">
                             <Image
                                 src="/images/gallery/gallery photos/IMG_5246.JPG"
-                                alt="Children learning"
+                                alt="Kids engaged in interactive learning at our Islamic Montessori preschool in Kerala."
                                 fill
                                 className="object-cover"
                             />

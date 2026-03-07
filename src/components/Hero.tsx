@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 const heroImages = [
-    "/images/bg/hero-section.jpg",
     "/images/gallery/gallery photos/IMG_5246.JPG",
     "/images/gallery/gallery photos/IMG_5282.JPG",
     "/images/gallery/gallery photos/IMG_5316.JPG",
@@ -41,7 +40,7 @@ export default function Hero() {
 
             <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                 {/* Bottom Cloud/Wavy pattern can be an SVG or banner shape */}
-                <Image src="/images/shape/banner-shape6.png" alt="Clouds" fill className="object-cover object-bottom" />
+                <Image src="/images/shape/banner-shape6.png" alt="Decorative cloud pattern for Zeeque Preschool website Kerala." fill className="object-cover object-bottom" />
             </div>
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-20 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left">
@@ -86,7 +85,7 @@ export default function Hero() {
 
                         <div className="flex items-center gap-3">
                             <div className="relative group cursor-pointer inline-flex">
-                                <Image src="/images/icon/banner-icon1.png" alt="Phone" width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
+                                <Image src="/images/icon/banner-icon1.png" alt="Contact icon to reach admission counselor at Zeeque Preschool Kerala." width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
                             </div>
                             <div className="flex flex-col justify-center text-left">
                                 <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Admission Counsellor</span>
@@ -130,7 +129,7 @@ export default function Hero() {
                                 >
                                     <Image
                                         src={heroImages[currentImageIndex]}
-                                        alt="Child Learning"
+                                        alt="Happy child engaged in fun learning activities at Zeeque Preschool in Kozhikode, Kerala."
                                         fill
                                         className="object-cover"
                                         priority={currentImageIndex === 0}

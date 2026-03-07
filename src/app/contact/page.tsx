@@ -76,7 +76,7 @@ export default function ContactPage() {
                             <div className="relative aspect-[4/3] rounded-[40px] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
                                 <Image
                                     src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop"
-                                    alt="Contact Zeeque Preschool"
+                                    alt="Friendly customer support ready to help parents with ZeeQue Preschool admissions in Kerala."
                                     fill
                                     className="object-cover"
                                 />
