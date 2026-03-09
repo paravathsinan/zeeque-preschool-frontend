@@ -23,7 +23,7 @@ export default function Home() {
         {/* Constrained Navbar Wrapper with Hero Background Color */}
         <div className="w-full bg-[#FFE7B1] dark:bg-[#0B1023] transition-colors duration-300">
           {/* Constrained Navbar */}
-          <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800/50 transition-colors duration-300 relative z-10">
+          <div className="max-w-[1140px] mx-auto relative z-10 transition-colors duration-300">
             <Navbar />
           </div>
         </div>

@@ -100,8 +100,10 @@ export default function AdmissionPage() {
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
-                    <Navbar />
+                <div className="w-full bg-[#fffcf2] dark:bg-slate-900 transition-colors duration-300">
+                    <div className="max-w-[1140px] mx-auto relative z-10">
+                        <Navbar />
+                    </div>
                 </div>
             </div>
 
@@ -278,7 +280,7 @@ export default function AdmissionPage() {
                             <div className="absolute bottom-0 left-0 w-24 h-24 rounded-tr-[60px] bg-[#ef4225]/5" />
 
                             <div className="relative z-10">
-                                <div className="text-4xl mb-4">📞</div>
+                                <div className="text-4xl mb-4"></div>
                                 <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl mb-4">
                                     Have Questions About Fees?
                                 </h3>

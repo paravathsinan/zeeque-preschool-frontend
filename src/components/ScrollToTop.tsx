@@ -6,9 +6,13 @@ import { ArrowUp } from "lucide-react";
 
 export default function ScrollToTop() {
     const [isVisible, setIsVisible] = useState(false);
+    const [progress, setProgress] = useState(0);
 
-    // Show button when page is scrolled down
     const toggleVisibility = () => {
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progressHeight = (window.scrollY / totalHeight) * 100;
+        setProgress(progressHeight);
+
         if (window.scrollY > 300) {
             setIsVisible(true);
         } else {
@@ -16,8 +20,6 @@ export default function ScrollToTop() {
         }
     };
 
-    // Set the top cordinate to 0
-    // make scrolling smooth
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
@@ -30,6 +32,10 @@ export default function ScrollToTop() {
         return () => window.removeEventListener("scroll", toggleVisibility);
     }, []);
 
+    const radius = 24;
+    const circumference = 2 * Math.PI * radius;
+    const offset = circumference - (progress / 100) * circumference;
+
     return (
         <AnimatePresence>
             {isVisible && (
@@ -37,28 +43,51 @@ export default function ScrollToTop() {
                     initial={{ opacity: 0, scale: 0.5, y: 20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     exit={{ opacity: 0, scale: 0.5, y: 20 }}
-                    whileHover={{
-                        scale: 1.1,
-                        boxShadow: "0 10px 25px -5px rgba(239, 66, 37, 0.4)",
-                        translateY: -5
-                    }}
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={scrollToTop}
-                    className="fixed bottom-[6.5rem] right-8 z-[100] w-14 h-14 bg-primary text-white rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 cursor-pointer group transition-colors overflow-hidden"
+                    className="fixed bottom-[6.5rem] right-8 z-[100] w-14 h-14 flex items-center justify-center cursor-pointer group"
                     aria-label="Scroll to top"
                 >
-                    {/* Animated background glow */}
-                    <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                    <svg className="absolute w-full h-full -rotate-90" viewBox="0 0 60 60">
+                        {/* Background Circle */}
+                        <circle
+                            cx="30"
+                            cy="30"
+                            r={radius}
+                            fill="transparent"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            className="text-gray-100 dark:text-slate-800"
+                        />
+                        {/* Progress Circle */}
+                        <motion.circle
+                            cx="30"
+                            cy="30"
+                            r={radius}
+                            fill="transparent"
+                            stroke="#ef4225"
+                            strokeWidth="3"
+                            strokeDasharray={circumference}
+                            animate={{ strokeDashoffset: offset }}
+                            transition={{ type: "spring", damping: 20, stiffness: 100 }}
+                            strokeLinecap="round"
+                            className="drop-shadow-[0_0_5px_rgba(239,66,37,0.3)]"
+                        />
+                    </svg>
 
-                    <ArrowUp className="w-6 h-6 relative z-10 group-hover:animate-bounce-subtle" />
+                    {/* Arrow Icon */}
+                    <div className="relative z-10 flex items-center justify-center group-hover:animate-bounce-subtle">
+                        <ArrowUp className="w-6 h-6 text-primary stroke-[3]" />
+                    </div>
 
                     <style jsx global>{`
             @keyframes bounce-subtle {
               0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-3px); }
+              50% { transform: translateY(-4px); }
             }
             .group-hover\\:animate-bounce-subtle {
-              animation: bounce-subtle 0.6s ease-in-out infinite;
+              animation: bounce-subtle 0.8s ease-in-out infinite;
             }
           `}</style>
                 </motion.button>

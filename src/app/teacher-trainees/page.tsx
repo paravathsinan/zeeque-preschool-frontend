@@ -29,20 +29,17 @@ export default function TeacherTraineesPage() {
                 <div className="hidden lg:block w-full bg-white dark:bg-slate-800">
                     <TopHeader />
                 </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800">
-                    <Navbar />
+                <div className="w-full bg-[#FFFCF2] dark:bg-slate-950 transition-colors duration-300">
+                    <div className="max-w-[1140px] mx-auto relative z-10 transition-colors duration-300">
+                        <Navbar />
+                    </div>
                 </div>
             </div>
 
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-20 md:py-32 overflow-hidden">
-                {/* Background Image with Overlay */}
-                <div className="absolute inset-0 z-0">
-                    <Image src="/images/gallery/IMG_5740.JPG" fill className="object-cover" alt="Modern exterior of Zeeque Preschool building in Kozhikode, Kerala." />
-                    <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-                </div>
+            <section className="relative py-12 md:py-32 overflow-hidden">
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div
@@ -51,16 +48,16 @@ export default function TeacherTraineesPage() {
                         transition={{ duration: 0.8 }}
                     >
                         {/* Breadcrumbs */}
-                        <div className="flex items-center justify-center gap-2 mb-6 text-sm font-medium text-gray-300">
+                        <div className="flex items-center justify-center gap-2 mb-6 text-sm font-medium text-gray-500 dark:text-gray-400">
                             <Link href="/careers" className="hover:text-primary transition-colors">Careers</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-500" />
-                            <span className="text-primary">Teacher Trainees</span>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                            <span className="text-primary font-bold">Teacher Trainees</span>
                         </div>
 
-                        <h1 className="text-4xl md:text-6xl font-heading font-extrabold text-white mb-4 tracking-tight">
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-extrabold text-[#222] dark:text-white mb-4 tracking-tight">
                             TEACHER <span className="text-primary italic">TRAINEES</span>
                         </h1>
-                        <p className="text-gray-300 text-lg uppercase tracking-[0.2em] font-heading font-bold mb-2">
+                        <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg uppercase tracking-[0.1em] sm:tracking-[0.2em] font-heading font-bold mb-2">
                             [ TO BE FILLED BY THE CANDIDATE ]
                         </p>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
@@ -71,8 +68,8 @@ export default function TeacherTraineesPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Recruitment Form
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-32 relative">
-                <div className="max-w-[900px] mx-auto px-4 relative z-10">
+            <section className="py-12 lg:py-32 relative overflow-hidden">
+                <div className="max-w-[900px] mx-auto px-4 sm:px-6 relative z-10">
 
                     <motion.div
                         initial={{ opacity: 0, y: 40 }}
@@ -82,14 +79,14 @@ export default function TeacherTraineesPage() {
                         className="bg-white dark:bg-slate-900 rounded-[40px] shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-gray-100 dark:border-slate-800 overflow-hidden"
                     >
                         {/* Form Header */}
-                        <div className="bg-primary/5 dark:bg-primary/10 py-10 px-8 md:px-12 border-b border-dashed border-primary/20 text-center">
+                        <div className="bg-primary/5 dark:bg-primary/10 py-8 md:py-10 px-6 md:px-12 border-b border-dashed border-primary/20 text-center">
                             <h2 className="text-2xl md:text-3xl font-heading font-extrabold text-[#222] dark:text-white mb-2">
                                 Application Form
                             </h2>
-                            <p className="text-gray-500 dark:text-gray-400">Please provide accurate information for your trainee application.</p>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">Please provide accurate information for your trainee application.</p>
                         </div>
 
-                        <form className="p-8 md:p-12 space-y-12">
+                        <form className="p-6 md:p-12 space-y-8 md:space-y-12">
 
                             {/* Personal Details */}
                             <div className="space-y-6">
@@ -323,10 +320,10 @@ export default function TeacherTraineesPage() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="w-full bg-primary text-white font-heading font-extrabold text-xl py-6 rounded-3xl shadow-[0_10px_30px_rgba(232,62,140,0.3)] hover:shadow-[0_15px_40px_rgba(232,62,140,0.4)] transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden group relative"
+                                    className="w-full bg-primary text-white font-heading font-extrabold text-lg sm:text-xl py-5 sm:py-6 rounded-2xl sm:rounded-3xl shadow-[0_10px_30px_rgba(232,62,140,0.3)] hover:shadow-[0_15px_40px_rgba(232,62,140,0.4)] transition-all duration-300 flex items-center justify-center gap-3 overflow-hidden group relative"
                                 >
                                     <span className="relative z-10 uppercase tracking-wider">Submit Now</span>
-                                    <Send className="w-6 h-6 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                    <Send className="w-5 h-5 sm:w-6 sm:h-6 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
 
                                     {/* Animation overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer" />

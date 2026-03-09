@@ -71,7 +71,7 @@ export default function TopHeader() {
                 </div>
 
                 {/* Right Side: Actions & Social */}
-                <div className="flex items-center gap-6">
+                <div className="flex items-center gap-6 border-l border-gray-200 dark:border-gray-800 pl-6 ml-2">
                     {/* Social Links */}
                     <div className="flex items-center gap-4">
                         <Link href="https://www.facebook.com/zeequepreschool" target="_blank" rel="noopener noreferrer" className="text-primary hover:opacity-80 transition-opacity">
@@ -91,14 +91,16 @@ export default function TopHeader() {
                         </Link>
                         {/* Theme Toggle Button */}
                         {mounted && (
-                            <button
-                                onClick={toggleTheme}
-                                className="relative ml-2 w-8 h-8 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-110 overflow-hidden"
-                                aria-label="Toggle Theme"
-                            >
-                                <Sun className={`absolute w-4 h-4 transition-all duration-500 ${isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'}`} />
-                                <Moon className={`absolute w-4 h-4 transition-all duration-500 ${!isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
-                            </button>
+                            <div className="border-l border-gray-200 dark:border-gray-800 pl-4 ml-2">
+                                <button
+                                    onClick={toggleTheme}
+                                    className="relative w-8 h-8 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-110 overflow-hidden"
+                                    aria-label="Toggle Theme"
+                                >
+                                    <Sun className={`absolute w-4 h-4 transition-all duration-500 ${isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'}`} />
+                                    <Moon className={`absolute w-4 h-4 transition-all duration-500 ${!isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
+                                </button>
+                            </div>
                         )}
                     </div>
 

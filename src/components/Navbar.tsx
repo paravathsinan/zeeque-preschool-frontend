@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, ArrowRight, Menu, X, Sun, Moon, LogIn, Bell } from "lucide-react";
+import { ChevronDown, ArrowRight, Menu, X, Sun, Moon, LogIn, Bell, Facebook, Twitter, Instagram, Linkedin, Youtube } from "lucide-react";
 import { useState, useEffect } from "react";
 import LoginModal from "./LoginModal";
 import SignInModal from "./SignInModal";
@@ -74,6 +74,14 @@ export default function Navbar() {
         { name: "Contact", href: "/contact", hasDropdown: false },
     ];
 
+    const socialLinks = [
+        { icon: Facebook, href: "https://facebook.com/zeequepreschool" },
+        { icon: Instagram, href: "https://instagram.com/zeeque_preschool" },
+        { icon: Twitter, href: "https://twitter.com/markazonline" },
+        { icon: Linkedin, href: "https://linkedin.com/company/zeeque-preschool-network" },
+        { icon: Youtube, href: "https://youtube.com/zeequepreschool" },
+    ];
+
     const isLinkActive = (link: typeof navLinks[number]) => {
         if (link.href === "/" && pathname === "/") return true;
         if (link.href === "/" && pathname !== "/") return false;
@@ -94,9 +102,9 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="w-full bg-transparent relative z-50 transition-colors duration-300">
+            <nav className={`w-full bg-white dark:bg-transparent relative z-50 transition-all duration-300 shadow-sm border-b lg:border-none border-gray-100 dark:border-slate-800 ${isMobileMenuOpen ? 'rounded-b-0' : 'rounded-b-[40px]'}`}>
                 {/* Hero-style Dark Mode Background (Only visible in dark mode via opacity, or by using block/hidden) */}
-                <div className="absolute inset-x-0 inset-y-0 rounded-b-[40px] overflow-hidden pointer-events-none hidden dark:block">
+                <div className={`absolute inset-x-0 inset-y-0 overflow-hidden pointer-events-none hidden dark:block transition-all duration-300 ${isMobileMenuOpen ? 'rounded-b-0' : 'rounded-b-[40px]'}`}>
                     {/* Solid Base */}
                     <div className="absolute inset-0 bg-[#020618]" />
                     {/* Pure CSS Grid Overlay for premium texture */}
@@ -174,18 +182,6 @@ export default function Navbar() {
                             <LogIn className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
                         </button>
 
-                        {/* Mobile Theme Toggle */}
-                        {mounted && (
-                            <button
-                                onClick={toggleTheme}
-                                className="lg:hidden ml-2 w-10 h-10 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-105 overflow-hidden"
-                                aria-label="Toggle Theme"
-                            >
-                                <Sun className={`absolute w-5 h-5 transition-all duration-500 ${isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'}`} />
-                                <Moon className={`absolute w-5 h-5 transition-all duration-500 ${!isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
-                            </button>
-                        )}
-
                         {/* Mobile Menu Toggle */}
                         <button
                             className="lg:hidden ml-2 w-10 h-10 rounded-full bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-transform hover:scale-105"
@@ -252,14 +248,41 @@ export default function Navbar() {
                                 </div>
                             ))}
 
-                            <div className="mt-6 flex flex-col gap-4">
-                                <button
-                                    onClick={() => { setIsSignInModalOpen(true); setIsMobileMenuOpen(false); }}
-                                    className="flex items-center justify-center gap-2 w-full bg-[#ffb606] text-white py-3 rounded-2xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
-                                >
-                                    Login
-                                    <LogIn className="w-5 h-5 stroke-[2.5]" />
-                                </button>
+                            <div className="mt-8 flex flex-col gap-6">
+                                {/* Social Media Icons */}
+                                <div className="flex items-center justify-center gap-5 pt-2">
+                                    {socialLinks.map((social, index) => (
+                                        <Link
+                                            key={index}
+                                            href={social.href}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="w-10 h-10 rounded-full bg-gray-50 dark:bg-slate-800 flex items-center justify-center text-gray-400 hover:text-primary transition-all hover:scale-110"
+                                        >
+                                            <social.icon className="w-5 h-5" />
+                                        </Link>
+                                    ))}
+                                </div>
+
+                                <div className="flex items-center gap-3">
+                                    {mounted && (
+                                        <button
+                                            onClick={toggleTheme}
+                                            className="w-12 h-12 shrink-0 rounded-2xl bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-primary transition-all hover:scale-105 relative overflow-hidden"
+                                            aria-label="Toggle Theme"
+                                        >
+                                            <Sun className={`absolute w-5 h-5 transition-all duration-500 ${isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-0'}`} />
+                                            <Moon className={`absolute w-5 h-5 transition-all duration-500 ${!isDarkMode ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-0'}`} />
+                                        </button>
+                                    )}
+                                    <button
+                                        onClick={() => { setIsSignInModalOpen(true); setIsMobileMenuOpen(false); }}
+                                        className="flex-1 flex items-center justify-center gap-2 bg-[#ffb606] text-white py-3 rounded-2xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
+                                    >
+                                        Login
+                                        <LogIn className="w-5 h-5 stroke-[2.5]" />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
