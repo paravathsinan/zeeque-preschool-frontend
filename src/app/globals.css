@@ -55,7 +55,6 @@ h6 {
 
 ::-webkit-scrollbar-track {
   background: var(--background);
-  border-left: 1px solid #ffe8b3;
 }
 
 ::-webkit-scrollbar-thumb {

@@ -9,16 +9,16 @@ import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, Uplo
 import { useState, useRef, useEffect } from "react";
 
 const initialFolders = [
-    { name: "Admi. Design 2026", href: "#", owner: "pro", date: "Dec 13, 2025", initial: "P", color: "bg-green-600" },
-    { name: "Admission 2025-26", href: "#", owner: "pro", date: "Nov 25, 2024", initial: "P", color: "bg-green-600" },
-    { name: "Photos 2025", href: "#", owner: "pro", date: "Mar 6, 2025", initial: "P", color: "bg-green-600" },
-    { name: "Photos 2026", href: "#", owner: "pro", date: "Dec 16, 2025", initial: "P", color: "bg-green-600" },
-    { name: "rabeeu day", href: "#", owner: "Muhammedr...", date: "Aug 26, 2025", initial: "M", color: "bg-orange-400" },
-    { name: "Snap Book /Print File", href: "#", owner: "Muhammedr...", date: "Dec 25, 2025", initial: "M", color: "bg-orange-400" },
-    { name: "special days", href: "#", owner: "pro", date: "Jan 12, 2026", initial: "P", color: "bg-green-600" },
-    { name: "Sports Day", href: "#", owner: "pro", date: "Feb 20, 2026", initial: "P", color: "bg-green-600" },
-    { name: "ZeeQue Fest", href: "#", owner: "Muhammedr...", date: "Nov 15, 2025", initial: "M", color: "bg-orange-400" },
-    { name: "ZeeQue Logo", href: "#", owner: "pro", date: "Oct 5, 2025", initial: "P", color: "bg-green-600" },
+    { id: 1, name: "Admi. Design 2026", href: "#", owner: "pro", date: "Dec 13, 2025", initial: "P", color: "bg-blue-600" },
+    { id: 2, name: "Admission 2025-26", href: "#", owner: "pro", date: "Nov 25, 2024", initial: "P", color: "bg-blue-600" },
+    { id: 3, name: "Photos 2025", href: "#", owner: "pro", date: "Mar 6, 2025", initial: "P", color: "bg-blue-600" },
+    { id: 4, name: "Photos 2026", href: "#", owner: "pro", date: "Dec 16, 2025", initial: "P", color: "bg-blue-600" },
+    { id: 5, name: "rabeeu day", href: "#", owner: "Muhammedr...", date: "Aug 26, 2025", initial: "M", color: "bg-orange-400" },
+    { id: 6, name: "Snap Book /Print File", href: "#", owner: "Muhammedr...", date: "Dec 25, 2025", initial: "M", color: "bg-orange-400" },
+    { id: 7, name: "special days", href: "#", owner: "pro", date: "Jan 12, 2026", initial: "P", color: "bg-blue-600" },
+    { id: 8, name: "Sports Day", href: "#", owner: "pro", date: "Feb 20, 2026", initial: "P", color: "bg-blue-600" },
+    { id: 9, name: "ZeeQue Fest", href: "#", owner: "Muhammedr...", date: "Nov 15, 2025", initial: "M", color: "bg-orange-400" },
+    { id: 10, name: "ZeeQue Logo", href: "#", owner: "pro", date: "Oct 5, 2025", initial: "P", color: "bg-blue-600" },
 ];
 
 export default function DownloadsPage() {
@@ -26,17 +26,27 @@ export default function DownloadsPage() {
     const [showAddModal, setShowAddModal] = useState(false);
     const [newFolderName, setNewFolderName] = useState("");
     const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
-    const [openMenu, setOpenMenu] = useState<number | null>(null);
-    const [openFolder, setOpenFolder] = useState<number | null>(null);
+    const [openMenu, setOpenMenu] = useState<number | string | null>(null);
+    const [openFolder, setOpenFolder] = useState<number | string | null>(null);
     const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
     const [isExpanded, setIsExpanded] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    const [deletedFolder, setDeletedFolder] = useState<{ folder: { name: string; href: string }; index: number } | null>(null);
+    const [deletedFolder, setDeletedFolder] = useState<{ folder: typeof initialFolders[0]; index: number } | null>(null);
 
     const handleAddFolder = () => {
         if (newFolderName.trim()) {
-            setFolders([...folders, { name: newFolderName.trim(), href: "#" }]);
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+            setFolders([...folders, {
+                id: now.getTime(),
+                name: newFolderName.trim(),
+                href: "#",
+                owner: "Me",
+                date: dateStr,
+                initial: "U",
+                color: "bg-primary"
+            }]);
             setNewFolderName("");
             setUploadedFiles([]);
             setShowAddModal(false);
@@ -49,10 +59,12 @@ export default function DownloadsPage() {
         }
     };
 
-    const handleDeleteFolder = (index: number) => {
+    const handleDeleteFolder = (id: number | string) => {
+        const index = folders.findIndex(f => f.id === id);
+        if (index === -1) return;
         const folder = folders[index];
         setDeletedFolder({ folder, index });
-        setFolders(folders.filter((_, i) => i !== index));
+        setFolders(folders.filter(f => f.id !== id));
         setOpenMenu(null);
     };
 
@@ -112,17 +124,17 @@ export default function DownloadsPage() {
                         </div>
 
                         <div className="flex items-center justify-center gap-3 mb-4">
-                            <div className="bg-[#0fb85c]/10 p-3 rounded-2xl">
-                                <FileDown className="w-8 h-8 text-[#0fb85c]" />
+                            <div className="bg-primary/10 p-3 rounded-2xl">
+                                <FileDown className="w-8 h-8 text-primary" />
                             </div>
                         </div>
 
                         <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
                             Important{" "}
                             <span className="relative inline-block">
-                                <span className="text-[#0fb85c]">Downloads</span>
+                                <span className="text-primary">Downloads</span>
                                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#0fb85c" strokeWidth="3" strokeLinecap="round" />
+                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#ef4225" strokeWidth="3" strokeLinecap="round" />
                                 </svg>
                             </span>
                         </h1>
@@ -203,7 +215,7 @@ export default function DownloadsPage() {
 
                             <button
                                 onClick={() => setShowAddModal(true)}
-                                className="inline-flex items-center gap-2 bg-[#0fb85c] hover:bg-[#0a9e4e] text-white px-5 py-2.5 rounded-xl font-heading font-bold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-[#0fb85c]/25 active:scale-95"
+                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-heading font-bold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 active:scale-95"
                             >
                                 <Plus className="w-4 h-4" strokeWidth={2.5} />
                                 New Folder
@@ -231,9 +243,9 @@ export default function DownloadsPage() {
                             : "flex flex-col border-t border-gray-50 dark:border-slate-850"
                         }>
                             <AnimatePresence mode="popLayout">
-                                {folders.slice(0, isExpanded ? folders.length : 3).map((folder, index) => (
+                                {folders.slice(0, isExpanded ? folders.length : 3).map((folder) => (
                                     <motion.div
-                                        key={`${folder.name}-${index}`}
+                                        key={folder.id}
                                         initial={{ opacity: 0, scale: 0.95, y: 10 }}
                                         animate={{ opacity: 1, scale: 1, y: 0 }}
                                         exit={{ opacity: 0, scale: 0.95, y: -10 }}
@@ -242,7 +254,7 @@ export default function DownloadsPage() {
                                     >
                                         <div className="relative group">
                                             <button
-                                                onClick={() => setOpenFolder(index)}
+                                                onClick={() => setOpenFolder(folder.id)}
                                                 className={`group/btn flex items-center gap-4 bg-gray-50 dark:bg-slate-800/40 border border-gray-200/70 dark:border-slate-700/50 rounded-xl px-5 py-4 hover:bg-blue-50/60 dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-md transition-all duration-200 group/card w-full text-left ${viewMode === "list" ? "rounded-none border-x-0 border-t-0 border-b-gray-100 dark:border-b-slate-800 bg-transparent py-3.5 hover:bg-gray-100/50 dark:hover:bg-slate-800/80" : ""}`}
                                             >
                                                 <div className={viewMode === "list" ? "grid grid-cols-1 md:grid-cols-[1fr_200px_180px_120px] items-center w-full gap-4" : "flex items-center gap-4 flex-1"}>
@@ -281,7 +293,7 @@ export default function DownloadsPage() {
                                                 onClick={(e) => {
                                                     e.preventDefault();
                                                     e.stopPropagation();
-                                                    setOpenMenu(openMenu === index ? null : index);
+                                                    setOpenMenu(openMenu === folder.id ? null : folder.id);
                                                 }}
                                                 className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 hover:bg-gray-200/70 dark:hover:bg-slate-700 hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-200 opacity-0 group-hover:opacity-100"
                                             >
@@ -289,10 +301,10 @@ export default function DownloadsPage() {
                                             </button>
 
                                             {/* Dropdown menu */}
-                                            {openMenu === index && (
+                                            {openMenu === folder.id && (
                                                 <div className="absolute right-2 top-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-xl z-50 py-1.5 min-w-[140px]">
                                                     <button
-                                                        onClick={() => handleDeleteFolder(index)}
+                                                        onClick={() => handleDeleteFolder(folder.id)}
                                                         className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 font-body transition-colors"
                                                     >
                                                         Remove
@@ -316,7 +328,7 @@ export default function DownloadsPage() {
 
             {/* ═══════ Open Folder View Modal ═══════ */}
             <AnimatePresence>
-                {openFolder !== null && folders[openFolder] && (
+                {openFolder !== null && folders.find(f => f.id === openFolder) && (
                     <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -342,7 +354,7 @@ export default function DownloadsPage() {
                                 </button>
                                 <FolderOpen className="w-6 h-6 text-blue-500 fill-blue-200 dark:fill-blue-500/30" />
                                 <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg flex-1 truncate">
-                                    {folders[openFolder].name}
+                                    {folders.find(f => f.id === openFolder)?.name}
                                 </h3>
                                 <button
                                     onClick={() => setOpenFolder(null)}
@@ -401,8 +413,8 @@ export default function DownloadsPage() {
 
                             {/* Modal header */}
                             <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-2xl bg-[#0fb85c]/10 flex items-center justify-center">
-                                    <FolderPlus className="w-6 h-6 text-[#0fb85c]" />
+                                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
+                                    <FolderPlus className="w-6 h-6 text-secondary" />
                                 </div>
                                 <div>
                                     <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl">New Folder</h3>
@@ -418,7 +430,7 @@ export default function DownloadsPage() {
                                     value={newFolderName}
                                     onChange={(e) => setNewFolderName(e.target.value)}
                                     placeholder="Enter folder name..."
-                                    className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 text-[#222] dark:text-white font-body text-sm focus:outline-none focus:ring-2 focus:ring-[#0fb85c]/50 focus:border-[#0fb85c] transition-all placeholder:text-gray-400"
+                                    className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 text-[#222] dark:text-white font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-gray-400"
                                     autoFocus
                                     onKeyDown={(e) => { if (e.key === "Enter") handleAddFolder(); }}
                                 />
@@ -429,7 +441,7 @@ export default function DownloadsPage() {
                                 <label className="block font-heading font-bold text-sm text-gray-600 dark:text-gray-300 mb-2">Upload Files (optional)</label>
                                 <div
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="border-2 border-dashed border-gray-200 dark:border-slate-600 rounded-xl p-6 text-center cursor-pointer hover:border-[#0fb85c] hover:bg-[#0fb85c]/5 transition-all duration-200"
+                                    className="border-2 border-dashed border-gray-200 dark:border-slate-600 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all duration-200"
                                 >
                                     <Upload className="w-8 h-8 text-gray-300 dark:text-gray-600 mx-auto mb-2" />
                                     <p className="text-gray-400 dark:text-gray-500 font-body text-sm">
@@ -447,7 +459,7 @@ export default function DownloadsPage() {
                                     <div className="mt-3 space-y-1.5">
                                         {uploadedFiles.map((file, i) => (
                                             <div key={i} className="flex items-center gap-2 bg-gray-50 dark:bg-slate-700 rounded-lg px-3 py-2">
-                                                <FileDown className="w-4 h-4 text-[#0fb85c] flex-shrink-0" />
+                                                <FileDown className="w-4 h-4 text-primary flex-shrink-0" />
                                                 <span className="text-gray-600 dark:text-gray-300 font-body text-xs truncate">{file.name}</span>
                                                 <span className="text-gray-400 dark:text-gray-500 font-body text-xs ml-auto flex-shrink-0">
                                                     {(file.size / 1024).toFixed(0)} KB
@@ -469,7 +481,7 @@ export default function DownloadsPage() {
                                 <button
                                     onClick={handleAddFolder}
                                     disabled={!newFolderName.trim()}
-                                    className="flex-1 px-5 py-3 rounded-xl bg-[#0fb85c] hover:bg-[#0a9e4e] text-white font-heading font-bold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-[#0fb85c]/25 active:scale-95"
+                                    className="flex-1 px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-heading font-bold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary/25 active:scale-95"
                                 >
                                     Create Folder
                                 </button>
