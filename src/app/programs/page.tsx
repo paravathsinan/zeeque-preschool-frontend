@@ -11,7 +11,7 @@ import {
     Home, ChevronRight, Baby, Lightbulb, Award, Crown, Rocket,
     Brain, Shield, School, Clock, Calendar, CheckCircle2,
     Sparkles, BookHeart, Globe, HandHeart, Megaphone, Target,
-    TreePine, Flame, Palette, Music, Puzzle, Eye,
+    TreePine, Flame, Palette, Music, Puzzle, Eye, BookOpenCheck,
 } from "lucide-react";
 import type { Easing } from "framer-motion";
 
@@ -84,13 +84,13 @@ export default function ProgramsPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Programs Overview Cards
                ══════════════════════════════════ */}
-            <section className="py-16 md:py-20 lg:py-28 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-12 md:py-16 lg:py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block">📚</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-10">
                         <div className="text-5xl mb-4">🗺️</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Program <span className="text-[#7c3aed]">Ecosystem</span>
@@ -98,7 +98,7 @@ export default function ProgramsPage() {
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">A holistic learning ecosystem covering every stakeholder — children, teachers, and parents.</p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="flex flex-wrap justify-center gap-6">
                         {[
                             { title: "3 Year KG", subtitle: "Ages 3-6", desc: "Our flagship three-year kindergarten journey through LZQ, MZQ, and UZQ stages.", color: "#0fb85c", tag: "For Children" },
                             { title: "Grade Stream", subtitle: "Std I-IV", desc: "Zeeque Preschool English Medium Primary Madrasa — extending our quality education to primary grades.", color: "#0052ff", tag: "For Students" },
@@ -107,7 +107,7 @@ export default function ProgramsPage() {
                             { title: "PEP", subtitle: "Ongoing", desc: "Parent Empowerment Programme — keeping parents informed and involved in their child's growth.", color: "#fbaf01", tag: "For Parents" },
                         ].map((p, i) => (
                             <motion.div key={p.title} custom={i} variants={fadeUp}
-                                className="relative bg-white dark:bg-slate-800 rounded-[24px] overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] hover:-translate-y-2 transition-all duration-400 group">
+                                className="relative w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] bg-white dark:bg-slate-800 rounded-[24px] overflow-hidden border border-gray-100 dark:border-slate-700 hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.4)] hover:-translate-y-2 transition-all duration-400 group">
                                 {/* Left accent bar */}
                                 <div className="absolute left-0 top-0 bottom-0 w-1 group-hover:w-1.5 transition-all duration-300 rounded-r-full" style={{ backgroundColor: p.color }} />
                                 <div className="p-7 pl-8">
@@ -291,95 +291,143 @@ export default function ProgramsPage() {
             {/* ══════════════════════════════════
                 SECTION 5: Teacher Training Programs (Diploma + TTGS)
                ══════════════════════════════════ */}
-            <section className="py-20 lg:py-24 bg-gradient-to-r from-[#7c3aed] via-[#e83e8c] to-[#ef4225] relative overflow-hidden">
-                <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` }} />
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] text-5xl opacity-20">🎓</div>
-                    <div className="absolute bottom-10 right-[15%] text-4xl opacity-20">📖</div>
+            <section className="py-20 lg:py-28 bg-[#050b1e] relative overflow-hidden">
+                {/* Premium Background Effects */}
+                <div className="absolute inset-0">
+                    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_0%,transparent_70%)] opacity-50" />
+                    <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#7c3aed]/10 blur-[120px] rounded-full animate-pulse" />
+                    <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-[#e83e8c]/10 blur-[120px] rounded-full animate-pulse delay-700" />
+                </div>
+
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <motion.div
+                        animate={{ y: [0, -20, 0], opacity: [0.05, 0.1, 0.05] }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-20 left-[10%]"
+                    >
+                        <GraduationCap className="w-32 h-32 text-white" strokeWidth={1} />
+                    </motion.div>
+                    <motion.div
+                        animate={{ y: [0, 20, 0], opacity: [0.05, 0.1, 0.05] }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute bottom-20 right-[15%]"
+                    >
+                        <BookOpenCheck className="w-24 h-24 text-white" strokeWidth={1} />
+                    </motion.div>
+                    <motion.div
+                        animate={{ scale: [1, 1.1, 1], opacity: [0.03, 0.06, 0.03] }}
+                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                    >
+                        <School className="w-64 h-64 text-white" strokeWidth={0.5} />
+                    </motion.div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white mb-14">
-                        {/* Removed emoji div */}
-                        <h2 className="font-heading font-extrabold text-4xl md:text-5xl leading-[1.1] mb-5">Teacher Training Programs</h2>
-                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white mb-16">
+                        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md">
+                            <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+                            <span className="text-xs font-heading font-bold uppercase tracking-widest text-white/90">Center of Excellence</span>
+                        </div>
+                        <h2 className="font-heading font-extrabold text-4xl md:text-6xl leading-[1.1] mb-6">
+                            Teacher Training <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#f472b6]">Programs</span>
+                        </h2>
+                        <p className="font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed text-white/70">
                             Great teachers create great futures. Zeeque Preschool invests heavily in training educators with specialized programs that produce the highest quality early childhood and primary teachers.
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                         {/* Diploma in ECCE */}
-                        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-                            className="bg-white/10 backdrop-blur-sm rounded-[28px] p-8 border-2 border-white/20 hover:bg-white/15 transition-all duration-300">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
-                                    <GraduationCap className="w-7 h-7 text-white" />
+                        <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+                            className="group relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 lg:p-10 border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden">
+                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <GraduationCap className="w-20 h-20 text-white" />
+                            </div>
+
+                            <div className="flex items-center gap-5 mb-8">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#4f46e5] flex items-center justify-center shadow-lg shadow-[#7c3aed]/20">
+                                    <GraduationCap className="w-8 h-8 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-heading font-extrabold text-white text-2xl">Diploma in ECCE</h3>
-                                    <p className="text-white/70 font-body text-sm">Early Childhood Care & Education</p>
+                                    <h3 className="font-heading font-extrabold text-white text-2xl lg:text-3xl">Diploma in ECCE</h3>
+                                    <p className="text-[#a78bfa] font-body text-sm font-semibold">Early Childhood Care & Education</p>
                                 </div>
                             </div>
-                            <p className="text-white/90 font-body text-[16px] leading-relaxed mb-6">
-                                A comprehensive <strong>six-month pre-school teacher training programme</strong> that equips aspiring educators with everything they need to deliver world-class early childhood education. For selected teachers, we also offer an intensive <strong>35-day residential programme</strong>.
+
+                            <p className="text-white/80 font-body text-[17px] leading-relaxed mb-8">
+                                A comprehensive <strong className="text-white">six-month pre-school teacher training programme</strong> that equips aspiring educators with everything they need to deliver world-class early childhood education.
                             </p>
-                            <div className="space-y-3 mb-6">
+
+                            <div className="space-y-4 mb-10">
                                 {[
-                                    { label: "Duration", value: "6 Months / 35 Days (Residential)", emoji: "⏰" },
-                                    { label: "Focus", value: "Pre-school teacher preparation", emoji: "🎯" },
-                                    { label: "Method", value: "Classroom + hands-on practical training", emoji: "✋" },
-                                    { label: "Outcome", value: "Certified ECCE educator", emoji: "🎓" },
+                                    { label: "Duration", value: "6 Months / 35 Days (Residential)", icon: Clock, color: "#7c3aed" },
+                                    { label: "Focus", value: "Pre-school teacher preparation", icon: Target, color: "#e83e8c" },
+                                    { label: "Method", value: "Classroom + hands-on practical", icon: Brain, color: "#fbaf01" },
+                                    { label: "Outcome", value: "Certified ECCE educator", icon: Award, color: "#0fb85c" },
                                 ].map((d) => (
-                                    <div key={d.label} className="flex items-center gap-3 text-white/80">
-                                        <span className="text-lg">{d.emoji}</span>
+                                    <div key={d.label} className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                                            <d.icon className="w-5 h-5" style={{ color: d.color }} />
+                                        </div>
                                         <div>
-                                            <span className="font-heading font-bold text-xs text-white/60 uppercase">{d.label}: </span>
-                                            <span className="font-body text-sm">{d.value}</span>
+                                            <span className="block text-[10px] font-heading font-bold text-white/40 uppercase tracking-widest leading-none mb-1">{d.label}</span>
+                                            <span className="block text-white/90 font-body text-[15px]">{d.value}</span>
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <div className="flex flex-wrap gap-2">
+
+                            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                                 {["6 Months", "Residential", "Certified"].map((t) => (
-                                    <span key={t} className="bg-white/10 border border-white/20 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white">{t}</span>
+                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors uppercase tracking-wider">{t}</span>
                                 ))}
                             </div>
                         </motion.div>
 
                         {/* TTGS */}
-                        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, delay: 0.15 }}
-                            className="bg-white/10 backdrop-blur-sm rounded-[28px] p-8 border-2 border-white/20 hover:bg-white/15 transition-all duration-300">
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center">
-                                    <BookOpen className="w-7 h-7 text-white" />
+                        <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+                            className="group relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 lg:p-10 border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden">
+                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+                                <BookOpenCheck className="w-20 h-20 text-white" />
+                            </div>
+
+                            <div className="flex items-center gap-5 mb-8">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#e83e8c] to-[#f43f5e] flex items-center justify-center shadow-lg shadow-[#e83e8c]/20">
+                                    <BookOpenCheck className="w-8 h-8 text-white" />
                                 </div>
                                 <div>
-                                    <h3 className="font-heading font-extrabold text-white text-2xl">TTGS</h3>
-                                    <p className="text-white/70 font-body text-sm">Teacher Training for Grade Level</p>
+                                    <h3 className="font-heading font-extrabold text-white text-2xl lg:text-3xl">TTGS</h3>
+                                    <p className="text-[#f472b6] font-body text-sm font-semibold">Teacher Training for Grade Level</p>
                                 </div>
                             </div>
-                            <p className="text-white/90 font-body text-[16px] leading-relaxed mb-6">
-                                A specialized <strong>residential training programme</strong> designed specifically for English medium primary madrasa teachers. TTGS equips educators with modern teaching methodologies while maintaining strong Islamic educational values.
+
+                            <p className="text-white/80 font-body text-[17px] leading-relaxed mb-8">
+                                A specialized <strong className="text-white">residential training programme</strong> designed specifically for English medium primary madrasa teachers.
                             </p>
-                            <div className="space-y-3 mb-6">
+
+                            <div className="space-y-4 mb-10">
                                 {[
-                                    { label: "Format", value: "Residential intensive programme", emoji: "🏠" },
-                                    { label: "For", value: "English medium primary madrasa teachers", emoji: "👩‍🏫" },
-                                    { label: "Method", value: "Modern pedagogy + Islamic integration", emoji: "📚" },
-                                    { label: "Outcome", value: "Grade-level certified educator", emoji: "🏅" },
+                                    { label: "Format", value: "Residential intensive programme", icon: Home, color: "#e83e8c" },
+                                    { label: "For", value: "English medium madrasa teachers", icon: Users, color: "#0052ff" },
+                                    { label: "Method", value: "Modern pedagogy + Islamic", icon: Lightbulb, color: "#fbaf01" },
+                                    { label: "Outcome", value: "Grade-level certified educator", icon: Shield, color: "#0fb85c" },
                                 ].map((d) => (
-                                    <div key={d.label} className="flex items-center gap-3 text-white/80">
-                                        <span className="text-lg">{d.emoji}</span>
+                                    <div key={d.label} className="flex items-center gap-4">
+                                        <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center border border-white/10">
+                                            <d.icon className="w-5 h-5" style={{ color: d.color }} />
+                                        </div>
                                         <div>
-                                            <span className="font-heading font-bold text-xs text-white/60 uppercase">{d.label}: </span>
-                                            <span className="font-body text-sm">{d.value}</span>
+                                            <span className="block text-[10px] font-heading font-bold text-white/40 uppercase tracking-widest leading-none mb-1">{d.label}</span>
+                                            <span className="block text-white/90 font-body text-[15px]">{d.value}</span>
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <div className="flex flex-wrap gap-2">
+
+                            <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                                 {["Residential", "Grade Level", "Madrasa"].map((t) => (
-                                    <span key={t} className="bg-white/10 border border-white/20 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white">{t}</span>
+                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors uppercase tracking-wider">{t}</span>
                                 ))}
                             </div>
                         </motion.div>

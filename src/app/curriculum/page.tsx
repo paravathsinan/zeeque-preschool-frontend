@@ -44,14 +44,13 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-12 md:py-16 lg:py-20 overflow-hidden">
+            <section className="relative py-10 md:py-14 lg:py-16 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#7c3aed]/10 animate-pulse" />
                     <div className="absolute top-20 right-[15%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-16 left-[30%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
                     <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
                     <div className="absolute bottom-8 right-[25%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
-                    <div className="absolute top-16 left-[50%] text-6xl opacity-[0.06]">📚</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -62,7 +61,7 @@ export default function CurriculumPage() {
                             <span className="text-primary font-semibold">Curriculum</span>
                         </div>
                         <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Curriculum</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span> 📖
+                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Curriculum</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span>
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                             A meticulously crafted, R&D-backed curriculum that nurtures every aspect of a child&apos;s development — from cognitive growth and language mastery to character building and creative expression.
@@ -80,9 +79,8 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 2: Curriculum Overview
                ══════════════════════════════════ */}
-            <section className="py-12 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 md:py-12 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block">📝</div>
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#7c3aed]/10 hidden xl:block" />
                 </div>
 
@@ -90,10 +88,10 @@ export default function CurriculumPage() {
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
                             <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <BookOpen className="w-4 h-4" /> Curriculum Philosophy
+                                Curriculum Philosophy
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Nurturing Every Aspect of <span className="text-[#7c3aed]">Growth</span> 🌱
+                                Nurturing Every Aspect of <span className="text-[#7c3aed]">Growth</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 Below the age of six, children demonstrate advanced pretend play, symbolic thought, categorization, reasoning, and problem-solving abilities, marking the preschool years as a phase of rapid development. Our curriculum, rooted in engaging activities that spark curiosity, is designed to nurture <strong className="text-[#222] dark:text-white">every aspect of a child&apos;s growth</strong> — including their physical, emotional, and intellectual development, creativity, language skills, and social interactions.
@@ -128,7 +126,6 @@ export default function CurriculumPage() {
                                 </div>
                             </div>
                             <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
-                                <FlaskConical className="w-5 h-5" />
                                 <span className="font-heading font-bold text-sm">R&D Backed</span>
                             </div>
                         </motion.div>
@@ -140,14 +137,14 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 3: Developmental Domains
                ══════════════════════════════════ */}
-            <section className="py-12 md:py-14 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-10 md:py-12 lg:py-14 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Compass className="w-4 h-4" /> All-Round Development
+                            All-Round Development
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Six Developmental <span className="text-[#e83e8c]">Domains</span> 🎯
+                            Six Developmental <span className="text-[#e83e8c]">Domains</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
                             Our ECCE curriculum addresses all six domains of early childhood development, ensuring children grow into well-rounded individuals ready for lifelong success.
@@ -181,14 +178,14 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Learning Areas — Detailed Grid
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Shapes className="w-4 h-4" /> What Children Learn
+                            What Children Learn
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Key Learning <span className="text-[#fbaf01]">Areas</span> 📋
+                            Key Learning <span className="text-[#fbaf01]">Areas</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto">Our curriculum covers a wide spectrum of learning areas, each carefully designed to be age-appropriate and engaging.</p>
                     </motion.div>
@@ -229,22 +226,6 @@ export default function CurriculumPage() {
                         </motion.div>
                     </div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                        {[
-                            { name: "Environmental Awareness", emoji: "🌿", color: "#0fb85c" },
-                            { name: "Art & Craft", emoji: "🎨", color: "#e83e8c" },
-                            { name: "Music & Movement", emoji: "🎵", color: "#0052ff" },
-                            { name: "Science & Discovery", emoji: "🔬", color: "#7c3aed" },
-                            { name: "Life Skills", emoji: "🌟", color: "#fbaf01" },
-                            { name: "Health & Hygiene", emoji: "🧼", color: "#ef4225" },
-                        ].map((s, i) => (
-                            <motion.div key={s.name} custom={i} variants={fadeUp} className="bg-white dark:bg-slate-800 rounded-2xl p-4 text-center border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                <div className="text-3xl mb-2 group-hover:scale-125 transition-transform duration-300">{s.emoji}</div>
-                                <p className="font-heading font-bold text-[#222] dark:text-white text-xs">{s.name}</p>
-                                <div className="w-5 h-1 rounded-full mx-auto mt-2" style={{ backgroundColor: s.color }} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
                 </div>
             </section>
 
@@ -256,14 +237,14 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 7: Curriculum Stages (LZQ/MZQ/UZQ)
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
                         <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <TreePine className="w-4 h-4" /> Progressive Learning
+                            Progressive Learning
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Curriculum Across <span className="text-[#0fb85c]">3 Stages</span> 🌈
+                            Curriculum Across <span className="text-[#0fb85c]">3 Stages</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto">Each stage builds upon the previous, with age-appropriate content and progressively complex activities.</p>
                     </motion.div>
@@ -285,8 +266,6 @@ export default function CurriculumPage() {
                         ].map((s) => (
                             <motion.div key={s.stage} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
                                 className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-5xl opacity-10 group-hover:opacity-20 transition-opacity">{s.emoji}</div>
-                                <div className="text-4xl mb-3">{s.emoji}</div>
                                 <div className="flex items-center gap-3 mb-3">
                                     <span className="font-heading font-extrabold text-2xl" style={{ color: s.color }}>{s.stage}</span>
                                     <span className="bg-gray-100 dark:bg-slate-700 rounded-full px-3 py-1 font-heading font-bold text-xs text-gray-500 dark:text-gray-400">{s.year}</span>
@@ -312,15 +291,15 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 9: R&D Council
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
                             <div className="inline-flex items-center gap-2 bg-[#ef4225]/10 text-[#ef4225] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <FlaskConical className="w-4 h-4" /> Quality Assurance
+                                Quality Assurance
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                R&D <span className="text-[#ef4225]">Council</span> Oversight 🔬
+                                R&D <span className="text-[#ef4225]">Council</span> Oversight
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 Zeeque Preschool&apos;s integrated and holistic approach to learning is overseen by the <strong className="text-[#222] dark:text-white">Research and Development Council</strong>, ensuring that children receive the best possible educational experience. The curriculum is continuously updated based on the latest research in early childhood education.
@@ -347,7 +326,6 @@ export default function CurriculumPage() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#ef4225]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#ef4225] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
-                                <FlaskConical className="w-5 h-5" />
                                 <span className="font-heading font-bold text-sm">Proven Curriculum</span>
                             </div>
                         </motion.div>
@@ -358,14 +336,14 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 10: Values & Life Skills
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-10">
                         <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Crown className="w-4 h-4" /> Beyond Academics
+                            Beyond Academics
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Values & <span className="text-[#fbaf01]">Life Skills</span> 🌟
+                            Values & <span className="text-[#fbaf01]">Life Skills</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto">Our curriculum goes beyond traditional learning by instilling values and life skills that shape confident, responsible leaders.</p>
                     </motion.div>
@@ -406,7 +384,7 @@ export default function CurriculumPage() {
             {/* ══════════════════════════════════
                 SECTION 11: CTA
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-10 lg:py-14 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden lg:block" />
                     <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-[#0fb85c]/5 hidden lg:block" />
@@ -414,7 +392,6 @@ export default function CurriculumPage() {
 
                 <div className="max-w-[800px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <div className="text-6xl mb-6">🎓</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Give Your Child the <span className="text-primary">Best Curriculum</span>
                         </h2>
