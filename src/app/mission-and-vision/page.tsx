@@ -109,7 +109,6 @@ export default function MissionVisionPage() {
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-10 w-40 h-40 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden xl:block animate-spin" style={{ animationDuration: "30s" }} />
                     <div className="absolute bottom-20 left-10 w-24 h-24 rounded-full bg-[#e83e8c]/5 hidden xl:block" />
-                    <div className="absolute top-1/3 left-[5%] text-6xl opacity-10 hidden lg:block">🌈</div>
                     <div className="absolute bottom-10 right-[8%] text-5xl opacity-10 hidden lg:block">⭐</div>
                     <div className="absolute top-20 left-[50%] w-3 h-3 rounded-full bg-[#0fb85c]/30" />
                     <div className="absolute bottom-32 right-[40%] w-4 h-4 rounded-full bg-[#0052ff]/20" />
@@ -117,7 +116,6 @@ export default function MissionVisionPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="text-5xl mb-4">🎯</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-4">What <span className="text-[#0fb85c]">Drives</span> Us Every Day</h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">Our mission and vision are the heart and soul of everything we do — from the classroom to the playground.</p>
                     </motion.div>
@@ -126,8 +124,6 @@ export default function MissionVisionPage() {
                         {/* Mission Card */}
                         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                             className="relative bg-gradient-to-br from-[#0fb85c]/5 via-[#0fb85c]/10 to-[#fbaf01]/5 dark:from-[#0fb85c]/10 dark:to-[#0fb85c]/5 rounded-[32px] p-8 md:p-10 border-2 border-[#0fb85c]/20 hover:border-[#0fb85c]/40 transition-all duration-500 group overflow-hidden">
-                            <div className="absolute top-0 right-0 w-40 h-40 rounded-bl-[100px] bg-[#0fb85c]/5 group-hover:bg-[#0fb85c]/10 transition-colors" />
-                            <div className="absolute bottom-4 right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🌱</div>
 
                             <div className="relative z-10">
                                 <div className="flex items-center gap-4 mb-6">
@@ -136,7 +132,7 @@ export default function MissionVisionPage() {
                                     </div>
                                     <div>
                                         <span className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs block">Our Mission</span>
-                                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Nurturing Growth 🌿</h3>
+                                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Nurturing Growth</h3>
                                     </div>
                                 </div>
 
@@ -158,8 +154,10 @@ export default function MissionVisionPage() {
                                 </div>
 
                                 <div className="flex flex-wrap gap-2">
-                                    {["🛡️ Safe", "🌱 Growth", "📚 Learning", "🤗 Inclusive"].map((tag) => (
-                                        <span key={tag} className="bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold text-xs px-4 py-2 rounded-full">{tag}</span>
+                                    {["Safe", "Growth", "Learning", "Inclusive"].map((tag) => (
+                                        <span key={tag} className="bg-[#0fb85c]/5 text-[#0fb85c] font-heading font-bold text-xs px-4 py-2 rounded-full border border-[#0fb85c]/20 backdrop-blur-sm shadow-sm">
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -168,8 +166,6 @@ export default function MissionVisionPage() {
                         {/* Vision Card */}
                         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }}
                             className="relative bg-gradient-to-br from-[#0052ff]/5 via-[#0052ff]/10 to-[#e83e8c]/5 dark:from-[#0052ff]/10 dark:to-[#0052ff]/5 rounded-[32px] p-8 md:p-10 border-2 border-[#0052ff]/20 hover:border-[#0052ff]/40 transition-all duration-500 group overflow-hidden">
-                            <div className="absolute top-0 right-0 w-40 h-40 rounded-bl-[100px] bg-[#0052ff]/5 group-hover:bg-[#0052ff]/10 transition-colors" />
-                            <div className="absolute bottom-4 right-4 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🔭</div>
 
                             <div className="relative z-10">
                                 <div className="flex items-center gap-4 mb-6">
@@ -178,7 +174,7 @@ export default function MissionVisionPage() {
                                     </div>
                                     <div>
                                         <span className="text-[#0052ff] font-heading font-bold uppercase tracking-wider text-xs block">Our Vision</span>
-                                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Bright Futures 🌟</h3>
+                                        <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Bright Futures</h3>
                                     </div>
                                 </div>
 
@@ -200,8 +196,10 @@ export default function MissionVisionPage() {
                                 </div>
 
                                 <div className="flex flex-wrap gap-2">
-                                    {["💛 Togetherness", "📖 Learning", "✨ Values", "🌍 Impact"].map((tag) => (
-                                        <span key={tag} className="bg-[#0052ff]/10 text-[#0052ff] font-heading font-bold text-xs px-4 py-2 rounded-full">{tag}</span>
+                                    {["Togetherness", "Learning", "Values", "Impact"].map((tag) => (
+                                        <span key={tag} className="bg-[#0052ff]/5 text-[#0052ff] font-heading font-bold text-xs px-4 py-2 rounded-full border border-[#0052ff]/20 backdrop-blur-sm shadow-sm">
+                                            {tag}
+                                        </span>
                                     ))}
                                 </div>
                             </div>
@@ -218,7 +216,6 @@ export default function MissionVisionPage() {
             <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#e83e8c]/10 hidden xl:block" />
-                    <div className="absolute top-20 right-[15%] text-7xl opacity-[0.06] hidden lg:block">💎</div>
                     <div className="absolute bottom-20 left-[10%] text-6xl opacity-[0.06] hidden lg:block">🌸</div>
                 </div>
 
@@ -228,24 +225,49 @@ export default function MissionVisionPage() {
                             <Gem className="w-4 h-4" /> What We Stand For
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Our Core <span className="text-[#e83e8c]">Values</span> 💖
+                            Our Core <span className="text-[#e83e8c]">Values</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
                             Our curriculum instills timeless values that shape children into compassionate, respectful, and confident members of society. Each value is lived and practiced daily in our classrooms.
                         </p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {coreValues.map((v, i) => (
                             <motion.div key={v.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-[28px] p-7 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-[60px] opacity-[0.06] group-hover:opacity-[0.12] transition-opacity" style={{ backgroundColor: v.color }} />
+                                className="relative group h-full">
+                                {/* Card Background with Glassmorphism */}
+                                <div className="absolute inset-0 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl rounded-[32px] border border-white/60 dark:border-slate-700/50 shadow-[0_8px_32px_rgba(0,0,0,0.05)] transition-all duration-500 group-hover:shadow-[0_20px_48px_rgba(0,0,0,0.12)] group-hover:-translate-y-2 group-hover:scale-[1.02]" />
 
-                                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-md" style={{ background: `linear-gradient(135deg, ${v.color}20, ${v.color}10)` }}>
-                                    <v.icon className="w-8 h-8" style={{ color: v.color }} />
+                                {/* Inner Content */}
+                                <div className="relative p-8 flex flex-col items-center text-center h-full">
+                                    {/* Glowing Icon Orb */}
+                                    <div className="relative mb-8 pt-2">
+                                        <motion.div
+                                            animate={{ scale: [1, 1.1, 1], rotate: [0, 5, -5, 0] }}
+                                            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                                            className="w-20 h-20 rounded-[24px] flex items-center justify-center relative z-10 shadow-lg transition-transform duration-500 group-hover:rotate-6 group-hover:scale-110"
+                                            style={{ background: `linear-gradient(135deg, ${v.color}, ${v.color}cc)` }}
+                                        >
+                                            <v.icon className="w-9 h-9 text-white drop-shadow-md" />
+                                        </motion.div>
+                                        {/* Background Glow */}
+                                        <div
+                                            className="absolute inset-0 blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 scale-125"
+                                            style={{ backgroundColor: v.color }}
+                                        />
+                                    </div>
+
+                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4 group-hover:text-primary transition-colors">
+                                        {v.title}
+                                    </h3>
+                                    <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-4">
+                                        {v.description}
+                                    </p>
+
+                                    {/* Subtle Bottom Accent */}
+                                    <div className="mt-auto w-12 h-1.5 rounded-full opacity-30 group-hover:opacity-100 group-hover:w-20 transition-all duration-500" style={{ backgroundColor: v.color }} />
                                 </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-3">{v.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{v.description}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -258,7 +280,6 @@ export default function MissionVisionPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[5%] text-7xl opacity-[0.05] hidden lg:block">🕌</div>
                     <div className="absolute bottom-20 right-[8%] w-32 h-32 rounded-full border-4 border-dashed border-[#0fb85c]/10 hidden xl:block" />
                 </div>
 
@@ -269,7 +290,7 @@ export default function MissionVisionPage() {
                                 <BookOpen className="w-4 h-4" /> Spiritual Foundation
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Rooted in <span className="text-[#0fb85c]">Islamic Values</span> 🌿
+                                Rooted in <span className="text-[#0fb85c]">Islamic Values</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-8">
                                 A core principle of Zeeque Preschool is to help future generations shape their lives in accordance with Islamic values through child-friendly mentoring. Our curriculum integrates spiritual wisdom with academic excellence.
@@ -317,16 +338,15 @@ export default function MissionVisionPage() {
             <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[10%] text-7xl opacity-[0.05] hidden lg:block">🧭</div>
-                    <div className="absolute bottom-10 left-[15%] text-6xl opacity-[0.05] hidden lg:block">🚀</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
                         <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Compass className="w-4 h-4" /> What We Aim For
+                            What We Aim For
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Our <span className="text-[#7c3aed]">Objectives</span> 🎯
+                            Our <span className="text-[#7c3aed]">Objectives</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
                             Every program, activity, and interaction at Zeeque Preschool is designed to achieve these key objectives — creating well-rounded, confident, and values-driven young learners.
@@ -340,7 +360,6 @@ export default function MissionVisionPage() {
                             return (
                                 <motion.div key={obj.title} custom={i} variants={fadeUp}
                                     className="relative bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-24 h-24 rounded-bl-[60px] opacity-[0.06] group-hover:opacity-[0.12] transition-opacity" style={{ backgroundColor: color }} />
 
                                     <div className="relative z-10">
                                         <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${color}20, ${color}10)` }}>
@@ -421,7 +440,7 @@ export default function MissionVisionPage() {
                             <TreePine className="w-4 h-4" /> Developmental Focus
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Pillars of <span className="text-[#ef4225]">Growth</span> 🌱
+                            Pillars of <span className="text-[#ef4225]">Growth</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">Our ECCE program nurtures all dimensions of a child&apos;s development through thoughtfully designed experiences.</p>
                     </motion.div>
@@ -468,7 +487,6 @@ export default function MissionVisionPage() {
 
                 <div className="max-w-[800px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <div className="text-6xl mb-6">🌟</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Be Part of Our <span className="text-primary">Journey</span>
                         </h2>

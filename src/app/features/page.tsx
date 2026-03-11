@@ -67,7 +67,7 @@ export default function FeaturesPage() {
                     <div className="absolute bottom-16 left-[30%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
                     <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
                     <div className="absolute bottom-8 right-[25%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
-                    <div className="absolute top-16 left-[50%] text-6xl opacity-[0.06]">⚡</div>
+                    <div className="absolute top-16 left-[50%] text-6xl opacity-[0.06] text-primary">Features</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -78,14 +78,14 @@ export default function FeaturesPage() {
                             <span className="text-primary font-semibold">Features</span>
                         </div>
                         <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            What Makes Zeeque Preschool{" "}<span className="relative inline-block"><span className="text-primary">Special</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#ef4225" strokeWidth="3" strokeLinecap="round" /></svg></span> ✨
+                            What Makes Zeeque Preschool{" "}<span className="relative inline-block"><span className="text-primary">Special</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#ef4225" strokeWidth="3" strokeLinecap="round" /></svg></span>
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                             From Quran recitation to splash pools, from multilingual education to clay modelling — discover every feature that makes Zeeque Preschool the most loved preschool for your little ones.
                         </p>
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-3">
-                            {["📖 Quran & Culture", "🌍 Multilingual", "🎮 Play Way", "👩‍🏫 3 Mentors", "🏫 Smart Classrooms", "🔬 R&D Backed"].map((tag) => (
-                                <span key={tag} className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full px-4 py-2 font-heading font-bold text-xs text-gray-600 dark:text-gray-300 shadow-sm">{tag}</span>
+                            {["Quran & Culture", "Multilingual", "Play Way", "3 Mentors", "Smart Classrooms", "R&D Backed"].map((tag) => (
+                                <span key={tag} className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-gray-200/50 dark:border-slate-700/50 rounded-full px-5 py-2 font-heading font-bold text-xs text-gray-700 dark:text-gray-300 shadow-sm">{tag}</span>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -98,7 +98,7 @@ export default function FeaturesPage() {
                ══════════════════════════════════ */}
             <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block">🕌</div>
+                    <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block text-[#0fb85c]">Quran</div>
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#0fb85c]/10 hidden xl:block" />
                 </div>
 
@@ -109,7 +109,7 @@ export default function FeaturesPage() {
                                 <BookOpen className="w-4 h-4" /> Light of Life
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Quran, Tradition & <span className="text-[#0fb85c]">Culture</span> 📖
+                                Quran, Tradition & <span className="text-[#0fb85c]">Culture</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-6">
                                 At the very heart of Zeeque Preschool lies the beautiful integration of Quranic wisdom with modern education. We believe in illuminating young hearts from the very beginning, helping children develop a deep connection with their faith through child-friendly approaches.
@@ -117,21 +117,21 @@ export default function FeaturesPage() {
 
                             <div className="space-y-4 mb-8">
                                 {[
-                                    { emoji: "📗", text: "Children are trained to recite the Holy Quran and memorize at least 1 Juz' within 3 years" },
-                                    { emoji: "🤲", text: "Daily Adhkar (supplications) and remembrances woven into everyday routines" },
-                                    { emoji: "🏡", text: "Traditional Islamic values and folklore are integral parts of the curriculum" },
-                                    { emoji: "🌙", text: "Festival celebrations and Islamic heritage events throughout the year" },
-                                    { emoji: "💡", text: "Character formation rooted in compassion, respect, and excellence from age 3 to 6" },
+                                    { text: "Children are trained to recite the Holy Quran and memorize at least 1 Juz' within 3 years" },
+                                    { text: "Daily Adhkar (supplications) and remembrances woven into everyday routines" },
+                                    { text: "Traditional Islamic values and folklore are integral parts of the curriculum" },
+                                    { text: "Festival celebrations and Islamic heritage events throughout the year" },
+                                    { text: "Character formation rooted in compassion, respect, and excellence from age 3 to 6" },
                                 ].map((item) => (
                                     <div key={item.text} className="flex items-start gap-3 bg-[#0fb85c]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#0fb85c]/10 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                                        <span className="text-2xl flex-shrink-0">{item.emoji}</span>
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#0fb85c] mt-2 flex-shrink-0" />
                                         <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] leading-relaxed">{item.text}</p>
                                     </div>
                                 ))}
                             </div>
 
                             <div className="bg-gradient-to-r from-[#0fb85c]/10 to-[#fbaf01]/10 dark:from-[#0fb85c]/20 dark:to-[#fbaf01]/20 rounded-2xl p-5 border border-[#0fb85c]/15">
-                                <p className="font-heading font-bold text-[#222] dark:text-white text-sm mb-1 flex items-center gap-2">💡 Our Motto</p>
+                                <p className="font-heading font-bold text-[#222] dark:text-white text-sm mb-1 flex items-center gap-2">Our Motto</p>
                                 <p className="text-gray-600 dark:text-gray-300 font-body text-sm italic">&ldquo;One Who Is Illumined At The Beginning Is Illumined At The End&rdquo; — Ibn Athaillah</p>
                             </div>
                         </motion.div>
@@ -160,7 +160,7 @@ export default function FeaturesPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 left-[5%] text-8xl opacity-[0.04] hidden lg:block">🌍</div>
+                    <div className="absolute top-20 left-[5%] text-8xl opacity-[0.04] hidden lg:block text-[#0052ff]">Language</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
@@ -170,7 +170,7 @@ export default function FeaturesPage() {
                                 <Languages className="w-4 h-4" /> Multilingual
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Solid Foundation in <span className="text-[#0052ff]">Language</span> 🗣️
+                                Solid Foundation in <span className="text-[#0052ff]">Language</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 We believe <strong className="text-[#222] dark:text-white">&ldquo;the limit of language means the limit of the world.&rdquo;</strong> That&apos;s why Zeeque Preschool children are trained in three languages from the earliest age, opening doors to vast cultural and intellectual worlds.
@@ -178,12 +178,11 @@ export default function FeaturesPage() {
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                                 {[
-                                    { lang: "Arabic", emoji: "🇸🇦", desc: "Reading, writing & speaking", color: "#0fb85c" },
-                                    { lang: "English", emoji: "🇬🇧", desc: "Communication & literacy", color: "#0052ff" },
-                                    { lang: "Malayalam", emoji: "🇮🇳", desc: "Mother tongue fluency", color: "#e83e8c" },
+                                    { lang: "Arabic", desc: "Reading, writing & speaking", color: "#0fb85c" },
+                                    { lang: "English", desc: "Communication & literacy", color: "#0052ff" },
+                                    { lang: "Malayalam", desc: "Mother tongue fluency", color: "#e83e8c" },
                                 ].map((l) => (
                                     <div key={l.lang} className="bg-white dark:bg-slate-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                        <div className="text-4xl mb-3">{l.emoji}</div>
                                         <h4 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-1">{l.lang}</h4>
                                         <p className="text-gray-500 dark:text-gray-400 font-body text-xs">{l.desc}</p>
                                         <div className="w-8 h-1 rounded-full mx-auto mt-3" style={{ backgroundColor: l.color }} />
@@ -201,7 +200,7 @@ export default function FeaturesPage() {
                                 <Image src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=800&auto=format&fit=crop" alt="Children having fun while developing multilingual skills at ZeeQue Preschool in Kerala." fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0052ff]/30 to-transparent" />
                                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
-                                    <p className="font-heading font-bold text-[#222] dark:text-white text-sm text-center">&ldquo;The limit of language is the limit of the world&rdquo; 🌏</p>
+                                    <p className="font-heading font-bold text-[#222] dark:text-white text-sm text-center">&ldquo;The limit of language is the limit of the world&rdquo;</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -213,48 +212,79 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Character Building
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 right-[10%] text-8xl opacity-[0.04] hidden lg:block">🏅</div>
+            <section className="py-16 lg:py-24 bg-white dark:bg-slate-900 relative overflow-hidden">
+                {/* Background Decorative Blobs */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    <motion.div
+                        animate={{ x: [0, 50, 0], y: [0, 30, 0], rotate: [0, 10, 0] }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute -top-[10%] -left-[5%] w-[400px] h-[400px] bg-[#e83e8c]/5 rounded-full blur-[100px]"
+                    />
+                    <motion.div
+                        animate={{ x: [0, -40, 0], y: [0, 50, 0], rotate: [0, -15, 0] }}
+                        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-[20%] -right-[10%] w-[350px] h-[350px] bg-[#fbaf01]/5 rounded-full blur-[100px]"
+                    />
+                    <motion.div
+                        animate={{ scale: [1, 1.1, 1], opacity: [0.03, 0.06, 0.03] }}
+                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute bottom-[10%] left-[20%] w-[500px] h-[500px] bg-[#0fb85c]/5 rounded-full blur-[120px]"
+                    />
+                    <div className="absolute top-20 right-[10%] text-9xl font-heading font-black opacity-[0.03] hidden lg:block text-[#e83e8c] select-none uppercase tracking-tighter">Values</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
+                        <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4 border border-[#e83e8c]/20">
                             <Crown className="w-4 h-4" /> Character is Everything
                         </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Building <span className="text-[#e83e8c]">Character</span> from Day One 🌟
+                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            Building <span className="text-[#e83e8c]">Character</span> from Day One
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
-                            For children between 3 to 6, character formation is the most crucial developmental milestone. At Zeeque Preschool, we fuse spiritual education with practical wisdom to build children of integrity, compassion, and strength — balancing both divine and worldly knowledge.
+                            For children between 3 to 6, character formation is the most crucial developmental milestone. At Zeeque Preschool, we fuse spiritual education with practical wisdom to build children of integrity, compassion, and strength.
                         </p>
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
                         {[
-                            { title: "Sharing", emoji: "🤝", color: "#0fb85c" },
-                            { title: "Caring", emoji: "💝", color: "#e83e8c" },
-                            { title: "Good Manners", emoji: "🙏", color: "#0052ff" },
-                            { title: "Confidence", emoji: "💪", color: "#fbaf01" },
-                            { title: "Independence", emoji: "🦋", color: "#7c3aed" },
-                            { title: "Leadership", emoji: "👑", color: "#ef4225" },
+                            { title: "Sharing", color: "#0fb85c" },
+                            { title: "Caring", color: "#e83e8c" },
+                            { title: "Good Manners", color: "#0052ff" },
+                            { title: "Confidence", color: "#fbaf01" },
+                            { title: "Independence", color: "#7c3aed" },
+                            { title: "Leadership", color: "#ef4225" },
                         ].map((v, i) => (
                             <motion.div key={v.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[24px] p-5 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                                <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">{v.emoji}</div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-sm">{v.title}</h3>
-                                <div className="w-6 h-1 rounded-full mx-auto mt-2" style={{ backgroundColor: v.color }} />
+                                className="relative bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-[24px] p-6 border border-white/40 dark:border-slate-700/40 text-center hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden"
+                            >
+                                {/* Inner Glow Effect */}
+                                <div
+                                    className="absolute -inset-2 bg-gradient-to-br transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
+                                    style={{
+                                        backgroundImage: `radial-gradient(circle at center, ${v.color}15, transparent 70%)`
+                                    }}
+                                />
+                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-base mb-2 relative z-10">{v.title}</h3>
+                                <div className="w-8 h-1 rounded-full mx-auto relative z-10" style={{ backgroundColor: v.color }} />
                             </motion.div>
                         ))}
                     </motion.div>
 
-                    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }} className="mt-12 bg-gradient-to-r from-[#e83e8c]/5 to-[#fbaf01]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#e83e8c]/10 dark:border-slate-700">
-                        <div className="flex flex-col md:flex-row items-center gap-6">
-                            <div className="text-6xl">🧒</div>
+                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
+                        className="mt-12 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl rounded-[32px] p-8 md:p-10 border border-white/50 dark:border-slate-700/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.2)] relative overflow-hidden group">
+                        {/* Decorative background element for the responsibility card */}
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-[#e83e8c]/10 to-transparent rounded-bl-[120px] -translate-y-1/2 translate-x-1/4 blur-3xl group-hover:opacity-60 transition-opacity" />
+
+                        <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                            <div className="w-20 h-20 rounded-[24px] bg-gradient-to-br from-[#e83e8c] to-[#fbaf01] p-[1px] flex-shrink-0 group-hover:scale-105 transition-transform duration-500 shadow-lg">
+                                <div className="w-full h-full bg-white dark:bg-slate-900 rounded-[23px] flex items-center justify-center shadow-inner">
+                                    <Users className="w-9 h-9 text-[#e83e8c]" />
+                                </div>
+                            </div>
                             <div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-2">Responsibility from an Early Age</h3>
-                                <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] leading-relaxed">
+                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-3">Responsibility from an Early Age</h3>
+                                <p className="text-gray-600 dark:text-gray-400 font-body text-[16px] leading-relaxed">
                                     Our carefully designed activities teach children a sense of responsibility, helping them understand the value of taking care of themselves, their belongings, and their community. Through daily routines, role-play, and real-world scenarios, kids learn to be dependable, organized, and thoughtful members of their world.
                                 </p>
                             </div>
@@ -269,8 +299,8 @@ export default function FeaturesPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[5%] text-8xl opacity-[0.04] hidden lg:block">🎮</div>
-                    <div className="absolute bottom-20 right-[8%] text-7xl opacity-[0.04] hidden lg:block">🧸</div>
+                    <div className="absolute top-10 left-[5%] text-8xl opacity-[0.04] hidden lg:block text-[#fbaf01]">Play</div>
+                    <div className="absolute bottom-20 right-[8%] text-7xl opacity-[0.04] hidden lg:block text-[#7c3aed]">Joy</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
@@ -279,7 +309,7 @@ export default function FeaturesPage() {
                             <Shapes className="w-4 h-4" /> Learning Through Play
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Stress-Free <span className="text-[#fbaf01]">Play Way</span> Method 🎈
+                            Stress-Free <span className="text-[#fbaf01]">Play Way</span> Method
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
                             No textbooks, no pressure, no stress. At Zeeque Preschool, every child learns through fun-filled, creative, and engaging play activities at their own pace — because we believe every child is unique and deserves a joyful start.
@@ -290,8 +320,9 @@ export default function FeaturesPage() {
                         {/* Stress-Free Card */}
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft}
                             className="bg-gradient-to-br from-[#7c3aed]/5 to-[#e83e8c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#7c3aed]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                            <div className="absolute bottom-3 right-3 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">😊</div>
-                            <div className="text-5xl mb-4">🧘</div>
+                            <div className="w-16 h-16 rounded-2xl bg-[#7c3aed]/10 flex items-center justify-center mb-6">
+                                <Heart className="w-8 h-8 text-[#7c3aed]" />
+                            </div>
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Stress-Free Learning</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
                                 Our classrooms are happy, pressure-free zones. Children live in an atmosphere full of joy and excitement. No boring lectures or rote memorization — we create a natural learning environment where curiosity blossoms on its own.
@@ -308,8 +339,9 @@ export default function FeaturesPage() {
                         {/* Play Way Card */}
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight}
                             className="bg-gradient-to-br from-[#fbaf01]/5 to-[#0fb85c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#fbaf01]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                            <div className="absolute bottom-3 right-3 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🎲</div>
-                            <div className="text-5xl mb-4">🎮</div>
+                            <div className="w-16 h-16 rounded-2xl bg-[#fbaf01]/10 flex items-center justify-center mb-6">
+                                <Monitor className="w-8 h-8 text-[#fbaf01]" />
+                            </div>
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Theme-Based Play Way</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
                                 At Zeeque Preschool, children learn and acquire all the necessary life skills through play. Our theme-based approach ensures each week brings new exciting worlds to explore — from animals to space, seasons to professions.
@@ -326,20 +358,19 @@ export default function FeaturesPage() {
 
                     {/* Daily Session Flow */}
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl text-center mb-8">A Typical Fun-Filled Day 🌈</h3>
+                        <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl text-center mb-8">A Typical Fun-Filled Day</h3>
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                             {[
-                                { name: "Welcome Circle", emoji: "👋", color: "#fbaf01" },
-                                { name: "Assembly", emoji: "🎤", color: "#0052ff" },
-                                { name: "Meditation", emoji: "🧘", color: "#7c3aed" },
-                                { name: "Rhyme Time", emoji: "🎵", color: "#e83e8c" },
-                                { name: "Story Session", emoji: "📚", color: "#0fb85c" },
-                                { name: "Outdoor Play", emoji: "⚽", color: "#ef4225" },
+                                { name: "Welcome Circle", color: "#fbaf01" },
+                                { name: "Assembly", color: "#0052ff" },
+                                { name: "Meditation", color: "#7c3aed" },
+                                { name: "Rhyme Time", color: "#e83e8c" },
+                                { name: "Story Session", color: "#0fb85c" },
+                                { name: "Outdoor Play", color: "#ef4225" },
                             ].map((s) => (
-                                <div key={s.name} className="bg-white dark:bg-slate-800 rounded-2xl p-4 text-center border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                    <div className="text-3xl mb-2 group-hover:scale-125 transition-transform duration-300">{s.emoji}</div>
-                                    <p className="font-heading font-bold text-[#222] dark:text-white text-xs">{s.name}</p>
-                                    <div className="w-5 h-1 rounded-full mx-auto mt-2" style={{ backgroundColor: s.color }} />
+                                <div key={s.name} className="bg-white dark:bg-slate-800 rounded-2xl p-5 text-center border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+                                    <p className="font-heading font-bold text-[#222] dark:text-white text-sm">{s.name}</p>
+                                    <div className="w-8 h-1 rounded-full mx-auto mt-3" style={{ backgroundColor: s.color }} />
                                 </div>
                             ))}
                         </div>
@@ -373,7 +404,7 @@ export default function FeaturesPage() {
                                 <HandHeart className="w-4 h-4" /> Personalized Care
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Individual <span className="text-[#e83e8c]">Mentoring</span> 👩‍🏫
+                                Individual <span className="text-[#e83e8c]">Mentoring</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-6">
                                 Every classroom at Zeeque Preschool has <strong className="text-[#222] dark:text-white">three dedicated mentors</strong> to ensure every child receives individual care, attention, and love. No child is ever left behind — each one is seen, heard, and nurtured.
@@ -413,24 +444,22 @@ export default function FeaturesPage() {
                             <Castle className="w-4 h-4" /> World-Class Facilities
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Infrastructure & <span className="text-[#ef4225]">Facilities</span> 🏰
+                            Infrastructure & <span className="text-[#ef4225]">Facilities</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">Designed to be healthy, safe, and stimulating — our centers have everything a child needs to thrive.</p>
                     </motion.div>
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: "Sand Pit", desc: "Sensory play for tactile development and creative construction.", emoji: "🏖️", icon: Sparkles, color: "#fbaf01" },
-                            { title: "Splash Pool", desc: "Safe water play area for aquatic fun and motor skill development.", emoji: "💦", icon: Droplets, color: "#0052ff" },
-                            { title: "Mud Pond", desc: "Natural sensory exploration for hands-on, messy, joyful learning.", emoji: "🪴", icon: Flower2, color: "#e83e8c" },
-                            { title: "Outdoor Play Areas", desc: "Two fenced areas with climbing structures, sand zones, and wheel toy paths.", emoji: "🎡", icon: TreePine, color: "#0fb85c" },
-                            { title: "Indoor Play Zone", desc: "Age-appropriate toys, blocks, and learning games in a safe indoor space.", emoji: "🧩", icon: Puzzle, color: "#7c3aed" },
-                            { title: "Safety First", desc: "Supervised single-door entry/exit, CCTV monitoring, and trained safety staff.", emoji: "🛡️", icon: Shield, color: "#ef4225" },
+                            { title: "Sand Pit", desc: "Sensory play for tactile development and creative construction.", icon: Sparkles, color: "#fbaf01" },
+                            { title: "Splash Pool", desc: "Safe water play area for aquatic fun and motor skill development.", icon: Droplets, color: "#0052ff" },
+                            { title: "Mud Pond", desc: "Natural sensory exploration for hands-on, messy, joyful learning.", icon: Flower2, color: "#e83e8c" },
+                            { title: "Outdoor Play Areas", desc: "Two fenced areas with climbing structures, sand zones, and wheel toy paths.", icon: TreePine, color: "#0fb85c" },
+                            { title: "Indoor Play Zone", desc: "Age-appropriate toys, blocks, and learning games in a safe indoor space.", icon: Puzzle, color: "#7c3aed" },
+                            { title: "Safety First", desc: "Supervised single-door entry/exit, CCTV monitoring, and trained safety staff.", icon: Shield, color: "#ef4225" },
                         ].map((f, i) => (
                             <motion.div key={f.title} custom={i} variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-4xl opacity-10 group-hover:opacity-25 transition-opacity">{f.emoji}</div>
-                                <div className="text-3xl mb-3">{f.emoji}</div>
                                 <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${f.color}20, ${f.color}10)` }}>
                                     <f.icon className="w-7 h-7" style={{ color: f.color }} />
                                 </div>
@@ -444,15 +473,17 @@ export default function FeaturesPage() {
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
                         className="mt-12 bg-gradient-to-r from-[#0052ff]/5 to-[#0fb85c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#0052ff]/10 dark:border-slate-700">
                         <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="text-7xl">🏊</div>
+                            <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                                <Droplets className="w-10 h-10 text-primary" />
+                            </div>
                             <div>
-                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-3">Zeeque Preschool Ponds — A Unique Feature! 🎉</h3>
+                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-3">Zeeque Preschool Ponds — A Unique Feature!</h3>
                                 <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-3">
                                     ZeeQue has <strong className="text-[#222] dark:text-white">three types of ponds</strong> for children to play in — filled with <strong className="text-[#0052ff]">water, sand, and clay</strong> respectively. Children play freely in these ponds to enhance their all-round physical and mental development.
                                 </p>
                                 <div className="flex flex-wrap gap-3">
-                                    {["💧 Water Pond", "🏖️ Sand Pond", "🎭 Clay Pond"].map((t) => (
-                                        <span key={t} className="bg-white dark:bg-slate-700 rounded-full px-4 py-2 font-heading font-bold text-xs text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-slate-600 shadow-sm">{t}</span>
+                                    {["Water Pond", "Sand Pond", "Clay Pond"].map((t) => (
+                                        <span key={t} className="bg-white/40 dark:bg-slate-700/40 backdrop-blur-sm rounded-full px-5 py-2 font-heading font-bold text-xs text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-slate-600 shadow-sm">{t}</span>
                                     ))}
                                 </div>
                             </div>
@@ -473,7 +504,7 @@ export default function FeaturesPage() {
                                 <FlaskConical className="w-4 h-4" /> Innovation
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Research & <span className="text-[#7c3aed]">Development</span> 🔬
+                                Research & <span className="text-[#7c3aed]">Development</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 ZeeQue has a dedicated <strong className="text-[#222] dark:text-white">Research and Development wing</strong> at its Head Office that makes us unique. Our R&D team continuously studies child development and education trends to ensure our curriculum remains cutting-edge.
@@ -484,14 +515,13 @@ export default function FeaturesPage() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { title: "Curriculum R&D", desc: "Continuous testing & refinement", emoji: "📊" },
-                                    { title: "Teacher Training", desc: "Research-backed pedagogy", emoji: "🎓" },
-                                    { title: "Child Studies", desc: "Developmental psychology", emoji: "🧒" },
-                                    { title: "Innovation Lab", desc: "New teaching methods", emoji: "💡" },
+                                    { title: "Curriculum R&D", desc: "Continuous testing & refinement" },
+                                    { title: "Teacher Training", desc: "Research-backed pedagogy" },
+                                    { title: "Child Studies", desc: "Developmental psychology" },
+                                    { title: "Innovation Lab", desc: "New teaching methods" },
                                 ].map((r) => (
-                                    <div key={r.title} className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-gray-100 dark:border-slate-700 hover:shadow-md transition-all duration-300">
-                                        <div className="text-2xl mb-2">{r.emoji}</div>
-                                        <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-0.5">{r.title}</h4>
+                                    <div key={r.title} className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-gray-100 dark:border-slate-700 hover:shadow-md transition-all duration-300">
+                                        <h4 className="font-heading font-bold text-[#222] dark:text-white text-[15px] mb-1">{r.title}</h4>
                                         <p className="text-gray-500 dark:text-gray-400 font-body text-xs">{r.desc}</p>
                                     </div>
                                 ))}
@@ -513,40 +543,6 @@ export default function FeaturesPage() {
                 <WavyDivider fill="white" darkFill="dark:fill-slate-900" />
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 10: All Features Summary Grid
-               ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="text-5xl mb-4">📋</div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Everything at a <span className="text-primary">Glance</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">Here&apos;s every feature that makes ZeeQue the perfect choice for your child&apos;s first steps into education.</p>
-                    </motion.div>
-
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                        {[
-                            { n: "Quran & Culture", e: "📖", c: "#0fb85c" }, { n: "Trilingual Education", e: "🌍", c: "#0052ff" },
-                            { n: "Character Building", e: "🏅", c: "#e83e8c" }, { n: "Stress-Free Learning", e: "😊", c: "#7c3aed" },
-                            { n: "Play Way Method", e: "🎮", c: "#fbaf01" }, { n: "3 Mentors/Class", e: "👩‍🏫", c: "#ef4225" },
-                            { n: "Smart Classrooms", e: "💻", c: "#0052ff" }, { n: "Sand Pit", e: "🏖️", c: "#fbaf01" },
-                            { n: "Splash Pool", e: "💦", c: "#0052ff" }, { n: "Mud Pond", e: "🪴", c: "#e83e8c" },
-                            { n: "3 Unique Ponds", e: "🏊", c: "#0fb85c" }, { n: "R&D Wing", e: "🔬", c: "#7c3aed" },
-                            { n: "Safety & Security", e: "🛡️", c: "#ef4225" }, { n: "Academic Executives", e: "👔", c: "#0052ff" },
-                            { n: "Outdoor Play", e: "⚽", c: "#0fb85c" }, { n: "Exclusive Curriculum", e: "📚", c: "#e83e8c" },
-                        ].map((f, i) => (
-                            <motion.div key={f.n} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-2xl p-4 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                <div className="text-3xl mb-2 group-hover:scale-125 transition-transform duration-300">{f.e}</div>
-                                <p className="font-heading font-bold text-[#222] dark:text-white text-xs">{f.n}</p>
-                                <div className="w-5 h-1 rounded-full mx-auto mt-2" style={{ backgroundColor: f.c }} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ══════════════════════════════════
                 SECTION 11: CTA
@@ -559,7 +555,9 @@ export default function FeaturesPage() {
 
                 <div className="max-w-[800px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <div className="text-6xl mb-6">🎓</div>
+                        <div className="w-20 h-20 rounded-2xl bg-white/20 dark:bg-slate-800/40 backdrop-blur-md flex items-center justify-center mx-auto mb-8 shadow-xl border border-white/20">
+                            <GraduationCap className="w-10 h-10 text-primary" />
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Ready to Experience <span className="text-primary">ZeeQue</span>?
                         </h2>
@@ -570,11 +568,11 @@ export default function FeaturesPage() {
                             <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
                                 {/* Subtle micro-pulse inner highlight */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                                <span className="relative z-10">Enquiry Now 🎉</span>
+                                <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
                             <Link href="/about" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
-                                About Us 📖
+                                About Us
                             </Link>
                         </div>
                     </motion.div>

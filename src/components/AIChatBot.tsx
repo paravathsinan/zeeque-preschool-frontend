@@ -273,11 +273,9 @@ export default function AIChatBot() {
                             setIsOpen(true);
                             setShowPopup(false);
                         }}
-                        className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-[0_8px_30px_rgba(77,184,255,0.4)] hover:shadow-[0_12px_40px_rgba(77,184,255,0.6)] cursor-pointer group overflow-hidden border-2 border-white/20"
+                        className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20"
                         aria-label="Open AI chat"
                     >
-                        {/* Pulse ring */}
-                        <span className="absolute inset-0 rounded-full animate-ping bg-white/40" style={{ animationDuration: "2.5s" }} />
 
                         {/* Shimmer sweep */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out" />

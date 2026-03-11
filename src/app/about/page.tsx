@@ -108,10 +108,10 @@ const activities = [
 ];
 
 const stats = [
-    { value: 12, suffix: "+", label: "Years of Experience", color: "#ef4225" },
-    { value: 50, suffix: "+", label: "Learning Centers", color: "#0fb85c" },
-    { value: 5000, suffix: "+", label: "Happy Students", color: "#0052ff" },
-    { value: 200, suffix: "+", label: "Trained Teachers", color: "#fbaf01" },
+    { value: 4, suffix: "", label: "Countries", color: "#ef4225" },
+    { value: 152, suffix: "", label: "Schools", color: "#0fb85c" },
+    { value: 15000, suffix: "", label: "Happy Students", color: "#0052ff" },
+    { value: 2200, suffix: "", label: "Trained Teachers", color: "#fbaf01" },
 ];
 
 /* ──────────────────────────────────────────────
@@ -488,39 +488,97 @@ export default function AboutPage() {
                 SECTION 6: Infrastructure & Facilities
                ══════════════════════════════════ */}
             <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
+                {/* Decorative background blobs */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden">
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.2, 1],
+                            rotate: [0, 90, 0],
+                            x: [0, 50, 0],
+                            y: [0, 30, 0]
+                        }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                        className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] rounded-full bg-gradient-to-br from-blue-400/10 to-transparent blur-[80px]"
+                    />
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.1, 1],
+                            rotate: [0, -45, 0],
+                            x: [0, -30, 0],
+                            y: [0, 50, 0]
+                        }}
+                        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                        className="absolute top-[20%] -right-[5%] w-[35%] h-[35%] rounded-full bg-gradient-to-bl from-purple-400/10 to-transparent blur-[100px]"
+                    />
+                </div>
+
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
+                        className="text-center mb-20"
                     >
-                        <span className="text-blue-600 dark:text-blue-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-blue-50/80 dark:bg-blue-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-blue-200/50 dark:border-blue-700/30 mx-auto">World-Class Setup</span>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Infrastructure & <span className="text-[#0052ff]">Facilities</span>
+                        <div className="flex items-center justify-center mb-4">
+                            <span className="h-px w-8 bg-blue-600/30 dark:bg-blue-400/30" />
+                            <span className="text-blue-600 dark:text-blue-400 font-heading font-bold text-xs uppercase tracking-widest px-4">World-Class Setup</span>
+                            <span className="h-px w-8 bg-blue-600/30 dark:bg-blue-400/30" />
+                        </div>
+                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl tracking-tight leading-[1.1] mb-6">
+                            Infrastructure & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Facilities</span>
                         </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-gray-600 dark:text-gray-300 font-body text-xl max-w-3xl mx-auto leading-relaxed opacity-90">
                             Our centers are designed to be healthy, safe, and stimulating — providing creative programming flexibility with age-appropriate materials and equipment.
                         </p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {facilities.map((f, i) => (
                             <motion.div
                                 key={f.title}
                                 custom={i}
                                 variants={fadeUp}
-                                className="relative bg-white dark:bg-slate-800 rounded-3xl p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group overflow-hidden"
+                                animate={{
+                                    y: [0, -8, 0],
+                                }}
+                                transition={{
+                                    duration: 6,
+                                    repeat: Infinity,
+                                    ease: "easeInOut",
+                                    delay: i * 0.4
+                                }}
+                                className="group relative bg-white/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-[40px] p-8 border border-white/40 dark:border-slate-700/40 hover:border-blue-500/30 dark:hover:border-blue-400/30 shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] transition-all duration-700 overflow-hidden"
                             >
-                                {/* Decorative corner */}
-                                <div className="absolute top-0 right-0 w-20 h-20 rounded-bl-[60px] opacity-10 group-hover:opacity-20 transition-opacity" style={{ backgroundColor: f.color }} />
+                                {/* Inner glass reflection */}
+                                <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: `${f.color}12` }}>
-                                    <f.icon className="w-7 h-7" style={{ color: f.color }} />
+                                <div className="relative z-10">
+                                    <div className="flex items-start justify-between mb-8">
+                                        <div className="relative w-16 h-16">
+                                            {/* Icon glow */}
+                                            <div
+                                                className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"
+                                                style={{ backgroundColor: f.color }}
+                                            />
+                                            <div
+                                                className="relative w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-inner"
+                                                style={{ backgroundColor: `${f.color}12` }}
+                                            >
+                                                <f.icon className="w-8 h-8" style={{ color: f.color }} />
+                                            </div>
+                                        </div>
+                                        <span className="font-heading font-black text-4xl opacity-5 group-hover:opacity-10 transition-opacity duration-500 tracking-tighter italic">0{i + 1}</span>
+                                    </div>
+
+                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4 group-hover:translate-x-1 transition-transform duration-300 tracking-tight">{f.title}</h3>
+                                    <p className="text-gray-500 dark:text-gray-400 font-body text-[16px] leading-relaxed group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">{f.description}</p>
+
+                                    {/* Action link effect */}
+                                    <div className="mt-8 flex items-center gap-2 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0" style={{ color: f.color }}>
+                                        Learn more <ArrowRight className="w-4 h-4" />
+                                    </div>
                                 </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">{f.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{f.description}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -573,7 +631,7 @@ export default function AboutPage() {
                         className="mt-12 text-center"
                     >
                         <p className="text-gray-500 dark:text-gray-400 font-body text-base italic">
-                            Plus exciting picnics to zoos, botanical gardens, fire stations, post offices, and more! 🎉
+                            Plus exciting picnics to zoos, botanical gardens, fire stations, post offices, and more!
                         </p>
                     </motion.div>
                 </div>

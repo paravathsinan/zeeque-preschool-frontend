@@ -97,7 +97,7 @@ export default function CurriculumPage() {
                                 Below the age of six, children demonstrate advanced pretend play, symbolic thought, categorization, reasoning, and problem-solving abilities, marking the preschool years as a phase of rapid development. Our curriculum, rooted in engaging activities that spark curiosity, is designed to nurture <strong className="text-[#222] dark:text-white">every aspect of a child&apos;s growth</strong> — including their physical, emotional, and intellectual development, creativity, language skills, and social interactions.
                             </p>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-6">
-                                It places a strong emphasis on refining the child&apos;s language skills through a combination of speaking, reading, writing, and audio-visual lessons. Within the vibrant and cheerful environment of Zeeque Preschool, children not only acquire knowledge but also learn the values of sharing, caring, connecting with nature, nurturing their innate curiosity, and staying well-informed.
+                                It places a strong emphasis on refining the child&apos;s language skills through active learning and engagement in a vibrant, cheerful environment.
                             </p>
 
                             <div className="space-y-3 mb-6">
@@ -105,8 +105,6 @@ export default function CurriculumPage() {
                                     { emoji: "🎯", text: "Fosters curiosity, interaction, and exploration in every child" },
                                     { emoji: "🧪", text: "Sensory-integrated sessions targeting senses, memory, and observation" },
                                     { emoji: "🎲", text: "Edutainment games developing gross and fine motor skills" },
-                                    { emoji: "🎭", text: "Imaginative plays refining cultural and artistic talents" },
-                                    { emoji: "💎", text: "Life skills including good manners, confidence, and leadership" },
                                 ].map((item) => (
                                     <div key={item.text} className="flex items-start gap-3 bg-[#7c3aed]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#7c3aed]/10 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
                                         <span className="text-2xl flex-shrink-0">{item.emoji}</span>
@@ -117,15 +115,11 @@ export default function CurriculumPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop" alt="Preschool students engaging in sensory-integrated learning activities at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 50vw, 285px" className="object-cover" />
-                                </div>
-                                <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Children exploring hands-on educational activities in a colourful classroom at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 50vw, 285px" className="object-cover" />
-                                </div>
+                            <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
+                                <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Children exploring hands-on educational activities in a colourful classroom at ZeeQue Preschool in Kerala." fill className="object-cover" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#7c3aed]/30 to-transparent" />
                             </div>
-                            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
+                            <div className="absolute -bottom-5 -left-5 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <span className="font-heading font-bold text-sm">R&D Backed</span>
                             </div>
                         </motion.div>
@@ -193,8 +187,6 @@ export default function CurriculumPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft}
                             className="bg-gradient-to-br from-[#0052ff]/5 to-[#7c3aed]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#0052ff]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                            <div className="absolute bottom-3 right-3 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🗣️</div>
-                            <div className="text-5xl mb-4">📝</div>
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Language & Communication</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
                                 Children are trained to communicate, read, and write in three languages — Arabic, English, and Malayalam. Our approach combines phonics, storytelling, and conversational practice for natural language acquisition.
@@ -210,8 +202,6 @@ export default function CurriculumPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight}
                             className="bg-gradient-to-br from-[#0fb85c]/5 to-[#fbaf01]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#0fb85c]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                            <div className="absolute bottom-3 right-3 text-6xl opacity-10 group-hover:opacity-20 transition-opacity">🔢</div>
-                            <div className="text-5xl mb-4">🧮</div>
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Numeracy & Logic</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
                                 Early numeracy concepts are introduced through fun activities, games, and real-life applications. Children develop logical thinking and problem-solving abilities naturally.
@@ -333,57 +323,9 @@ export default function CurriculumPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 10: Values & Life Skills
-               ══════════════════════════════════ */}
-            <section className="py-10 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-10">
-                        <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            Beyond Academics
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Values & <span className="text-[#fbaf01]">Life Skills</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto">Our curriculum goes beyond traditional learning by instilling values and life skills that shape confident, responsible leaders.</p>
-                    </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-                        {[
-                            { title: "Good Manners", emoji: "🙏", color: "#0052ff" },
-                            { title: "Confidence", emoji: "💪", color: "#fbaf01" },
-                            { title: "Independence", emoji: "🦋", color: "#7c3aed" },
-                            { title: "Leadership", emoji: "👑", color: "#ef4225" },
-                            { title: "Responsibility", emoji: "🎯", color: "#0fb85c" },
-                            { title: "Sharing & Caring", emoji: "🤝", color: "#e83e8c" },
-                        ].map((v, i) => (
-                            <motion.div key={v.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[24px] p-5 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group">
-                                <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">{v.emoji}</div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-sm">{v.title}</h3>
-                                <div className="w-6 h-1 rounded-full mx-auto mt-2" style={{ backgroundColor: v.color }} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
 
-                    <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
-                        className="mt-12 bg-gradient-to-r from-[#fbaf01]/5 to-[#e83e8c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#fbaf01]/10 dark:border-slate-700">
-                        <div className="flex flex-col md:flex-row items-center gap-6">
-                            <div className="text-6xl">🧒</div>
-                            <div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-2">Building Tomorrow&apos;s Leaders Today</h3>
-                                <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] leading-relaxed">
-                                    Through imaginative plays and creative activities, we refine the cultural and artistic talents of children, equipping them with a diverse set of life skills. Our curriculum nurtures not just academic knowledge but the character traits that define great individuals — from empathy to resilience, from curiosity to courage.
-                                </p>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
 
-            {/* ══════════════════════════════════
-                SECTION 11: CTA
-               ══════════════════════════════════ */}
             <section className="py-10 lg:py-14 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden lg:block" />

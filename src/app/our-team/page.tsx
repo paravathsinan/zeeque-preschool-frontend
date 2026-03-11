@@ -58,7 +58,7 @@ export default function OurTeamPage() {
         <main className="min-h-screen bg-[#fafafa] dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
-            <div className="w-full relative z-50 dark:bg-slate-800">
+            <div className="w-full relative z-50 bg-white dark:bg-slate-900">
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
                     <TopHeader />
                 </div>

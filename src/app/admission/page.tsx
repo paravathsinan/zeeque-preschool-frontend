@@ -193,7 +193,6 @@ export default function AdmissionPage() {
                                 variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 rounded-3xl p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group text-center relative overflow-hidden"
                             >
-                                <div className="absolute top-0 right-0 w-20 h-20 rounded-bl-[60px] opacity-10 group-hover:opacity-20 transition-opacity" style={{ backgroundColor: doc.color }} />
                                 <div
                                     className="w-16 h-16 rounded-2xl mx-auto flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300"
                                     style={{ backgroundColor: `${doc.color}15` }}
@@ -276,8 +275,6 @@ export default function AdmissionPage() {
                     >
                         <div className="bg-gradient-to-br from-[#fffcf2] to-[#faeed1] dark:from-slate-800 dark:to-slate-900 rounded-[32px] p-10 md:p-14 border-2 border-gray-100 dark:border-slate-700 shadow-lg relative overflow-hidden">
                             {/* Decorative corner */}
-                            <div className="absolute top-0 right-0 w-32 h-32 rounded-bl-[80px] bg-[#fbaf01]/10" />
-                            <div className="absolute bottom-0 left-0 w-24 h-24 rounded-tr-[60px] bg-[#ef4225]/5" />
 
                             <div className="relative z-10">
                                 <div className="text-4xl mb-4"></div>

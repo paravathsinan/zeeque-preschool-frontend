@@ -66,14 +66,16 @@ export default function ProgramsPage() {
                             <span className="text-primary font-semibold">Programs</span>
                         </div>
                         <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Programs</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span> 🎓
+                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Programs</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span>
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                             From our flagship 3-Year Kindergarten to teacher training diplomas and parent empowerment — Zeeque Preschool offers a complete ecosystem of programs for children, educators, and families.
                         </p>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-3">
-                            {["👶 3 Year KG", "🎓 Diploma in ECCE", "📚 Grade Stream", "👩‍🏫 TTGS", "👪 PEP"].map((tag) => (
-                                <span key={tag} className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full px-4 py-2 font-heading font-bold text-xs text-gray-600 dark:text-gray-300 shadow-sm">{tag}</span>
+                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-4">
+                            {["3 Year KG", "Diploma in ECCE", "Grade Stream", "TTGS", "PEP"].map((tag) => (
+                                <span key={tag} className="bg-[#7c3aed]/5 dark:bg-[#7c3aed]/10 backdrop-blur-sm border border-[#7c3aed]/10 dark:border-white/10 rounded-full px-6 py-2.5 font-heading font-extrabold text-[11px] uppercase tracking-[0.1em] text-[#7c3aed] dark:text-[#a78bfa] shadow-sm hover:bg-[#7c3aed]/10 dark:hover:bg-[#7c3aed]/20 transition-all cursor-default border-b-2 border-r-2 border-b-[#7c3aed]/20">
+                                    {tag}
+                                </span>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -260,13 +262,12 @@ export default function ProgramsPage() {
 
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { title: "English Medium", desc: "Complete instruction in English", emoji: "🇬🇧" },
-                                    { title: "Islamic Integration", desc: "Values woven into academics", emoji: "🕌" },
-                                    { title: "Grades I–IV", desc: "4-year primary education", emoji: "📚" },
-                                    { title: "Trained Teachers", desc: "TTGS-certified educators", emoji: "👩‍🏫" },
+                                    { title: "English Medium", desc: "Complete instruction in English" },
+                                    { title: "Islamic Integration", desc: "Values woven into academics" },
+                                    { title: "Grades I–IV", desc: "4-year primary education" },
+                                    { title: "Trained Teachers", desc: "TTGS-certified educators" },
                                 ].map((g) => (
                                     <div key={g.title} className="bg-[#0052ff]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#0052ff]/10 dark:border-slate-700 hover:shadow-md transition-all duration-300">
-                                        <div className="text-2xl mb-2">{g.emoji}</div>
                                         <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-0.5">{g.title}</h4>
                                         <p className="text-gray-500 dark:text-gray-400 font-body text-xs">{g.desc}</p>
                                     </div>
@@ -341,9 +342,6 @@ export default function ProgramsPage() {
                         {/* Diploma in ECCE */}
                         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                             className="group relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 lg:p-10 border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden">
-                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <GraduationCap className="w-20 h-20 text-white" />
-                            </div>
 
                             <div className="flex items-center gap-5 mb-8">
                                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#4f46e5] flex items-center justify-center shadow-lg shadow-[#7c3aed]/20">
@@ -388,9 +386,6 @@ export default function ProgramsPage() {
                         {/* TTGS */}
                         <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
                             className="group relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 lg:p-10 border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden">
-                            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <BookOpenCheck className="w-20 h-20 text-white" />
-                            </div>
 
                             <div className="flex items-center gap-5 mb-8">
                                 <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#e83e8c] to-[#f43f5e] flex items-center justify-center shadow-lg shadow-[#e83e8c]/20">
@@ -466,13 +461,9 @@ export default function ProgramsPage() {
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 We have a unique system of <strong className="text-[#222] dark:text-white">Parent Empowerment Programme (PEP)</strong>. Our trainers regularly impart parent empowerment training based on a prescribed syllabus, ensuring parents are active partners in their child&apos;s educational journey.
                             </p>
-                            <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-8">
-                                Parents are kept abreast of the latest in child development, health and hygiene, nutrition, and modern parenting — because we believe education doesn&apos;t stop at the school gates.
-                            </p>
 
                             <div className="space-y-4">
                                 {[
-                                    { emoji: "👶", title: "Child Development", desc: "Understanding developmental milestones and how to nurture growth at home" },
                                     { emoji: "🏥", title: "Health & Hygiene", desc: "Best practices for maintaining your child's physical well-being" },
                                     { emoji: "🥗", title: "Nutrition", desc: "Dietary guidance for optimal brain development and physical growth" },
                                     { emoji: "❤️", title: "Parenting Skills", desc: "Effective parenting strategies, communication, and positive reinforcement" },
@@ -499,27 +490,40 @@ export default function ProgramsPage() {
             <section className="py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="text-5xl mb-4">💡</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Why Our Programs <span className="text-[#ef4225]">Work</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">The secret behind Zeeque Preschool&apos;s success — a holistic ecosystem approach.</p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { title: "Research-Backed", desc: "Every program is built on extensive R&D in child development and education.", emoji: "🔬", color: "#7c3aed" },
-                            { title: "Trained Educators", desc: "Our own Diploma & TTGS programs create the finest teachers.", emoji: "👩‍🏫", color: "#e83e8c" },
-                            { title: "Parent Partnership", desc: "PEP ensures parents are active partners in the learning journey.", emoji: "👪", color: "#fbaf01" },
-                            { title: "Proven Results", desc: "12+ years, 50+ centers, and 5000+ confident graduates.", emoji: "🏆", color: "#0fb85c" },
+                            { title: "Research-Backed", desc: "Every program is built on extensive R&D in child development and education.", color: "#7c3aed" },
+                            { title: "Trained Educators", desc: "Our own Diploma & TTGS programs create the finest teachers.", color: "#e83e8c" },
+                            { title: "Parent Partnership", desc: "PEP ensures parents are active partners in the learning journey.", color: "#fbaf01" },
+                            { title: "Proven Results", desc: "12+ years, 50+ centers, and 5000+ confident graduates.", color: "#0fb85c" },
                         ].map((w, i) => (
                             <motion.div key={w.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="absolute top-2 right-2 text-4xl opacity-10 group-hover:opacity-20 transition-opacity">{w.emoji}</div>
-                                <div className="text-4xl mb-4 group-hover:scale-125 transition-transform duration-300">{w.emoji}</div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">{w.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[14px] leading-relaxed">{w.desc}</p>
-                                <div className="w-6 h-1 rounded-full mx-auto mt-4" style={{ backgroundColor: w.color }} />
+                                className="group relative bg-white/60 dark:bg-slate-800/40 backdrop-blur-md rounded-[32px] p-8 border border-white/20 dark:border-slate-700/50 hover:shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] transition-all duration-500 overflow-hidden">
+
+                                {/* Background Accent Glow */}
+                                <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-700 blur-[40px]" style={{ backgroundColor: w.color }} />
+
+                                <div className="relative z-10">
+                                    <div className="flex items-start justify-between mb-8">
+                                        <div className="w-12 h-1 rounded-full" style={{ backgroundColor: w.color }} />
+                                    </div>
+
+                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-4 group-hover:translate-x-1 transition-transform duration-300">
+                                        {w.title}
+                                    </h3>
+                                    <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">
+                                        {w.desc}
+                                    </p>
+                                </div>
+
+                                {/* Subtle corner detail */}
+                                <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-br from-transparent to-black/[0.02] dark:to-white/[0.02]" />
                             </motion.div>
                         ))}
                     </motion.div>
@@ -538,7 +542,6 @@ export default function ProgramsPage() {
 
                 <div className="max-w-[800px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <div className="text-6xl mb-6">🚀</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Find the Right <span className="text-primary">Program</span>
                         </h2>
