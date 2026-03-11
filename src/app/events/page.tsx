@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -190,6 +190,7 @@ export default function EventsPage() {
                                 alt="Happy children enjoying outdoor play activities at ZeeQue Preschool in Kerala."
                                 fill
                                 className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                sizes="(max-width: 768px) 100vw, 50vw"
                             />
                             <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                         </div>
@@ -254,7 +255,13 @@ export default function EventsPage() {
                                     {newsData.map((news) => (
                                         <div key={news.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group">
                                             <div className="relative h-[220px] overflow-hidden">
-                                                <Image src={news.image} alt={news.alt} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+                                                <Image
+                                                    src={news.image}
+                                                    alt={news.alt}
+                                                    fill
+                                                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                                                />
                                                 <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-heading font-bold text-[#0052ff]">
                                                     {news.category}
                                                 </div>
@@ -289,7 +296,13 @@ export default function EventsPage() {
                                     {eventsData.map((event) => (
                                         <div key={event.id} className="bg-white dark:bg-slate-900 rounded-[24px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-800 group translate-y-0 hover:-translate-y-1">
                                             <div className="relative h-[220px] overflow-hidden">
-                                                <Image src={event.image} alt={event.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                                <Image
+                                                    src={event.image}
+                                                    alt={event.alt}
+                                                    fill
+                                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                                />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                                 <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end">
                                                     <div className="bg-white dark:bg-slate-800 text-center rounded-xl p-2 shadow-sm min-w-[50px]">

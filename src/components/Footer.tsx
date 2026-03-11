@@ -127,20 +127,31 @@ export default function Footer() {
                             <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                                 <input
                                     type="text"
+                                    id="footer-name"
+                                    name="name"
+                                    autoComplete="name"
                                     placeholder="Your Name"
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
                                 />
                                 <input
                                     type="email"
+                                    id="footer-email"
+                                    name="email"
+                                    autoComplete="email"
                                     placeholder="Your Email"
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
                                 />
                                 <input
                                     type="tel"
+                                    id="footer-phone"
+                                    name="phone"
+                                    autoComplete="tel"
                                     placeholder="Your Phone"
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
                                 />
                                 <textarea
+                                    id="footer-message"
+                                    name="message"
                                     placeholder="Message"
                                     rows={3}
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300 resize-none"

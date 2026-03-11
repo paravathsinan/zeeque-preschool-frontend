@@ -95,6 +95,8 @@ export default function ResultPortalPage() {
                                 <div className="relative flex-grow">
                                     <input
                                         type="text"
+                                        id="register-number"
+                                        name="register-number"
                                         value={registerNumber}
                                         onChange={(e) => setRegisterNumber(e.target.value)}
                                         placeholder="Enter Register Number"

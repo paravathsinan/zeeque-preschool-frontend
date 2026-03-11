@@ -99,6 +99,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Name <span className="text-red-500">*</span></label>
                                         <input
                                             type="text"
+                                            id="gst-full-name"
+                                            name="full-name"
+                                            autoComplete="name"
                                             placeholder="Enter your full name"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                             required
@@ -110,6 +113,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="date"
+                                                id="gst-dob"
+                                                name="dob"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
                                                 required
                                             />
@@ -120,6 +125,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Sex <span className="text-red-500">*</span></label>
                                         <select
+                                            id="gst-gender"
+                                            name="gender"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
                                             required
                                             defaultValue=""
@@ -133,6 +140,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                     <div className="col-span-1 md:col-span-2">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address with Pin code <span className="text-red-500">*</span></label>
                                         <textarea
+                                            id="gst-address"
+                                            name="address"
+                                            autoComplete="street-address"
                                             placeholder="Enter your address"
                                             rows={4}
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 resize-none"
@@ -144,6 +154,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">City <span className="text-red-500">*</span></label>
                                         <input
                                             type="text"
+                                            id="gst-city"
+                                            name="city"
+                                            autoComplete="address-level2"
                                             placeholder="Nearby City"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                             required
@@ -152,7 +165,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-state" name="state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT</option>
                                             <option value="kerala">Kerala</option>
                                         </select>
@@ -160,7 +173,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-district" name="district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT</option>
                                             <option value="kozhikode">Kozhikode</option>
                                             <option value="malappuram">Malappuram</option>
@@ -169,7 +182,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Marital Status <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-marital-status" name="marital-status" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT</option>
                                             <option value="single">Single</option>
                                             <option value="married">Married</option>
@@ -193,6 +206,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <div className="relative group">
                                             <input
                                                 type="tel"
+                                                id="gst-contact"
+                                                name="contact-number"
+                                                autoComplete="tel"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
                                             />
@@ -205,6 +221,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="tel"
+                                                id="gst-whatsapp"
+                                                name="whatsapp-number"
+                                                autoComplete="tel"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
                                             />
@@ -217,6 +236,9 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="email"
+                                                id="gst-email"
+                                                name="email"
+                                                autoComplete="email"
                                                 placeholder="Your Email ID"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
@@ -239,7 +261,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Religious Education <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-religious-edu" name="religious-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>---SELECT---</option>
                                             <option value="Hifz">Hifz</option>
                                             <option value="Alim">Alim</option>
@@ -248,7 +270,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">General Education <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-general-edu" name="general-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>---SELECT---</option>
                                             <option value="sslc">SSLC</option>
                                             <option value="plus-two">Plus Two</option>
@@ -270,7 +292,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-country" name="country" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>--SELECT--</option>
                                             <option value="india">India</option>
                                         </select>
@@ -278,7 +300,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-state-pref" name="state-pref" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>--SELECT--</option>
                                             <option value="kerala">Kerala</option>
                                         </select>
@@ -288,6 +310,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
                                         <input
                                             type="text"
+                                            id="gst-district-pref"
+                                            name="district-pref"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                             required
                                         />
@@ -295,7 +319,7 @@ export default function GradeStreamTeacherTraineesPage() {
 
                                     <div className="col-span-1 sm:col-span-2 md:col-span-3 mt-4">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Centre <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="gst-centre" name="centre" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>--SELECT--</option>
                                         </select>
                                     </div>

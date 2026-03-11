@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -277,20 +277,38 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="w-full lg:w-1/2 relative"
                     >
-                        <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
-                                <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Children engaging in group activities in a spacious ZeeQue Preschool classroom in Kerala." fill className="object-cover" />
-                            </div>
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
-                                <Image src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG" alt="Early learners enjoying a reading session at our Islamic Montessori preschool in Kerala." fill className="object-cover" />
-                            </div>
-                            <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
-                                <Image src="/images/gallery/page-title.jpg" alt="Happy kids running and playing together outdoors at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                                    <span className="text-white font-heading font-bold text-lg">Where Every Child Shines ✨</span>
+                            <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
+                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
+                                    <Image
+                                        src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG"
+                                        alt="Children engaging in group activities in a spacious ZeeQue Preschool classroom in Kerala."
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                </div>
+                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
+                                    <Image
+                                        src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG"
+                                        alt="Early learners enjoying a reading session at our Islamic Montessori preschool in Kerala."
+                                        fill
+                                        className="object-cover"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    />
+                                </div>
+                                <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
+                                    <Image
+                                        src="/images/gallery/page-title.jpg"
+                                        alt="Happy kids running and playing together outdoors at ZeeQue Preschool in Kerala."
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                        sizes="(max-width: 768px) 100vw, 66vw"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
+                                        <span className="text-white font-heading font-bold text-lg">Where Every Child Shines ✨</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
                         {/* Floating badge */}
                         <div className="absolute -bottom-4 -left-4 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-full px-4 py-2.5 shadow-2xl z-20 hidden sm:flex items-center gap-2 border border-white/40 dark:border-slate-700/40">
@@ -363,6 +381,7 @@ export default function AboutPage() {
                                     alt={item.alt}
                                     fill
                                     className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                                 <div className="absolute bottom-0 left-0 right-0 p-7">

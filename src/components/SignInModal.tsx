@@ -149,6 +149,8 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
                                         <div className="relative">
                                             <input
                                                 type="email"
+                                                id="signin-email"
+                                                autoComplete="email"
                                                 placeholder="Email Address"
                                                 {...register("email")}
                                                 className={getInputClasses("email")}
@@ -177,6 +179,8 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
                                         <div className="relative">
                                             <input
                                                 type={showPassword ? "text" : "password"}
+                                                id="signin-password"
+                                                autoComplete="current-password"
                                                 placeholder="••••••••••••"
                                                 {...register("password")}
                                                 className={getInputClasses("password")}

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -116,7 +116,13 @@ export default function CurriculumPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg" alt="Children exploring hands-on educational activities in a colourful classroom at ZeeQue Preschool in Kerala." fill className="object-cover" />
+                                <Image
+                                    src="/images/gallery/actiivites/659cf71996662425490851jpeg.jpg"
+                                    alt="Children exploring hands-on educational activities in a colourful classroom at ZeeQue Preschool in Kerala."
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#7c3aed]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -left-5 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
@@ -312,7 +318,13 @@ export default function CurriculumPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Educators researching the latest early childhood education methodologies for ZeeQue Preschool in Kerala." fill className="object-cover" />
+                                <Image
+                                    src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop"
+                                    alt="Educators researching the latest early childhood education methodologies for ZeeQue Preschool in Kerala."
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#ef4225]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#ef4225] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">

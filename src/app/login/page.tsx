@@ -112,6 +112,8 @@ export default function LoginPage() {
                                 <div className="relative">
                                     <input
                                         type="email"
+                                        id="login-email"
+                                        autoComplete="email"
                                         placeholder="Email Address"
                                         {...register("email")}
                                         className={getInputClasses("email")}
@@ -140,6 +142,8 @@ export default function LoginPage() {
                                 <div className="relative">
                                     <input
                                         type={showPassword ? "text" : "password"}
+                                        id="login-password"
+                                        autoComplete="current-password"
                                         placeholder="••••••••••••"
                                         {...register("password")}
                                         className={getInputClasses("password")}

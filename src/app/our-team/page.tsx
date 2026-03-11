@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -110,7 +110,13 @@ export default function OurTeamPage() {
                         {chiefPatrons.map((person, i) => (
                             <motion.div key={person.name} custom={i} variants={fadeUp} className="group">
                                 <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-slate-800">
-                                    <Image src={person.image} alt={person.name} fill className="object-cover transition-transform duration-[1500ms] group-hover:scale-110" />
+                                    <Image
+                                        src={person.image}
+                                        alt={person.name}
+                                        fill
+                                        className="object-cover transition-transform duration-[1500ms] group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                    />
                                 </div>
                                 <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg">{person.name}</h3>
                                 <p className="text-gray-400 dark:text-gray-500 font-body text-sm tracking-wide uppercase">{person.role}</p>
@@ -141,7 +147,13 @@ export default function OurTeamPage() {
                         {directorate.map((person, i) => (
                             <motion.div key={person.name} custom={i} variants={fadeUp} className="group">
                                 <div className="relative w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 bg-gray-100 dark:bg-slate-800">
-                                    <Image src={person.image} alt={person.name} fill className="object-cover transition-transform duration-[1500ms] group-hover:scale-110" />
+                                    <Image
+                                        src={person.image}
+                                        alt={person.name}
+                                        fill
+                                        className="object-cover transition-transform duration-[1500ms] group-hover:scale-110"
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                    />
                                 </div>
                                 <h3 className="font-heading font-bold text-[#222] dark:text-white text-[17px] leading-snug">{person.name}</h3>
                                 <p className="text-sm font-body mt-0.5" style={{ color: person.color }}>{person.role}</p>

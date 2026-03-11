@@ -147,6 +147,8 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignIn }: LoginM
                                         <div className="relative">
                                             <input
                                                 type="text"
+                                                id="signup-name"
+                                                autoComplete="name"
                                                 placeholder="Full Name"
                                                 {...register("name")}
                                                 className={getInputClasses("name")}
@@ -175,6 +177,8 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignIn }: LoginM
                                         <div className="relative">
                                             <input
                                                 type="email"
+                                                id="signup-email"
+                                                autoComplete="email"
                                                 placeholder="Email Address"
                                                 {...register("email")}
                                                 className={getInputClasses("email")}
@@ -203,6 +207,8 @@ export default function LoginModal({ isOpen, onClose, onSwitchToSignIn }: LoginM
                                         <div className="relative">
                                             <input
                                                 type={showPassword ? "text" : "password"}
+                                                id="signup-password"
+                                                autoComplete="new-password"
                                                 placeholder="••••••••••••"
                                                 {...register("password")}
                                                 className={getInputClasses("password")}

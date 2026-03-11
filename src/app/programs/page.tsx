@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -174,7 +174,13 @@ export default function ProgramsPage() {
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
-                                <Image src="/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG" alt="Happy toddlers engaging in Montessori activities at Zeeque Preschool in Kerala." fill className="object-cover" />
+                                <Image
+                                    src="/images/gallery/gallery photos/IMG_5740 (2) - Copy.JPG"
+                                    alt="Happy toddlers engaging in Montessori activities at Zeeque Preschool in Kerala."
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                />
                                 <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -left-3 bg-[#0fb85c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">

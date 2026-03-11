@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${kumbhSans.variable} antialiased`}
+        className={`${kumbhSans.className} ${kumbhSans.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}

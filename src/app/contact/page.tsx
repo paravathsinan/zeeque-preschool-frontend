@@ -175,6 +175,9 @@ export default function ContactPage() {
                                         <label className="block font-heading font-bold text-[#222] dark:text-white text-sm">Name</label>
                                         <input
                                             type="text"
+                                            id="contact-name"
+                                            name="user-name"
+                                            autoComplete="name"
                                             placeholder="Your name"
                                             className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                         />
@@ -183,6 +186,9 @@ export default function ContactPage() {
                                         <label className="block font-heading font-bold text-[#222] dark:text-white text-sm">Email</label>
                                         <input
                                             type="email"
+                                            id="contact-email"
+                                            name="user-email"
+                                            autoComplete="email"
                                             placeholder="contact@zeeque.in"
                                             className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                         />
@@ -192,6 +198,8 @@ export default function ContactPage() {
                                     <label className="block font-heading font-bold text-[#222] dark:text-white text-sm">Subject</label>
                                     <input
                                         type="text"
+                                        id="contact-subject"
+                                        name="subject"
                                         placeholder="Enquiry status/admission"
                                         className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                     />
@@ -199,6 +207,8 @@ export default function ContactPage() {
                                 <div className="space-y-2">
                                     <label className="block font-heading font-bold text-[#222] dark:text-white text-sm">Message</label>
                                     <textarea
+                                        id="contact-message"
+                                        name="message"
                                         rows={4}
                                         placeholder="Tell us what's on your mind..."
                                         className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200 resize-none"

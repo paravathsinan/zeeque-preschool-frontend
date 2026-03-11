@@ -102,6 +102,9 @@ export default function TeacherTraineesPage() {
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Full Name <span className="text-red-500">*</span></label>
                                         <input
                                             type="text"
+                                            id="trainee-full-name"
+                                            name="full-name"
+                                            autoComplete="name"
                                             placeholder="Enter your full name"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                             required
@@ -113,6 +116,8 @@ export default function TeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="date"
+                                                id="trainee-dob"
+                                                name="dob"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
                                                 required
                                             />
@@ -123,6 +128,8 @@ export default function TeacherTraineesPage() {
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Sex <span className="text-red-500">*</span></label>
                                         <select
+                                            id="trainee-gender"
+                                            name="gender"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
                                             required
                                             defaultValue=""
@@ -137,6 +144,9 @@ export default function TeacherTraineesPage() {
                                     <div className="col-span-1 md:col-span-2">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address with Pin code <span className="text-red-500">*</span></label>
                                         <textarea
+                                            id="trainee-address"
+                                            name="address"
+                                            autoComplete="street-address"
                                             placeholder="Enter your complete residential address"
                                             rows={4}
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 resize-none"
@@ -148,6 +158,9 @@ export default function TeacherTraineesPage() {
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">City <span className="text-red-500">*</span></label>
                                         <input
                                             type="text"
+                                            id="trainee-city"
+                                            name="city"
+                                            autoComplete="address-level2"
                                             placeholder="Nearby City"
                                             className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                             required
@@ -156,7 +169,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-state" name="state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT STATE</option>
                                             <option value="kerala">Kerala</option>
                                             {/* Add more states as needed */}
@@ -165,7 +178,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-district" name="district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT DISTRICT</option>
                                             <option value="kozhikode">Kozhikode</option>
                                             {/* Add more districts as needed */}
@@ -174,7 +187,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Marital Status <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-marital-status" name="marital-status" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT STATUS</option>
                                             <option value="single">Single</option>
                                             <option value="married">Married</option>
@@ -198,6 +211,9 @@ export default function TeacherTraineesPage() {
                                         <div className="relative group">
                                             <input
                                                 type="tel"
+                                                id="trainee-contact"
+                                                name="contact-number"
+                                                autoComplete="tel"
                                                 placeholder="Mobile number"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
@@ -211,6 +227,8 @@ export default function TeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="tel"
+                                                id="trainee-whatsapp"
+                                                name="whatsapp-number"
                                                 placeholder="WhatsApp number"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
@@ -224,6 +242,9 @@ export default function TeacherTraineesPage() {
                                         <div className="relative">
                                             <input
                                                 type="email"
+                                                id="trainee-email"
+                                                name="email"
+                                                autoComplete="email"
                                                 placeholder="Your Email ID"
                                                 className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
                                                 required
@@ -246,7 +267,7 @@ export default function TeacherTraineesPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Religious Education <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-religious-edu" name="religious-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>-- SELECT --</option>
                                             <option value="madrasa">Madrasa Grade 7/10/12</option>
                                             <option value="degree">Afzal-ul-ulama Degree</option>
@@ -257,7 +278,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">General Education <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-general-edu" name="general-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>-- SELECT --</option>
                                             <option value="sslc">SSLC / Class 10</option>
                                             <option value="plus-two">Plus Two / Class 12</option>
@@ -280,7 +301,7 @@ export default function TeacherTraineesPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="india">
+                                        <select id="trainee-country" name="country" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="india">
                                             <option value="india">India</option>
                                             <option value="uae">UAE</option>
                                         </select>
@@ -288,7 +309,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-pref-state" name="pref-state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT</option>
                                             <option value="kerala">Kerala</option>
                                         </select>
@@ -296,7 +317,7 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-pref-district" name="pref-district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT</option>
                                             <option value="kozhikode">Kozhikode</option>
                                         </select>
@@ -304,7 +325,7 @@ export default function TeacherTraineesPage() {
 
                                     <div className="col-span-1 sm:col-span-2 md:col-span-3">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Preferred Centre <span className="text-red-500">*</span></label>
-                                        <select className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
+                                        <select id="trainee-pref-centre" name="pref-centre" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
                                             <option value="" disabled>SELECT CENTRE</option>
                                             <option value="centre1">Zeeque Preschool Academy - Kozhikode</option>
                                             <option value="centre2">Zeeque Preschool Academy - Kochi</option>

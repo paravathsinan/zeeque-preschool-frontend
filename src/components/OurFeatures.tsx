@@ -124,6 +124,7 @@ export default function OurFeatures() {
                                             alt={feature.alt}
                                             fill
                                             className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                         />
 
                                         {/* Gradient overlay for text readability */}

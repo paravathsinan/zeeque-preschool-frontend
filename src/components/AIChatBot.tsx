@@ -193,6 +193,8 @@ export default function AIChatBot() {
                             <div className="flex items-center gap-2 bg-gray-100 dark:bg-slate-800 rounded-2xl px-4 py-2">
                                 <input
                                     type="text"
+                                    id="chat-input"
+                                    name="chat-message"
                                     value={inputText}
                                     onChange={(e) => setInputText(e.target.value)}
                                     onKeyDown={(e) => e.key === "Enter" && handleSend()}

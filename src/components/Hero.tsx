@@ -40,7 +40,13 @@ export default function Hero() {
 
             <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                 {/* Bottom Cloud/Wavy pattern can be an SVG or banner shape */}
-                <Image src="/images/shape/banner-shape6.png" alt="Decorative cloud pattern for Zeeque Preschool website Kerala." fill className="object-cover object-bottom" />
+                <Image
+                    src="/images/shape/banner-shape6.png"
+                    alt="Decorative cloud pattern for Zeeque Preschool website Kerala."
+                    fill
+                    className="object-cover object-bottom"
+                    sizes="100vw"
+                />
             </div>
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-20 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left">
@@ -133,6 +139,7 @@ export default function Hero() {
                                         fill
                                         className="object-cover"
                                         priority={currentImageIndex === 0}
+                                        sizes="(max-width: 1024px) 90vw, 50vw"
                                     />
                                 </motion.div>
                             </AnimatePresence>

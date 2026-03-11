@@ -5,7 +5,7 @@ import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, Upload, FolderPlus, Undo2, ArrowLeft, FileText, Grid, List as ListIcon, ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, Upload, FolderPlus, Undo2, ArrowLeft, FileText, Grid, List as ListIcon, ChevronDown, ChevronUp, Image as ImageIcon, Users as UsersIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 const initialFolders = [
@@ -23,9 +23,6 @@ const initialFolders = [
 
 export default function DownloadsPage() {
     const [folders, setFolders] = useState(initialFolders);
-    const [showAddModal, setShowAddModal] = useState(false);
-    const [newFolderName, setNewFolderName] = useState("");
-    const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
     const [openMenu, setOpenMenu] = useState<number | string | null>(null);
     const [openFolder, setOpenFolder] = useState<number | string | null>(null);
     const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
@@ -34,30 +31,6 @@ export default function DownloadsPage() {
 
     const [deletedFolder, setDeletedFolder] = useState<{ folder: typeof initialFolders[0]; index: number } | null>(null);
 
-    const handleAddFolder = () => {
-        if (newFolderName.trim()) {
-            const now = new Date();
-            const dateStr = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-            setFolders([...folders, {
-                id: now.getTime(),
-                name: newFolderName.trim(),
-                href: "#",
-                owner: "Me",
-                date: dateStr,
-                initial: "U",
-                color: "bg-primary"
-            }]);
-            setNewFolderName("");
-            setUploadedFiles([]);
-            setShowAddModal(false);
-        }
-    };
-
-    const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (e.target.files) {
-            setUploadedFiles(Array.from(e.target.files));
-        }
-    };
 
     const handleDeleteFolder = (id: number | string) => {
         const index = folders.findIndex(f => f.id === id);
@@ -157,339 +130,233 @@ export default function DownloadsPage() {
             <section className="py-10 md:py-16 bg-white dark:bg-slate-900 relative">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
 
-                    {/* Toolbar */}
+                    {/* Toolbar & Breadcrumbs */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="flex flex-col sm:flex-row sm:items-center justify-between mb-8 gap-4"
+                        className="flex flex-col mb-6 gap-6"
                     >
-                        <div className="flex items-center gap-3">
-                            <Folder className="w-6 h-6 text-gray-400 dark:text-gray-500" />
-                            <h2 className="font-heading font-bold text-[#222] dark:text-white text-xl">
-                                ZeeQue PR Materials
-                            </h2>
-                            <span className="text-gray-400 dark:text-gray-500 font-body text-sm hidden sm:inline">
-                                {folders.length} folders
-                            </span>
-                        </div>
-                        <div className="flex flex-wrap items-center gap-3">
-                            {/* View Mode Toggle */}
-                            <div className="flex items-center bg-gray-100 dark:bg-slate-800 p-1 rounded-xl border border-gray-200 dark:border-slate-700">
-                                <button
-                                    onClick={() => setViewMode("grid")}
-                                    className={`p-2 rounded-lg transition-all ${viewMode === "grid" ? "bg-white dark:bg-slate-700 shadow-sm text-primary" : "text-gray-400 dark:text-gray-500 hover:text-gray-600"}`}
-                                    title="Grid view"
-                                >
-                                    <Grid className="w-4 h-4" />
-                                </button>
-                                <button
-                                    onClick={() => setViewMode("list")}
-                                    className={`p-2 rounded-lg transition-all ${viewMode === "list" ? "bg-white dark:bg-slate-700 shadow-sm text-primary" : "text-gray-400 dark:text-gray-500 hover:text-gray-600"}`}
-                                    title="List view"
-                                >
-                                    <ListIcon className="w-4 h-4" />
-                                </button>
-                            </div>
-
-                            {/* Expand/Collapse Toggle */}
-                            {folders.length > 3 && (
-                                <button
-                                    onClick={() => setIsExpanded(!isExpanded)}
-                                    className="inline-flex items-center gap-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2.5 rounded-xl font-heading font-bold text-sm transition-all duration-300 active:scale-95 border border-gray-200 dark:border-slate-700"
-                                >
-                                    {isExpanded ? (
-                                        <>
-                                            <ChevronUp className="w-4 h-4 text-primary" />
-                                            <span>Collapse</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <ChevronDown className="w-4 h-4 text-primary" />
-                                            <span>Expand</span>
-                                        </>
-                                    )}
-                                </button>
-                            )}
-
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide no-scrollbar">
                             <button
-                                onClick={() => setShowAddModal(true)}
-                                className="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2.5 rounded-xl font-heading font-bold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 active:scale-95"
+                                onClick={() => setOpenFolder(null)}
+                                className={`flex items-center gap-2 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${openFolder === null ? "bg-primary/10 text-primary font-bold" : "text-gray-500 hover:bg-gray-100 dark:hover:bg-slate-800"}`}
                             >
-                                <Plus className="w-4 h-4" strokeWidth={2.5} />
-                                New Folder
+                                <Folder className="w-4 h-4" />
+                                <span>ZeeQue PR Materials</span>
                             </button>
+                            {openFolder !== null && (
+                                <>
+                                    <ChevronRight className="w-4 h-4 text-gray-300 shrink-0" />
+                                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/10 text-primary font-bold whitespace-nowrap">
+                                        <FolderOpen className="w-4 h-4" />
+                                        <span>{folders.find(f => f.id === openFolder)?.name}</span>
+                                    </div>
+                                </>
+                            )}
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div className="flex items-center gap-3">
+                                <h2 className="font-heading font-bold text-[#222] dark:text-white text-xl">
+                                    {openFolder === null ? "Folders" : folders.find(f => f.id === openFolder)?.name}
+                                </h2>
+                                <span className="text-gray-400 dark:text-gray-500 font-body text-sm hidden sm:inline">
+                                    {openFolder === null ? `${folders.length} folders` : "3 files"}
+                                </span>
+                            </div>
+                            <div className="flex flex-wrap items-center gap-3">
+                                {/* View Mode Toggle */}
+                                <div className="flex items-center bg-gray-100 dark:bg-slate-800 p-1 rounded-xl border border-gray-200 dark:border-slate-700">
+                                    <button
+                                        onClick={() => setViewMode("grid")}
+                                        className={`p-2 rounded-lg transition-all ${viewMode === "grid" ? "bg-white dark:bg-slate-700 shadow-sm text-primary" : "text-gray-400 dark:text-gray-500 hover:text-gray-600"}`}
+                                        title="Grid view"
+                                    >
+                                        <Grid className="w-4 h-4" />
+                                    </button>
+                                    <button
+                                        onClick={() => setViewMode("list")}
+                                        className={`p-2 rounded-lg transition-all ${viewMode === "list" ? "bg-white dark:bg-slate-700 shadow-sm text-primary" : "text-gray-400 dark:text-gray-500 hover:text-gray-600"}`}
+                                        title="List view"
+                                    >
+                                        <ListIcon className="w-4 h-4" />
+                                    </button>
+                                </div>
+
+                                {/* Expand/Collapse Toggle - Only for All Folders view */}
+                                {openFolder === null && folders.length > 3 && (
+                                    <button
+                                        onClick={() => setIsExpanded(!isExpanded)}
+                                        className="inline-flex items-center gap-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2.5 rounded-xl font-heading font-bold text-sm transition-all duration-300 active:scale-95 border border-gray-200 dark:border-slate-700"
+                                    >
+                                        {isExpanded ? (
+                                            <>
+                                                <ChevronUp className="w-4 h-4 text-primary" />
+                                                <span>Collapse</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <ChevronDown className="w-4 h-4 text-primary" />
+                                                <span>Expand</span>
+                                            </>
+                                        )}
+                                    </button>
+                                )}
+                            </div>
                         </div>
                     </motion.div>
 
-                    {/* Folder Layout */}
-                    <div className="w-full">
-                        {/* List Headers */}
-                        {viewMode === "list" && (
-                            <div className="hidden md:grid md:grid-cols-[1fr_200px_180px_120px_40px] px-5 py-3 border-b border-gray-100 dark:border-slate-800 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider items-center">
-                                <div className="flex items-center gap-2 cursor-pointer hover:text-primary transition-colors group">
-                                    Name <motion.span animate={{ rotate: 180 }} className="inline-block text-[10px] text-primary">▲</motion.span>
-                                </div>
-                                <div>Owner</div>
-                                <div>Date modified</div>
-                                <div>File size</div>
-                                <div></div>
-                            </div>
-                        )}
+                    {/* Main Content Area */}
+                    <div className="w-full min-h-[400px]">
+                        <AnimatePresence mode="wait">
+                            {openFolder === null ? (
+                                <motion.div
+                                    key="folders-view"
+                                    initial={{ opacity: 0, x: -20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: -20 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    {/* List Headers for Folder View */}
+                                    {viewMode === "list" && (
+                                        <div className="hidden md:grid md:grid-cols-[1fr_200px_180px_120px_40px] px-5 py-3 border-b border-gray-100 dark:border-slate-800 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider items-center">
+                                            <div className="flex items-center gap-2">Name</div>
+                                            <div>Owner</div>
+                                            <div>Date modified</div>
+                                            <div>File size</div>
+                                            <div></div>
+                                        </div>
+                                    )}
 
-                        <div className={viewMode === "grid"
-                            ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
-                            : "flex flex-col border-t border-gray-50 dark:border-slate-850"
-                        }>
-                            <AnimatePresence mode="popLayout">
-                                {folders.slice(0, isExpanded ? folders.length : 3).map((folder) => (
-                                    <motion.div
-                                        key={folder.id}
-                                        initial={{ opacity: 0, scale: 0.95, y: 10 }}
-                                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                                        exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                                        layout
-                                        transition={{ duration: 0.4 }}
-                                    >
-                                        <div className="relative group">
-                                            <button
-                                                onClick={() => setOpenFolder(folder.id)}
-                                                className={`group/btn flex items-center gap-4 bg-gray-50 dark:bg-slate-800/40 border border-gray-200/70 dark:border-slate-700/50 rounded-xl px-5 py-4 hover:bg-blue-50/60 dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-md transition-all duration-200 group/card w-full text-left ${viewMode === "list" ? "rounded-none border-x-0 border-t-0 border-b-gray-100 dark:border-b-slate-800 bg-transparent py-3.5 hover:bg-gray-100/50 dark:hover:bg-slate-800/80" : ""}`}
-                                            >
-                                                <div className={viewMode === "list" ? "grid grid-cols-1 md:grid-cols-[1fr_200px_180px_120px] items-center w-full gap-4" : "flex items-center gap-4 flex-1"}>
-                                                    {/* Folder icon + Name */}
-                                                    <div className="flex items-center gap-4 min-w-0">
-                                                        <div className="flex-shrink-0">
-                                                            <Folder className={`w-6 h-6 ${viewMode === "list" ? "text-gray-500 dark:text-gray-400 fill-gray-400/50 dark:fill-gray-600" : "text-gray-400 dark:text-gray-500 fill-gray-300 dark:fill-gray-600 group-hover/card:text-blue-400 group-hover/card:fill-blue-200 dark:group-hover/card:text-blue-400 dark:group-hover/card:fill-blue-500/30"} transition-colors duration-200`} />
+                                    <div className={viewMode === "grid"
+                                        ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                                        : "flex flex-col"
+                                    }>
+                                        {folders.slice(0, isExpanded ? folders.length : 3).map((folder) => (
+                                            <div key={folder.id} className="relative group">
+                                                <button
+                                                    onClick={() => setOpenFolder(folder.id)}
+                                                    className={`group/btn flex items-center gap-4 bg-gray-50 dark:bg-slate-800/40 border border-gray-200/70 dark:border-slate-700/50 rounded-xl px-5 py-4 hover:bg-blue-50/60 dark:hover:bg-slate-800 hover:border-blue-200 dark:hover:border-blue-500/30 hover:shadow-md transition-all duration-200 group/card w-full text-left ${viewMode === "list" ? "rounded-none border-x-0 border-t-0 border-b-gray-100 dark:border-b-slate-800 bg-transparent py-3.5 hover:bg-gray-100/50 dark:hover:bg-slate-800/80" : ""}`}
+                                                >
+                                                    <div className={viewMode === "list" ? "grid grid-cols-1 md:grid-cols-[1fr_200px_180px_120px] items-center w-full gap-4" : "flex items-center gap-4 flex-1"}>
+                                                        <div className="flex items-center gap-4 min-w-0">
+                                                            <Folder className={`w-6 h-6 ${viewMode === "list" ? "text-gray-500 dark:text-gray-400 fill-gray-400/50 dark:fill-gray-600" : "text-gray-400 dark:text-gray-500 fill-gray-300 dark:fill-gray-600 group-hover/card:text-blue-400 group-hover/card:fill-blue-200"} transition-colors`} />
+                                                            <span className="font-body text-[15px] text-[#222] dark:text-gray-200 truncate group-hover/btn:text-blue-600 transition-colors">
+                                                                {folder.name}
+                                                            </span>
                                                         </div>
-                                                        <span className="font-body text-[15px] text-[#222] dark:text-gray-200 truncate group-hover/btn:text-blue-600 dark:group-hover/btn:text-blue-300 transition-colors duration-200">
-                                                            {folder.name}
-                                                        </span>
-                                                    </div>
-
-                                                    {/* List mode meta info */}
-                                                    {viewMode === "list" && (
-                                                        <>
-                                                            <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 font-body">
-                                                                <div className={`w-6 h-6 rounded-full ${folder.color || "bg-primary"} text-white flex items-center justify-center text-[10px] font-bold`}>
-                                                                    {folder.initial || "O"}
+                                                        {viewMode === "list" && (
+                                                            <>
+                                                                <div className="hidden md:flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 font-body">
+                                                                    <div className={`w-6 h-6 rounded-full ${folder.color || "bg-primary"} text-white flex items-center justify-center text-[10px] font-bold`}>
+                                                                        {folder.initial || "O"}
+                                                                    </div>
+                                                                    <span className="truncate">{folder.owner}</span>
                                                                 </div>
-                                                                <span className="truncate">{folder.owner || "Owner"}</span>
+                                                                <div className="hidden md:block text-sm text-gray-500 dark:text-gray-400 font-body">{folder.date}</div>
+                                                                <div className="hidden md:block text-sm text-gray-400 dark:text-gray-500">—</div>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                </button>
+                                                <button
+                                                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); setOpenMenu(openMenu === folder.id ? null : folder.id); }}
+                                                    className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 hover:bg-gray-200/70 transition-all opacity-0 group-hover:opacity-100"
+                                                >
+                                                    <MoreVertical className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    key="files-view"
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    exit={{ opacity: 0, x: 20 }}
+                                    transition={{ duration: 0.3 }}
+                                >
+                                    {/* Action bar for folder */}
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <button
+                                            onClick={() => setOpenFolder(null)}
+                                            className="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+                                        >
+                                            <ArrowLeft className="w-5 h-5" />
+                                        </button>
+                                        <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-xl font-heading font-bold text-sm hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/20">
+                                            <Upload className="w-4 h-4" />
+                                            Upload Files
+                                        </button>
+                                    </div>
+
+                                    {/* Files Content */}
+                                    <div className="bg-white/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-[28px] border border-gray-200/50 dark:border-slate-700/50 overflow-hidden shadow-sm">
+                                        <div className="p-4 sm:p-6">
+                                            {openFolder === 1 ? (
+                                                <div className="space-y-1">
+                                                    {[
+                                                        { name: "3 fold.psd", size: "307.5 MB", date: "Dec 26, 2025", color: "bg-red-500", icon: ImageIcon },
+                                                        { name: "admission-post.jpg", size: "3.7 MB", date: "Dec 13, 2025", color: "bg-pink-400", icon: ImageIcon },
+                                                        { name: "admission.psd", size: "92.2 MB", date: "Dec 13, 2025", color: "bg-blue-500", icon: ImageIcon },
+                                                    ].map((file, i) => (
+                                                        <div key={i} className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white dark:hover:bg-slate-800/80 transition-all border border-transparent hover:border-gray-100 dark:hover:border-slate-700 hover:shadow-lg hover:shadow-gray-200/20 dark:hover:shadow-none">
+                                                            <div className={`w-12 h-12 rounded-xl ${file.color} flex items-center justify-center flex-shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
+                                                                <file.icon className="w-6 h-6 text-white" />
                                                             </div>
-                                                            <div className="hidden md:block text-sm text-gray-500 dark:text-gray-400 font-body">
-                                                                {folder.date || "Mar 9, 2026"}
+                                                            <div className="flex-1 min-w-0">
+                                                                <div className="flex items-center gap-2">
+                                                                    <h4 className="font-body font-bold text-[#222] dark:text-gray-200 text-base truncate">{file.name}</h4>
+                                                                    <UsersIcon className="w-4 h-4 text-gray-400" />
+                                                                </div>
+                                                                <div className="flex items-center gap-3 mt-1.5">
+                                                                    <div className="flex items-center gap-2">
+                                                                        <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-[10px] font-bold">P</div>
+                                                                        <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">pro</span>
+                                                                    </div>
+                                                                    <span className="text-gray-300 dark:text-gray-600">•</span>
+                                                                    <span className="text-xs text-gray-400 dark:text-gray-500">{file.date}</span>
+                                                                    <span className="text-gray-300 dark:text-gray-600">•</span>
+                                                                    <span className="text-xs text-gray-400 dark:text-gray-500">{file.size}</span>
+                                                                </div>
                                                             </div>
-                                                            <div className="hidden md:block text-sm text-gray-400 dark:text-gray-500 font-body">
-                                                                —
+                                                            <div className="flex items-center gap-1">
+                                                                <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-primary transition-all">
+                                                                    <FileDown className="w-5 h-5" />
+                                                                </button>
+                                                                <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                                                                    <MoreVertical className="w-5 h-5" />
+                                                                </button>
                                                             </div>
-                                                        </>
-                                                    )}
+                                                        </div>
+                                                    ))}
                                                 </div>
-                                            </button>
-
-                                            {/* Kebab menu button */}
-                                            <button
-                                                onClick={(e) => {
-                                                    e.preventDefault();
-                                                    e.stopPropagation();
-                                                    setOpenMenu(openMenu === folder.id ? null : folder.id);
-                                                }}
-                                                className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-gray-400 dark:text-gray-500 hover:bg-gray-200/70 dark:hover:bg-slate-700 hover:text-gray-600 dark:hover:text-gray-300 transition-all duration-200 opacity-0 group-hover:opacity-100"
-                                            >
-                                                <MoreVertical className="w-4 h-4" />
-                                            </button>
-
-                                            {/* Dropdown menu */}
-                                            {openMenu === folder.id && (
-                                                <div className="absolute right-2 top-full mt-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl shadow-xl z-50 py-1.5 min-w-[140px]">
-                                                    <button
-                                                        onClick={() => handleDeleteFolder(folder.id)}
-                                                        className="w-full text-left px-4 py-2 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 font-body transition-colors"
-                                                    >
-                                                        Remove
-                                                    </button>
-                                                    <button
-                                                        onClick={() => setOpenMenu(null)}
-                                                        className="w-full text-left px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 dark:hover:bg-slate-700 font-body transition-colors"
-                                                    >
-                                                        Cancel
+                                            ) : (
+                                                <div className="flex flex-col items-center justify-center h-[300px] text-center">
+                                                    <div className="w-24 h-24 rounded-[32px] bg-gray-100 dark:bg-slate-800 flex items-center justify-center mb-6">
+                                                        <FileText className="w-12 h-12 text-gray-300 dark:text-gray-500" />
+                                                    </div>
+                                                    <h4 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">No files yet</h4>
+                                                    <p className="text-gray-400 dark:text-gray-500 font-body text-base max-w-xs mb-8">This folder is empty. Files added to this folder will appear here.</p>
+                                                    <button className="flex items-center gap-3 px-8 py-3 bg-blue-500 text-white rounded-2xl font-heading font-bold text-sm hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
+                                                        <Upload className="w-5 h-5" />
+                                                        Upload Files
                                                     </button>
                                                 </div>
                                             )}
                                         </div>
-                                    </motion.div>
-                                ))}
-                            </AnimatePresence>
-                        </div>
+                                    </div>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
                 </div>
             </section>
 
-            {/* ═══════ Open Folder View Modal ═══════ */}
-            <AnimatePresence>
-                {openFolder !== null && folders.find(f => f.id === openFolder) && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
-                        onClick={() => setOpenFolder(null)}
-                    >
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                            className="bg-white dark:bg-slate-800 rounded-[28px] shadow-2xl border border-gray-200 dark:border-slate-700 w-full max-w-lg overflow-hidden"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {/* Header */}
-                            <div className="flex items-center gap-4 p-6 border-b border-gray-100 dark:border-slate-700">
-                                <button
-                                    onClick={() => setOpenFolder(null)}
-                                    className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
-                                >
-                                    <ArrowLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
-                                </button>
-                                <FolderOpen className="w-6 h-6 text-blue-500 fill-blue-200 dark:fill-blue-500/30" />
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg flex-1 truncate">
-                                    {folders.find(f => f.id === openFolder)?.name}
-                                </h3>
-                                <button
-                                    onClick={() => setOpenFolder(null)}
-                                    className="w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 flex items-center justify-center transition-colors"
-                                >
-                                    <X className="w-4 h-4 text-gray-400" />
-                                </button>
-                            </div>
-
-                            {/* Content - Empty state */}
-                            <div className="p-8 flex flex-col items-center justify-center min-h-[280px] text-center">
-                                <div className="w-20 h-20 rounded-3xl bg-gray-100 dark:bg-slate-700 flex items-center justify-center mb-5">
-                                    <FileText className="w-10 h-10 text-gray-300 dark:text-gray-500" />
-                                </div>
-                                <h4 className="font-heading font-bold text-[#222] dark:text-white text-base mb-2">
-                                    No files yet
-                                </h4>
-                                <p className="text-gray-400 dark:text-gray-500 font-body text-sm max-w-xs mb-6">
-                                    This folder is empty. Files added to this folder will appear here.
-                                </p>
-                                <button className="flex items-center gap-2 px-5 py-2.5 bg-blue-500 text-white rounded-xl font-heading font-bold text-sm hover:bg-blue-600 transition-colors">
-                                    <Upload className="w-4 h-4" />
-                                    Upload Files
-                                </button>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* ═══════ Add Folder Modal ═══════ */}
-            <AnimatePresence>
-                {showAddModal && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
-                        onClick={() => setShowAddModal(false)}
-                    >
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                            className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl max-w-md w-full p-8 relative"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {/* Close button */}
-                            <button
-                                onClick={() => setShowAddModal(false)}
-                                className="absolute top-4 right-4 w-8 h-8 rounded-full bg-gray-100 dark:bg-slate-700 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors"
-                            >
-                                <X className="w-4 h-4" />
-                            </button>
-
-                            {/* Modal header */}
-                            <div className="flex items-center gap-3 mb-6">
-                                <div className="w-12 h-12 rounded-2xl bg-secondary/10 flex items-center justify-center">
-                                    <FolderPlus className="w-6 h-6 text-secondary" />
-                                </div>
-                                <div>
-                                    <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl">New Folder</h3>
-                                    <p className="text-gray-400 dark:text-gray-500 font-body text-sm">Create and add files</p>
-                                </div>
-                            </div>
-
-                            {/* Folder name input */}
-                            <div className="mb-5">
-                                <label className="block font-heading font-bold text-sm text-gray-600 dark:text-gray-300 mb-2">Folder Name</label>
-                                <input
-                                    type="text"
-                                    value={newFolderName}
-                                    onChange={(e) => setNewFolderName(e.target.value)}
-                                    placeholder="Enter folder name..."
-                                    className="w-full px-4 py-3 rounded-xl bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 text-[#222] dark:text-white font-body text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all placeholder:text-gray-400"
-                                    autoFocus
-                                    onKeyDown={(e) => { if (e.key === "Enter") handleAddFolder(); }}
-                                />
-                            </div>
-
-                            {/* File upload area */}
-                            <div className="mb-6">
-                                <label className="block font-heading font-bold text-sm text-gray-600 dark:text-gray-300 mb-2">Upload Files (optional)</label>
-                                <div
-                                    onClick={() => fileInputRef.current?.click()}
-                                    className="border-2 border-dashed border-gray-200 dark:border-slate-600 rounded-xl p-6 text-center cursor-pointer hover:border-primary hover:bg-primary/5 transition-all duration-200"
-                                >
-                                    <Upload className="w-8 h-8 text-gray-300 dark:text-gray-600 mx-auto mb-2" />
-                                    <p className="text-gray-400 dark:text-gray-500 font-body text-sm">
-                                        Click to browse or drag files here
-                                    </p>
-                                    <input
-                                        ref={fileInputRef}
-                                        type="file"
-                                        multiple
-                                        className="hidden"
-                                        onChange={handleFileChange}
-                                    />
-                                </div>
-                                {uploadedFiles.length > 0 && (
-                                    <div className="mt-3 space-y-1.5">
-                                        {uploadedFiles.map((file, i) => (
-                                            <div key={i} className="flex items-center gap-2 bg-gray-50 dark:bg-slate-700 rounded-lg px-3 py-2">
-                                                <FileDown className="w-4 h-4 text-primary flex-shrink-0" />
-                                                <span className="text-gray-600 dark:text-gray-300 font-body text-xs truncate">{file.name}</span>
-                                                <span className="text-gray-400 dark:text-gray-500 font-body text-xs ml-auto flex-shrink-0">
-                                                    {(file.size / 1024).toFixed(0)} KB
-                                                </span>
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Actions */}
-                            <div className="flex items-center gap-3">
-                                <button
-                                    onClick={() => setShowAddModal(false)}
-                                    className="flex-1 px-5 py-3 rounded-xl border border-gray-200 dark:border-slate-600 text-gray-600 dark:text-gray-300 font-heading font-bold text-sm hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
-                                >
-                                    Cancel
-                                </button>
-                                <button
-                                    onClick={handleAddFolder}
-                                    disabled={!newFolderName.trim()}
-                                    className="flex-1 px-5 py-3 rounded-xl bg-primary hover:bg-primary/90 text-white font-heading font-bold text-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary/25 active:scale-95"
-                                >
-                                    Create Folder
-                                </button>
-                            </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
 
             {/* ── Undo Delete Toast ── */}
             <AnimatePresence>

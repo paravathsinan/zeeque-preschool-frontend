@@ -48,7 +48,8 @@ export default function ZETRegistration() {
                                         Enrollment Number
                                     </label>
                                     <input
-                                        id="enrollment"
+                                        id="enrollment-number"
+                                        name="enrollment-number"
                                         type="text"
                                         value={enrollmentNumber}
                                         onChange={(e) => setEnrollmentNumber(e.target.value)}

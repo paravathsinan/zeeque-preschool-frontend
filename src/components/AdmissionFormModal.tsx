@@ -120,6 +120,8 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                             <div className="relative">
                                 <input
                                     type="text"
+                                    id="student-name"
+                                    autoComplete="name"
                                     placeholder="Student's Name"
                                     {...register("studentName")}
                                     className={getInputClasses("studentName")}
@@ -131,6 +133,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                         <div>
                             <div className="relative">
                                 <select
+                                    id="student-class"
                                     {...register("class")}
                                     defaultValue=""
                                     className={`${getInputClasses("class")} appearance-none`}
@@ -152,6 +155,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                             <div className="relative">
                                 <input
                                     type="text"
+                                    id="student-dob"
                                     placeholder="Date of Birth"
                                     {...register("dob")}
                                     onFocus={(e) => e.target.type = 'date'}
@@ -170,6 +174,8 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                             <div className="relative">
                                 <input
                                     type="tel"
+                                    id="parent-mobile"
+                                    autoComplete="tel"
                                     placeholder="Mobile Number"
                                     {...register("mobile")}
                                     className={getInputClasses("mobile")}
@@ -185,6 +191,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                             <div className="relative">
                                 <input
                                     type="text"
+                                    id="father-name"
                                     placeholder="Father's Name"
                                     {...register("fatherName")}
                                     className={getInputClasses("fatherName")}
@@ -197,6 +204,8 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                             <div className="relative">
                                 <input
                                     type="email"
+                                    id="parent-email"
+                                    autoComplete="email"
                                     placeholder="Email Address"
                                     {...register("email")}
                                     className={getInputClasses("email")}
@@ -210,6 +219,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                     <div>
                         <div className="relative">
                             <textarea
+                                id="enquiry-text"
                                 placeholder="Your Enquiry"
                                 rows={3}
                                 {...register("enquiry")}

@@ -165,6 +165,7 @@ export default function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordM
                                                     <input
                                                         id="email"
                                                         type="email"
+                                                        autoComplete="email"
                                                         placeholder="name@example.com"
                                                         {...register("email")}
                                                         className={getInputClasses("email")}
