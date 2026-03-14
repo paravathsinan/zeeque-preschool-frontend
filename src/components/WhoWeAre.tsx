@@ -15,10 +15,6 @@ export default function WhoWeAre() {
             {/* Decorative Background Elements */}
 
 
-            <div className="absolute bottom-20 left-20 opacity-20 pointer-events-none hidden xl:block">
-                <User className="w-24 h-24 text-[#0fb85c]" />
-            </div>
-
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16 xl:gap-24">
 
                 {/* Left Content */}
@@ -49,16 +45,6 @@ export default function WhoWeAre() {
                         Know More
                     </Link>
 
-                    {/* Abstract Hand-drawn style decorative kids (Left Bottom) */}
-                    <div className="absolute -bottom-10 -left-10 lg:-left-20 xl:-left-40 hidden lg:block w-64 h-64 pointer-events-none opacity-80 z-[-1]">
-                        <Image
-                            src="/images/shape/kindergarden-shape3.png"
-                            alt="Abstract hand-drawn decoration at Zeeque Preschool in Kozhikode."
-                            fill
-                            className="object-contain"
-                            sizes="256px"
-                        />
-                    </div>
                 </motion.div>
 
                 {/* Right Content / Image Collage */}

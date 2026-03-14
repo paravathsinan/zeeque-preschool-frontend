@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, MapPin, Phone, Mail, ArrowRight, Send } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight, Send } from "lucide-react";
 
 const companyLinks = [
     { label: "About Us", href: "/about" },
@@ -49,7 +49,12 @@ export default function Footer() {
                             </Link>
 
                             <div className="space-y-4 mb-8">
-                                <div className="flex items-start gap-3 group">
+                                <a 
+                                    href="https://maps.google.com/?q=Zahra+Park+Koduvally+Kozhikode+Kerala+India+673572" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="flex items-start gap-3 group"
+                                >
                                     <div className="w-9 h-9 rounded-lg bg-[#ef4225]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#ef4225]/20 transition-colors">
                                         <MapPin className="w-4 h-4 text-[#ef4225]" />
                                     </div>
@@ -57,15 +62,15 @@ export default function Footer() {
                                         Head Quarters - Zahra Park, Koduvally,<br />
                                         Kozhikode, Kerala, India - 673572
                                     </p>
-                                </div>
+                                </a>
 
                                 <div className="flex items-center gap-3 group">
                                     <div className="w-9 h-9 rounded-lg bg-[#0052ff]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0052ff]/20 transition-colors">
                                         <Phone className="w-4 h-4 text-[#0052ff] group-hover:animate-ringing origin-center transition-transform" />
                                     </div>
                                     <div className="text-gray-400 font-body text-sm group-hover:text-gray-300 transition-colors">
-                                        <p>+91 9072500435</p>
-                                        <p className="text-gray-500 text-xs">Land: 0495 221 4005</p>
+                                        <a href="tel:+919072500435" className="block hover:text-[#0052ff] transition-colors">+91 9072500435</a>
+                                        <a href="tel:04952214005" className="text-gray-500 text-xs hover:text-[#0052ff] transition-colors block">Land: 0495 221 4005</a>
                                     </div>
                                 </div>
 
@@ -81,13 +86,19 @@ export default function Footer() {
 
                             {/* Social Icons */}
                             <div className="flex items-center gap-3">
-                                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#1877F2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#1877F2]/20">
+                                <a href="https://facebook.com/zeequepreschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#1877F2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#1877F2]/20">
                                     <Facebook className="w-4 h-4" />
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#e6683c]/20">
+                                <a href="https://instagram.com/zeeque_preschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#e6683c]/20">
                                     <Instagram className="w-4 h-4" />
                                 </a>
-                                <a href="#" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#FF0000] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FF0000]/20">
+                                <a href="https://twitter.com/markazonline" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#1DA1F2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#1DA1F2]/20">
+                                    <Twitter className="w-4 h-4" />
+                                </a>
+                                <a href="https://linkedin.com/company/zeeque-preschool-network" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0A66C2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#0A66C2]/20">
+                                    <Linkedin className="w-4 h-4" />
+                                </a>
+                                <a href="https://youtube.com/zeequepreschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#FF0000] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FF0000]/20">
                                     <Youtube className="w-4 h-4" />
                                 </a>
                             </div>

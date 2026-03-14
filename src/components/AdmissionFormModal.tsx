@@ -3,9 +3,10 @@
 import { X, CloudDownload, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import DatePicker from "./DatePicker";
 
 const admissionSchema = z.object({
     studentName: z.string().min(2, "Name must be at least 2 characters"),
@@ -30,6 +31,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
     const {
         register,
         handleSubmit,
+        control,
         formState: { errors, touchedFields, dirtyFields },
         reset,
     } = useForm<AdmissionFormData>({
@@ -100,7 +102,7 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
 
     return (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-            <div className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-xl overflow-hidden animate-in fade-in zoom-in duration-200 my-8">
+            <div className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-xl animate-in fade-in zoom-in duration-200 my-8">
                 <div className="flex items-center justify-between p-6 border-b border-gray-100 dark:border-gray-800">
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white">Admission Enquiry</h2>
                     <button
@@ -153,20 +155,20 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <div className="relative">
-                                <input
-                                    type="text"
-                                    id="student-dob"
-                                    placeholder="Date of Birth"
-                                    {...register("dob")}
-                                    onFocus={(e) => e.target.type = 'date'}
-                                    onBlur={(e) => {
-                                        // Standard react-hook-form onBlur takes over, we just manage placeholder state visually
-                                        if (!e.target.value) e.target.type = 'text';
-                                        register("dob").onBlur(e);
-                                    }}
-                                    className={getInputClasses("dob")}
+                                <Controller
+                                    name="dob"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <DatePicker
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                            placeholder="Date of Birth"
+                                            className={getInputClasses("dob")}
+                                            hasError={getFieldState("dob").hasError}
+                                            isValid={getFieldState("dob").isValid}
+                                        />
+                                    )}
                                 />
-                                {renderInputIcons("dob")}
                             </div>
                             {renderFieldError("dob")}
                         </div>
