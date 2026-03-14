@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -137,17 +137,51 @@ export default function FeaturesPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2 relative">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill className="object-cover" />
+                            {/* Decorative ring */}
+                            <div className="absolute -top-6 -right-6 w-28 h-28 rounded-full border-4 border-dashed border-[#0fb85c]/15 pointer-events-none hidden sm:block" />
+                            <div className="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-[#fbaf01]/10 blur-xl pointer-events-none" />
+
+                            {/* Main mosaic grid */}
+                            <div className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
+                                {/* Large primary image — spans left 7 cols, top 4 rows */}
+                                <div className="col-span-7 row-span-4 relative rounded-[28px] overflow-hidden shadow-xl group">
+                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/50 via-transparent to-transparent" />
+                                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <p className="font-heading font-bold text-[#222] dark:text-white text-xs">Quran Recitation & Memorization</p>
+                                    </div>
                                 </div>
-                                <div className="relative aspect-[3/4] rounded-[28px] overflow-hidden shadow-xl translate-y-8 hover:scale-[1.02] transition-transform duration-300">
-                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill className="object-cover" />
+
+                                {/* Right tall image — spans right 5 cols, all 6 rows */}
+                                <div className="col-span-5 row-span-6 relative rounded-[28px] overflow-hidden shadow-xl group">
+                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0fb85c]/40" />
+                                </div>
+
+                                {/* Bottom-left wide image — spans left 7 cols, bottom 2 rows */}
+                                <div className="col-span-7 row-span-2 relative rounded-[28px] overflow-hidden shadow-xl group">
+                                    <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Students engaged in cultural learning activities at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <div className="absolute inset-0 bg-gradient-to-r from-[#fbaf01]/30 to-transparent" />
                                 </div>
                             </div>
-                            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#0fb85c] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
+
+                            {/* Floating badge — bottom center */}
+                            <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-[#0fb85c] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-3">
                                 <BookOpen className="w-5 h-5" />
                                 <span className="font-heading font-bold text-sm">1 Juz&apos; in 3 Years</span>
+                            </div>
+
+                            {/* Floating stat badge — top right */}
+                            <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md rounded-xl px-4 py-3 shadow-lg z-20 hidden sm:block border border-white/50 dark:border-slate-700/50">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-8 h-8 rounded-lg bg-[#0fb85c]/10 flex items-center justify-center">
+                                        <Heart className="w-4 h-4 text-[#0fb85c]" />
+                                    </div>
+                                    <div>
+                                        <div className="font-heading font-extrabold text-[#222] dark:text-white text-sm leading-none">Daily</div>
+                                        <div className="text-gray-500 dark:text-gray-400 text-[10px] font-body">Adhkar & Duas</div>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     </div>

@@ -552,7 +552,7 @@ export default function AboutPage() {
                         </p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
                         {facilities.map((f, i) => (
                             <motion.div
                                 key={f.title}
@@ -567,13 +567,13 @@ export default function AboutPage() {
                                     ease: "easeInOut",
                                     delay: i * 0.4
                                 }}
-                                className="group relative bg-white/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-[40px] p-8 border border-white/40 dark:border-slate-700/40 hover:border-blue-500/30 dark:hover:border-blue-400/30 shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] transition-all duration-700 overflow-hidden"
+                                className="group relative bg-white/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-[40px] p-6 border border-white/40 dark:border-slate-700/40 hover:border-blue-500/30 dark:hover:border-blue-400/30 shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:shadow-[0_24px_48px_rgba(0,0,0,0.12)] transition-all duration-700 overflow-hidden"
                             >
                                 {/* Inner glass reflection */}
                                 <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                                 <div className="relative z-10">
-                                    <div className="flex items-start justify-between mb-8">
+                                    <div className="flex items-start justify-between mb-5">
                                         <div className="relative w-16 h-16">
                                             {/* Icon glow */}
                                             <div
@@ -594,7 +594,7 @@ export default function AboutPage() {
                                     <p className="text-gray-500 dark:text-gray-400 font-body text-[16px] leading-relaxed group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors duration-300">{f.description}</p>
 
                                     {/* Action link effect */}
-                                    <div className="mt-8 flex items-center gap-2 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0" style={{ color: f.color }}>
+                                    <div className="mt-5 flex items-center gap-2 text-sm font-bold opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-2 group-hover:translate-y-0" style={{ color: f.color }}>
                                         Learn more <ArrowRight className="w-4 h-4" />
                                     </div>
                                 </div>

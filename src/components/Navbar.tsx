@@ -197,18 +197,7 @@ export default function Navbar() {
                 {isMobileMenuOpen && (
                     <div className="lg:hidden absolute top-full left-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-lg border-t border-gray-100/50 dark:border-slate-800/50 rounded-b-2xl overflow-hidden z-50 transition-colors duration-300">
                         <div className="flex flex-col py-4 px-6 max-h-[70vh] overflow-y-auto">
-                            {/* Mobile Logo */}
-                            <div className="flex justify-center pb-6 mb-2 border-b border-gray-100 dark:border-slate-800">
-                                <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
-                                    <Image
-                                        src="/images/logo/logo-new.svg"
-                                        alt="Zeeque Logo"
-                                        width={120}
-                                        height={40}
-                                        className="object-contain"
-                                    />
-                                </Link>
-                            </div>
+
                             {navLinks.map((link) => (
                                 <div key={link.name} className="flex flex-col border-b border-gray-50 dark:border-slate-800 last:border-0">
                                     <div className="flex items-center justify-between py-3">

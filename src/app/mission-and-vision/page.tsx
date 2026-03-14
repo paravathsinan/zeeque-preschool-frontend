@@ -285,7 +285,7 @@ export default function MissionVisionPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
-                        <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full lg:w-1/2">
+                        <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
                             <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
                                 <BookOpen className="w-4 h-4" /> Spiritual Foundation
                             </div>
@@ -419,9 +419,12 @@ export default function MissionVisionPage() {
                                     </div>
                                     <div className="flex-1">
                                         <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-2">{item.title}</h3>
-                                        <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed mb-3">{item.description}</p>
-                                        <div className="bg-gray-100 dark:bg-slate-700 rounded-xl px-4 py-2">
-                                            <p className="text-gray-400 dark:text-gray-500 font-body text-xs">{item.extra}</p>
+                                        <p className="text-gray-600 dark:text-gray-400 font-body text-[15px] leading-relaxed mb-4">{item.description}</p>
+                                        <div className="bg-white dark:bg-slate-700/50 rounded-xl px-4 py-2.5 border border-gray-100 dark:border-slate-600/50 shadow-sm">
+                                            <p className="text-gray-500 dark:text-gray-400 font-body text-xs font-medium flex items-center gap-1.5 transition-colors group-hover:text-gray-700 dark:group-hover:text-gray-300">
+                                                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }} />
+                                                {item.extra}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

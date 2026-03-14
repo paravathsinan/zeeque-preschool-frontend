@@ -91,7 +91,7 @@ export default function Hero() {
 
                         <div className="flex items-center gap-3">
                             <div className="relative group cursor-pointer inline-flex">
-                                <Image src="/images/icon/banner-icon1.png" alt="Contact icon to reach admission counselor at Zeeque Preschool Kerala." width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
+                                <Image src="/images/icons/about-us-icon1.png" alt="Contact icon to reach admission counselor at Zeeque Preschool Kerala." width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
                             </div>
                             <div className="flex flex-col justify-center text-left">
                                 <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Admission Counsellor</span>

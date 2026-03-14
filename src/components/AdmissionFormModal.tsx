@@ -7,6 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import DatePicker from "./DatePicker";
+import CustomSelect from "./CustomSelect";
 
 const admissionSchema = z.object({
     studentName: z.string().min(2, "Name must be at least 2 characters"),
@@ -134,19 +135,25 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
                         </div>
                         <div>
                             <div className="relative">
-                                <select
-                                    id="student-class"
-                                    {...register("class")}
-                                    defaultValue=""
-                                    className={`${getInputClasses("class")} appearance-none`}
-                                >
-                                    <option value="" disabled hidden>Select Class</option>
-                                    <option value="playgroup">Playgroup</option>
-                                    <option value="nursery">Nursery</option>
-                                    <option value="lkg">LKG</option>
-                                    <option value="ukg">UKG</option>
-                                </select>
-                                {renderInputIcons("class")}
+                                <Controller
+                                    name="class"
+                                    control={control}
+                                    render={({ field }) => (
+                                        <CustomSelect
+                                            options={[
+                                                { value: "playgroup", label: "Playgroup" },
+                                                { value: "nursery", label: "Nursery" },
+                                                { value: "lkg", label: "LKG" },
+                                                { value: "ukg", label: "UKG" }
+                                            ]}
+                                            value={field.value}
+                                            onChange={field.onChange}
+                                            placeholder="Select Class"
+                                            className="!py-3 !px-4 !rounded-xl !text-sm"
+                                            hasError={getFieldState("class").hasError}
+                                        />
+                                    )}
+                                />
                             </div>
                             {renderFieldError("class")}
                         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,18 +10,34 @@ import {
     Mail,
     MapPin,
     GraduationCap,
-    Building2,
-    CheckCircle2,
-    Calendar,
-    Users,
-    Globe,
-    Send
+    Send,
+    Calendar
 } from "lucide-react";
+import { useState } from "react";
 import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DatePicker from "@/components/DatePicker";
+import CustomSelect from "@/components/CustomSelect";
 
 export default function TeacherTraineesPage() {
+    const [formData, setFormData] = useState({
+        dob: "",
+        gender: "",
+        state: "",
+        district: "",
+        maritalStatus: "",
+        religiousEdu: "",
+        generalEdu: "",
+        country: "india",
+        prefState: "",
+        prefDistrict: "",
+        prefCentre: ""
+    });
+
+    const handleSelectChange = (name: string, value: string) => {
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
     return (
         <main className="min-h-screen bg-[#fffcf2] dark:bg-slate-950 font-body selection:bg-secondary selection:text-white transition-colors duration-300">
             {/* ── Header ── */}
@@ -113,32 +129,26 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Date of Birth <span className="text-red-500">*</span></label>
-                                        <div className="relative">
-                                            <input
-                                                type="date"
-                                                id="trainee-dob"
-                                                name="dob"
-                                                className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
-                                                required
-                                            />
-                                            <Calendar className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                                        </div>
+                                        <DatePicker
+                                            value={formData.dob}
+                                            onChange={(date) => handleSelectChange("dob", date)}
+                                            placeholder="Select Date"
+                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Sex <span className="text-red-500">*</span></label>
-                                        <select
-                                            id="trainee-gender"
-                                            name="gender"
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
-                                            required
-                                            defaultValue=""
-                                        >
-                                            <option value="" disabled>Select Gender</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                            <option value="other">Other</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "male", label: "Male" },
+                                                { value: "female", label: "Female" },
+                                                { value: "other", label: "Other" }
+                                            ]}
+                                            value={formData.gender}
+                                            onChange={(val) => handleSelectChange("gender", val)}
+                                            placeholder="Select Gender"
+                                        />
                                     </div>
 
                                     <div className="col-span-1 md:col-span-2">
@@ -169,29 +179,39 @@ export default function TeacherTraineesPage() {
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select id="trainee-state" name="state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT STATE</option>
-                                            <option value="kerala">Kerala</option>
-                                            {/* Add more states as needed */}
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "kerala", label: "Kerala" }
+                                            ]}
+                                            value={formData.state}
+                                            onChange={(val) => handleSelectChange("state", val)}
+                                            placeholder="SELECT STATE"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select id="trainee-district" name="district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT DISTRICT</option>
-                                            <option value="kozhikode">Kozhikode</option>
-                                            {/* Add more districts as needed */}
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "kozhikode", label: "Kozhikode" }
+                                            ]}
+                                            value={formData.district}
+                                            onChange={(val) => handleSelectChange("district", val)}
+                                            placeholder="SELECT DISTRICT"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Marital Status <span className="text-red-500">*</span></label>
-                                        <select id="trainee-marital-status" name="marital-status" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT STATUS</option>
-                                            <option value="single">Single</option>
-                                            <option value="married">Married</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "single", label: "Single" },
+                                                { value: "married", label: "Married" }
+                                            ]}
+                                            value={formData.maritalStatus}
+                                            onChange={(val) => handleSelectChange("maritalStatus", val)}
+                                            placeholder="SELECT STATUS"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -267,24 +287,32 @@ export default function TeacherTraineesPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Religious Education <span className="text-red-500">*</span></label>
-                                        <select id="trainee-religious-edu" name="religious-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>-- SELECT --</option>
-                                            <option value="madrasa">Madrasa Grade 7/10/12</option>
-                                            <option value="degree">Afzal-ul-ulama Degree</option>
-                                            <option value="post-graduation">M.A/Ph.D</option>
-                                            <option value="other">Other</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "madrasa", label: "Madrasa Grade 7/10/12" },
+                                                { value: "degree", label: "Afzal-ul-ulama Degree" },
+                                                { value: "post-graduation", label: "M.A/Ph.D" },
+                                                { value: "other", label: "Other" }
+                                            ]}
+                                            value={formData.religiousEdu}
+                                            onChange={(val) => handleSelectChange("religiousEdu", val)}
+                                            placeholder="-- SELECT --"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">General Education <span className="text-red-500">*</span></label>
-                                        <select id="trainee-general-edu" name="general-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>-- SELECT --</option>
-                                            <option value="sslc">SSLC / Class 10</option>
-                                            <option value="plus-two">Plus Two / Class 12</option>
-                                            <option value="degree">Bachelor&apos;s Degree</option>
-                                            <option value="pg">Post Graduation</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "sslc", label: "SSLC / Class 10" },
+                                                { value: "plus-two", label: "Plus Two / Class 12" },
+                                                { value: "degree", label: "Bachelor's Degree" },
+                                                { value: "pg", label: "Post Graduation" }
+                                            ]}
+                                            value={formData.generalEdu}
+                                            onChange={(val) => handleSelectChange("generalEdu", val)}
+                                            placeholder="-- SELECT --"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -301,36 +329,53 @@ export default function TeacherTraineesPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <select id="trainee-country" name="country" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="india">
-                                            <option value="india">India</option>
-                                            <option value="uae">UAE</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "india", label: "India" },
+                                                { value: "uae", label: "UAE" }
+                                            ]}
+                                            value={formData.country}
+                                            onChange={(val) => handleSelectChange("country", val)}
+                                            placeholder="SELECT"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select id="trainee-pref-state" name="pref-state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="kerala">Kerala</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "kerala", label: "Kerala" }
+                                            ]}
+                                            value={formData.prefState}
+                                            onChange={(val) => handleSelectChange("prefState", val)}
+                                            placeholder="SELECT"
+                                        />
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select id="trainee-pref-district" name="pref-district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="kozhikode">Kozhikode</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "kozhikode", label: "Kozhikode" }
+                                            ]}
+                                            value={formData.prefDistrict}
+                                            onChange={(val) => handleSelectChange("prefDistrict", val)}
+                                            placeholder="SELECT"
+                                        />
                                     </div>
 
                                     <div className="col-span-1 sm:col-span-2 md:col-span-3">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Preferred Centre <span className="text-red-500">*</span></label>
-                                        <select id="trainee-pref-centre" name="pref-centre" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT CENTRE</option>
-                                            <option value="centre1">Zeeque Preschool Academy - Kozhikode</option>
-                                            <option value="centre2">Zeeque Preschool Academy - Kochi</option>
-                                            <option value="centre3">Zeeque Preschool Academy - Thrissur</option>
-                                        </select>
+                                        <CustomSelect
+                                            options={[
+                                                { value: "centre1", label: "Zeeque Preschool Academy - Kozhikode" },
+                                                { value: "centre2", label: "Zeeque Preschool Academy - Kochi" },
+                                                { value: "centre3", label: "Zeeque Preschool Academy - Thrissur" }
+                                            ]}
+                                            value={formData.prefCentre}
+                                            onChange={(val) => handleSelectChange("prefCentre", val)}
+                                            placeholder="SELECT CENTRE"
+                                        />
                                     </div>
                                 </div>
                             </div>

@@ -57,7 +57,7 @@ const steps = [
 
 export default function ChooseNextStep() {
     return (
-        <section className="py-10 lg:py-16 bg-gradient-to-b from-gray-50/50 to-white dark:from-slate-950 dark:to-slate-900 overflow-hidden relative">
+        <section className="py-20 lg:py-32 bg-gradient-to-b from-gray-50/50 to-white dark:from-slate-950 dark:to-slate-900 overflow-hidden relative">
             {/* Subtle background decorations */}
             <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-blue-200/15 dark:bg-blue-500/5 blur-3xl" />

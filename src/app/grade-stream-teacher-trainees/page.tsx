@@ -1,8 +1,8 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
     ChevronRight,
     User,
@@ -10,18 +10,111 @@ import {
     Mail,
     MapPin,
     GraduationCap,
-    Building2,
-    CheckCircle2,
+    Send,
     Calendar,
-    Users,
-    Globe,
-    Send
+    AlertCircle,
+    CheckCircle
 } from "lucide-react";
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import DatePicker from "@/components/DatePicker";
+import CustomSelect from "@/components/CustomSelect";
+
+const gstSchema = z.object({
+    fullName: z.string().min(2, "Full name is required"),
+    dob: z.string().min(1, "Date of birth is required"),
+    gender: z.string().min(1, "Please select gender"),
+    address: z.string().min(5, "Valid address is required"),
+    city: z.string().min(2, "City is required"),
+    state: z.string().min(1, "Please select state"),
+    district: z.string().min(1, "Please select district"),
+    maritalStatus: z.string().min(1, "Please select marital status"),
+    contactNumber: z.string().min(10, "Valid contact number is required"),
+    whatsappNumber: z.string().min(10, "Valid Whatsapp number is required"),
+    email: z.string().email("Please enter a valid email address"),
+    religiousEdu: z.string().min(1, "Please select religious education"),
+    generalEdu: z.string().min(1, "Please select general education"),
+    country: z.string().min(1, "Please select country"),
+    prefState: z.string().min(1, "Please select preferred state"),
+    prefDistrict: z.string().min(1, "District preference is required"),
+    prefCentre: z.string().min(1, "Please select a centre")
+});
+
+type GstFormData = z.infer<typeof gstSchema>;
 
 export default function GradeStreamTeacherTraineesPage() {
+    const [shakeFields, setShakeFields] = useState<Record<string, boolean>>({});
+
+    const {
+        register,
+        handleSubmit,
+        control,
+        formState: { errors, touchedFields, dirtyFields, isSubmitted },
+        reset
+    } = useForm<GstFormData>({
+        resolver: zodResolver(gstSchema),
+        mode: "onTouched",
+        defaultValues: {
+            country: "india"
+        }
+    });
+
+    const onSubmit = (data: GstFormData) => {
+        console.log("Form submitted:", data);
+        reset();
+    };
+
+    const onError = (errors: any) => {
+        const newShake: Record<string, boolean> = {};
+        Object.keys(errors).forEach(key => { newShake[key] = true; });
+        setShakeFields(newShake);
+        setTimeout(() => setShakeFields({}), 400);
+    };
+
+    const getFieldState = (fieldName: keyof GstFormData) => {
+        const hasError = !!errors[fieldName];
+        const isTouched = !!touchedFields[fieldName];
+        const isDirty = !!dirtyFields[fieldName];
+        return { 
+            hasError: hasError && (isTouched || isDirty || isSubmitted), 
+            isValid: (isTouched || isDirty) && !hasError 
+        };
+    };
+
+    const getInputClasses = (fieldName: keyof GstFormData) => {
+        const { hasError, isValid } = getFieldState(fieldName);
+        const base = "w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200";
+        if (hasError) return `${base} border-red-500/50 focus:border-red-500 focus:bg-white dark:focus:bg-slate-700 ${shakeFields[fieldName] ? 'animate-shake' : ''}`;
+        if (isValid) return `${base} border-green-500/50 focus:border-green-500 focus:bg-white dark:focus:bg-slate-700`;
+        return `${base} border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700`;
+    };
+
+    const renderFieldError = (fieldName: keyof GstFormData) => (
+        <AnimatePresence>
+            {getFieldState(fieldName).hasError && (
+                <motion.p
+                    initial={{ opacity: 0, y: -4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    className="text-red-500 text-[12px] font-medium mt-1 ml-2"
+                >
+                    {errors[fieldName]?.message}
+                </motion.p>
+            )}
+        </AnimatePresence>
+    );
+
+    const renderInputIcons = (fieldName: keyof GstFormData) => (
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none flex items-center gap-2">
+            {getFieldState(fieldName).isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+            {getFieldState(fieldName).hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+        </div>
+    );
     return (
         <main className="min-h-screen bg-[#fffcf2] dark:bg-slate-950 font-body selection:bg-secondary selection:text-white transition-colors duration-300">
             {/* ── Header ── */}
@@ -83,7 +176,7 @@ export default function GradeStreamTeacherTraineesPage() {
                             <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base">Please provide accurate information for your trainee application.</p>
                         </div>
 
-                        <form className="p-6 md:p-12 space-y-8 md:space-y-12">
+                        <form onSubmit={handleSubmit(onSubmit, onError)} noValidate className="p-6 md:p-12 space-y-8 md:space-y-12">
 
                             {/* Personal Details */}
                             <div className="space-y-6">
@@ -97,96 +190,154 @@ export default function GradeStreamTeacherTraineesPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="col-span-1 md:col-span-2">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Name <span className="text-red-500">*</span></label>
-                                        <input
-                                            type="text"
-                                            id="gst-full-name"
-                                            name="full-name"
-                                            autoComplete="name"
-                                            placeholder="Enter your full name"
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                            required
-                                        />
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-full-name"
+                                                autoComplete="name"
+                                                placeholder="Enter your full name"
+                                                {...register("fullName")}
+                                                className={getInputClasses("fullName")}
+                                            />
+                                            {renderInputIcons("fullName")}
+                                        </div>
+                                        {renderFieldError("fullName")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Date of Birth <span className="text-red-500">*</span></label>
-                                        <div className="relative">
-                                            <input
-                                                type="date"
-                                                id="gst-dob"
-                                                name="dob"
-                                                className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
-                                                required
-                                            />
-                                            <Calendar className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
-                                        </div>
+                                        <Controller
+                                            name="dob"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <DatePicker
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="Select Date"
+                                                    className={getInputClasses("dob")}
+                                                    hasError={getFieldState("dob").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("dob")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Sex <span className="text-red-500">*</span></label>
-                                        <select
-                                            id="gst-gender"
+                                        <Controller
                                             name="gender"
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 appearance-none"
-                                            required
-                                            defaultValue=""
-                                        >
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="male">Male</option>
-                                            <option value="female">Female</option>
-                                        </select>
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "male", label: "Male" },
+                                                        { value: "female", label: "Female" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="SELECT"
+                                                    hasError={getFieldState("gender").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("gender")}
                                     </div>
 
                                     <div className="col-span-1 md:col-span-2">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address with Pin code <span className="text-red-500">*</span></label>
-                                        <textarea
-                                            id="gst-address"
-                                            name="address"
-                                            autoComplete="street-address"
-                                            placeholder="Enter your address"
-                                            rows={4}
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200 resize-none"
-                                            required
-                                        ></textarea>
+                                        <div className="relative">
+                                            <textarea
+                                                id="gst-address"
+                                                autoComplete="street-address"
+                                                placeholder="Enter your address"
+                                                rows={4}
+                                                {...register("address")}
+                                                className={`${getInputClasses("address")} resize-none pr-12`}
+                                            ></textarea>
+                                            <div className="absolute right-6 top-6 pointer-events-none">
+                                                {getFieldState("address").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+                                                {getFieldState("address").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                            </div>
+                                        </div>
+                                        {renderFieldError("address")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">City <span className="text-red-500">*</span></label>
-                                        <input
-                                            type="text"
-                                            id="gst-city"
-                                            name="city"
-                                            autoComplete="address-level2"
-                                            placeholder="Nearby City"
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                            required
-                                        />
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-city"
+                                                autoComplete="address-level2"
+                                                placeholder="Nearby City"
+                                                {...register("city")}
+                                                className={getInputClasses("city")}
+                                            />
+                                            {renderInputIcons("city")}
+                                        </div>
+                                        {renderFieldError("city")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select id="gst-state" name="state" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="kerala">Kerala</option>
-                                        </select>
+                                        <Controller
+                                            name="state"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "kerala", label: "Kerala" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="SELECT"
+                                                    hasError={getFieldState("state").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("state")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <select id="gst-district" name="district" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="kozhikode">Kozhikode</option>
-                                            <option value="malappuram">Malappuram</option>
-                                        </select>
+                                        <Controller
+                                            name="district"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "kozhikode", label: "Kozhikode" },
+                                                        { value: "malappuram", label: "Malappuram" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="SELECT"
+                                                    hasError={getFieldState("district").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("district")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Marital Status <span className="text-red-500">*</span></label>
-                                        <select id="gst-marital-status" name="marital-status" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>SELECT</option>
-                                            <option value="single">Single</option>
-                                            <option value="married">Married</option>
-                                        </select>
+                                        <Controller
+                                            name="maritalStatus"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "single", label: "Single" },
+                                                        { value: "married", label: "Married" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="SELECT"
+                                                    hasError={getFieldState("maritalStatus").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("maritalStatus")}
                                     </div>
                                 </div>
                             </div>
@@ -207,13 +358,13 @@ export default function GradeStreamTeacherTraineesPage() {
                                             <input
                                                 type="tel"
                                                 id="gst-contact"
-                                                name="contact-number"
                                                 autoComplete="tel"
-                                                className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                                required
+                                                {...register("contactNumber")}
+                                                className={getInputClasses("contactNumber")}
                                             />
-                                            <Phone className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-hover:animate-ringing origin-center transition-transform group-hover:text-primary" />
+                                            {renderInputIcons("contactNumber")}
                                         </div>
+                                        {renderFieldError("contactNumber")}
                                     </div>
 
                                     <div>
@@ -222,13 +373,17 @@ export default function GradeStreamTeacherTraineesPage() {
                                             <input
                                                 type="tel"
                                                 id="gst-whatsapp"
-                                                name="whatsapp-number"
                                                 autoComplete="tel"
-                                                className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                                required
+                                                {...register("whatsappNumber")}
+                                                className={getInputClasses("whatsappNumber")}
                                             />
-                                            <Image src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width={20} height={20} alt="WhatsApp contact icon for grade stream teacher trainee queries at Zeeque Preschool Kerala" className="absolute right-6 top-1/2 -translate-y-1/2 opacity-40" />
+                                            <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
+                                                <Image src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width={20} height={20} alt="WhatsApp contact icon" className="opacity-40" />
+                                                {getFieldState("whatsappNumber").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
+                                                {getFieldState("whatsappNumber").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                            </div>
                                         </div>
+                                        {renderFieldError("whatsappNumber")}
                                     </div>
 
                                     <div className="col-span-1 md:col-span-2">
@@ -237,14 +392,14 @@ export default function GradeStreamTeacherTraineesPage() {
                                             <input
                                                 type="email"
                                                 id="gst-email"
-                                                name="email"
                                                 autoComplete="email"
                                                 placeholder="Your Email ID"
-                                                className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                                required
+                                                {...register("email")}
+                                                className={getInputClasses("email")}
                                             />
-                                            <Mail className="absolute right-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                                            {renderInputIcons("email")}
                                         </div>
+                                        {renderFieldError("email")}
                                     </div>
                                 </div>
                             </div>
@@ -261,21 +416,45 @@ export default function GradeStreamTeacherTraineesPage() {
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Religious Education <span className="text-red-500">*</span></label>
-                                        <select id="gst-religious-edu" name="religious-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>---SELECT---</option>
-                                            <option value="Hifz">Hifz</option>
-                                            <option value="Alim">Alim</option>
-                                        </select>
+                                        <Controller
+                                            name="religiousEdu"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "Hifz", label: "Hifz" },
+                                                        { value: "Alim", label: "Alim" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="---SELECT---"
+                                                    hasError={getFieldState("religiousEdu").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("religiousEdu")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">General Education <span className="text-red-500">*</span></label>
-                                        <select id="gst-general-edu" name="general-edu" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>---SELECT---</option>
-                                            <option value="sslc">SSLC</option>
-                                            <option value="plus-two">Plus Two</option>
-                                            <option value="degree">Degree</option>
-                                        </select>
+                                        <Controller
+                                            name="generalEdu"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "sslc", label: "SSLC" },
+                                                        { value: "plus-two", label: "Plus Two" },
+                                                        { value: "degree", label: "Degree" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="---SELECT---"
+                                                    hasError={getFieldState("generalEdu").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("generalEdu")}
                                     </div>
                                 </div>
                             </div>
@@ -292,36 +471,75 @@ export default function GradeStreamTeacherTraineesPage() {
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <select id="gst-country" name="country" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>--SELECT--</option>
-                                            <option value="india">India</option>
-                                        </select>
+                                        <Controller
+                                            name="country"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "india", label: "India" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="--SELECT--"
+                                                    hasError={getFieldState("country").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("country")}
                                     </div>
 
                                     <div>
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <select id="gst-state-pref" name="state-pref" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>--SELECT--</option>
-                                            <option value="kerala">Kerala</option>
-                                        </select>
+                                        <Controller
+                                            name="prefState"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[
+                                                        { value: "kerala", label: "Kerala" }
+                                                    ]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="--SELECT--"
+                                                    hasError={getFieldState("prefState").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("prefState")}
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
-                                        <input
-                                            type="text"
-                                            id="gst-district-pref"
-                                            name="district-pref"
-                                            className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-3 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200"
-                                            required
-                                        />
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District Preference <span className="text-red-500">*</span></label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-district-pref"
+                                                placeholder="Enter district"
+                                                {...register("prefDistrict")}
+                                                className={getInputClasses("prefDistrict")}
+                                            />
+                                            {renderInputIcons("prefDistrict")}
+                                        </div>
+                                        {renderFieldError("prefDistrict")}
                                     </div>
 
                                     <div className="col-span-1 sm:col-span-2 md:col-span-3 mt-4">
                                         <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Centre <span className="text-red-500">*</span></label>
-                                        <select id="gst-centre" name="centre" className="w-full bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent focus:border-primary/30 focus:bg-white dark:focus:bg-slate-700 rounded-2xl px-6 py-4 outline-none transition-all duration-300 text-gray-700 dark:text-gray-200" required defaultValue="">
-                                            <option value="" disabled>--SELECT--</option>
-                                        </select>
+                                        <Controller
+                                            name="prefCentre"
+                                            control={control}
+                                            render={({ field }) => (
+                                                <CustomSelect
+                                                    options={[]}
+                                                    value={field.value}
+                                                    onChange={field.onChange}
+                                                    placeholder="--SELECT--"
+                                                    hasError={getFieldState("prefCentre").hasError}
+                                                />
+                                            )}
+                                        />
+                                        {renderFieldError("prefCentre")}
                                     </div>
                                 </div>
                             </div>
