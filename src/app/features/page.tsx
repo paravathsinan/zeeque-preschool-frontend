@@ -145,7 +145,7 @@ export default function FeaturesPage() {
                             <div className="grid grid-cols-12 grid-rows-6 gap-3 h-[520px]">
                                 {/* Large primary image — spans left 7 cols, top 4 rows */}
                                 <div className="col-span-7 row-span-4 relative rounded-[28px] overflow-hidden shadow-xl group">
-                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                                     <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/50 via-transparent to-transparent" />
                                     <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                         <p className="font-heading font-bold text-[#222] dark:text-white text-xs">Quran Recitation & Memorization</p>
@@ -154,13 +154,13 @@ export default function FeaturesPage() {
 
                                 {/* Right tall image — spans right 5 cols, all 6 rows */}
                                 <div className="col-span-5 row-span-6 relative rounded-[28px] overflow-hidden shadow-xl group">
-                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0fb85c]/40" />
                                 </div>
 
                                 {/* Bottom-left wide image — spans left 7 cols, bottom 2 rows */}
                                 <div className="col-span-7 row-span-2 relative rounded-[28px] overflow-hidden shadow-xl group">
-                                    <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Students engaged in cultural learning activities at ZeeQue Preschool in Kerala." fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
+                                    <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Students engaged in cultural learning activities at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
                                     <div className="absolute inset-0 bg-gradient-to-r from-[#fbaf01]/30 to-transparent" />
                                 </div>
                             </div>
@@ -194,21 +194,31 @@ export default function FeaturesPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 left-[5%] text-8xl opacity-[0.04] hidden lg:block text-[#0052ff]">Language</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
-                        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#0052ff]/10 text-[#0052ff] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <Languages className="w-4 h-4" /> Multilingual
+                    {/* Centered Section Header */}
+                    <div className="text-center mb-16 relative z-20">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                        >
+                            <div className="inline-flex items-center gap-2 bg-[#0052ff]/10 text-[#0052ff] font-heading font-bold uppercase tracking-wider text-[11px] px-5 py-2 rounded-full mb-5 border border-[#0052ff]/20 shadow-sm">
+                                <Languages className="w-4 h-4" /> Multilingual Education
                             </div>
-                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
+                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
                                 Solid Foundation in <span className="text-[#0052ff]">Language</span>
                             </h2>
-                            <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
+                            <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                                 We believe <strong className="text-[#222] dark:text-white">&ldquo;the limit of language means the limit of the world.&rdquo;</strong> That&apos;s why Zeeque Preschool children are trained in three languages from the earliest age, opening doors to vast cultural and intellectual worlds.
                             </p>
+                        </motion.div>
+                    </div>
+
+                    <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
+                        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
 
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                                 {[

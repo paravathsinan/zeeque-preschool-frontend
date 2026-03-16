@@ -69,6 +69,7 @@ export default function ScrollToTop() {
                             stroke="#ef4225"
                             strokeWidth="3"
                             strokeDasharray={circumference}
+                            initial={{ strokeDashoffset: circumference }}
                             animate={{ strokeDashoffset: offset }}
                             transition={{ type: "spring", damping: 20, stiffness: 100 }}
                             strokeLinecap="round"

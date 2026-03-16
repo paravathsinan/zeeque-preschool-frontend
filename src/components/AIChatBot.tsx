@@ -13,8 +13,8 @@ interface Message {
 const quickActions = [
     { label: "Admission Info", response: "Our admissions are currently open! You can apply online at admission.zeeque.in or visit our campus at Zahra Park, Koduvally, Kozhikode. We accept children from ages 2 to 6. Would you like to know more about the admission process?" },
     { label: "Programs", response: "We offer comprehensive early childhood programs including Playgroup (2-3 yrs), Nursery (3-4 yrs), LKG (4-5 yrs), and UKG (5-6 yrs). Each program includes trilingual education, creative arts, physical development, and Islamic values education." },
-    { label: "Contact Us", response: "You can reach us at:\n📞 Phone: +91 9072500435\n📧 Email: contact@zeeque.in\n📍 Address: Zahra Park, Koduvally, Kozhikode, Kerala - 673572\n\nOur team is available to assist you!" },
-    { label: "Fee Structure", response: "For detailed fee information, please contact our admissions team at +91 9072500435 or visit our campus. We offer flexible payment plans and early-bird discounts for advance registrations." },
+    { label: "Contact Us", response: "You can reach us at:\n📞 Phone: +91 9072 500 435\n📧 Email: contact@zeeque.in\n📍 Address: Zahra Park, Koduvally, Kozhikode, Kerala - 673572\n\nOur team is available to assist you!" },
+    { label: "Fee Structure", response: "For detailed fee information, please contact our admissions team at +91 9072 500 435 or visit our campus. We offer flexible payment plans and early-bird discounts for advance registrations." },
 ];
 
 const welcomeMessage: Message = {

@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight, Send } from "lucide-react";
+import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, ArrowRight, Send, CheckCircle2, X, Loader2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const companyLinks = [
     { label: "About Us", href: "/about" },
@@ -15,6 +17,69 @@ const companyLinks = [
 ];
 
 export default function Footer() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+    });
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
+    const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showSuccess, setShowSuccess] = useState(false);
+
+    const validate = () => {
+        const newErrors: { [key: string]: string } = {};
+        if (!formData.name.trim()) newErrors.name = "Name is required";
+        if (!formData.email.trim()) {
+            newErrors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            newErrors.email = "Invalid email format";
+        }
+        if (!formData.phone.trim()) {
+            newErrors.phone = "Phone is required";
+        } else if (!/^\d{10}$/.test(formData.phone)) {
+            newErrors.phone = "Phone must be 10 digits";
+        }
+        return newErrors;
+    };
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        
+        // Restrict phone input to numbers only
+        if (name === "phone") {
+            const onlyNums = value.replace(/[^0-9]/g, "");
+            setFormData((prev) => ({ ...prev, [name]: onlyNums }));
+        } else {
+            setFormData((prev) => ({ ...prev, [name]: value }));
+        }
+
+        if (isSubmitted) {
+            const validationErrors = validate();
+            setErrors((prev) => ({ ...prev, [name]: validationErrors[name] || "" }));
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+        const validationErrors = validate();
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        setErrors({});
+        setIsSubmitting(true);
+        // Simulate API call
+        await new Promise((resolve) => setTimeout(resolve, 1500));
+        setIsSubmitting(false);
+        setShowSuccess(true);
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", phone: "", message: "" });
+    };
+
     return (
         <footer className="relative overflow-hidden">
 
@@ -69,7 +134,7 @@ export default function Footer() {
                                         <Phone className="w-4 h-4 text-[#0052ff] group-hover:animate-ringing origin-center transition-transform" />
                                     </div>
                                     <div className="text-gray-400 font-body text-sm group-hover:text-gray-300 transition-colors">
-                                        <a href="tel:+919072500435" className="block hover:text-[#0052ff] transition-colors">+91 9072500435</a>
+                                        <a href="tel:+919072500435" className="block hover:text-[#0052ff] transition-colors">+91 9072 500 435</a>
                                         <a href="tel:04952214005" className="text-gray-500 text-xs hover:text-[#0052ff] transition-colors block">Land: 0495 221 4005</a>
                                     </div>
                                 </div>
@@ -78,8 +143,8 @@ export default function Footer() {
                                     <div className="w-9 h-9 rounded-lg bg-[#0b8641]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0b8641]/20 transition-colors">
                                         <Mail className="w-4 h-4 text-[#0b8641]" />
                                     </div>
-                                    <a href="mailto:zanetwork@zeeque.in" className="text-gray-400 font-body text-sm hover:text-[#0b8641] transition-colors">
-                                        zanetwork@zeeque.in
+                                    <a href="mailto:zqnetwork@zeeque.in" className="text-gray-400 font-body text-sm hover:text-[#0b8641] transition-colors">
+                                        zqnetwork@zeeque.in
                                     </a>
                                 </div>
                             </div>
@@ -135,44 +200,109 @@ export default function Footer() {
                                 <span className="absolute -bottom-2 left-0 w-10 h-[3px] bg-[#ef4225] rounded-full" />
                             </h3>
 
-                            <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
-                                <input
-                                    type="text"
-                                    id="footer-name"
-                                    name="name"
-                                    autoComplete="name"
-                                    placeholder="Your Name"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
-                                />
-                                <input
-                                    type="email"
-                                    id="footer-email"
-                                    name="email"
-                                    autoComplete="email"
-                                    placeholder="Your Email"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
-                                />
-                                <input
-                                    type="tel"
-                                    id="footer-phone"
-                                    name="phone"
-                                    autoComplete="tel"
-                                    placeholder="Your Phone"
-                                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300"
-                                />
+                            <form className="space-y-3" onSubmit={handleSubmit} noValidate>
+                                <div className="space-y-1">
+                                    <input
+                                        type="text"
+                                        id="footer-name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        autoComplete="name"
+                                        placeholder="Your Name"
+                                        className={`w-full bg-white/5 border ${errors.name ? "border-red-500" : "border-white/10"} rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300`}
+                                    />
+                                    <AnimatePresence>
+                                        {errors.name && (
+                                            <motion.span
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="block text-[#ef4225] text-[10px] font-bold uppercase tracking-widest pl-2"
+                                            >
+                                                {errors.name}
+                                            </motion.span>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <input
+                                        type="email"
+                                        id="footer-email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        autoComplete="email"
+                                        placeholder="Your Email"
+                                        className={`w-full bg-white/5 border ${errors.email ? "border-red-500" : "border-white/10"} rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300`}
+                                    />
+                                    <AnimatePresence>
+                                        {errors.email && (
+                                            <motion.span
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="block text-[#ef4225] text-[10px] font-bold uppercase tracking-widest pl-2"
+                                            >
+                                                {errors.email}
+                                            </motion.span>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
+                                <div className="space-y-1">
+                                    <input
+                                        type="tel"
+                                        id="footer-phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        autoComplete="tel"
+                                        placeholder="Your Phone"
+                                        maxLength={10}
+                                        className={`w-full bg-white/5 border ${errors.phone ? "border-red-500" : "border-white/10"} rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300`}
+                                    />
+                                    <AnimatePresence>
+                                        {errors.phone && (
+                                            <motion.span
+                                                initial={{ opacity: 0, height: 0 }}
+                                                animate={{ opacity: 1, height: "auto" }}
+                                                exit={{ opacity: 0, height: 0 }}
+                                                className="block text-[#ef4225] text-[10px] font-bold uppercase tracking-widest pl-2"
+                                            >
+                                                {errors.phone}
+                                            </motion.span>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+
                                 <textarea
                                     id="footer-message"
                                     name="message"
+                                    value={formData.message}
+                                    onChange={handleInputChange}
                                     placeholder="Message"
                                     rows={3}
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 font-body focus:outline-none focus:border-[#ef4225]/50 focus:bg-white/[0.08] transition-all duration-300 resize-none"
                                 />
+
                                 <button
                                     type="submit"
-                                    className="group flex items-center justify-center gap-2 bg-[#ef4225] text-white px-8 py-3 rounded-xl font-heading font-bold text-sm uppercase tracking-wider hover:bg-[#d93a1e] transition-all duration-300 hover:shadow-lg hover:shadow-[#ef4225]/30 hover:scale-[1.02] w-full sm:w-auto"
+                                    disabled={isSubmitting}
+                                    className="group flex items-center justify-center gap-2 bg-[#ef4225] text-white px-8 py-3 rounded-xl font-heading font-bold text-sm uppercase tracking-wider hover:bg-[#d93a1e] transition-all duration-300 hover:shadow-lg hover:shadow-[#ef4225]/30 hover:scale-[1.02] w-full disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                                 >
-                                    Submit Now
-                                    <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                                    {isSubmitting ? (
+                                        <>
+                                            Processing...
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            Submit Now
+                                            <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                                        </>
+                                    )}
                                 </button>
                             </form>
                         </div>
@@ -191,6 +321,65 @@ export default function Footer() {
                     </Link>
                 </div>
             </div>
+            {/* Success Modal Overlay */}
+            <AnimatePresence>
+                {showSuccess && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[99999] flex items-center justify-center px-4 bg-[#1a1a2e]/60 backdrop-blur-md"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20, opacity: 0 }}
+                            animate={{ scale: 1, y: 0, opacity: 1 }}
+                            exit={{ scale: 0.9, y: 20, opacity: 0 }}
+                            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+                            className="bg-white dark:bg-slate-900 rounded-[40px] p-8 md:p-12 max-w-lg w-full shadow-[0_32px_64px_rgba(0,0,0,0.2)] relative overflow-hidden"
+                        >
+                            {/* Decorative elements */}
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-[#ef4225]/5 rounded-full translate-x-1/2 -translate-y-1/2 blur-2xl" />
+                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#0052ff]/5 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
+
+                            <button
+                                onClick={() => setShowSuccess(false)}
+                                className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors group"
+                            >
+                                <X className="w-6 h-6 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200" />
+                            </button>
+
+                            <div className="text-center relative z-10">
+                                <motion.div
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ delay: 0.2, type: "spring", stiffness: 500, damping: 15 }}
+                                    className="w-20 h-20 bg-[#0fb85c] rounded-full flex items-center justify-center mx-auto mb-8 shadow-lg shadow-[#0fb85c]/30"
+                                >
+                                    <CheckCircle2 className="w-10 h-10 text-white" />
+                                </motion.div>
+
+                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl mb-4">
+                                    Warm Greetings!
+                                </h3>
+                                <p className="text-gray-600 dark:text-gray-400 font-body text-lg leading-relaxed mb-10">
+                                    Thank you for reaching out. We&apos;ve received your enquiry and our team is excited to help you explore the perfect learning path for your child. We&apos;ll get in touch with you within the next <span className="text-[#ef4225] font-bold">24 hours</span> to discuss your requirements.
+                                    <br /><br />
+                                    <span className="text-sm text-gray-500 italic block">
+                                    If you don&apos;t hear from us within that time, feel free to contact us through WhatsApp or call at <a href="tel:+919072500435" className="text-[#0052ff] font-bold hover:underline">+91 9072 500 435</a>.
+                                    </span>
+                                </p>
+
+                                <button
+                                    onClick={() => setShowSuccess(false)}
+                                    className="w-full bg-[#1a1a2e] dark:bg-white dark:text-[#1a1a2e] text-white py-4 rounded-2xl font-heading font-extrabold text-lg hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-gray-200 dark:shadow-none"
+                                >
+                                    Got it, thanks!
+                                </button>
+                            </div>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </footer>
     );
 }

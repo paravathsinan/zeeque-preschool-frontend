@@ -9,6 +9,7 @@ const kumbhSans = localFont({
   src: "../../public/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf",
   variable: "--font-kumbh-sans",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

@@ -20,12 +20,6 @@ const nextConfig: NextConfig = {
     ],
   },
   async headers() {
-    // In development, skip CSP to avoid blocking Next.js dev tooling (which uses eval).
-    if (!isProd) {
-      return [];
-    }
-
-    // In production, enforce a safer CSP (no eval).
     return [
       {
         source: "/:path*",
@@ -33,7 +27,7 @@ const nextConfig: NextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https:; font-src 'self' data:; media-src 'self' https://assets.mixkit.co; connect-src 'self' ws: wss:; object-src 'none';",
+              "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.google.com https://*.gstatic.com https://*.googleapis.com https://*.vercel.app; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' blob: data: https: https://*.google.com https://*.gstatic.com https://*.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; media-src 'self' https://assets.mixkit.co; connect-src 'self' ws: wss: https://*.google.com https://*.gstatic.com https://*.googleapis.com; frame-src 'self' https://www.google.com https://maps.google.com https://*.google.com; object-src 'none';",
           },
         ],
       },

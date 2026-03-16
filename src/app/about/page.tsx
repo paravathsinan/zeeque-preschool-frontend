@@ -661,6 +661,19 @@ export default function AboutPage() {
                ══════════════════════════════════ */}
             <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.7 }}
+                        className="text-center mb-16"
+                    >
+                        <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30">Expert Care</span>
+                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
+                            Teacher <span className="text-[#0fb85c]">Support</span> System
+                        </h2>
+                    </motion.div>
+
                     <div className="flex flex-col lg:flex-row items-center gap-16">
 
                         {/* Left Image */}
@@ -703,10 +716,6 @@ export default function AboutPage() {
                             transition={{ duration: 0.8, delay: 0.2 }}
                             className="w-full lg:w-1/2"
                         >
-                            <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30">Expert Care</span>
-                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Teacher <span className="text-[#0fb85c]">Support</span> System
-                            </h2>
 
                             <div className="space-y-5">
                                 {[

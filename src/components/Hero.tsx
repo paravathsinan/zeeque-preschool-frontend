@@ -38,17 +38,6 @@ export default function Hero() {
                 <div className="absolute inset-0 dark:bg-slate-950/40 backdrop-blur-[50px]" />
             </div>
 
-            <div className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
-                {/* Bottom Cloud/Wavy pattern can be an SVG or banner shape */}
-                <Image
-                    src="/images/shape/banner-shape6.png"
-                    alt="Decorative cloud pattern for Zeeque Preschool website Kerala."
-                    fill
-                    className="object-cover object-bottom"
-                    sizes="100vw"
-                />
-            </div>
-
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-20 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left">
 
                 {/* Left Content */}
@@ -95,7 +84,9 @@ export default function Hero() {
                             </div>
                             <div className="flex flex-col justify-center text-left">
                                 <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Admission Counsellor</span>
-                                <span className="font-heading font-extrabold text-primary text-[22px] sm:text-[26px] tracking-wide leading-none">+91 9072500435</span>
+                                <a href="tel:+919072500435" className="hover:text-amber-500 transition-colors">
+                                    <span className="font-heading font-extrabold text-primary text-[22px] sm:text-[26px] tracking-wide leading-none">+91 9072 500 435</span>
+                                </a>
                             </div>
                         </div>
                     </motion.div>

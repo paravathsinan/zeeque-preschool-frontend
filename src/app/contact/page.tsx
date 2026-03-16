@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -246,7 +246,7 @@ export default function ContactPage() {
                                         </div>
                                         <div>
                                             <div className="text-sm font-heading font-bold text-gray-400 uppercase tracking-widest mb-1">Phone</div>
-                                            <div className="text-xl font-heading font-extrabold text-[#222] dark:text-white">+91 0000000-00</div>
+                                            <div className="text-xl font-heading font-extrabold text-[#222] dark:text-white">+91 9072 500 435</div>
                                         </div>
                                     </div>
 
@@ -405,7 +405,7 @@ export default function ContactPage() {
                             </p>
                             <div className="flex flex-wrap justify-center gap-4">
                                 <Link
-                                    href="tel:+91000000000"
+                                    href="tel:+919072500435"
                                     className="bg-white text-primary px-8 py-4 rounded-2xl font-heading font-bold text-base shadow-lg shadow-black/10 hover:scale-[1.03] active:scale-95 transition-all flex items-center gap-2.5 group"
                                 >
                                     <Phone className="w-4.5 h-4.5 group-hover:animate-ringing origin-center transition-transform" />
