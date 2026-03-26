@@ -43,24 +43,20 @@ export default function Navbar() {
         {
             name: "About", hasDropdown: true,
             subLinks: [
-                { name: "About Us", href: "/about" },
+                { name: "About Us", href: "/about-zeeque-preschool-kerala" },
                 { name: "Mission and Vision", href: "/mission-and-vision" },
-                { name: "Features", href: "/features" },
-                { name: "Programs", href: "/programs" },
-                { name: "Curriculum", href: "/curriculum" },
+                { name: "Features", href: "/best-preschool-features-kerala" },
                 { name: "Our Team", href: "/our-team" },
             ]
         },
         {
-            name: "Careers", hasDropdown: true,
+            name: "Programs", hasDropdown: true,
             subLinks: [
-                { name: "Teacher Trainees", href: "/teacher-trainees" },
-                { name: "ZET Registration", href: "/zet-registration" },
-                { name: "Grade Stream Teacher Trainees", href: "/grade-stream-teacher-trainees" },
-                { name: "Result", href: "/result" },
+                { name: "Our Programs", href: "/preschool-programs-kerala" },
+                { name: "Curriculum", href: "/preschool-curriculum-kerala" },
             ]
         },
-        { name: "Admission", href: "/admission", hasDropdown: false },
+        { name: "Admission", href: "/preschool-admission-kerala-2026", hasDropdown: false },
         {
             name: "Updates", hasDropdown: true,
             subLinks: [
@@ -69,6 +65,15 @@ export default function Navbar() {
                 { name: "Downloads", href: "/downloads" },
                 { name: "Notifications", href: "/notifications" },
                 { name: "Kids' Magazines", href: "https://magazine.myzeeque.com/" },
+            ]
+        },
+        {
+            name: "Careers", hasDropdown: true,
+            subLinks: [
+                { name: "Teacher Trainees", href: "/preschool-teacher-training-kerala" },
+                { name: "ZET Registration", href: "/zet-registration" },
+                { name: "Grade Stream Teacher Trainees", href: "/grade-stream-teacher-training-kerala" },
+                { name: "Result", href: "/result" },
             ]
         },
         { name: "Contact", href: "/contact", hasDropdown: false },
@@ -113,36 +118,37 @@ export default function Navbar() {
                     <div className="absolute inset-0 bg-slate-950/40 backdrop-blur-[50px]" />
                 </div>
 
-                <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 md:py-4 flex justify-between items-center gap-4 relative z-10">
-
+                <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-3 md:py-4 flex items-center relative z-10">
                     {/* Logo */}
-                    <Link href="/" className="flex items-center gap-2 shrink-0">
-                        <Image
-                            src="/images/logo/logo-new.svg"
-                            alt="Zeeque Preschool - Islamic Studies & Montessori Education in Kozhikode, Kerala."
-                            width={110}
-                            height={30}
-                            className="object-contain"
-                            style={{ width: "110px", height: "auto" }}
-                            priority
-                        />
-                    </Link>
+                    <div className="flex-1 flex justify-start">
+                        <Link href="/" className="flex items-center gap-2 shrink-0">
+                             <Image
+                                 src="/images/logo/logo-new.svg"
+                                 alt="Zeeque Preschool - Islamic Studies & Montessori Education in Kozhikode, Kerala."
+                                 width={100}
+                                 height={28}
+                                 className="object-contain"
+                                 style={{ width: "100px", height: "auto" }}
+                                 priority
+                             />
+                        </Link>
+                    </div>
 
                     {/* Desktop Navigation Links */}
-                    <div className="hidden lg:flex items-center lg:gap-6 xl:gap-10">
+                    <div className="hidden lg:flex items-center lg:gap-6 xl:gap-10 px-4">
                         {navLinks.map((link) => (
                             <div key={link.name} className="relative group">
                                 {link.href ? (
                                     <Link
                                         href={link.href}
-                                        className={`flex items-center gap-1 font-heading font-bold text-[17px] transition-colors py-4 ${isLinkActive(link) ? 'text-primary' : 'text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary'}`}
-                                    >
-                                        {link.name}
-                                        {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
-                                    </Link>
-                                ) : (
-                                    <button
-                                        className="flex items-center gap-1 font-heading font-bold text-[17px] transition-colors py-4 text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary cursor-pointer select-none border-none bg-transparent outline-none m-0 p-0"
+                                         className={`flex items-center gap-1 font-heading font-bold text-[16px] transition-colors py-4 ${isLinkActive(link) ? 'text-primary' : 'text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary'}`}
+                                     >
+                                         {link.name}
+                                         {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
+                                     </Link>
+                                 ) : (
+                                     <button
+                                         className="flex items-center gap-1 font-heading font-bold text-[16px] transition-colors py-4 text-[#222222] dark:text-gray-200 group-hover:text-primary dark:group-hover:text-primary cursor-pointer select-none border-none bg-transparent outline-none m-0 p-0"
                                     >
                                         {link.name}
                                         {link.hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400 stroke-[3] transition-transform duration-300 group-hover:rotate-180 group-hover:text-primary" />}
@@ -168,7 +174,7 @@ export default function Navbar() {
                     </div>
 
                     {/* Right Actions */}
-                    <div className="flex items-center gap-2 sm:gap-4 shrink-0">
+                    <div className="flex-1 flex justify-end items-center gap-2 sm:gap-4 shrink-0">
 
                         {/* Notification Icon */}
                         <Link href="/notifications" className="group hidden lg:flex relative w-10 h-10 rounded-full bg-gray-100 dark:bg-slate-800 items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all">
@@ -177,7 +183,7 @@ export default function Navbar() {
 
                         <button
                             onClick={() => setIsSignInModalOpen(true)}
-                            className="group hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
+                            className="group hidden lg:flex items-center gap-2 bg-[#ffb606] text-white px-6 py-2.5 rounded-2xl font-body font-bold text-[17px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                         >
                             Login
                             <LogIn className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
@@ -279,7 +285,7 @@ export default function Navbar() {
                                     )}
                                     <button
                                         onClick={() => { setIsSignInModalOpen(true); setIsMobileMenuOpen(false); }}
-                                        className="flex-1 flex items-center justify-center gap-2 bg-[#ffb606] text-white py-3 rounded-2xl font-body font-bold text-[16px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
+                                         className="flex-1 flex items-center justify-center gap-2 bg-[#ffb606] text-white py-2.5 rounded-2xl font-body font-bold text-[15px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                                     >
                                         Login
                                         <LogIn className="w-5 h-5 stroke-[2.5]" />

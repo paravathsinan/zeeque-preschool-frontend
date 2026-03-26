@@ -112,10 +112,10 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="fixed bottom-8 right-8 z-[110] w-[360px] h-[480px] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"
+                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[480px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#7c3aed] p-5 flex items-center gap-3 shrink-0">
+                        <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#EF4225] p-5 flex items-center gap-3 shrink-0">
                             <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center">
                                 <Bot className="w-5 h-5 text-white" />
                             </div>
@@ -222,23 +222,23 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: 10, transition: { duration: 0.2 } }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                        className="fixed bottom-[114px] right-8 z-[110] cursor-pointer group/tooltip perspective-1000"
+                        className="fixed bottom-[84px] right-4 sm:bottom-[114px] sm:right-8 z-[110] cursor-pointer group/tooltip perspective-1000"
                         onClick={() => {
                             setIsOpen(true);
                             setShowPopup(false);
                         }}
                     >
-                        <motion.div
-                            animate={{ y: [0, -6, 0] }}
-                            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                            className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl p-4 pr-12 rounded-[24px] shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border border-white/40 dark:border-slate-700/40 flex items-start gap-4 w-max max-w-[340px] group-hover/tooltip:shadow-[0_8px_32px_0_rgba(31,38,135,0.25)] transition-all duration-300"
-                        >
+                            <motion.div
+                                animate={{ y: [0, -6, 0] }}
+                                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                                className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl p-1.5 pr-8 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border border-white/40 dark:border-slate-700/40 flex items-start gap-2 w-max max-w-[260px] group-hover/tooltip:shadow-[0_8px_32px_0_rgba(31,38,135,0.25)] transition-all duration-300"
+                            >
                             <div className="flex flex-col mt-0.5">
-                                <span className="text-[15px] font-extrabold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-1">
+                                <span className="text-[12px] font-extrabold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-0.5">
                                     Have doubts?
                                 </span>
-                                <span className="text-[13px] text-gray-600 dark:text-gray-300 font-body leading-relaxed">
-                                    Ask <strong className="font-bold text-gray-800 dark:text-white">Zeeque AI Assistant</strong> about our admissions, trilingual programs, or fee structures.
+                                <span className="text-[10.5px] text-gray-600 dark:text-gray-300 font-body leading-relaxed">
+                                    Ask <strong className="font-bold text-gray-800 dark:text-white">Zeeque AI Assistant</strong> about admissions, programs, or fees.
                                 </span>
                             </div>
 
@@ -247,14 +247,14 @@ export default function AIChatBot() {
                                     e.stopPropagation();
                                     setShowPopup(false);
                                 }}
-                                className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 bg-white/40 hover:bg-white/80 dark:text-gray-300 dark:hover:text-white dark:bg-slate-700/40 dark:hover:bg-slate-700/80 transition-colors backdrop-blur-md border border-white/30 dark:border-slate-600/30"
+                                className="absolute top-2 right-2 w-5 h-5 rounded-full flex items-center justify-center text-gray-500 hover:text-gray-800 bg-white/40 hover:bg-white/80 dark:text-gray-300 dark:hover:text-white dark:bg-slate-700/40 dark:hover:bg-slate-700/80 transition-colors backdrop-blur-md border border-white/30 dark:border-slate-600/30"
                                 aria-label="Close popup"
                             >
-                                <X className="w-4 h-4" />
+                                <X className="w-3 h-3" />
                             </button>
 
                             {/* Triangle Pointer pointing down towards the FAB */}
-                            <div className="absolute -bottom-2 right-[22px] w-4 h-4 bg-white/50 dark:bg-slate-800/50 transform rotate-45 border-b border-r border-white/40 dark:border-slate-700/40 backdrop-blur-xl"></div>
+                            <div className="absolute -bottom-1 right-[20px] w-2.5 h-2.5 bg-white/50 dark:bg-slate-800/50 transform rotate-45 border-b border-r border-white/40 dark:border-slate-700/40 backdrop-blur-xl"></div>
                         </motion.div>
                     </motion.div>
                 )}
@@ -275,7 +275,7 @@ export default function AIChatBot() {
                             setIsOpen(true);
                             setShowPopup(false);
                         }}
-                        className="fixed bottom-8 right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20"
+                        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20"
                         aria-label="Open AI chat"
                     >
 

@@ -67,25 +67,21 @@ export default function FeaturesPage() {
                     <div className="absolute bottom-16 left-[30%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
                     <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
                     <div className="absolute bottom-8 right-[25%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
-                    <div className="absolute top-16 left-[50%] text-6xl opacity-[0.06] text-primary">Features</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                         <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
+                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-semibold">Features</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            What Makes Zeeque Preschool{" "}<span className="relative inline-block"><span className="text-primary">Special</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#ef4225" strokeWidth="3" strokeLinecap="round" /></svg></span>
+                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            Why ZeeQue is the Best Preschool in Kerala <br className="hidden md:block" /> What Makes Us Different
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            From Quran recitation to splash pools, from multilingual education to clay modelling — discover every feature that makes Zeeque Preschool the most loved preschool for your little ones.
-                        </p>
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-3">
                             {["Quran & Culture", "Multilingual", "Play Way", "3 Mentors", "Smart Classrooms", "R&D Backed"].map((tag) => (
-                                <span key={tag} className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-gray-200/50 dark:border-slate-700/50 rounded-full px-5 py-2 font-heading font-bold text-xs text-gray-700 dark:text-gray-300 shadow-sm">{tag}</span>
+                                <span key={tag} className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-gray-200/50 dark:border-slate-700/50 rounded-full px-5 py-2 font-heading font-bold text-sm text-gray-700 dark:text-gray-300 shadow-sm hover:bg-white/60 transition-all duration-300">{tag}</span>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -105,8 +101,8 @@ export default function FeaturesPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <BookOpen className="w-4 h-4" /> Light of Life
+                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Light of Life</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Quran, Tradition & <span className="text-[#0fb85c]">Culture</span>
@@ -146,7 +142,6 @@ export default function FeaturesPage() {
                                 {/* Large primary image — spans left 7 cols, top 4 rows */}
                                 <div className="col-span-7 row-span-4 relative rounded-[28px] overflow-hidden shadow-xl group">
                                     <Image src="https://images.unsplash.com/photo-1609220136736-443140cffec6?q=80&w=600&auto=format&fit=crop" alt="Children learning Islamic traditions and Quran recitation at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/50 via-transparent to-transparent" />
                                     <div className="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-xl px-4 py-3 shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                         <p className="font-heading font-bold text-[#222] dark:text-white text-xs">Quran Recitation & Memorization</p>
                                     </div>
@@ -155,13 +150,11 @@ export default function FeaturesPage() {
                                 {/* Right tall image — spans right 5 cols, all 6 rows */}
                                 <div className="col-span-5 row-span-6 relative rounded-[28px] overflow-hidden shadow-xl group">
                                     <Image src="/images/gallery/gallery photos/IMG_5284.JPG" alt="Kids reading together and sharing traditional Islamic values at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 30vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0fb85c]/40" />
                                 </div>
 
                                 {/* Bottom-left wide image — spans left 7 cols, bottom 2 rows */}
                                 <div className="col-span-7 row-span-2 relative rounded-[28px] overflow-hidden shadow-xl group">
                                     <Image src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG" alt="Students engaged in cultural learning activities at ZeeQue Preschool in Kerala." fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-700" />
-                                    <div className="absolute inset-0 bg-gradient-to-r from-[#fbaf01]/30 to-transparent" />
                                 </div>
                             </div>
 
@@ -205,11 +198,11 @@ export default function FeaturesPage() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <div className="inline-flex items-center gap-2 bg-[#0052ff]/10 text-[#0052ff] font-heading font-bold uppercase tracking-wider text-[11px] px-5 py-2 rounded-full mb-5 border border-[#0052ff]/20 shadow-sm">
-                                <Languages className="w-4 h-4" /> Multilingual Education
+                            <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 mx-auto w-fit">
+                                <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Multilingual Education</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                                Solid Foundation in <span className="text-[#0052ff]">Language</span>
+                                Solid Foundation in <span className="text-[#3FB7E5]">Language</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                                 We believe <strong className="text-[#222] dark:text-white">&ldquo;the limit of language means the limit of the world.&rdquo;</strong> That&apos;s why Zeeque Preschool children are trained in three languages from the earliest age, opening doors to vast cultural and intellectual worlds.
@@ -223,7 +216,7 @@ export default function FeaturesPage() {
                             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                                 {[
                                     { lang: "Arabic", desc: "Reading, writing & speaking", color: "#0fb85c" },
-                                    { lang: "English", desc: "Communication & literacy", color: "#0052ff" },
+                                    { lang: "English", desc: "Communication & literacy", color: "#3FB7E5" },
                                     { lang: "Malayalam", desc: "Mother tongue fluency", color: "#e83e8c" },
                                 ].map((l) => (
                                     <div key={l.lang} className="bg-white dark:bg-slate-800 rounded-2xl p-5 border-2 border-gray-100 dark:border-slate-700 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
@@ -242,7 +235,7 @@ export default function FeaturesPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
                                 <Image src="https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=800&auto=format&fit=crop" alt="Children having fun while developing multilingual skills at ZeeQue Preschool in Kerala." fill className="object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0052ff]/30 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#3FB7E5]/30 to-transparent" />
                                 <div className="absolute bottom-6 left-6 right-6 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg">
                                     <p className="font-heading font-bold text-[#222] dark:text-white text-sm text-center">&ldquo;The limit of language is the limit of the world&rdquo;</p>
                                 </div>
@@ -279,8 +272,8 @@ export default function FeaturesPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4 border border-[#e83e8c]/20">
-                            <Crown className="w-4 h-4" /> Character is Everything
+                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Character is Everything</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
                             Building <span className="text-[#e83e8c]">Character</span> from Day One
@@ -294,9 +287,9 @@ export default function FeaturesPage() {
                         {[
                             { title: "Sharing", color: "#0fb85c" },
                             { title: "Caring", color: "#e83e8c" },
-                            { title: "Good Manners", color: "#0052ff" },
+                            { title: "Good Manners", color: "#3FB7E5" },
                             { title: "Confidence", color: "#fbaf01" },
-                            { title: "Independence", color: "#7c3aed" },
+                            { title: "Independence", color: "#EF4225" },
                             { title: "Leadership", color: "#ef4225" },
                         ].map((v, i) => (
                             <motion.div key={v.title} custom={i} variants={fadeUp}
@@ -344,13 +337,13 @@ export default function FeaturesPage() {
             <section className="py-12 lg:py-18 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-[5%] text-8xl opacity-[0.04] hidden lg:block text-[#fbaf01]">Play</div>
-                    <div className="absolute bottom-20 right-[8%] text-7xl opacity-[0.04] hidden lg:block text-[#7c3aed]">Joy</div>
+                    <div className="absolute bottom-20 right-[8%] text-7xl opacity-[0.04] hidden lg:block text-[#EF4225]">Joy</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Shapes className="w-4 h-4" /> Learning Through Play
+                        <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Learning Through Play</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Stress-Free <span className="text-[#fbaf01]">Play Way</span> Method
@@ -363,9 +356,9 @@ export default function FeaturesPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                         {/* Stress-Free Card */}
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft}
-                            className="bg-gradient-to-br from-[#7c3aed]/5 to-[#e83e8c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#7c3aed]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
-                            <div className="w-16 h-16 rounded-2xl bg-[#7c3aed]/10 flex items-center justify-center mb-6">
-                                <Heart className="w-8 h-8 text-[#7c3aed]" />
+                            className="bg-gradient-to-br from-[#EF4225]/5 to-[#e83e8c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#EF4225]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                            <div className="w-16 h-16 rounded-2xl bg-[#EF4225]/10 flex items-center justify-center mb-6">
+                                <Heart className="w-8 h-8 text-[#EF4225]" />
                             </div>
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Stress-Free Learning</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
@@ -374,7 +367,7 @@ export default function FeaturesPage() {
                             <ul className="space-y-2">
                                 {["No formal textbook-based teaching", "Children progress at their own pace", "Joy and excitement in every activity", "Fun-filled creative daily sessions"].map((item) => (
                                     <li key={item} className="flex items-center gap-2 text-gray-500 dark:text-gray-400 font-body text-sm">
-                                        <Check className="w-4 h-4 text-[#7c3aed] flex-shrink-0" /> {item}
+                                        <Check className="w-4 h-4 text-[#EF4225] flex-shrink-0" /> {item}
                                     </li>
                                 ))}
                             </ul>
@@ -406,8 +399,8 @@ export default function FeaturesPage() {
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                             {[
                                 { name: "Welcome Circle", color: "#fbaf01" },
-                                { name: "Assembly", color: "#0052ff" },
-                                { name: "Meditation", color: "#7c3aed" },
+                                { name: "Assembly", color: "#3FB7E5" },
+                                { name: "Meditation", color: "#EF4225" },
                                 { name: "Rhyme Time", color: "#e83e8c" },
                                 { name: "Story Session", color: "#0fb85c" },
                                 { name: "Outdoor Play", color: "#ef4225" },
@@ -432,7 +425,6 @@ export default function FeaturesPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
                                 <Image src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1000&auto=format&fit=crop" alt="Dedicated mentors providing personalized care to children at ZeeQue Preschool in Kerala." fill className="object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#e83e8c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#e83e8c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <Users className="w-5 h-5" />
@@ -444,8 +436,8 @@ export default function FeaturesPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <HandHeart className="w-4 h-4" /> Personalized Care
+                            <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Personalized Care</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Individual <span className="text-[#e83e8c]">Mentoring</span>
@@ -457,7 +449,7 @@ export default function FeaturesPage() {
                             <div className="space-y-4 mb-8">
                                 {[
                                     { icon: Users, title: "3 Mentors Per Classroom", desc: "Ensuring personalized care for every child with an optimal mentor-to-child ratio.", color: "#e83e8c" },
-                                    { icon: Eye, title: "On-Site Academic Executives", desc: "Specially trained executives provide timely support and constantly monitor classroom processes.", color: "#0052ff" },
+                                    { icon: Eye, title: "On-Site Academic Executives", desc: "Specially trained executives provide timely support and constantly monitor classroom processes.", color: "#3FB7E5" },
                                     { icon: Megaphone, title: "Continuous Teacher Training", desc: "Regular workshops and skill development ensure our mentors stay at the forefront of early education.", color: "#0fb85c" },
                                     { icon: Target, title: "Individual Learning Plans", desc: "Each child's progress is tracked and nurtured through personalized developmental milestones.", color: "#fbaf01" },
                                 ].map((item) => (
@@ -484,8 +476,8 @@ export default function FeaturesPage() {
             <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#ef4225]/10 text-[#ef4225] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Castle className="w-4 h-4" /> World-Class Facilities
+                        <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">World-Class Facilities</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Infrastructure & <span className="text-[#ef4225]">Facilities</span>
@@ -496,10 +488,10 @@ export default function FeaturesPage() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
                             { title: "Sand Pit", desc: "Sensory play for tactile development and creative construction.", icon: Sparkles, color: "#fbaf01" },
-                            { title: "Splash Pool", desc: "Safe water play area for aquatic fun and motor skill development.", icon: Droplets, color: "#0052ff" },
+                            { title: "Splash Pool", desc: "Safe water play area for aquatic fun and motor skill development.", icon: Droplets, color: "#3FB7E5" },
                             { title: "Mud Pond", desc: "Natural sensory exploration for hands-on, messy, joyful learning.", icon: Flower2, color: "#e83e8c" },
                             { title: "Outdoor Play Areas", desc: "Two fenced areas with climbing structures, sand zones, and wheel toy paths.", icon: TreePine, color: "#0fb85c" },
-                            { title: "Indoor Play Zone", desc: "Age-appropriate toys, blocks, and learning games in a safe indoor space.", icon: Puzzle, color: "#7c3aed" },
+                            { title: "Indoor Play Zone", desc: "Age-appropriate toys, blocks, and learning games in a safe indoor space.", icon: Puzzle, color: "#EF4225" },
                             { title: "Safety First", desc: "Supervised single-door entry/exit, CCTV monitoring, and trained safety staff.", icon: Shield, color: "#ef4225" },
                         ].map((f, i) => (
                             <motion.div key={f.title} custom={i} variants={fadeUp}
@@ -515,7 +507,7 @@ export default function FeaturesPage() {
 
                     {/* Ponds Section */}
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-                        className="mt-12 bg-gradient-to-r from-[#0052ff]/5 to-[#0fb85c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#0052ff]/10 dark:border-slate-700">
+                        className="mt-12 bg-gradient-to-r from-[#3FB7E5]/5 to-[#0fb85c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#3FB7E5]/10 dark:border-slate-700">
                         <div className="flex flex-col md:flex-row items-center gap-8">
                             <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                                 <Droplets className="w-10 h-10 text-primary" />
@@ -523,11 +515,11 @@ export default function FeaturesPage() {
                             <div>
                                 <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-3">Zeeque Preschool Ponds — A Unique Feature!</h3>
                                 <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-3">
-                                    ZeeQue has <strong className="text-[#222] dark:text-white">three types of ponds</strong> for children to play in — filled with <strong className="text-[#0052ff]">water, sand, and clay</strong> respectively. Children play freely in these ponds to enhance their all-round physical and mental development.
+                                    ZeeQue has <strong className="text-[#222] dark:text-white">three types of ponds</strong> for children to play in — filled with <strong className="text-[#3FB7E5]">water, sand, and clay</strong> respectively. Children play freely in these ponds to enhance their all-round physical and mental development.
                                 </p>
                                 <div className="flex flex-wrap gap-3">
                                     {["Water Pond", "Sand Pond", "Clay Pond"].map((t) => (
-                                        <span key={t} className="bg-white/40 dark:bg-slate-700/40 backdrop-blur-sm rounded-full px-5 py-2 font-heading font-bold text-xs text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-slate-600 shadow-sm">{t}</span>
+                                        <span key={t} className="bg-white/40 dark:bg-slate-700/40 backdrop-blur-md rounded-full px-5 py-2 font-heading font-bold text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-slate-600 shadow-sm hover:bg-white/60 transition-all duration-300">{t}</span>
                                     ))}
                                 </div>
                             </div>
@@ -544,17 +536,17 @@ export default function FeaturesPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <FlaskConical className="w-4 h-4" /> Innovation
+                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Innovation</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Research & <span className="text-[#7c3aed]">Development</span>
+                                Research & <span className="text-[#EF4225]">Development</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 ZeeQue has a dedicated <strong className="text-[#222] dark:text-white">Research and Development wing</strong> at its Head Office that makes us unique. Our R&D team continuously studies child development and education trends to ensure our curriculum remains cutting-edge.
                             </p>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-6">
-                                The exclusive <strong className="text-[#7c3aed]">ZeeQue Curriculum</strong> — the result of extensive research and studies — is constantly updated to incorporate the latest in ECCE techniques, child psychology, and multi-sensory learning approaches.
+                                The exclusive <strong className="text-[#EF4225]">ZeeQue Curriculum</strong> — the result of extensive research and studies — is constantly updated to incorporate the latest in ECCE techniques, child psychology, and multi-sensory learning approaches.
                             </p>
 
                             <div className="grid grid-cols-2 gap-4">
@@ -575,9 +567,8 @@ export default function FeaturesPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
                                 <Image src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=800&auto=format&fit=crop" alt="Educational experts researching cutting-edge early childhood methods for the ZeeQue Curriculum in Kerala." fill className="object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#7c3aed]/30 to-transparent" />
                             </div>
-                            <div className="absolute -bottom-5 -right-3 bg-[#7c3aed] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
+                            <div className="absolute -bottom-5 -right-3 bg-[#EF4225] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <FlaskConical className="w-5 h-5" />
                                 <span className="font-heading font-bold text-sm">Exclusive Curriculum</span>
                             </div>
@@ -615,7 +606,7 @@ export default function FeaturesPage() {
                                 <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
-                            <Link href="/about" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                            <Link href="/about-zeeque-preschool-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
                                 About Us
                             </Link>
                         </div>

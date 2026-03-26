@@ -23,28 +23,28 @@ const fadeUp = {
 const stagger = { visible: { transition: { staggerChildren: 0.12 } } };
 
 const coreValues = [
-    { icon: Heart, title: "Compassion", description: "Teaching through love; cultivating empathy, kindness, and care for every living being from the earliest years.", color: "#e83e8c", emoji: "💗" },
-    { icon: Award, title: "Respect", description: "Building a culture of mutual respect where every child, parent, and educator is valued and honored.", color: "#0052ff", emoji: "🙏" },
-    { icon: Star, title: "Excellence", description: "Striving for the highest standards in early education, ensuring every child reaches their fullest potential.", color: "#fbaf01", emoji: "⭐" },
-    { icon: BookHeart, title: "Islamic Values", description: "Guiding future generations in accordance with Islamic principles through child-friendly mentoring and daily practice.", color: "#0fb85c", emoji: "📖" },
-    { icon: Crown, title: "Confidence", description: "Empowering children to believe in themselves, develop independence, and step forward as young leaders.", color: "#7c3aed", emoji: "👑" },
-    { icon: Handshake, title: "Sharing & Caring", description: "Instilling the beautiful habits of sharing, caring, good manners, and a genuine sense of responsibility.", color: "#ef4225", emoji: "🤝" },
+    { icon: Heart, title: "Compassion", description: "Teaching through love; cultivating empathy, kindness, and care for every living being from the earliest years.", color: "#e83e8c" },
+    { icon: Award, title: "Respect", description: "Building a culture of mutual respect where every child, parent, and educator is valued and honored.", color: "#3FB7E5" },
+    { icon: Star, title: "Excellence", description: "Striving for the highest standards in early education, ensuring every child reaches their fullest potential.", color: "#fbaf01" },
+    { icon: BookHeart, title: "Islamic Values", description: "Guiding future generations in accordance with Islamic principles through child-friendly mentoring and daily practice.", color: "#0fb85c" },
+    { icon: Crown, title: "Confidence", description: "Empowering children to believe in themselves, develop independence, and step forward as young leaders.", color: "#EF4225" },
+    { icon: Handshake, title: "Sharing & Caring", description: "Instilling the beautiful habits of sharing, caring, good manners, and a genuine sense of responsibility.", color: "#ef4225" },
 ];
 
 const objectives = [
-    { icon: Brain, title: "Holistic Development", description: "Integrating academic learning with spiritual wisdom for complete child development across all dimensions.", emoji: "🧒" },
-    { icon: Puzzle, title: "Experiential Learning", description: "Creating hands-on, exploratory learning journeys where children discover knowledge through experience.", emoji: "🧩" },
-    { icon: Sparkles, title: "Creative Expression", description: "Fostering imagination, artistic expression, and creative thinking through play-based activities.", emoji: "🎨" },
-    { icon: Users, title: "Collaboration", description: "Building teamwork, communication, and social skills through collaborative learning and group projects.", emoji: "👫" },
-    { icon: Flame, title: "Lifelong Learners", description: "Laying a strong foundation that inspires children to become curious, passionate, lifelong learners.", emoji: "🔥" },
-    { icon: Globe, title: "Multilingual Mastery", description: "Training children to communicate, read, and write in Arabic, English, and Malayalam from an early age.", emoji: "🌍" },
+    { icon: Brain, title: "Holistic Development", description: "Integrating academic learning with spiritual wisdom for complete child development across all dimensions." },
+    { icon: Puzzle, title: "Experiential Learning", description: "Creating hands-on, exploratory learning journeys where children discover knowledge through experience." },
+    { icon: Sparkles, title: "Creative Expression", description: "Fostering imagination, artistic expression, and creative thinking through play-based activities." },
+    { icon: Users, title: "Collaboration", description: "Building teamwork, communication, and social skills through collaborative learning and group projects." },
+    { icon: Flame, title: "Lifelong Learners", description: "Laying a strong foundation that inspires children to become curious, passionate, lifelong learners." },
+    { icon: Globe, title: "Multilingual Mastery", description: "Training children to communicate, read, and write in Arabic, English, and Malayalam from an early age." },
 ];
 
 const islamicPillars = [
-    { title: "Quran Recitation", description: "Children learn to recite the Holy Quran and memorize at least one Juz' over a 3-year period.", icon: BookOpen, color: "#0fb85c", emoji: "📗" },
-    { title: "Daily Adhkar", description: "Supplications and remembrances are woven into daily routines, building a strong spiritual connection.", icon: Sun, color: "#fbaf01", emoji: "🌅" },
-    { title: "Traditional Values", description: "Folklore, stories, and traditional values are integral parts of the learning curriculum.", icon: Heart, color: "#e83e8c", emoji: "🏡" },
-    { title: "Arabic Literacy", description: "Children develop reading, writing, and speaking skills in Arabic alongside English and Malayalam.", icon: GraduationCap, color: "#0052ff", emoji: "✍️" },
+    { title: "Quran Recitation", description: "Children learn to recite the Holy Quran and memorize at least one Juz' over a 3-year period.", icon: BookOpen, color: "#0fb85c" },
+    { title: "Daily Adhkar", description: "Supplications and remembrances are woven into daily routines, building a strong spiritual connection.", icon: Sun, color: "#fbaf01" },
+    { title: "Traditional Values", description: "Folklore, stories, and traditional values are integral parts of the learning curriculum.", icon: Heart, color: "#e83e8c" },
+    { title: "Arabic Literacy", description: "Children develop reading, writing, and speaking skills in Arabic alongside English and Malayalam.", icon: GraduationCap, color: "#3FB7E5" },
 ];
 
 /* ── Wavy Divider ── */
@@ -78,20 +78,20 @@ export default function MissionVisionPage() {
                     <div className="absolute top-8 left-[8%] w-20 h-20 rounded-full bg-[#0fb85c]/10 animate-pulse" />
                     <div className="absolute top-24 right-[12%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-16 left-[25%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-700" />
-                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#0052ff]/10" />
+                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#3FB7E5]/10" />
                     <div className="absolute bottom-8 right-[30%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
                 </div>
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                         <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
+                             <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-semibold">Mission & Vision</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Our{" "}<span className="relative inline-block"><span className="text-[#0fb85c]">Mission</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#0fb85c" strokeWidth="3" strokeLinecap="round" /></svg></span>{" & "}<span className="text-[#0052ff]">Vision</span>
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            Our Mission & Vision
+                            <br className="hidden md:block" /> Nurturing Confident Muslim Learners Across Kerala
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">Guided by purpose, driven by love — shaping tomorrow&apos;s leaders in a nurturing environment rooted in wisdom and Islamic values.</p>
                         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.5 }} className="mt-8 inline-flex items-center gap-3 bg-white dark:bg-slate-800 border-2 border-[#fbaf01]/30 rounded-full px-6 py-3 shadow-sm">
                             <Lightbulb className="w-5 h-5 text-[#fbaf01]" />
                             <span className="font-heading font-bold text-[#222] dark:text-white text-sm italic">&ldquo;One Who Is Illumined At The Beginning Is Illumined At The End&rdquo;</span>
@@ -111,7 +111,7 @@ export default function MissionVisionPage() {
                     <div className="absolute bottom-20 left-10 w-24 h-24 rounded-full bg-[#e83e8c]/5 hidden xl:block" />
                     <div className="absolute bottom-10 right-[8%] text-5xl opacity-10 hidden lg:block">⭐</div>
                     <div className="absolute top-20 left-[50%] w-3 h-3 rounded-full bg-[#0fb85c]/30" />
-                    <div className="absolute bottom-32 right-[40%] w-4 h-4 rounded-full bg-[#0052ff]/20" />
+                    <div className="absolute bottom-32 right-[40%] w-4 h-4 rounded-full bg-[#3FB7E5]/20" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
@@ -131,7 +131,9 @@ export default function MissionVisionPage() {
                                         <Target className="w-8 h-8 text-white" />
                                     </div>
                                     <div>
-                                        <span className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs block">Our Mission</span>
+                                        <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-3 py-1 rounded-full mb-3 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300">
+                                            <span className="text-xs font-heading font-bold text-[#0fb85c] tracking-tight">Our Mission</span>
+                                        </div>
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Nurturing Growth</h3>
                                     </div>
                                 </div>
@@ -155,7 +157,7 @@ export default function MissionVisionPage() {
 
                                 <div className="flex flex-wrap gap-2">
                                     {["Safe", "Growth", "Learning", "Inclusive"].map((tag) => (
-                                        <span key={tag} className="bg-[#0fb85c]/5 text-[#0fb85c] font-heading font-bold text-xs px-4 py-2 rounded-full border border-[#0fb85c]/20 backdrop-blur-sm shadow-sm">
+                                        <span key={tag} className="bg-[#0fb85c]/5 text-[#0fb85c] font-heading font-bold text-sm px-4 py-2 rounded-full border border-[#0fb85c]/20 backdrop-blur-md shadow-sm">
                                             {tag}
                                         </span>
                                     ))}
@@ -165,15 +167,17 @@ export default function MissionVisionPage() {
 
                         {/* Vision Card */}
                         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.15 }}
-                            className="relative bg-gradient-to-br from-[#0052ff]/5 via-[#0052ff]/10 to-[#e83e8c]/5 dark:from-[#0052ff]/10 dark:to-[#0052ff]/5 rounded-[32px] p-8 md:p-10 border-2 border-[#0052ff]/20 hover:border-[#0052ff]/40 transition-all duration-500 group overflow-hidden">
+                            className="relative bg-gradient-to-br from-[#3FB7E5]/5 via-[#3FB7E5]/10 to-[#e83e8c]/5 dark:from-[#3FB7E5]/10 dark:to-[#3FB7E5]/5 rounded-[32px] p-8 md:p-10 border-2 border-[#3FB7E5]/20 hover:border-[#3FB7E5]/40 transition-all duration-500 group overflow-hidden">
 
                             <div className="relative z-10">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-16 h-16 rounded-2xl bg-[#0052ff] flex items-center justify-center shadow-lg shadow-[#0052ff]/30 group-hover:scale-110 transition-transform duration-300">
+                                    <div className="w-16 h-16 rounded-2xl bg-[#3FB7E5] flex items-center justify-center shadow-lg shadow-[#3FB7E5]/30 group-hover:scale-110 transition-transform duration-300">
                                         <Eye className="w-8 h-8 text-white" />
                                     </div>
                                     <div>
-                                        <span className="text-[#0052ff] font-heading font-bold uppercase tracking-wider text-xs block">Our Vision</span>
+                                        <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-3 py-1 rounded-full mb-3 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300">
+                                            <span className="text-xs font-heading font-bold text-[#3FB7E5] tracking-tight">Our Vision</span>
+                                        </div>
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Bright Futures</h3>
                                     </div>
                                 </div>
@@ -182,22 +186,22 @@ export default function MissionVisionPage() {
                                     To nurture young minds in a <strong className="text-[#222] dark:text-white">blissful environment</strong> where they discover togetherness, develop a genuine love for learning, and absorb timeless values.
                                 </p>
                                 <p className="text-gray-600 dark:text-gray-300 font-body text-[17px] leading-relaxed mb-6">
-                                    We envision every child embodying values of <strong className="text-[#0052ff]">compassion, respect, and excellence</strong> — growing into thoughtful individuals who positively impact their communities.
+                                    We envision every child embodying values of <strong className="text-[#3FB7E5]">compassion, respect, and excellence</strong> — growing into thoughtful individuals who positively impact their communities.
                                 </p>
 
-                                <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-5 border border-[#0052ff]/10 mb-6">
-                                    <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-3 flex items-center gap-2">🔮 Vision Goals</h4>
+                                <div className="bg-white/60 dark:bg-slate-800/60 rounded-2xl p-5 border border-[#3FB7E5]/10 mb-6">
+                                    <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-3 flex items-center gap-2">Vision Goals</h4>
                                     <ul className="space-y-2 text-gray-500 dark:text-gray-400 font-body text-sm">
-                                        <li className="flex items-start gap-2"><span className="text-[#0052ff] mt-0.5">•</span> Build a joyful community of young, values-driven learners</li>
-                                        <li className="flex items-start gap-2"><span className="text-[#0052ff] mt-0.5">•</span> Inspire a generation rooted in compassion, respect & excellence</li>
-                                        <li className="flex items-start gap-2"><span className="text-[#0052ff] mt-0.5">•</span> Create confident individuals who shape positive change</li>
-                                        <li className="flex items-start gap-2"><span className="text-[#0052ff] mt-0.5">•</span> Blend Islamic wisdom with modern educational excellence</li>
+                                        <li className="flex items-start gap-2"><span className="text-[#3FB7E5] mt-0.5">•</span> Build a joyful community of young, values-driven learners</li>
+                                        <li className="flex items-start gap-2"><span className="text-[#3FB7E5] mt-0.5">•</span> Inspire a generation rooted in compassion, respect & excellence</li>
+                                        <li className="flex items-start gap-2"><span className="text-[#3FB7E5] mt-0.5">•</span> Create confident individuals who shape positive change</li>
+                                        <li className="flex items-start gap-2"><span className="text-[#3FB7E5] mt-0.5">•</span> Blend Islamic wisdom with modern educational excellence</li>
                                     </ul>
                                 </div>
 
                                 <div className="flex flex-wrap gap-2">
                                     {["Togetherness", "Learning", "Values", "Impact"].map((tag) => (
-                                        <span key={tag} className="bg-[#0052ff]/5 text-[#0052ff] font-heading font-bold text-xs px-4 py-2 rounded-full border border-[#0052ff]/20 backdrop-blur-sm shadow-sm">
+                                        <span key={tag} className="bg-[#3FB7E5]/5 text-[#3FB7E5] font-heading font-bold text-sm px-4 py-2 rounded-full border border-[#3FB7E5]/20 backdrop-blur-md shadow-sm">
                                             {tag}
                                         </span>
                                     ))}
@@ -216,13 +220,13 @@ export default function MissionVisionPage() {
             <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#e83e8c]/10 hidden xl:block" />
-                    <div className="absolute bottom-20 left-[10%] text-6xl opacity-[0.06] hidden lg:block">🌸</div>
+                    <div className="absolute bottom-20 left-[10%] w-16 h-16 rounded-full bg-[#fbaf01]/5 animate-pulse hidden lg:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Gem className="w-4 h-4" /> What We Stand For
+                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">What We Stand For</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Our Core <span className="text-[#e83e8c]">Values</span>
@@ -286,8 +290,8 @@ export default function MissionVisionPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <BookOpen className="w-4 h-4" /> Spiritual Foundation
+                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Spiritual Foundation</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Rooted in <span className="text-[#0fb85c]">Islamic Values</span>
@@ -343,16 +347,16 @@ export default function MissionVisionPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[10%] text-7xl opacity-[0.05] hidden lg:block">🧭</div>
+                    <div className="absolute top-10 right-[10%] w-20 h-20 rounded-full bg-[#EF4225]/5 animate-pulse hidden lg:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            What We Aim For
+                        <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">What We Aim For</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Our <span className="text-[#7c3aed]">Objectives</span>
+                            Our <span className="text-[#EF4225]">Objectives</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
                             Every program, activity, and interaction at Zeeque Preschool is designed to achieve these key objectives — creating well-rounded, confident, and values-driven young learners.
@@ -361,7 +365,7 @@ export default function MissionVisionPage() {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {objectives.map((obj, i) => {
-                            const colors = ["#ef4225", "#0fb85c", "#0052ff", "#e83e8c", "#fbaf01", "#7c3aed"];
+                            const colors = ["#ef4225", "#0fb85c", "#3FB7E5", "#e83e8c", "#fbaf01", "#EF4225"];
                             const color = colors[i % colors.length];
                             return (
                                 <motion.div key={obj.title} custom={i} variants={fadeUp}
@@ -387,27 +391,27 @@ export default function MissionVisionPage() {
                ══════════════════════════════════ */}
             <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 left-[5%] text-7xl opacity-[0.05] hidden lg:block">🏆</div>
+                    <div className="absolute top-20 left-[5%] w-24 h-24 rounded-full bg-[#fbaf01]/5 animate-pulse hidden lg:block" />
                     <div className="absolute bottom-20 right-[8%] w-20 h-20 rounded-full bg-[#fbaf01]/5 hidden xl:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <Star className="w-4 h-4 fill-[#fbaf01]" /> Why Zeeque Preschool?
+                        <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Why Zeeque Preschool?</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            What Makes Us <span className="text-[#fbaf01]">Different</span> ✨
+                            What Makes Us <span className="text-[#fbaf01]">Different</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">More than a preschool — we&apos;re a family that nurtures every child with love, safety, and world-class education.</p>
                     </motion.div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
-                            { icon: Shield, title: "Safe & Secure Environment", description: "Supervised single-door entry/exit, two fenced outdoor play areas with age-appropriate equipment, and trained staff ensuring your child's complete safety at all times.", color: "#ef4225", emoji: "🛡️", extra: "CCTV monitored • First aid trained staff • Emergency protocols" },
-                            { icon: Users, title: "3 Mentors per Classroom", description: "Individual care and personalized attention with three dedicated mentors in every classroom, ensuring no child is left behind in their learning journey.", color: "#0fb85c", emoji: "👩‍🏫", extra: "1:8 mentor-child ratio • Personalized learning plans" },
-                            { icon: GraduationCap, title: "Research-Backed Curriculum", description: "Our exclusive, thoroughly tested and proven Zeeque Preschool Curriculum is the result of extensive research and studies in early childhood education.", color: "#0052ff", emoji: "📚", extra: "Certified Academic Executives • Continuous curriculum updates" },
-                            { icon: HandHeart, title: "Values-Based Education", description: "Uniquely blending academic excellence with spiritual wisdom — teaching not just knowledge, but compassion, respect, sharing, and confidence.", color: "#e83e8c", emoji: "💝", extra: "Islamic values integration • Character building focus" },
+                            { icon: Shield, title: "Safe & Secure Environment", description: "Supervised single-door entry/exit, two fenced outdoor play areas with age-appropriate equipment, and trained staff ensuring your child's complete safety at all times.", color: "#ef4225", extra: "CCTV monitored • First aid trained staff • Emergency protocols" },
+                            { icon: Users, title: "3 Mentors per Classroom", description: "Individual care and personalized attention with three dedicated mentors in every classroom, ensuring no child is left behind in their learning journey.", color: "#0fb85c", extra: "1:8 mentor-child ratio • Personalized learning plans" },
+                            { icon: GraduationCap, title: "Research-Backed Curriculum", description: "Our exclusive, thoroughly tested and proven Zeeque Preschool Curriculum is the result of extensive research and studies in early childhood education.", color: "#3FB7E5", extra: "Certified Academic Executives • Continuous curriculum updates" },
+                            { icon: HandHeart, title: "Values-Based Education", description: "Uniquely blending academic excellence with spiritual wisdom — teaching not just knowledge, but compassion, respect, sharing, and confidence.", color: "#e83e8c", extra: "Islamic values integration • Character building focus" },
                         ].map((item, i) => (
                             <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
                                 className="bg-gradient-to-br from-gray-50 to-white dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
@@ -445,8 +449,8 @@ export default function MissionVisionPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center gap-2 bg-[#ef4225]/10 text-[#ef4225] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            <TreePine className="w-4 h-4" /> Developmental Focus
+                        <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">Developmental Focus</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Pillars of <span className="text-[#ef4225]">Growth</span>
@@ -458,7 +462,7 @@ export default function MissionVisionPage() {
                         {[
                             { title: "Social", description: "Building friendships, teamwork, and communication skills through collaborative play and group activities.", icon: Users, color: "#0fb85c", emoji: "🤝", details: ["Group projects", "Team games", "Social skills workshops"] },
                             { title: "Emotional", description: "Developing self-awareness, empathy, and emotional regulation in a loving, supportive environment.", icon: Heart, color: "#e83e8c", emoji: "💖", details: ["Empathy building", "Feelings circles", "Conflict resolution"] },
-                            { title: "Cognitive", description: "Stimulating curiosity, problem-solving, and critical thinking through playful exploration.", icon: Brain, color: "#0052ff", emoji: "🧠", details: ["Puzzles & riddles", "Science exploration", "Creative problem-solving"] },
+                            { title: "Cognitive", description: "Stimulating curiosity, problem-solving, and critical thinking through playful exploration.", icon: Brain, color: "#3FB7E5", emoji: "🧠", details: ["Puzzles & riddles", "Science exploration", "Creative problem-solving"] },
                             { title: "Physical", description: "Strengthening motor skills, coordination, and a love for active living through sports.", icon: TreePine, color: "#fbaf01", emoji: "💪", details: ["Outdoor play", "Yoga & exercises", "Fine motor crafts"] },
                         ].map((pillar, i) => (
                             <motion.div key={pillar.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}

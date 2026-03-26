@@ -15,7 +15,8 @@ import {
     Send,
     MessageSquare,
     Headphones,
-    ArrowRight
+    ArrowRight,
+    Sparkles
 } from "lucide-react";
 
 export default function ContactPage() {
@@ -47,23 +48,34 @@ export default function ContactPage() {
                             className="w-full lg:w-1/2 text-center lg:text-left"
                         >
                             {/* Breadcrumb/Badge */}
-                            <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] px-4 py-1.5 rounded-full font-heading font-bold text-sm mb-6 uppercase tracking-wider">
-                                Get in touch
+                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Get in Touch</span>
                             </div>
 
-                            <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                                Contact{" "}
-                                <span className="relative inline-block">
-                                    <span className="text-primary">Zeeque</span>
-                                    <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                        <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#fbaf01" strokeWidth="3" strokeLinecap="round" />
-                                    </svg>
-                                </span>{" "}
-                                Preschool
+                            <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                                Contact <span className="relative inline-block"><span className="text-primary">ZeeQue</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#fbaf01" strokeWidth="3" strokeLinecap="round" /></svg></span> Preschool <br className="hidden md:block" /> — India&apos;s Fastest Growing Islamic Montessori Network
                             </h1>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
-                                We&apos;re here to help you find the perfect learning path for your child. Whether you&apos;re exploring programs for toddlers or teens, reach out via phone, email, or visit us in Manjeri.
+                                We&apos;re here to help you find the perfect learning foundation for your child. Whether you&apos;re enquiring about our flagship 3-year KG, primary Grade Stream, or our professional teacher training diplomas, reach out to our team in Koduvally.
                             </p>
+
+                            {/* Navigation Buttons */}
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
+                                <Link
+                                    href="/preschool-admission-kerala-2026"
+                                    className="group flex items-center gap-2 bg-[#EF4225] text-white px-8 py-4 rounded-2xl font-heading font-extrabold text-[16px] hover:bg-[#d83a1f] shadow-[0_6px_0_0_#bf361d] hover:shadow-[0_4px_0_0_#bf361d] hover:translate-y-[2px] transition-all"
+                                >
+                                    Admission Enquiry
+                                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                </Link>
+                                <Link
+                                    href="/preschool-programs-kerala"
+                                    className="group flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-8 py-4 rounded-2xl font-heading font-extrabold text-[16px] border-2 border-[#3FB7E5]/20 hover:border-[#3FB7E5]/40 shadow-xl shadow-[#3FB7E5]/5 hover:shadow-[#3FB7E5]/10 hover:-translate-y-1 transition-all"
+                                >
+                                    Explore Programs
+                                    <Sparkles className="w-5 h-5 text-[#fbaf01]" />
+                                </Link>
+                            </div>
                         </motion.div>
 
                         {/* Hero Image Overlay */}
@@ -119,22 +131,22 @@ export default function ContactPage() {
                         className="max-w-4xl mx-auto text-center relative"
                     >
                         {/* Decorative floating badge */}
-                        <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] px-4 py-1.5 rounded-full font-heading font-bold text-xs mb-8 uppercase tracking-widest">
-                            <Headphones className="w-3 h-3" /> Get Support
+                        <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-8 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Get Support</span>
                         </div>
 
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-10">
-                            Let&apos;s Talk About{" "}
-                            <span className="text-secondary underline decoration-[#0052ff]/30 decoration-8 underline-offset-4">Your Child&apos;s</span>{" "}
-                            Learning Journey
+                            Start Your Child&apos;s{" "}
+                            <span className="text-secondary">Journey of</span>{" "}
+                            Excellence
                         </h2>
 
                         <div className="space-y-6 text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl leading-relaxed">
                             <p>
-                                We&apos;re here to help parents make the right academic decisions for their children. Whether you&apos;re exploring early learning support or structured academic guidance for school students, our team is ready to assist you.
+                                We&apos;re dedicated to helping parents navigate the early years of their child&apos;s education with confidence. Whether you&apos;re interested in our research-backed KG curriculum, primary madrasa stream, or parenting empowerment programs, our specialist team is here to guide you.
                             </p>
                             <p className="font-semibold text-[#222] dark:text-white bg-secondary/10 py-3 px-6 rounded-2xl inline-block">
-                                Many parents reaching out to us are looking for reliable <Link href="#" className="text-[#0052ff] hover:underline decoration-primary">online tuition Kerala</Link> options that offer personalized learning, expert tutors, and consistent academic progress for their children.
+                                Zeeque Preschool is more than just a school—it&apos;s a comprehensive ecosystem designed to nurture children, empower parents, and train world-class educators for a brighter future.
                             </p>
                         </div>
                     </motion.div>
@@ -214,7 +226,7 @@ export default function ContactPage() {
                                         className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200 resize-none"
                                     ></textarea>
                                 </div>
-                                <button className="w-full bg-[#7c3aed] hover:bg-[#6d28d9] text-white py-5 rounded-2xl font-heading font-extrabold text-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#7c3aed]/20">
+                                <button className="w-full bg-[#EF4225] hover:bg-[#d83a1f] text-white py-5 rounded-2xl font-heading font-extrabold text-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#EF4225]/20">
                                     Send Message
                                     <Send className="w-5 h-5" />
                                 </button>
@@ -236,12 +248,12 @@ export default function ContactPage() {
                                     Contact <span className="text-primary">Information</span>
                                 </h3>
                                 <p className="text-gray-500 dark:text-gray-400 font-body mb-8 text-sm">
-                                    We typically attend to our calls/email based on our <span className="text-[#0052ff] underline underline-offset-2">online tuition classes</span> and training programs but mail us about child&apos;s learning needs
+                                    Our team is available to assist with admission enquiries, program details, and teacher training applications. Visit our campus or reach out via the channels below.
                                 </p>
 
                                 <div className="space-y-8">
                                     <div className="flex items-start gap-5 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#0052ff] flex items-center justify-center text-white flex-shrink-0 transition-transform shadow-lg shadow-[#0052ff]/20">
+                                        <div className="w-14 h-14 rounded-2xl bg-[#3FB7E5] flex items-center justify-center text-white flex-shrink-0 transition-transform shadow-lg shadow-[#3FB7E5]/20">
                                             <Phone className="w-6 h-6 group-hover:animate-ringing origin-center transition-transform" />
                                         </div>
                                         <div>
@@ -277,7 +289,6 @@ export default function ContactPage() {
                                         </div>
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl">Business Hours</h3>
                                     </div>
-                                    <span className="bg-[#0fb85c] text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest animate-pulse">Online</span>
                                 </div>
 
                                 <div className="bg-[#0fb85c]/5 border-2 border-dashed border-[#0fb85c]/20 rounded-3xl p-6 text-center">
@@ -319,7 +330,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex flex-nowrap gap-3">
-                                <button className="bg-[#7c3aed] text-white px-6 py-3 rounded-xl font-heading font-bold text-sm flex items-center gap-2 hover:bg-[#6d28d9] transition-all">
+                                <button className="bg-[#EF4225] text-white px-6 py-3 rounded-xl font-heading font-bold text-sm flex items-center gap-2 hover:bg-[#d83a1f] transition-all">
                                     Open Maps <ArrowRight className="w-4 h-4" />
                                 </button>
                                 <a

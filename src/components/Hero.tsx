@@ -47,21 +47,12 @@ export default function Hero() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                        className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-tight"
+                        className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
                     >
-                        Happy Place <br />
-                        Where Little Mind <br />
+                        The Best Preschool in Kerala <br />
+                        Where Little Minds <br />
                         Grow Bright
                     </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                        className="text-gray-700 dark:text-gray-300 font-body text-lg md:text-xl max-w-lg leading-relaxed"
-                    >
-                        Join us for a delightful day of fun and learning at our annual Little Learners Day! This special event..
-                    </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -165,7 +156,7 @@ export default function Hero() {
             {/* Wavy bottom divider */}
             <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
                 <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-[#0B1023]" />
+                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="#FCFDFD" className="dark:fill-[#0B1023]" />
                 </svg>
             </div>
 

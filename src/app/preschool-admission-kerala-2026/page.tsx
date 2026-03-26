@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -48,45 +48,11 @@ const documents = [
 
 const feeItems = [
     { title: "Admission Fee", description: "One-time fee payable at the time of joining", icon: CreditCard, color: "#ef4225" },
-    { title: "Tuition Fee", description: "Payable monthly or term-wise throughout the academic year", icon: BookOpen, color: "#0052ff" },
+    { title: "Tuition Fee", description: "Payable monthly or term-wise throughout the academic year", icon: BookOpen, color: "#3FB7E5" },
     { title: "Annual Fee", description: "Covers academic materials, activities, and enrichment programs", icon: Calendar, color: "#0fb85c" },
     { title: "Transport Fee", description: "Optional fee based on route and distance from school", icon: Bus, color: "#fbaf01" },
 ];
 
-const newsEvents = [
-    {
-        title: "Annual Day Celebration 2025",
-        date: "March 15, 2025",
-        description: "Join us for a spectacular showcase of talent, creativity, and achievements from our little stars.",
-        color: "#e83e8c",
-        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=600&auto=format&fit=crop",
-        alt: "Kids performing on stage at ZeeQue Preschool Annual Day celebration in Kerala.",
-    },
-    {
-        title: "ZeeQue Fest – Fun & Learning",
-        date: "April 5, 2025",
-        description: "A day filled with games, competitions, art exhibitions, and live performances by our students.",
-        color: "#0052ff",
-        image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
-        alt: "Children participating in fun activities during ZeeQue Fest in Kerala.",
-    },
-    {
-        title: "Parent-Teacher Meeting",
-        date: "April 20, 2025",
-        description: "An opportunity for parents to discuss their child's progress and development with our mentors.",
-        color: "#0fb85c",
-        image: "/images/gallery/actiivites/659cf71996662425490851jpeg.jpg",
-        alt: "Parents and teachers discussing child progress at ZeeQue Preschool in Kerala.",
-    },
-    {
-        title: "Summer Camp Registration Open",
-        date: "May 1, 2025",
-        description: "Exciting summer camp with art, sports, nature exploration, and creative workshops for kids.",
-        color: "#fbaf01",
-        image: "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=600&auto=format&fit=crop",
-        alt: "Kids exploring nature during the ZeeQue Preschool Summer Camp in Kerala.",
-    },
-];
 
 /* ══════════════════════════════════════════════
    ADMISSION PAGE
@@ -132,18 +98,9 @@ export default function AdmissionPage() {
                             <span className="text-primary font-semibold">Admission</span>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            {"Admission "}
-                            <span className="relative inline-block">
-                                <span className="text-primary">Info</span>
-                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#fbaf01" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </span>
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Admission 2026 <br className="hidden md:block" /> Secure Your Child&apos;s Future with Islamic Montessori Education
                         </h1>
-                        <p className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-sm mb-4">
-                            Where Knowledge and Morality Go Hand in Hand
-                        </p>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
                             At Zeeque, we believe in making the admission process simple, transparent, and parent-friendly. This page provides all the essential information you need about enrolling your child, including our fee structure, school uniform guidelines, and required documents. Our goal is to ensure a smooth start to your child&apos;s educational journey in a nurturing and value-based learning environment.
                         </p>
@@ -172,10 +129,9 @@ export default function AdmissionPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#4361EE] font-heading font-bold uppercase tracking-wider text-sm mb-3 block flex items-center justify-center gap-2">
-                            <ClipboardList className="w-4 h-4" />
-                            Checklist
-                        </span>
+                        <div className="inline-flex items-center bg-[#4361EE]/10 border border-[#4361EE]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#4361EE]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#4361EE] tracking-tight">Checklist</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Documents Required for{" "}
                             <span className="text-[#4361EE]">Admission</span>
@@ -225,10 +181,9 @@ export default function AdmissionPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-[#ef4225] font-heading font-bold uppercase tracking-wider text-sm mb-3 block flex items-center justify-center gap-2">
-                            <CreditCard className="w-4 h-4" />
-                            Fee Details
-                        </span>
+                        <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">Fee Details</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Fee Structure{" "}
                             <span className="text-[#ef4225]">Includes</span>
@@ -312,83 +267,6 @@ export default function AdmissionPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 5: News & Events
-               ══════════════════════════════════ */}
-            <section className="py-10 md:py-14 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
-                    >
-                        <span className="text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-sm mb-3 block flex items-center justify-center gap-2">
-                            <Sparkles className="w-4 h-4" />
-                            Stay Updated
-                        </span>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            News &{" "}
-                            <span className="text-[#7c3aed]">Events</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
-                            Stay connected with the latest happenings, events, and announcements from ZeeQue Preschool.
-                        </p>
-                    </motion.div>
-
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                        {newsEvents.map((event, i) => (
-                            <motion.div
-                                key={event.title}
-                                custom={i}
-                                variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border-2 border-gray-100 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
-                            >
-                                {/* Image */}
-                                <div className="relative h-44 overflow-hidden">
-                                    <Image
-                                        src={event.image}
-                                        alt={event.alt}
-                                        fill
-                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 285px"
-                                        className="object-cover group-hover:scale-110 transition-transform duration-500"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                                    <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-full">
-                                        <Clock className="w-3 h-3 text-gray-500" />
-                                        <span className="text-[11px] font-bold text-gray-600 dark:text-gray-300">{event.date}</span>
-                                    </div>
-                                </div>
-
-                                {/* Content */}
-                                <div className="p-5">
-                                    <div className="w-8 h-1 rounded-full mb-3" style={{ backgroundColor: event.color }} />
-                                    <h3 className="font-heading font-bold text-[#222] dark:text-white text-[15px] leading-tight mb-2 line-clamp-2">{event.title}</h3>
-                                    <p className="text-gray-500 dark:text-gray-400 font-body text-[13px] leading-relaxed line-clamp-2">{event.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* More News Button */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
-                        className="text-center"
-                    >
-                        <Link
-                            href="/events"
-                            className="inline-flex items-center gap-2 bg-[#7c3aed] text-white px-8 py-4 rounded-2xl font-heading font-bold text-[16px] hover:bg-[#6d28d9] shadow-lg shadow-purple-500/20 hover:shadow-purple-500/30 hover:-translate-y-0.5 transition-all duration-300"
-                        >
-                            More News
-                            <ArrowRight className="w-5 h-5 stroke-[2.5]" />
-                        </Link>
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ── Footer ── */}
             <Footer />

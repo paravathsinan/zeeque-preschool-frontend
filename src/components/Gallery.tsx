@@ -35,7 +35,7 @@ export default function Gallery() {
         <section className="py-10 lg:py-16 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
 
             {/* Playful decorative elements */}
-            <div className="absolute top-10 left-10 w-20 h-20 rounded-full border-4 border-dotted border-[#0b8641]/20 pointer-events-none hidden lg:block" />
+            <div className="absolute top-10 left-10 w-20 h-20 rounded-full border-4 border-dotted border-[#7AC255]/20 pointer-events-none hidden lg:block" />
             <div className="absolute bottom-14 right-16 w-12 h-12 rounded-full bg-[#fbaf01]/10 pointer-events-none hidden lg:block" />
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
@@ -49,7 +49,7 @@ export default function Gallery() {
                     className="text-center max-w-2xl mx-auto mb-14"
                 >
                     <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-tight mb-4">
-                        Our <span className="text-[#0b8641]">Gallery</span>
+                        Our <span className="text-[#7AC255]">Gallery</span>
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 font-body text-lg">
                         Capturing the joy, creativity, and learning moments of our little stars.
@@ -97,7 +97,7 @@ export default function Gallery() {
                 >
                     <Link
                         href="/gallery"
-                        className="inline-flex items-center gap-2 bg-[#0b8641] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#097337] shadow-[4px_4px_0_0_#065126] hover:shadow-[2px_2px_0_0_#065126] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
+                        className="inline-flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                     >
                         More Photos
                         <ArrowRight className="w-5 h-5 stroke-[2.5]" />

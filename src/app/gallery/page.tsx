@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -113,7 +113,7 @@ export default function GalleryPage() {
                     <div className="absolute top-20 left-[15%] w-16 h-16 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-10 right-[20%] w-20 h-20 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
                     <div className="absolute top-1/2 left-[8%] w-20 h-20 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-20 left-[25%] w-12 h-12 rounded-full bg-[#0052ff]/10 animate-pulse delay-700" />
+                    <div className="absolute bottom-20 left-[25%] w-12 h-12 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -137,25 +137,16 @@ export default function GalleryPage() {
                             </div>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Image{" "}
-                            <span className="relative inline-block">
-                                <span className="text-[#e83e8c]">Gallery</span>
-                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#e83e8c" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </span>
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Gallery <br className="hidden md:block" /> Glimpses of Joyful Learning and Growth in Kerala
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Take a glimpse into the wonderful world of ZeeQue! See the smiles, the creativity, and the unforgettable moments of our little learners.
-                        </p>
                     </motion.div>
                 </div>
 
                 {/* Wavy divider */}
                 <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
                     <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                        <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
+                        <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-[#0B1023]" />
                     </svg>
                 </div>
             </section>
@@ -174,7 +165,7 @@ export default function GalleryPage() {
                         className="text-center mb-16"
                     >
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-3xl md:text-4xl leading-[1.2]">
-                            Beautiful <span className="text-[#0052ff]">Memories</span>
+                            Beautiful <span className="text-[#3FB7E5]">Memories</span>
                         </h2>
                     </motion.div>
 
@@ -244,13 +235,13 @@ export default function GalleryPage() {
                     <div className="flex items-center justify-center gap-6 mt-8 md:mt-12 pb-8">
                         <button
                             onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-[#0052ff] hover:text-[#0052ff] dark:hover:border-[#0052ff] dark:hover:text-[#0052ff] hover:bg-[#0052ff]/5 transition-all shadow-sm group"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-[#3FB7E5] hover:text-[#3FB7E5] dark:hover:border-[#3FB7E5] dark:hover:text-[#3FB7E5] hover:bg-[#3FB7E5]/5 transition-all shadow-sm group"
                         >
                             <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform" />
                         </button>
                         <button
                             onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-[#0052ff] hover:text-[#0052ff] dark:hover:border-[#0052ff] dark:hover:text-[#0052ff] hover:bg-[#0052ff]/5 transition-all shadow-sm group"
+                            className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-gray-300 dark:border-gray-600 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-[#3FB7E5] hover:text-[#3FB7E5] dark:hover:border-[#3FB7E5] dark:hover:text-[#3FB7E5] hover:bg-[#3FB7E5]/5 transition-all shadow-sm group"
                         >
                             <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform" />
                         </button>

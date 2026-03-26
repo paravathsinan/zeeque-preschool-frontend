@@ -23,7 +23,7 @@ const events = [
         date: "March 22, 2025",
         time: "9:00 AM - 12:00 PM",
         category: "Meeting",
-        categoryColor: "bg-[#0052ff] text-white",
+        categoryColor: "bg-[#3FB7E5] text-white",
         description:
             "An opportunity for parents and teachers to discuss child development, progress reports, and upcoming curriculum plans.",
         image:
@@ -50,7 +50,7 @@ export default function NewsAndEvents() {
 
             {/* Playful background doodles */}
             <div className="absolute top-8 right-16 w-24 h-24 rounded-full border-[6px] border-dotted border-[#fbaf01]/20 pointer-events-none hidden lg:block" />
-            <div className="absolute bottom-20 left-12 w-16 h-16 rounded-xl bg-[#0052ff]/5 rotate-12 pointer-events-none hidden lg:block" />
+            <div className="absolute bottom-20 left-12 w-16 h-16 rounded-xl bg-[#3FB7E5]/5 rotate-12 pointer-events-none hidden lg:block" />
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
 
@@ -64,7 +64,7 @@ export default function NewsAndEvents() {
                 >
                     <div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-tight">
-                            News & <span className="text-[#0052ff]">Events</span>
+                            News & <span className="text-[#3FB7E5]">Events</span>
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400 font-body text-lg mt-3 max-w-lg">
                             Stay updated with the latest happenings at Zeeque Preschool.
@@ -72,7 +72,7 @@ export default function NewsAndEvents() {
                     </div>
                     <Link
                         href="/events"
-                        className="inline-flex items-center gap-2 text-[#0052ff] font-heading font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
+                        className="inline-flex items-center gap-2 text-[#3FB7E5] font-heading font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
                     >
                         View All Articles
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
@@ -124,7 +124,7 @@ export default function NewsAndEvents() {
                                         </span>
                                     </div>
 
-                                    <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-3 group-hover:text-[#0052ff] transition-colors leading-snug">
+                                    <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-3 group-hover:text-[#3FB7E5] transition-colors leading-snug">
                                         {event.title}
                                     </h3>
 
@@ -135,7 +135,7 @@ export default function NewsAndEvents() {
                                     {/* Read More Link */}
                                     <Link
                                         href="/events"
-                                        className="inline-flex items-center gap-2 text-[#0052ff] font-heading font-bold text-sm mt-5 hover:gap-3 transition-all"
+                                        className="inline-flex items-center gap-2 text-[#3FB7E5] font-heading font-bold text-sm mt-5 hover:gap-3 transition-all"
                                     >
                                         Read More
                                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />

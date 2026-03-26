@@ -101,7 +101,7 @@ export default function EventsPage() {
                     <div className="absolute top-20 right-[15%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-10 left-[20%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
                     <div className="absolute top-1/2 right-[8%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#0052ff]/10 animate-pulse delay-700" />
+                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -119,18 +119,9 @@ export default function EventsPage() {
                             <span className="text-primary font-semibold">Events</span>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Life at{" "}
-                            <span className="relative inline-block">
-                                <span className="text-[#0fb85c]">ZeeQue</span>
-                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#0fb85c" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </span>
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Events & News <br className="hidden md:block" /> Exploring the Joy of Learning in Kerala
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Every day is a celebration of learning! Discover the joyful events, colorful days, and exciting activities that make our preschool special.
-                        </p>
                     </motion.div>
                 </div>
 
@@ -154,12 +145,11 @@ export default function EventsPage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true, margin: "-100px" }}
                         transition={{ duration: 0.7 }}
-                        className="lg:w-1/2"
+                        className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
                     >
-                        <span className="text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-sm mb-3 flex items-center gap-2">
-                            <Sparkles className="w-4 h-4" />
-                            Joyful Moments
-                        </span>
+                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 w-fit mx-auto lg:mx-0">
+                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Joyful Moments</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl leading-[1.2] mb-6">
                             At ZeeQue Every <span className="text-[#fbaf01]">Day is Special</span>
                         </h2>
@@ -210,7 +200,7 @@ export default function EventsPage() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-12">
                         <div>
                             <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-3xl md:text-4xl leading-[1.2] mb-2 text-center md:text-left">
-                                Latest <span className="text-[#0052ff]">Updates</span>
+                                Latest <span className="text-[#3FB7E5]">Updates</span>
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 font-body text-center md:text-left">
                                 Stay informed about what&apos;s happening at ZeeQue.
@@ -222,7 +212,7 @@ export default function EventsPage() {
                             <button
                                 onClick={() => setActiveTab('news')}
                                 className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'news'
-                                    ? 'bg-[#0052ff] text-white shadow-md'
+                                    ? 'bg-[#3FB7E5] text-white shadow-md'
                                     : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                                     }`}
                             >
@@ -262,7 +252,7 @@ export default function EventsPage() {
                                                     className="object-cover group-hover:scale-110 transition-transform duration-700"
                                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
                                                 />
-                                                <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-heading font-bold text-[#0052ff]">
+                                                <div className="absolute top-4 left-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-xs font-heading font-bold text-[#3FB7E5]">
                                                     {news.category}
                                                 </div>
                                             </div>
@@ -271,13 +261,13 @@ export default function EventsPage() {
                                                     <Calendar className="w-3.5 h-3.5" />
                                                     {news.date}
                                                 </div>
-                                                <h3 className="font-heading font-bold text-xl text-[#222] dark:text-white mb-3 group-hover:text-[#0052ff] transition-colors line-clamp-2 shrink-0">
+                                                <h3 className="font-heading font-bold text-xl text-[#222] dark:text-white mb-3 group-hover:text-[#3FB7E5] transition-colors line-clamp-2 shrink-0">
                                                     {news.title}
                                                 </h3>
                                                 <p className="text-gray-600 dark:text-gray-400 text-sm font-body line-clamp-3 mb-5 leading-relaxed flex-grow">
                                                     {news.description}
                                                 </p>
-                                                <Link href="#" className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#0052ff] hover:gap-2.5 transition-all mt-auto shrink-0">
+                                                <Link href="#" className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#3FB7E5] hover:gap-2.5 transition-all mt-auto shrink-0">
                                                     Read Full Story <ArrowRight className="w-4 h-4" />
                                                 </Link>
                                             </div>

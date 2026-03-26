@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { ArrowRight, GraduationCap, Building, BookOpen, Sparkles } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const steps = [
@@ -10,48 +10,33 @@ const steps = [
         description: "Begin your child's joyful learning adventure today.",
         buttonText: "Apply Now",
         buttonHref: "https://admission.zeeque.in/",
-        gradient: "from-[#3b82f6] to-[#60a5fa]",
-        glowColor: "rgba(59,130,246,0.25)",
-        hoverGlow: "rgba(59,130,246,0.45)",
-        cardBg: "bg-gradient-to-br from-blue-50/60 via-white/80 to-blue-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80",
-        cardBorder: "border-blue-200/40 dark:border-blue-500/15",
-        iconBg: "bg-gradient-to-br from-blue-100/80 to-blue-200/50 dark:from-blue-900/40 dark:to-blue-800/30",
-        icon: GraduationCap,
-        iconColor: "text-blue-500",
-        btnClass: "bg-gradient-to-r from-[#3b82f6] to-[#60a5fa] text-white shadow-[0_4px_20px_rgba(59,130,246,0.35)] hover:shadow-[0_8px_30px_rgba(59,130,246,0.5)]",
-        accentDot: "bg-blue-400/20",
+        glowColor: "rgba(245,158,11,0.25)",
+        hoverGlow: "rgba(245,158,11,0.45)",
+        cardBg: "bg-gradient-to-br from-amber-50/60 via-white/80 to-amber-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80",
+        cardBorder: "border-amber-200/40 dark:border-amber-500/15",
+        btnClass: "bg-[#ffb606] hover:bg-[#ffa000] text-white shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px]",
     },
     {
         title: "Open Your Zeeque Preschool Franchise",
         description: "Join 152+ successful branches to grow your own trusted preschool.",
         buttonText: "Contact Now",
         buttonHref: "https://franchise.zeeque.in/",
-        gradient: "from-[#10b981] to-[#34d399]",
-        glowColor: "rgba(16,185,129,0.25)",
-        hoverGlow: "rgba(16,185,129,0.45)",
+        glowColor: "rgba(245,158,11,0.25)",
+        hoverGlow: "rgba(245,158,11,0.45)",
         cardBg: "bg-gradient-to-br from-emerald-50/60 via-white/80 to-emerald-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80",
         cardBorder: "border-emerald-200/40 dark:border-emerald-500/15",
-        iconBg: "bg-gradient-to-br from-emerald-100/80 to-emerald-200/50 dark:from-emerald-900/40 dark:to-emerald-800/30",
-        icon: Building,
-        iconColor: "text-emerald-500",
-        btnClass: "bg-gradient-to-r from-[#10b981] to-[#34d399] text-white shadow-[0_4px_20px_rgba(16,185,129,0.35)] hover:shadow-[0_8px_30px_rgba(16,185,129,0.5)]",
-        accentDot: "bg-emerald-400/20",
+        btnClass: "bg-[#ffb606] hover:bg-[#ffa000] text-white shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px]",
     },
     {
         title: "Join as a Teacher",
         description: "Inspire young minds and grow with our passionate education family.",
         buttonText: "Join Now",
         buttonHref: "/teacher-trainees",
-        gradient: "from-[#f59e0b] to-[#fbbf24]",
         glowColor: "rgba(245,158,11,0.25)",
         hoverGlow: "rgba(245,158,11,0.45)",
         cardBg: "bg-gradient-to-br from-amber-50/60 via-white/80 to-amber-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80",
         cardBorder: "border-amber-200/40 dark:border-amber-500/15",
-        iconBg: "bg-gradient-to-br from-amber-100/80 to-amber-200/50 dark:from-amber-900/40 dark:to-amber-800/30",
-        icon: BookOpen,
-        iconColor: "text-amber-500",
-        btnClass: "bg-gradient-to-r from-[#f59e0b] to-[#fbbf24] text-[#222] shadow-[0_4px_20px_rgba(245,158,11,0.35)] hover:shadow-[0_8px_30px_rgba(245,158,11,0.5)]",
-        accentDot: "bg-amber-400/20",
+        btnClass: "bg-[#ffb606] hover:bg-[#ffa000] text-white shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px]",
     }
 ];
 
@@ -75,9 +60,8 @@ export default function ChooseNextStep() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center max-w-2xl mx-auto mb-16"
                 >
-                    <div className="inline-flex items-center gap-2 bg-white/60 dark:bg-slate-800/60 backdrop-blur-sm border border-gray-200/50 dark:border-slate-700/50 rounded-full px-4 py-1.5 mb-5">
-                        <Sparkles className="w-4 h-4 text-primary fill-primary/20" />
-                        <span className="font-heading font-bold text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400">Get Started</span>
+                    <div className="text-amber-600 dark:text-amber-400 font-body font-semibold text-sm mb-5 flex items-center gap-2 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-amber-200/50 dark:border-amber-700/30 w-fit mx-auto px-4">
+                        <span>Get Started</span>
                     </div>
                     <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-[#222] dark:text-white mb-6">
                         Choose Your <span className="text-primary">Next Step</span>
@@ -104,18 +88,6 @@ export default function ChooseNextStep() {
                                 boxShadow: `0 20px 60px -12px ${step.hoverGlow}, 0 0 0 1px rgba(255,255,255,0.2) inset`,
                             }}
                         >
-                            {/* Decorative gradient orb */}
-                            <div className={`absolute -top-20 -right-20 w-48 h-48 rounded-full ${step.accentDot} blur-3xl opacity-60 group-hover:opacity-100 transition-opacity duration-500`} />
-                            <div className={`absolute -bottom-16 -left-16 w-40 h-40 rounded-full ${step.accentDot} blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-500`} />
-
-                            {/* Accent line at top */}
-                            <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 rounded-b-full bg-gradient-to-r ${step.gradient} opacity-60 group-hover:w-24 group-hover:opacity-100 transition-all duration-500`} />
-
-                            {/* Icon */}
-                            <div className={`w-20 h-20 rounded-3xl ${step.iconBg} backdrop-blur-sm flex items-center justify-center mb-7 relative z-10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-400 shadow-sm`}>
-                                <step.icon className={`w-9 h-9 ${step.iconColor}`} strokeWidth={1.8} />
-                            </div>
-
                             {/* Content */}
                             <h3 className="font-heading font-extrabold text-[22px] lg:text-[24px] text-[#222] dark:text-white mb-3 relative z-10 leading-tight">
                                 {step.title}
@@ -129,7 +101,7 @@ export default function ChooseNextStep() {
                             <div className="relative z-10 mt-auto w-full">
                                 <Link
                                     href={step.buttonHref}
-                                    className={`inline-flex items-center justify-center gap-2.5 w-full px-8 py-4 rounded-2xl font-heading font-bold text-[16px] tracking-wide ${step.btnClass} hover:-translate-y-0.5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 relative overflow-hidden`}
+                                    className={`inline-flex items-center justify-center gap-2.5 w-full px-8 py-3 rounded-2xl font-body font-bold text-[18px] tracking-wide ${step.btnClass} transition-all duration-300 relative overflow-hidden border-none cursor-pointer`}
                                 >
                                     {/* Shimmer effect */}
                                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />

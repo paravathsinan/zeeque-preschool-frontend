@@ -59,7 +59,7 @@ export default function StatsSection() {
               key={label}
               className="bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-gray-200/40 dark:border-slate-700/40 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group"
             >
-              <div className="font-heading font-extrabold text-5xl md:text-6xl lg:text-7xl mb-2 text-[#222] dark:text-white group-hover:text-[#EF4225] transition-colors duration-300">
+              <div className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 text-[#222] dark:text-white group-hover:text-[#EF4225] transition-colors duration-300 flex items-center justify-center">
                 <AnimatedNumber value={value} />
               </div>
               <div className="w-8 h-0.5 bg-[#EF4225]/60 mx-auto mb-3 rounded-full" />

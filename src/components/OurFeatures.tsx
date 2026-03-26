@@ -72,9 +72,9 @@ export default function OurFeatures() {
                         transition={{ duration: 0.6, ease: "easeOut" }}
                         className="text-center"
                     >
-                        <span className="text-white/80 font-heading font-bold uppercase tracking-wider text-sm mb-3 block">
-                            Our Features
-                        </span>
+                        <div className="inline-flex items-center bg-white/10 dark:bg-white/5 border border-white/20 dark:border-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-white/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-white/90 tracking-tight">Our Features</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-white text-4xl md:text-5xl leading-tight">
                             We bring you the <br />
                             finest details

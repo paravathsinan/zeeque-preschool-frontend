@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      { source: '/about', destination: '/about-zeeque-preschool-kerala', permanent: true },
+      { source: '/features', destination: '/best-preschool-features-kerala', permanent: true },
+      { source: '/programs', destination: '/preschool-programs-kerala', permanent: true },
+      { source: '/curriculum', destination: '/preschool-curriculum-kerala', permanent: true },
+      { source: '/admission', destination: '/preschool-admission-kerala-2026', permanent: true },
+      { source: '/teacher-trainees', destination: '/preschool-teacher-training-kerala', permanent: true },
+      { source: '/grade-stream-teacher-trainees', destination: '/grade-stream-teacher-training-kerala', permanent: true },
+    ];
+  },
   async headers() {
     return [
       {

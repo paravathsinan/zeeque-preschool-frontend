@@ -122,17 +122,14 @@ export default function TeacherTraineesPage() {
                     >
                         {/* Breadcrumbs */}
                         <div className="flex items-center justify-center gap-2 mb-6 text-sm font-medium text-gray-500 dark:text-gray-400">
-                            <Link href="/careers" className="hover:text-primary transition-colors">Careers</Link>
+                            <Link href="/" className="hover:text-primary transition-colors">Home</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-bold">Teacher Trainees</span>
                         </div>
 
-                        <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-extrabold text-[#222] dark:text-white mb-4 tracking-tight">
-                            TEACHER <span className="text-primary italic">TRAINEES</span>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-[#222] dark:text-white mb-4 tracking-tight">
+                            Professional Preschool Teacher Training in Kerala <br className="hidden md:block" /> ZeeQue Diploma in ECCE
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 text-base sm:text-lg uppercase tracking-[0.1em] sm:tracking-[0.2em] font-heading font-bold mb-2">
-                            [ TO BE FILLED BY THE CANDIDATE ]
-                        </p>
                         <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
                     </motion.div>
                 </div>
@@ -315,7 +312,7 @@ export default function TeacherTraineesPage() {
                             {/* Contact Details */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6 group">
-                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-[#0052ff]">
+                                    <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-slate-800 flex items-center justify-center text-[#3FB7E5]">
                                         <Phone className="w-5 h-5 group-hover:animate-ringing origin-center transition-transform" />
                                     </div>
                                     <h3 className="text-xl font-heading font-bold text-[#222] dark:text-white group-hover:text-primary transition-colors">Contact Details</h3>
@@ -389,7 +386,7 @@ export default function TeacherTraineesPage() {
                             {/* Qualifications */}
                             <div className="space-y-6">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-xl bg-purple-50 dark:bg-slate-800 flex items-center justify-center text-[#7c3aed]">
+                                    <div className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-slate-800 flex items-center justify-center text-[#EF4225]">
                                         <GraduationCap className="w-5 h-5" />
                                     </div>
                                     <h3 className="text-xl font-heading font-bold text-[#222] dark:text-white">Educational Qualifications</h3>

@@ -25,7 +25,7 @@ export default function WhoWeAre() {
                     transition={{ duration: 0.8, ease: "easeOut" }}
                     className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
                 >
-                    <span className="text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-sm mb-3">
+                    <span className="text-amber-600 dark:text-amber-400 font-heading font-bold text-sm mb-4 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-md px-4 py-2 rounded-full border border-amber-200/50 dark:border-amber-700/30 w-fit shadow-sm group hover:bg-amber-100/50 transition-all duration-300">
                         Who we are
                     </span>
                     <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-[54px] leading-[1.1] mb-6">
@@ -40,7 +40,7 @@ export default function WhoWeAre() {
 
                     <Link
                         href="/about"
-                        className="inline-flex items-center justify-center bg-[#e83e8c] hover:bg-[#d5307b] text-white px-10 py-3.5 rounded-[14px] font-heading font-extrabold text-[17px] uppercase tracking-wide transition-all shadow-[4px_4px_0_0_#c02870] hover:shadow-[2px_2px_0_0_#c02870] hover:translate-y-[2px] hover:translate-x-[2px]"
+                        className="inline-flex items-center justify-center bg-[#ffb606] hover:bg-[#ffa000] text-white px-10 py-3.5 rounded-2xl font-body font-bold text-[18px] transition-all shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] border-none"
                     >
                         Know More
                     </Link>
@@ -146,7 +146,7 @@ export default function WhoWeAre() {
                             <iframe
                                 width="100%"
                                 height="100%"
-                                src="https://www.youtube.com/embed/IRYHainW3U0?autoplay=1"
+                                src="https://www.youtube.com/embed/AQc09O3uEbM?si=c42bVPC0Jfz4fd2G&autoplay=1"
                                 title="YouTube video player"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -1,21 +1,22 @@
-import { Metadata } from "next";
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: "Events & Celebrations | ZeeQue Preschool",
-    description: "Discover the special events and celebrations at ZeeQue Preschool. From Alif day to colours day and sports day, we make every day special for our children.",
-    keywords: ["ZeeQue Preschool events", "preschool celebrations", "Alif day", "family day", "sports day", "preschool activities", "early childhood education events"],
-    openGraph: {
-        title: "Events & Celebrations | ZeeQue Preschool",
-        description: "At ZeeQue, every day is special. Explore our diverse range of educational events and celebrations.",
-        url: "https://zeeque.in/events",
-        siteName: "ZeeQue Preschool",
-        type: "website",
-    },
-    alternates: {
-        canonical: "https://zeeque.in/events",
-    }
-};
+  title: "Preschool Events & News Kerala | ZeeQue Islamic Montessori",
+  description: "Stay updated with the latest events, annual days, and educational workshops at ZeeQue Preschool centers in Kerala. Explore our vibrant school community activities and news.",
+  openGraph: {
+    title: "Preschool Events & News Kerala | ZeeQue Islamic Montessori",
+    description: "Celebrating every milestone. Check out the latest events and news from ZeeQue Preschool, India's fastest-growing Islamic Montessori network.",
+    images: [{ url: "/images/gallery/IMG_5316.JPG", width: 1200, height: 630, alt: "ZeeQue Preschool Events and News" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Preschool Events & News Kerala | ZeeQue Islamic Montessori",
+    description: "Latest events and news from ZeeQue Preschool Kerala. Celebrating joyful learning.",
+    images: ["/images/gallery/IMG_5316.JPG"],
+  },
+}
 
 export default function EventsLayout({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+  return children
 }

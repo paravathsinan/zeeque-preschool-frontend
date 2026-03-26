@@ -51,29 +51,25 @@ export default function ProgramsPage() {
                ══════════════════════════════════ */}
             <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#7c3aed]/10 animate-pulse" />
+                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#EF4225]/10 animate-pulse" />
                     <div className="absolute top-24 right-[12%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-16 left-[25%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
                     <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
-                    <div className="absolute top-16 left-[45%] text-6xl opacity-[0.06]">🎒</div>
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                         <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
+                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-semibold">Programs</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Programs</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span>
+                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Programs in Kerala <br className="hidden md:block" /> A Complete Learning Ecosystem
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            From our flagship 3-Year Kindergarten to teacher training diplomas and parent empowerment — Zeeque Preschool offers a complete ecosystem of programs for children, educators, and families.
-                        </p>
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-4">
                             {["3 Year KG", "Diploma in ECCE", "Grade Stream", "TTGS", "PEP"].map((tag) => (
-                                <span key={tag} className="bg-[#7c3aed]/5 dark:bg-[#7c3aed]/10 backdrop-blur-sm border border-[#7c3aed]/10 dark:border-white/10 rounded-full px-6 py-2.5 font-heading font-extrabold text-[11px] uppercase tracking-[0.1em] text-[#7c3aed] dark:text-[#a78bfa] shadow-sm hover:bg-[#7c3aed]/10 dark:hover:bg-[#7c3aed]/20 transition-all cursor-default border-b-2 border-r-2 border-b-[#7c3aed]/20">
+                                <span key={tag} className="bg-[#EF4225]/5 dark:bg-[#EF4225]/10 backdrop-blur-md border border-[#EF4225]/20 dark:border-white/10 rounded-full px-5 py-2 font-heading font-bold text-sm tracking-tight text-[#EF4225] dark:text-[#f87171] shadow-sm hover:bg-[#EF4225]/10 transition-all duration-300">
                                     {tag}
                                 </span>
                             ))}
@@ -88,14 +84,13 @@ export default function ProgramsPage() {
                ══════════════════════════════════ */}
             <section className="py-12 md:py-16 lg:py-20 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[5%] text-8xl opacity-[0.04] hidden lg:block">📚</div>
+                    <div className="absolute top-10 right-[5%] w-24 h-24 rounded-full bg-[#3FB7E5]/5 animate-pulse hidden lg:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-10">
-                        <div className="text-5xl mb-4">🗺️</div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Program <span className="text-[#7c3aed]">Ecosystem</span>
+                            Program <span className="text-[#EF4225]">Ecosystem</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">A holistic learning ecosystem covering every stakeholder — children, teachers, and parents.</p>
                     </motion.div>
@@ -103,8 +98,8 @@ export default function ProgramsPage() {
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="flex flex-wrap justify-center gap-6">
                         {[
                             { title: "3 Year KG", subtitle: "Ages 3-6", desc: "Our flagship three-year kindergarten journey through LZQ, MZQ, and UZQ stages.", color: "#0fb85c", tag: "For Children" },
-                            { title: "Grade Stream", subtitle: "Std I-IV", desc: "Zeeque Preschool English Medium Primary Madrasa — extending our quality education to primary grades.", color: "#0052ff", tag: "For Students" },
-                            { title: "Diploma in ECCE", subtitle: "6 Months / 35 Days", desc: "Comprehensive preschool teacher training programme with residential options.", color: "#7c3aed", tag: "For Teachers" },
+                            { title: "Grade Stream", subtitle: "Std I-IV", desc: "Zeeque Preschool English Medium Primary Madrasa — extending our quality education to primary grades.", color: "#3FB7E5", tag: "For Students" },
+                            { title: "Diploma in ECCE", subtitle: "6 Months / 35 Days", desc: "Comprehensive preschool teacher training programme with residential options.", color: "#EF4225", tag: "For Teachers" },
                             { title: "TTGS", subtitle: "Residential", desc: "Teacher Training for Grade Level — residential training for madrasa primary teachers.", color: "#e83e8c", tag: "For Teachers" },
                             { title: "PEP", subtitle: "Ongoing", desc: "Parent Empowerment Programme — keeping parents informed and involved in their child's growth.", color: "#fbaf01", tag: "For Parents" },
                         ].map((p, i) => (
@@ -114,7 +109,7 @@ export default function ProgramsPage() {
                                 <div className="absolute left-0 top-0 bottom-0 w-1 group-hover:w-1.5 transition-all duration-300 rounded-r-full" style={{ backgroundColor: p.color }} />
                                 <div className="p-7 pl-8">
                                     <div className="flex items-center justify-between mb-5">
-                                        <span className="text-[11px] font-heading font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border" style={{ backgroundColor: `${p.color}08`, color: p.color, borderColor: `${p.color}25` }}>{p.tag}</span>
+                                        <span className="text-[11px] font-heading font-bold px-3 py-1.5 rounded-full border" style={{ backgroundColor: `${p.color}08`, color: p.color, borderColor: `${p.color}25` }}>{p.tag}</span>
                                         <span className="font-heading font-bold text-xs px-2.5 py-1 rounded-lg" style={{ backgroundColor: `${p.color}12`, color: p.color }}>{p.subtitle}</span>
                                     </div>
                                     <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-3 group-hover:translate-x-0.5 transition-transform duration-300">{p.title}</h3>
@@ -135,15 +130,15 @@ export default function ProgramsPage() {
                ══════════════════════════════════ */}
             <section className="py-16 md:py-20 lg:py-28 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden" id="3-year-kg">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 left-[5%] text-8xl opacity-[0.04] hidden lg:block">🧒</div>
+                    <div className="absolute top-20 left-[5%] w-24 h-24 rounded-full bg-[#0fb85c]/5 animate-pulse hidden lg:block" />
                     <div className="absolute bottom-20 right-[8%] w-20 h-20 rounded-full border-4 border-dashed border-[#0fb85c]/10 hidden xl:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <Baby className="w-4 h-4" /> Flagship Program
+                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Flagship Program</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 3 Year <span className="text-[#0fb85c]">Kindergarten</span>
@@ -181,7 +176,6 @@ export default function ProgramsPage() {
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -left-3 bg-[#0fb85c] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <Calendar className="w-5 h-5" />
@@ -207,7 +201,7 @@ export default function ProgramsPage() {
                                     skills: ["Sensory exploration", "Basic motor skills", "Color & shape recognition", "Social interaction basics", "First Quran exposure"],
                                 },
                                 {
-                                    stage: "MZQ", name: "Middle Zeeque Preschool", age: "Age 4–5", color: "#0052ff", emoji: "🌿", year: "Year 2",
+                                    stage: "MZQ", name: "Middle Zeeque Preschool", age: "Age 4–5", color: "#3FB7E5", emoji: "🌿", year: "Year 2",
                                     desc: "Building on foundations with structured theme-based activities. Children develop reading readiness, numerical concepts, creative expression, and deeper Islamic values understanding.",
                                     skills: ["Reading readiness", "Number concepts", "Creative arts", "Teamwork & sharing", "Quran memorization"],
                                 },
@@ -227,7 +221,7 @@ export default function ProgramsPage() {
                                     <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed mb-5">{s.desc}</p>
 
                                     <div className="bg-gray-50 dark:bg-slate-700 rounded-xl p-4 space-y-2">
-                                        <p className="font-heading font-bold text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Key Skills</p>
+                                        <p className="font-heading font-bold text-xs text-gray-400 dark:text-gray-500 mb-1">Key Skills</p>
                                         {s.skills.map((sk) => (
                                             <div key={sk} className="flex items-center gap-2 text-sm font-body text-gray-500 dark:text-gray-400">
                                                 <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: s.color }} /> {sk}
@@ -253,11 +247,11 @@ export default function ProgramsPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#0052ff]/10 text-[#0052ff] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <School className="w-4 h-4" /> Primary Education
+                            <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Primary Education</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Grade Stream <span className="text-[#0052ff]">(I to IV)</span>
+                                Grade Stream <span className="text-[#3FB7E5]">(I to IV)</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 <strong className="text-[#222] dark:text-white">Zeeque Preschool English Medium Primary Madrasa</strong> extends the Zeeque Preschool philosophy into formal primary education. Covering Grades I through IV, this program continues the seamless blend of academic excellence and Islamic values education.
@@ -273,7 +267,7 @@ export default function ProgramsPage() {
                                     { title: "Grades I–IV", desc: "4-year primary education" },
                                     { title: "Trained Teachers", desc: "TTGS-certified educators" },
                                 ].map((g) => (
-                                    <div key={g.title} className="bg-[#0052ff]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#0052ff]/10 dark:border-slate-700 hover:shadow-md transition-all duration-300">
+                                    <div key={g.title} className="bg-[#3FB7E5]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#3FB7E5]/10 dark:border-slate-700 hover:shadow-md transition-all duration-300">
                                         <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-0.5">{g.title}</h4>
                                         <p className="text-gray-500 dark:text-gray-400 font-body text-xs">{g.desc}</p>
                                     </div>
@@ -284,9 +278,8 @@ export default function ProgramsPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-square rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
                                 <Image src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=800&auto=format&fit=crop" alt="Bright and spacious primary school classroom setup at Zeeque Preschool Kerala." fill className="object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0052ff]/30 to-transparent" />
                             </div>
-                            <div className="absolute -bottom-5 -right-3 bg-[#0052ff] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
+                            <div className="absolute -bottom-5 -right-3 bg-[#3FB7E5] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <School className="w-5 h-5" />
                                 <span className="font-heading font-bold text-sm">Std I–IV</span>
                             </div>
@@ -302,7 +295,7 @@ export default function ProgramsPage() {
                 {/* Premium Background Effects */}
                 <div className="absolute inset-0">
                     <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#1e1b4b_0%,transparent_70%)] opacity-50" />
-                    <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#7c3aed]/10 blur-[120px] rounded-full animate-pulse" />
+                    <div className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#EF4225]/10 blur-[120px] rounded-full animate-pulse" />
                     <div className="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-[#e83e8c]/10 blur-[120px] rounded-full animate-pulse delay-700" />
                 </div>
 
@@ -332,9 +325,8 @@ export default function ProgramsPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white mb-16">
-                        <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md">
-                            <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
-                            <span className="text-xs font-heading font-bold uppercase tracking-widest text-white/90">Center of Excellence</span>
+                        <div className="inline-flex items-center bg-white/10 border border-white/20 px-5 py-2.5 rounded-full mb-8 backdrop-blur-md shadow-lg group hover:bg-white/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-white tracking-tight">Center of Excellence</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-4xl md:text-6xl leading-[1.1] mb-6">
                             Teacher Training <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#f472b6]">Programs</span>
@@ -350,7 +342,7 @@ export default function ProgramsPage() {
                             className="group relative bg-white/5 backdrop-blur-xl rounded-[32px] p-8 lg:p-10 border border-white/10 hover:border-white/20 hover:bg-white/[0.08] transition-all duration-500 overflow-hidden">
 
                             <div className="flex items-center gap-5 mb-8">
-                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#7c3aed] to-[#4f46e5] flex items-center justify-center shadow-lg shadow-[#7c3aed]/20">
+                                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#EF4225] to-[#ef4225] flex items-center justify-center shadow-lg shadow-[#EF4225]/20">
                                     <GraduationCap className="w-8 h-8 text-white" />
                                 </div>
                                 <div>
@@ -365,7 +357,7 @@ export default function ProgramsPage() {
 
                             <div className="space-y-4 mb-10">
                                 {[
-                                    { label: "Duration", value: "6 Months / 35 Days (Residential)", icon: Clock, color: "#7c3aed" },
+                                    { label: "Duration", value: "6 Months / 35 Days (Residential)", icon: Clock, color: "#EF4225" },
                                     { label: "Focus", value: "Pre-school teacher preparation", icon: Target, color: "#e83e8c" },
                                     { label: "Method", value: "Classroom + hands-on practical", icon: Brain, color: "#fbaf01" },
                                     { label: "Outcome", value: "Certified ECCE educator", icon: Award, color: "#0fb85c" },
@@ -375,7 +367,7 @@ export default function ProgramsPage() {
                                             <d.icon className="w-5 h-5" style={{ color: d.color }} />
                                         </div>
                                         <div>
-                                            <span className="block text-[10px] font-heading font-bold text-white/40 uppercase tracking-widest leading-none mb-1">{d.label}</span>
+                                            <span className="block text-[10px] font-heading font-bold text-white/40 leading-none mb-1">{d.label}</span>
                                             <span className="block text-white/90 font-body text-[15px]">{d.value}</span>
                                         </div>
                                     </div>
@@ -384,7 +376,7 @@ export default function ProgramsPage() {
 
                             <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                                 {["6 Months", "Residential", "Certified"].map((t) => (
-                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors uppercase tracking-wider">{t}</span>
+                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors">{t}</span>
                                 ))}
                             </div>
                         </motion.div>
@@ -410,7 +402,7 @@ export default function ProgramsPage() {
                             <div className="space-y-4 mb-10">
                                 {[
                                     { label: "Format", value: "Residential intensive programme", icon: Home, color: "#e83e8c" },
-                                    { label: "For", value: "English medium madrasa teachers", icon: Users, color: "#0052ff" },
+                                    { label: "For", value: "English medium madrasa teachers", icon: Users, color: "#3FB7E5" },
                                     { label: "Method", value: "Modern pedagogy + Islamic", icon: Lightbulb, color: "#fbaf01" },
                                     { label: "Outcome", value: "Grade-level certified educator", icon: Shield, color: "#0fb85c" },
                                 ].map((d) => (
@@ -419,7 +411,7 @@ export default function ProgramsPage() {
                                             <d.icon className="w-5 h-5" style={{ color: d.color }} />
                                         </div>
                                         <div>
-                                            <span className="block text-[10px] font-heading font-bold text-white/40 uppercase tracking-widest leading-none mb-1">{d.label}</span>
+                                            <span className="block text-[10px] font-heading font-bold text-white/40 leading-none mb-1">{d.label}</span>
                                             <span className="block text-white/90 font-body text-[15px]">{d.value}</span>
                                         </div>
                                     </div>
@@ -428,7 +420,7 @@ export default function ProgramsPage() {
 
                             <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
                                 {["Residential", "Grade Level", "Madrasa"].map((t) => (
-                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors uppercase tracking-wider">{t}</span>
+                                    <span key={t} className="bg-white/5 border border-white/10 rounded-full px-4 py-1.5 font-heading font-bold text-xs text-white/60 group-hover:text-white/90 transition-colors">{t}</span>
                                 ))}
                             </div>
                         </motion.div>
@@ -449,7 +441,6 @@ export default function ProgramsPage() {
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2 relative">
                             <div className="relative aspect-[4/3] rounded-[32px] overflow-hidden shadow-2xl border-4 border-white dark:border-slate-700">
                                 <Image src="/images/side-visuals/pep_side_visual.png" alt="Parents actively participating with their children in the preschool environment at Zeeque Preschool Kerala." fill className="object-cover" />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#fbaf01]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#fbaf01] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <HandHeart className="w-5 h-5" />
@@ -458,8 +449,8 @@ export default function ProgramsPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                <HandHeart className="w-4 h-4" /> Unique Initiative
+                            <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Unique Initiative</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Parent Empowerment <span className="text-[#fbaf01]">Programme</span>
@@ -470,13 +461,12 @@ export default function ProgramsPage() {
 
                             <div className="space-y-4">
                                 {[
-                                    { emoji: "🏥", title: "Health & Hygiene", desc: "Best practices for maintaining your child's physical well-being" },
-                                    { emoji: "🥗", title: "Nutrition", desc: "Dietary guidance for optimal brain development and physical growth" },
-                                    { emoji: "❤️", title: "Parenting Skills", desc: "Effective parenting strategies, communication, and positive reinforcement" },
-                                    { emoji: "📋", title: "Prescribed Syllabus", desc: "Structured, regular training sessions with certified trainers" },
+                                    { title: "Health & Hygiene", desc: "Best practices for maintaining your child's physical well-being" },
+                                    { title: "Nutrition", desc: "Dietary guidance for optimal brain development and physical growth" },
+                                    { title: "Parenting Skills", desc: "Effective parenting strategies, communication, and positive reinforcement" },
+                                    { title: "Prescribed Syllabus", desc: "Structured, regular training sessions with certified trainers" },
                                 ].map((item) => (
                                     <div key={item.title} className="flex items-start gap-4 bg-[#fbaf01]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#fbaf01]/10 dark:border-slate-700 hover:shadow-md transition-all duration-300">
-                                        <span className="text-2xl flex-shrink-0">{item.emoji}</span>
                                         <div>
                                             <h4 className="font-heading font-bold text-[#222] dark:text-white text-[15px] mb-0.5">{item.title}</h4>
                                             <p className="text-gray-500 dark:text-gray-400 font-body text-[13px] leading-relaxed">{item.desc}</p>
@@ -504,7 +494,7 @@ export default function ProgramsPage() {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {[
-                            { title: "Research-Backed", desc: "Every program is built on extensive R&D in child development and education.", color: "#7c3aed" },
+                            { title: "Research-Backed", desc: "Every program is built on extensive R&D in child development and education.", color: "#EF4225" },
                             { title: "Trained Educators", desc: "Our own Diploma & TTGS programs create the finest teachers.", color: "#e83e8c" },
                             { title: "Parent Partnership", desc: "PEP ensures parents are active partners in the learning journey.", color: "#fbaf01" },
                             { title: "Proven Results", desc: "12+ years, 50+ centers, and 5000+ confident graduates.", color: "#0fb85c" },
@@ -517,7 +507,6 @@ export default function ProgramsPage() {
 
                                 <div className="relative z-10">
                                     <div className="flex items-start justify-between mb-8">
-                                        <div className="w-12 h-1 rounded-full" style={{ backgroundColor: w.color }} />
                                     </div>
 
                                     <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-4 group-hover:translate-x-1 transition-transform duration-300">
@@ -561,7 +550,7 @@ export default function ProgramsPage() {
                                 <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
-                            <Link href="/features" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                             <Link href="/best-preschool-features-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
                                 Our Features
                             </Link>
                         </div>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import TopHeader from "@/components/TopHeader";
@@ -79,7 +79,7 @@ export default function DownloadsPage() {
                     <div className="absolute top-24 left-[10%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-10 left-[25%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
                     <div className="absolute top-1/2 right-[10%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-16 right-[30%] w-10 h-10 rounded-full bg-[#0052ff]/10 animate-pulse delay-700" />
+                    <div className="absolute bottom-16 right-[30%] w-10 h-10 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -102,18 +102,9 @@ export default function DownloadsPage() {
                             </div>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Important{" "}
-                            <span className="relative inline-block">
-                                <span className="text-primary">Downloads</span>
-                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#ef4225" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </span>
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Downloads <br className="hidden md:block" /> Parent Resources and School Information
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Access all essential resources, forms, curriculum details, and educational materials from ZeeQue Preschool in one place.
-                        </p>
                     </motion.div>
                 </div>
 

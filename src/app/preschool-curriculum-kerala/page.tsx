@@ -46,7 +46,7 @@ export default function CurriculumPage() {
                ══════════════════════════════════ */}
             <section className="relative py-10 md:py-14 lg:py-16 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#7c3aed]/10 animate-pulse" />
+                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#EF4225]/10 animate-pulse" />
                     <div className="absolute top-20 right-[15%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-16 left-[30%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
                     <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
@@ -56,19 +56,16 @@ export default function CurriculumPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
                         <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
+                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-semibold">Curriculum</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Our{" "}<span className="relative inline-block"><span className="text-[#7c3aed]">Curriculum</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#7c3aed" strokeWidth="3" strokeLinecap="round" /></svg></span>
+                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            Islamic Montessori Curriculum <br className="hidden md:block" /> A Unique Trilingual Approach
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-                            A meticulously crafted, R&D-backed curriculum that nurtures every aspect of a child&apos;s development — from cognitive growth and language mastery to character building and creative expression.
-                        </p>
                         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-3">
-                            {["🧠 Holistic Growth", "🎮 Play-Based", "📖 Quran & Values", "🌍 Trilingual", "🔬 R&D Backed", "🎨 Creative Arts"].map((tag) => (
-                                <span key={tag} className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full px-4 py-2 font-heading font-bold text-xs text-gray-600 dark:text-gray-300 shadow-sm">{tag}</span>
+                            {["Holistic Growth", "Play-Based", "Quran & Values", "Trilingual", "R&D Backed", "Creative Arts"].map((tag) => (
+                                <span key={tag} className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-gray-200/50 dark:border-slate-700/50 rounded-full px-5 py-2 font-heading font-bold text-sm text-gray-700 dark:text-gray-300 shadow-sm hover:bg-white/60 transition-all duration-300">{tag}</span>
                             ))}
                         </motion.div>
                     </motion.div>
@@ -81,17 +78,17 @@ export default function CurriculumPage() {
                ══════════════════════════════════ */}
             <section className="py-10 md:py-12 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#7c3aed]/10 hidden xl:block" />
+                    <div className="absolute bottom-10 left-10 w-20 h-20 rounded-full border-4 border-dashed border-[#EF4225]/10 hidden xl:block" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#7c3aed]/10 text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                Curriculum Philosophy
+                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Curriculum Philosophy</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                                Nurturing Every Aspect of <span className="text-[#7c3aed]">Growth</span>
+                                Nurturing Every Aspect of <span className="text-[#EF4225]">Growth</span>
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-5">
                                 Below the age of six, children demonstrate advanced pretend play, symbolic thought, categorization, reasoning, and problem-solving abilities, marking the preschool years as a phase of rapid development. Our curriculum, rooted in engaging activities that spark curiosity, is designed to nurture <strong className="text-[#222] dark:text-white">every aspect of a child&apos;s growth</strong> — including their physical, emotional, and intellectual development, creativity, language skills, and social interactions.
@@ -106,7 +103,7 @@ export default function CurriculumPage() {
                                     { emoji: "🧪", text: "Sensory-integrated sessions targeting senses, memory, and observation" },
                                     { emoji: "🎲", text: "Edutainment games developing gross and fine motor skills" },
                                 ].map((item) => (
-                                    <div key={item.text} className="flex items-start gap-3 bg-[#7c3aed]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#7c3aed]/10 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
+                                    <div key={item.text} className="flex items-start gap-3 bg-[#EF4225]/5 dark:bg-slate-800 rounded-2xl p-4 border border-[#EF4225]/10 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
                                         <span className="text-2xl flex-shrink-0">{item.emoji}</span>
                                         <p className="text-gray-600 dark:text-gray-300 font-body text-[15px] leading-relaxed">{item.text}</p>
                                     </div>
@@ -123,9 +120,8 @@ export default function CurriculumPage() {
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#7c3aed]/30 to-transparent" />
                             </div>
-                            <div className="absolute -bottom-5 -left-5 bg-[#7c3aed] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
+                            <div className="absolute -bottom-5 -left-5 bg-[#EF4225] text-white rounded-2xl px-6 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <span className="font-heading font-bold text-sm">R&D Backed</span>
                             </div>
                         </motion.div>
@@ -140,8 +136,8 @@ export default function CurriculumPage() {
             <section className="py-10 md:py-12 lg:py-14 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-[#e83e8c]/10 text-[#e83e8c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            All-Round Development
+                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">All-Round Development</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Six Developmental <span className="text-[#e83e8c]">Domains</span>
@@ -153,8 +149,8 @@ export default function CurriculumPage() {
 
                     <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: "Cognitive Development", desc: "Problem-solving, logical thinking, scientific curiosity, memory, and observation skills through hands-on exploration and sensory activities.", icon: Brain, color: "#0052ff", emoji: "🧠" },
-                            { title: "Language & Literacy", desc: "Trilingual education in Arabic, English, and Malayalam through speaking, reading, writing, rhymes, storytelling, and audio-visual lessons.", icon: Languages, color: "#7c3aed", emoji: "🗣️" },
+                            { title: "Cognitive Development", desc: "Problem-solving, logical thinking, scientific curiosity, memory, and observation skills through hands-on exploration and sensory activities.", icon: Brain, color: "#3FB7E5", emoji: "🧠" },
+                            { title: "Language & Literacy", desc: "Trilingual education in Arabic, English, and Malayalam through speaking, reading, writing, rhymes, storytelling, and audio-visual lessons.", icon: Languages, color: "#EF4225", emoji: "🗣️" },
                             { title: "Physical Development", desc: "Gross and fine motor skill development through outdoor play, edutainment games, sports, yoga, and hands-on craft activities.", icon: Rocket, color: "#0fb85c", emoji: "💪" },
                             { title: "Social & Emotional", desc: "Teamwork, sharing, caring, empathy, and emotional regulation through group activities, role-play, and collaborative projects.", icon: Heart, color: "#e83e8c", emoji: "💖" },
                             { title: "Creative & Artistic", desc: "Imagination, artistic expression, and creative thinking through art, music, drama, puppetry, origami, and clay modelling.", icon: Palette, color: "#fbaf01", emoji: "🎨" },
@@ -181,8 +177,8 @@ export default function CurriculumPage() {
             <section className="py-10 lg:py-14 bg-white dark:bg-slate-900 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-[#fbaf01]/10 text-[#fbaf01] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            What Children Learn
+                        <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">What Children Learn</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Key Learning <span className="text-[#fbaf01]">Areas</span>
@@ -192,7 +188,7 @@ export default function CurriculumPage() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft}
-                            className="bg-gradient-to-br from-[#0052ff]/5 to-[#7c3aed]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#0052ff]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                            className="bg-gradient-to-br from-[#3FB7E5]/5 to-[#EF4225]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border-2 border-[#3FB7E5]/15 dark:border-slate-700 relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                             <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-4">Language & Communication</h3>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-5">
                                 Children are trained to communicate, read, and write in three languages — Arabic, English, and Malayalam. Our approach combines phonics, storytelling, and conversational practice for natural language acquisition.
@@ -200,7 +196,7 @@ export default function CurriculumPage() {
                             <ul className="space-y-2">
                                 {["Phonics & letter recognition", "Storytelling & narrative skills", "Rhyme time & musical language", "Conversational fluency in 3 languages", "Reading readiness & pre-writing skills"].map((item) => (
                                     <li key={item} className="flex items-center gap-2 text-gray-500 dark:text-gray-400 font-body text-sm">
-                                        <CheckCircle2 className="w-4 h-4 text-[#0052ff] flex-shrink-0" /> {item}
+                                        <CheckCircle2 className="w-4 h-4 text-[#3FB7E5] flex-shrink-0" /> {item}
                                     </li>
                                 ))}
                             </ul>
@@ -236,8 +232,8 @@ export default function CurriculumPage() {
             <section className="py-10 lg:py-14 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-12">
-                        <div className="inline-flex items-center gap-2 bg-[#0fb85c]/10 text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                            Progressive Learning
+                        <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Progressive Learning</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Curriculum Across <span className="text-[#0fb85c]">3 Stages</span>
@@ -252,7 +248,7 @@ export default function CurriculumPage() {
                                 areas: ["Sensory exploration & discovery", "Basic letter & number recognition", "Color, shape & size awareness", "Simple Quran surahs introduction", "Free play & motor skill basics", "Social interaction fundamentals"],
                             },
                             {
-                                stage: "MZQ", name: "Middle ZeeQue", age: "Age 4–5", color: "#0052ff", emoji: "🌿", year: "Year 2",
+                                stage: "MZQ", name: "Middle ZeeQue", age: "Age 4–5", color: "#3FB7E5", emoji: "🌿", year: "Year 2",
                                 areas: ["Reading readiness & phonics", "Number concepts & simple math", "Creative arts & expression", "Quran memorization progress", "Structured theme-based learning", "Teamwork & collaborative projects"],
                             },
                             {
@@ -269,7 +265,7 @@ export default function CurriculumPage() {
                                 <h4 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-1">{s.name.replace('ZeeQue', 'Zeeque Preschool')}</h4>
                                 <p className="font-heading font-bold text-sm mb-5" style={{ color: s.color }}>{s.age}</p>
                                 <div className="bg-gray-50 dark:bg-slate-700 rounded-xl p-4 space-y-2">
-                                    <p className="font-heading font-bold text-xs text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-1">Curriculum Focus</p>
+                                    <p className="font-heading font-bold text-xs text-gray-400 dark:text-gray-500 mb-1">Curriculum Focus</p>
                                     {s.areas.map((a) => (
                                         <div key={a} className="flex items-center gap-2 text-sm font-body text-gray-500 dark:text-gray-400">
                                             <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" style={{ color: s.color }} /> {a}
@@ -291,8 +287,8 @@ export default function CurriculumPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center gap-2 bg-[#ef4225]/10 text-[#ef4225] font-heading font-bold uppercase tracking-wider text-xs px-5 py-2 rounded-full mb-4">
-                                Quality Assurance
+                            <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">Quality Assurance</span>
                             </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 R&D <span className="text-[#ef4225]">Council</span> Oversight
@@ -308,7 +304,6 @@ export default function CurriculumPage() {
                                     { title: "Annual Updates", desc: "Curriculum refinement cycle", emoji: "🔄" },
                                 ].map((r) => (
                                     <div key={r.title} className="bg-white dark:bg-slate-800 rounded-2xl p-4 border border-gray-100 dark:border-slate-700 hover:shadow-md transition-all duration-300">
-                                        <div className="text-2xl mb-2">{r.emoji}</div>
                                         <h4 className="font-heading font-bold text-[#222] dark:text-white text-sm mb-0.5">{r.title}</h4>
                                         <p className="text-gray-500 dark:text-gray-400 font-body text-xs">{r.desc}</p>
                                     </div>
@@ -325,7 +320,6 @@ export default function CurriculumPage() {
                                     className="object-cover"
                                     sizes="(max-width: 768px) 100vw, 50vw"
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#ef4225]/30 to-transparent" />
                             </div>
                             <div className="absolute -bottom-5 -right-3 bg-[#ef4225] text-white rounded-2xl px-5 py-3 shadow-xl z-20 flex items-center gap-2">
                                 <span className="font-heading font-bold text-sm">Proven Curriculum</span>
@@ -359,7 +353,7 @@ export default function CurriculumPage() {
                                 <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
-                            <Link href="/programs" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                             <Link href="/preschool-programs-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
                                 Our Programs
                             </Link>
                         </div>

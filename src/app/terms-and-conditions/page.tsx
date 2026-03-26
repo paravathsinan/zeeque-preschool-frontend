@@ -38,7 +38,7 @@ const sections = [
     {
         id: "admission",
         icon: UserCheck,
-        color: "#0052ff",
+        color: "#3FB7E5",
         title: "Admission & Enrollment",
         content: [
             "Admission to Zeeque Preschool is subject to availability and meeting the age requirements for the respective programs (LZQ: 3–4 years, MZQ: 4–5 years, UZQ: 5–6 years).",
@@ -62,7 +62,7 @@ const sections = [
     {
         id: "privacy",
         icon: ShieldCheck,
-        color: "#7c3aed",
+        color: "#EF4225",
         title: "Privacy & Data Protection",
         content: [
             "Zeeque Preschool is committed to protecting the personal information of students, parents, and guardians in accordance with applicable data protection laws.",
@@ -98,7 +98,7 @@ const sections = [
     {
         id: "ip",
         icon: Copyright,
-        color: "#0052ff",
+        color: "#3FB7E5",
         title: "Intellectual Property",
         content: [
             "All content on the Zeeque Preschool website — including text, images, logos, graphics, and multimedia — is the intellectual property of Zeeque Preschool Network.",
@@ -131,7 +131,7 @@ const sections = [
     {
         id: "contact",
         icon: Mail,
-        color: "#7c3aed",
+        color: "#EF4225",
         title: "Contact Information",
         content: [
             "For any questions or concerns regarding these Terms and Conditions, please contact us:",
@@ -184,16 +184,9 @@ export default function TermsAndConditionsPage() {
                             <span className="text-primary font-semibold">Terms and Conditions</span>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            Terms{" "}
-                            <span className="relative inline-block">
-                                <span className="text-primary">&</span>
-                            </span>{" "}
-                            Conditions
+                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                            ZeeQue Preschool Terms & Conditions <br className="hidden md:block" /> Our Commitment to Quality and Values
                         </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            Please read these terms carefully before using our website and services. Your continued use constitutes acceptance.
-                        </p>
                     </motion.div>
                 </div>
 

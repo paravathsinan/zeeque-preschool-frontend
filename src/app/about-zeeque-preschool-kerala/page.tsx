@@ -73,44 +73,44 @@ const values = [
     { icon: Heart, title: "Islamic Values", description: "Shaping children's lives in accordance with Islamic values through child-friendly mentoring and guidance.", color: "#e83e8c" },
     { icon: Sparkles, title: "Creativity", description: "Encouraging imagination and creative expression through art, play, and hands-on exploration every single day.", color: "#fbaf01" },
     { icon: Users, title: "Collaboration", description: "Building teamwork and social skills through group activities, shared projects, and collaborative learning.", color: "#0fb85c" },
-    { icon: Sun, title: "Joyful Learning", description: "Making education fun and engaging so children develop a lifelong love for learning and discovery.", color: "#0052ff" },
+    { icon: Sun, title: "Joyful Learning", description: "Making education fun and engaging so children develop a lifelong love for learning and discovery.", color: "#3FB7E5" },
     { icon: Shield, title: "Safety First", description: "Supervised single-door entry/exit, secure fenced play areas, and trained staff ensuring complete child safety.", color: "#ef4225" },
-    { icon: BookOpen, title: "Holistic Growth", description: "Nurturing cognitive, emotional, physical, and social development through a well-rounded ECCE curriculum.", color: "#7c3aed" },
+    { icon: BookOpen, title: "Holistic Growth", description: "Nurturing cognitive, emotional, physical, and social development through a well-rounded ECCE curriculum.", color: "#EF4225" },
 ];
 
 const dailySessions = [
     { time: "9:00", title: "Welcome Circle", description: "Warm greetings and settling into a joyful morning routine", icon: Sun, color: "#fbaf01" },
-    { time: "9:30", title: "General Assembly", description: "Coming together for interactive group activities and sharing", icon: Users, color: "#0052ff" },
+    { time: "9:30", title: "General Assembly", description: "Coming together for interactive group activities and sharing", icon: Users, color: "#3FB7E5" },
     { time: "10:00", title: "Meditation & Warm-up", description: "Calming mindfulness exercises and energizing physical activity", icon: Heart, color: "#e83e8c" },
     { time: "10:30", title: "Rhyme Time", description: "Learning through songs, rhymes, and musical expression", icon: Music, color: "#0fb85c" },
-    { time: "11:00", title: "Story Session", description: "Imaginative storytelling that sparks creativity and language skills", icon: BookOpen, color: "#7c3aed" },
+    { time: "11:00", title: "Story Session", description: "Imaginative storytelling that sparks creativity and language skills", icon: BookOpen, color: "#EF4225" },
     { time: "11:30", title: "Outdoor Activities", description: "Free play, sports, and nature exploration in safe outdoor spaces", icon: TreePine, color: "#ef4225" },
 ];
 
 const facilities = [
     { title: "Child-Friendly Classrooms", description: "Spacious, colorful rooms with ample space and age-appropriate learning materials", icon: Home, color: "#ef4225" },
     { title: "Sand Pit", description: "Sensory play area for creative exploration and tactile development", icon: Sparkles, color: "#fbaf01" },
-    { title: "Splash Pool", description: "Safe water play area for fun-filled aquatic activities and cooling off", icon: Droplets, color: "#0052ff" },
-    { title: "Multi-Media Support", description: "High-tech classrooms equipped with multimedia for interactive learning", icon: Monitor, color: "#7c3aed" },
+    { title: "Splash Pool", description: "Safe water play area for fun-filled aquatic activities and cooling off", icon: Droplets, color: "#3FB7E5" },
+    { title: "Multi-Media Support", description: "High-tech classrooms equipped with multimedia for interactive learning", icon: Monitor, color: "#EF4225" },
     { title: "Outdoor Play Areas", description: "Two fenced play areas with climbing structures, sand areas, and wheel toy paths", icon: Volleyball, color: "#0fb85c" },
     { title: "Mud Pond", description: "Natural sensory exploration area for hands-on, messy, joyful learning", icon: Flower2, color: "#e83e8c" },
 ];
 
 const activities = [
     { title: "Puppetry & Theater", icon: Theater, color: "#e83e8c" },
-    { title: "Origami Workshops", icon: Origami, color: "#0052ff" },
+    { title: "Origami Workshops", icon: Origami, color: "#3FB7E5" },
     { title: "Clay Modeling", icon: Palette, color: "#fbaf01" },
     { title: "Monthly Sports Day", icon: Trophy, color: "#0fb85c" },
-    { title: "Nature Camps", icon: Tent, color: "#7c3aed" },
+    { title: "Nature Camps", icon: Tent, color: "#EF4225" },
     { title: "ZeeQue Fest", icon: PartyPopper, color: "#ef4225" },
     { title: "Festival Celebrations", icon: Sparkles, color: "#e83e8c" },
-    { title: "Exciting Picnics", icon: MapPin, color: "#0052ff" },
+    { title: "Exciting Picnics", icon: MapPin, color: "#3FB7E5" },
 ];
 
 const stats = [
     { value: 4, suffix: "", label: "Countries", color: "#ef4225" },
     { value: 152, suffix: "", label: "Schools", color: "#0fb85c" },
-    { value: 15000, suffix: "", label: "Happy Students", color: "#0052ff" },
+    { value: 15000, suffix: "", label: "Happy Students", color: "#3FB7E5" },
     { value: 2200, suffix: "", label: "Trained Teachers", color: "#fbaf01" },
 ];
 
@@ -173,7 +173,7 @@ export default function AboutPage() {
                     <div className="absolute top-20 right-[15%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
                     <div className="absolute bottom-10 left-[20%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
                     <div className="absolute top-1/2 right-[8%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#0052ff]/10 animate-pulse delay-700" />
+                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
                 </div>
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
@@ -184,24 +184,16 @@ export default function AboutPage() {
                     >
                         {/* Breadcrumb */}
                         <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
+                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
                             <ChevronRight className="w-4 h-4 text-gray-400" />
                             <span className="text-primary font-semibold">About Us</span>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-6">
-                            About{" "}
-                            <span className="relative inline-block">
-                                <span className="text-primary">ZeeQue</span>
-                                <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                                    <path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#fbaf01" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </span>
-                        </h1>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            A unique and state-of-the-art Early Childhood Care and Education program where little minds grow bright through play, creativity, and love.
-                        </p>
-                    </motion.div>
+                            <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+                                About ZeeQue Preschool
+                                <br className="hidden md:block" /> Kerala&apos;s Fastest Growing Islamic Montessori Preschool
+                            </h1>
+                        </motion.div>
                 </div>
 
                 {/* Wavy divider */}
@@ -230,10 +222,9 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-10 lg:mb-0"
                     >
-                        <span className="text-amber-600 dark:text-amber-400 font-body font-semibold text-sm mb-3 flex items-center gap-2 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-amber-200/50 dark:border-amber-700/30 w-fit">
-                            <Sparkles className="w-4 h-4 fill-amber-400/40" />
-                            Who We Are
-                        </span>
+                        <div className="inline-flex items-center bg-amber-50/80 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-amber-100/50 transition-all duration-300 w-fit">
+                            <span className="text-sm font-heading font-bold text-amber-600 dark:text-amber-400 tracking-tight">Who We Are</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                             ZeeQue Preschool{" "}
                             <span className="text-primary">Network</span>
@@ -246,7 +237,7 @@ export default function AboutPage() {
                         <div className="flex flex-wrap gap-3 mb-6 justify-center lg:justify-start">
                             {[
                                 { label: "LZQ", age: "3–4 yrs", desc: "Lower", color: "#0fb85c" },
-                                { label: "MZQ", age: "4–5 yrs", desc: "Middle", color: "#0052ff" },
+                                { label: "MZQ", age: "4–5 yrs", desc: "Middle", color: "#3FB7E5" },
                                 { label: "UZQ", age: "5–6 yrs", desc: "Upper", color: "#e83e8c" },
                             ].map((stage) => (
                                 <div
@@ -277,38 +268,38 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="w-full lg:w-1/2 relative"
                     >
-                            <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
-                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
-                                    <Image
-                                        src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG"
-                                        alt="Children engaging in group activities in a spacious ZeeQue Preschool classroom in Kerala."
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                </div>
-                                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
-                                    <Image
-                                        src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG"
-                                        alt="Early learners enjoying a reading session at our Islamic Montessori preschool in Kerala."
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    />
-                                </div>
-                                <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
-                                    <Image
-                                        src="/images/gallery/page-title.jpg"
-                                        alt="Happy kids running and playing together outdoors at ZeeQue Preschool in Kerala."
-                                        fill
-                                        className="object-cover group-hover:scale-105 transition-transform duration-700"
-                                        sizes="(max-width: 768px) 100vw, 66vw"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
-                                        <span className="text-white font-heading font-bold text-lg">Where Every Child Shines ✨</span>
-                                    </div>
+                        <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
+                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
+                                <Image
+                                    src="/images/gallery/gallery photos/IMG_6290 - Copy.JPG"
+                                    alt="Children engaging in group activities in a spacious ZeeQue Preschool classroom in Kerala."
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
+                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300">
+                                <Image
+                                    src="/images/gallery/gallery photos/IMG_6331 - Copy.JPG"
+                                    alt="Early learners enjoying a reading session at our Islamic Montessori preschool in Kerala."
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                />
+                            </div>
+                            <div className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl group">
+                                <Image
+                                    src="/images/gallery/page-title.jpg"
+                                    alt="Happy kids running and playing together outdoors at ZeeQue Preschool in Kerala."
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                    sizes="(max-width: 768px) 100vw, 66vw"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent flex items-end p-6">
+                                    <span className="text-white font-heading font-bold text-lg">Where Every Child Shines</span>
                                 </div>
                             </div>
+                        </div>
 
                         {/* Floating badge */}
                         <div className="absolute -bottom-4 -left-4 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-full px-4 py-2.5 shadow-2xl z-20 hidden sm:flex items-center gap-2 border border-white/40 dark:border-slate-700/40">
@@ -337,7 +328,9 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30 mx-auto">Our Approach</span>
+                        <div className="inline-flex items-center bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200/50 dark:border-emerald-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-emerald-100/50 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">Our Approach</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Theme-Based, <span className="text-[#fbaf01]">Play Way</span> Method
                         </h2>
@@ -406,7 +399,9 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-rose-600 dark:text-rose-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-rose-50/80 dark:bg-rose-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-rose-200/50 dark:border-rose-700/30 mx-auto">What We Stand For</span>
+                        <div className="inline-flex items-center bg-rose-50/80 dark:bg-rose-900/20 border border-rose-200/50 dark:border-rose-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-rose-100/50 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-rose-600 dark:text-rose-400 tracking-tight">What We Stand For</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Our Core <span className="text-[#ef4225]">Values</span>
                         </h2>
@@ -449,10 +444,9 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-amber-600 dark:text-amber-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-amber-200/50 dark:border-amber-700/30 mx-auto">
-                            <Clock className="w-4 h-4 fill-amber-400/40" />
-                            Daily Routine
-                        </span>
+                        <div className="inline-flex items-center bg-amber-50/80 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-amber-100/50 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-amber-600 dark:text-amber-400 tracking-tight">Daily Routine</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             A Day at <span className="text-[#fbaf01]">ZeeQue</span>
                         </h2>
@@ -539,10 +533,10 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-20"
                     >
-                        <div className="flex items-center justify-center mb-4">
-                            <span className="h-px w-8 bg-blue-600/30 dark:bg-blue-400/30" />
-                            <span className="text-blue-600 dark:text-blue-400 font-heading font-bold text-xs uppercase tracking-widest px-4">World-Class Setup</span>
-                            <span className="h-px w-8 bg-blue-600/30 dark:bg-blue-400/30" />
+                        <div className="flex items-center justify-center mb-8">
+                            <div className="inline-flex items-center bg-blue-50/80 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-700/30 px-4 py-2 rounded-full backdrop-blur-md shadow-sm group hover:bg-blue-100/50 transition-all duration-300 mx-auto">
+                                <span className="text-sm font-heading font-bold text-blue-600 dark:text-blue-400 tracking-tight">World-Class Setup</span>
+                            </div>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl tracking-tight leading-[1.1] mb-6">
                             Infrastructure & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Facilities</span>
@@ -574,19 +568,6 @@ export default function AboutPage() {
 
                                 <div className="relative z-10">
                                     <div className="flex items-start justify-between mb-5">
-                                        <div className="relative w-16 h-16">
-                                            {/* Icon glow */}
-                                            <div
-                                                className="absolute inset-0 rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"
-                                                style={{ backgroundColor: f.color }}
-                                            />
-                                            <div
-                                                className="relative w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-inner"
-                                                style={{ backgroundColor: `${f.color}12` }}
-                                            >
-                                                <f.icon className="w-8 h-8" style={{ color: f.color }} />
-                                            </div>
-                                        </div>
                                         <span className="font-heading font-black text-4xl opacity-5 group-hover:opacity-10 transition-opacity duration-500 tracking-tighter italic">0{i + 1}</span>
                                     </div>
 
@@ -616,9 +597,11 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-violet-600 dark:text-violet-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-violet-50/80 dark:bg-violet-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-violet-200/50 dark:border-violet-700/30 mx-auto">Fun Beyond Classrooms</span>
+                        <div className="inline-flex items-center bg-red-50/80 dark:bg-red-900/20 border border-red-200/50 dark:border-red-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-red-100/50 transition-all duration-300 mx-auto w-fit">
+                            <span className="text-sm font-heading font-bold text-red-600 dark:text-red-400 tracking-tight">Fun Beyond Classrooms</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Activities & <span className="text-[#7c3aed]">Events</span>
+                            Activities & <span className="text-[#EF4225]">Events</span>
                         </h2>
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
                             From puppetry to nature camps, our rich co-curricular activities enrich every child&apos;s learning journey and create unforgettable memories.
@@ -633,10 +616,7 @@ export default function AboutPage() {
                                 variants={fadeUp}
                                 className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group text-center cursor-default"
                             >
-                                <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" style={{ backgroundColor: `${act.color}12` }}>
-                                    <act.icon className="w-7 h-7" style={{ color: act.color }} />
-                                </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-[15px]">{act.title}</h3>
+                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-[15px] mt-2">{act.title}</h3>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -668,7 +648,9 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <span className="text-emerald-600 dark:text-emerald-400 font-body font-semibold text-sm mb-3 inline-flex items-center gap-2 bg-emerald-50/80 dark:bg-emerald-900/20 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-emerald-200/50 dark:border-emerald-700/30">Expert Care</span>
+                        <div className="inline-flex items-center bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200/50 dark:border-emerald-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-emerald-100/50 transition-all duration-300 w-fit">
+                            <span className="text-sm font-heading font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">Expert Care</span>
+                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                             Teacher <span className="text-[#0fb85c]">Support</span> System
                         </h2>
@@ -720,7 +702,7 @@ export default function AboutPage() {
                             <div className="space-y-5">
                                 {[
                                     { icon: HandHeart, title: "3 Mentors in Every Classroom", desc: "Individual care and personalized attention for every child, ensuring no one is left behind.", color: "#0fb85c" },
-                                    { icon: Eye, title: "On-Site Academic Executives", desc: "Specially trained Academic Executives provide timely on-site support and constant monitoring of the classroom process.", color: "#0052ff" },
+                                    { icon: Eye, title: "On-Site Academic Executives", desc: "Specially trained Academic Executives provide timely on-site support and constant monitoring of the classroom process.", color: "#3FB7E5" },
                                     { icon: Award, title: "Proven ZeeQue Curriculum", desc: "Our exclusive, tested, and proven curriculum is the result of extensive research and studies in early childhood education.", color: "#e83e8c" },
                                     { icon: GraduationCap, title: "Continuous Training", desc: "Regular professional development ensures our educators stay at the forefront of early childhood education best practices.", color: "#fbaf01" },
                                 ].map((item) => (

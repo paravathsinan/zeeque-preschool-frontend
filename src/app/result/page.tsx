@@ -69,11 +69,8 @@ export default function ResultPortalPage() {
                             className="flex-1 max-w-[450px] bg-white dark:bg-slate-900 rounded-[24px] p-8 lg:p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] border border-slate-100 dark:border-slate-800"
                         >
                             <h1 className="text-2xl font-heading font-bold text-slate-900 dark:text-white mb-4">
-                                ZET Result Portal
+                                ZeeQue Entrance Test (ZET) Result 2026
                             </h1>
-                            <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6 font-medium">
-                                Check your exam status quickly using your register number. Results are shown instantly with clear eligibility information.
-                            </p>
 
                             <h2 className="text-lg font-heading font-bold text-slate-900 dark:text-white mb-3">
                                 Why use this?

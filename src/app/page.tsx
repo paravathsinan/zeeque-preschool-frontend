@@ -1,4 +1,22 @@
+import type { Metadata } from "next";
 import TopHeader from "@/components/TopHeader";
+
+export const metadata: Metadata = {
+  title: "Best Preschool in Kerala | ZeeQue Islamic Montessori — Admissions Open 2026",
+  description: "Looking for the best preschool in Kerala? ZeeQue Islamic Montessori offers joyful, value-based early childhood education for children aged 3–6. 152+ branches. Affordable fees. Enquire now for 2026 admissions.",
+  openGraph: {
+    title: "Best Preschool in Kerala | ZeeQue Islamic Montessori — Admissions Open 2026",
+    description: "Give your child the best start in life. ZeeQue Preschool combines Islamic values with Montessori education for children aged 3–6. 152+ branches across Kerala. Affordable fees. Enquire today.",
+    images: [{ url: "/images/gallery/page-title.jpg", width: 1200, height: 630, alt: "Happy children in a classroom at ZeeQue Preschool Kerala" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Best Preschool in Kerala | ZeeQue Islamic Montessori — Admissions Open 2026",
+    description: "Give your child the best start in life. ZeeQue Preschool — Islamic Montessori education for children aged 3–6. 152+ branches. Affordable preschool fees. Enquire now.",
+    images: ["/images/gallery/page-title.jpg"],
+  },
+};
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import ChooseNextStep from "@/components/ChooseNextStep";

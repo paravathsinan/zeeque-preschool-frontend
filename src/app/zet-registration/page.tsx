@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import TopHeader from "@/components/TopHeader";
@@ -27,9 +27,9 @@ export default function ZETRegistration() {
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="font-heading font-extrabold text-[#444] dark:text-white text-4xl mb-12"
+                    className="font-heading font-extrabold text-[#444] dark:text-white text-3xl md:text-4xl mb-12 text-center"
                 >
-                    ZET Registration
+                    ZeeQue Entrance Test (ZET) Online Registration 2026
                 </motion.h1>
 
                 <motion.div

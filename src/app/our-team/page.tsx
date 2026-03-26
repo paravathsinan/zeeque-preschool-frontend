@@ -5,10 +5,10 @@ import Link from "next/link";
 import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import StatsSection from "@/components/StatsSection";
 import { motion } from "framer-motion";
 import {
-    Home, ChevronRight, Star, ArrowRight, Mail,
-    Shield, BookOpen, FlaskConical, Users,
+    Home, ChevronRight, ArrowRight, Mail, Sparkles, Star, Crown, Shield,
 } from "lucide-react";
 import type { Easing } from "framer-motion";
 
@@ -27,9 +27,9 @@ const chiefPatrons = [
 
 const directorate = [
     { name: "Dr. Hafi Azhari Al Handi", role: "Director General", image: "/images/team/MAH-1.jpg", color: "#ef4225" },
-    { name: "Rasheed Punnassery", role: "CEO", image: "/images/team/rasheed_punnashery.png", color: "#0052ff" },
+    { name: "Rasheed Punnassery", role: "CEO", image: "/images/team/rasheed_punnashery.png", color: "#3FB7E5" },
     { name: "Unais Muhammed", role: "Director Academics", image: "/images/team/unais.jpg", color: "#0fb85c" },
-    { name: "Illias Abdullah Al Hamil", role: "Academic Administrator", image: "/images/team/illias.jpg", color: "#7c3aed" },
+    { name: "Illias Abdullah Al Hamil", role: "Academic Administrator", image: "/images/team/illias.jpg", color: "#EF4225" },
 ];
 
 const councilMembers = [
@@ -84,11 +84,8 @@ export default function OurTeamPage() {
                             <span className="text-primary font-semibold">Our Team</span>
                         </div>
                         <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-5">
-                            Our <span className="text-primary">Team</span>
+                            Our Team
                         </h1>
-                        <p className="text-gray-500 dark:text-gray-400 font-body text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-                            The passionate leaders, educators, and researchers behind Zeeque Preschool&apos;s mission to nurture the next generation.
-                        </p>
                     </motion.div>
                 </div>
             </section>
@@ -99,9 +96,8 @@ export default function OurTeamPage() {
             <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-[2px] bg-primary rounded-full" />
-                            <span className="text-primary font-heading font-bold uppercase tracking-wider text-xs">Guidance</span>
+                        <div className="inline-flex items-center bg-[#ffb606]/10 border border-[#ffb606]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ffb606]/15 transition-all duration-300 w-fit">
+                            <span className="text-sm font-heading font-bold text-[#ffb606] tracking-tight">Guidance</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl">Chief Patrons</h2>
                     </motion.div>
@@ -119,7 +115,7 @@ export default function OurTeamPage() {
                                     />
                                 </div>
                                 <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg">{person.name}</h3>
-                                <p className="text-gray-400 dark:text-gray-500 font-body text-sm tracking-wide uppercase">{person.role}</p>
+                                <p className="text-gray-400 dark:text-gray-500 font-body text-sm">{person.role}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -135,9 +131,8 @@ export default function OurTeamPage() {
             <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-                        <div className="flex items-center gap-3 mb-2">
-                            <div className="w-10 h-[2px] bg-[#0052ff] rounded-full" />
-                            <span className="text-[#0052ff] font-heading font-bold uppercase tracking-wider text-xs">Leadership</span>
+                        <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 w-fit">
+                            <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Leadership</span>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl">Directorate of Zeeque Preschool</h2>
                         <p className="text-gray-500 dark:text-gray-400 font-body text-base mt-2 max-w-xl">The core leadership team driving Zeeque Preschool&apos;s vision, strategy, and academic excellence across 50+ centers.</p>
@@ -174,22 +169,24 @@ export default function OurTeamPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         {/* Council of Administration */}
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-10 h-[2px] bg-[#0fb85c] rounded-full" />
-                                <span className="text-[#0fb85c] font-heading font-bold uppercase tracking-wider text-xs">Governance</span>
+                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Governance</span>
                             </div>
-                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl mb-6">Council of Administration</h2>
+                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl mb-8">Council of Administration</h2>
 
-                            <div className="space-y-3">
+                            <div className="grid grid-cols-1 gap-4">
                                 {councilMembers.map((member) => {
                                     const [name, designation] = member.split(" — ");
                                     return (
-                                        <div key={member} className="flex items-start gap-3 p-4 rounded-xl bg-[#fafafa] dark:bg-slate-800 border border-gray-100 dark:border-slate-700 hover:border-[#0fb85c]/30 transition-colors duration-300">
-                                            <div className="w-2 h-2 rounded-full bg-[#0fb85c] mt-2 flex-shrink-0" />
-                                            <div>
-                                                <p className="font-heading font-bold text-[#222] dark:text-white text-[15px]">{name}</p>
-                                                {designation && <p className="text-gray-400 dark:text-gray-500 font-body text-xs mt-0.5">{designation}</p>}
+                                        <div key={member} className="flex flex-col p-6 rounded-2xl bg-white/40 dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700 border-l-4 border-l-[#0fb85c] hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-[#0fb85c]/10 hover:-translate-y-1 transition-all duration-300 group">
+                                            <div className="mb-1">
+                                                <p className="font-heading font-extrabold text-[#222] dark:text-white text-[19px] leading-tight group-hover:text-[#0fb85c] transition-colors">{name}</p>
                                             </div>
+                                            {designation && (
+                                                <p className="text-xs uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 group-hover:text-gray-500 transition-colors">
+                                                    {designation}
+                                                </p>
+                                            )}
                                         </div>
                                     );
                                 })}
@@ -198,13 +195,12 @@ export default function OurTeamPage() {
 
                         {/* Research & Development */}
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-                            <div className="flex items-center gap-3 mb-2">
-                                <div className="w-10 h-[2px] bg-[#7c3aed] rounded-full" />
-                                <span className="text-[#7c3aed] font-heading font-bold uppercase tracking-wider text-xs">Innovation</span>
+                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
+                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Innovation</span>
                             </div>
-                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl mb-6">Research & Development</h2>
+                            <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl mb-8">Research & Development</h2>
 
-                            <div className="space-y-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {rdMembers.map((member) => {
                                     const parenMatch = member.match(/^(.+?)\s*\((.+)\)$/);
                                     const dashMatch = member.match(/^(.+?)\s*—\s*(.+)$/);
@@ -218,12 +214,15 @@ export default function OurTeamPage() {
                                         designation = dashMatch[2];
                                     }
                                     return (
-                                        <div key={member} className="flex items-start gap-3 p-4 rounded-xl bg-[#fafafa] dark:bg-slate-800 border border-gray-100 dark:border-slate-700 hover:border-[#7c3aed]/30 transition-colors duration-300">
-                                            <div className="w-2 h-2 rounded-full bg-[#7c3aed] mt-2 flex-shrink-0" />
-                                            <div>
-                                                <p className="font-heading font-bold text-[#222] dark:text-white text-[15px]">{name}</p>
-                                                {designation && <p className="text-gray-400 dark:text-gray-500 font-body text-xs mt-0.5">{designation}</p>}
+                                        <div key={member} className="flex flex-col p-5 rounded-2xl bg-white/40 dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700 border-l-4 border-l-[#EF4225] hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-[#EF4225]/10 hover:-translate-y-1 transition-all duration-300 group">
+                                            <div className="mb-2">
+                                                <p className="font-heading font-extrabold text-[#222] dark:text-white text-[17px] leading-tight group-hover:text-[#EF4225] transition-colors">{name}</p>
                                             </div>
+                                            {designation && (
+                                                <p className="text-[11px] uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 leading-relaxed group-hover:text-gray-500 transition-colors">
+                                                    {designation}
+                                                </p>
+                                            )}
                                         </div>
                                     );
                                 })}
@@ -234,27 +233,9 @@ export default function OurTeamPage() {
             </section>
 
             {/* ══════════════════════════════════
-                STATS STRIP
+                STATS SECTION
                ══════════════════════════════════ */}
-            <section className="py-12 md:py-16 lg:py-20 bg-[#fafafa] dark:bg-slate-950">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
-                        className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
-                        {[
-                            { value: "12+", label: "Years of Experience", icon: Star },
-                            { value: "50+", label: "Learning Centers", icon: Shield },
-                            { value: "200+", label: "Trained Educators", icon: BookOpen },
-                            { value: "5000+", label: "Happy Students", icon: Users },
-                        ].map((stat) => (
-                            <div key={stat.label} className="text-center">
-                                <stat.icon className="w-5 h-5 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
-                                <div className="font-heading font-extrabold text-[#222] dark:text-white text-4xl mb-1">{stat.value}</div>
-                                <div className="text-gray-400 dark:text-gray-500 font-body text-sm">{stat.label}</div>
-                            </div>
-                        ))}
-                    </motion.div>
-                </div>
-            </section>
+            <StatsSection />
 
             {/* ══════════════════════════════════
                 CTA

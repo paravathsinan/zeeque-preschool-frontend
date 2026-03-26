@@ -1,21 +1,22 @@
-import { Metadata } from "next";
+import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: "Image Gallery | ZeeQue Preschool",
-    description: "Explore the beautiful moments and joyful learning experiences at ZeeQue Preschool through our image gallery. See our classrooms, events, and happy children.",
-    keywords: ["ZeeQue Preschool gallery", "preschool photos", "kindergarten images", "preschool activities pictures", "happy kids learning", "early childhood education gallery"],
-    openGraph: {
-        title: "Image Gallery | ZeeQue Preschool",
-        description: "A glimpse into the daily joy, learning, and colorful events at ZeeQue Preschool. View our beautiful photo gallery.",
-        url: "https://zeeque.in/gallery",
-        siteName: "ZeeQue Preschool",
-        type: "website",
-    },
-    alternates: {
-        canonical: "https://zeeque.in/gallery",
-    }
-};
+  title: "Preschool Gallery | Real Photos of ZeeQue Islamic Montessori Kerala",
+  description: "Explore real photos of ZeeQue Preschool classrooms, activities, and campus life across Kerala. See our joyful learning environment and Islamic Montessori facilities.",
+  openGraph: {
+    title: "Preschool Gallery | Real Photos of ZeeQue Islamic Montessori Kerala",
+    description: "A window into our world. Browse our gallery for real school photos of children, activities, and facilities at ZeeQue Preschool.",
+    images: [{ url: "/images/gallery/IMG_5369.JPG", width: 1200, height: 630, alt: "ZeeQue Preschool Gallery" }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Preschool Gallery | Real Photos of ZeeQue Islamic Montessori Kerala",
+    description: "Real school photos of kids and activities at ZeeQue Preschool Kerala.",
+    images: ["/images/gallery/IMG_5369.JPG"],
+  },
+}
 
 export default function GalleryLayout({ children }: { children: React.ReactNode }) {
-    return <>{children}</>;
+  return children
 }

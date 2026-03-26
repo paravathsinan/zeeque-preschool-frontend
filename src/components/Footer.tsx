@@ -7,11 +7,12 @@ import { Facebook, Instagram, Twitter, Linkedin, Youtube, MapPin, Phone, Mail, A
 import { motion, AnimatePresence } from "framer-motion";
 
 const companyLinks = [
-    { label: "About Us", href: "/about" },
-    { label: "Features", href: "/features" },
-    { label: "Online Applications", href: "/applications" },
+    { label: "About Us", href: "/about-zeeque-preschool-kerala" },
+    { label: "Our Features", href: "/best-preschool-features-kerala" },
+    { label: "Programs", href: "/preschool-programs-kerala" },
+    { label: "Curriculum", href: "/preschool-curriculum-kerala" },
+    { label: "Admissions 2026", href: "/preschool-admission-kerala-2026" },
     { label: "News & Events", href: "/events" },
-    { label: "Image Gallery", href: "/gallery" },
     { label: "Downloads", href: "/downloads" },
     { label: "Contact Us", href: "/contact" },
 ];
@@ -46,7 +47,7 @@ export default function Footer() {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
-        
+
         // Restrict phone input to numbers only
         if (name === "phone") {
             const onlyNums = value.replace(/[^0-9]/g, "");
@@ -114,10 +115,10 @@ export default function Footer() {
                             </Link>
 
                             <div className="space-y-4 mb-8">
-                                <a 
-                                    href="https://maps.google.com/?q=Zahra+Park+Koduvally+Kozhikode+Kerala+India+673572" 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
+                                <a
+                                    href="https://maps.google.com/?q=Zahra+Park+Koduvally+Kozhikode+Kerala+India+673572"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="flex items-start gap-3 group"
                                 >
                                     <div className="w-9 h-9 rounded-lg bg-[#ef4225]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#ef4225]/20 transition-colors">
@@ -130,12 +131,12 @@ export default function Footer() {
                                 </a>
 
                                 <div className="flex items-center gap-3 group">
-                                    <div className="w-9 h-9 rounded-lg bg-[#0052ff]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#0052ff]/20 transition-colors">
-                                        <Phone className="w-4 h-4 text-[#0052ff] group-hover:animate-ringing origin-center transition-transform" />
+                                    <div className="w-9 h-9 rounded-lg bg-[#3FB7E5]/10 flex items-center justify-center flex-shrink-0 group-hover:bg-[#3FB7E5]/20 transition-colors">
+                                        <Phone className="w-4 h-4 text-[#3FB7E5] group-hover:animate-ringing origin-center transition-transform" />
                                     </div>
                                     <div className="text-gray-400 font-body text-sm group-hover:text-gray-300 transition-colors">
-                                        <a href="tel:+919072500435" className="block hover:text-[#0052ff] transition-colors">+91 9072 500 435</a>
-                                        <a href="tel:04952214005" className="text-gray-500 text-xs hover:text-[#0052ff] transition-colors block">Land: 0495 221 4005</a>
+                                        <a href="tel:+919072500435" className="block hover:text-[#3FB7E5] transition-colors">+91 9072 500 435</a>
+                                        <a href="tel:04952214005" className="text-gray-500 text-xs hover:text-[#3FB7E5] transition-colors block">Land: 0495 221 4005</a>
                                     </div>
                                 </div>
 
@@ -157,8 +158,10 @@ export default function Footer() {
                                 <a href="https://instagram.com/zeeque_preschool" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-gradient-to-br hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#e6683c]/20">
                                     <Instagram className="w-4 h-4" />
                                 </a>
-                                <a href="https://twitter.com/markazonline" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#1DA1F2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#1DA1F2]/20">
-                                    <Twitter className="w-4 h-4" />
+                                <a href="https://twitter.com/markazonline" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-black flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-black/20">
+                                    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.294 19.497h2.039L6.482 3.239h-2.19L17.607 20.65z" />
+                                    </svg>
                                 </a>
                                 <a href="https://linkedin.com/company/zeeque-preschool-network" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-white/5 hover:bg-[#0A66C2] flex items-center justify-center text-gray-400 hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#0A66C2]/20">
                                     <Linkedin className="w-4 h-4" />
@@ -316,9 +319,14 @@ export default function Footer() {
                     <p className="text-gray-500 font-body text-sm">
                         All Rights Reserved by <span className="text-[#ef4225] font-medium">Zeeque Preschool</span> - 2013 to 2026
                     </p>
-                    <Link href="/terms-and-conditions" className="text-gray-500 font-body text-sm hover:text-white transition-colors">
-                        Terms and Conditions
-                    </Link>
+                    <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+                        <Link href="/terms-and-conditions" className="text-gray-500 font-body text-sm hover:text-white transition-colors">
+                            Terms and Conditions
+                        </Link>
+                        <Link href="/privacy-policy" className="text-gray-500 font-body text-sm hover:text-white transition-colors">
+                            Privacy Policy
+                        </Link>
+                    </div>
                 </div>
             </div>
             {/* Success Modal Overlay */}
@@ -339,7 +347,7 @@ export default function Footer() {
                         >
                             {/* Decorative elements */}
                             <div className="absolute top-0 right-0 w-32 h-32 bg-[#ef4225]/5 rounded-full translate-x-1/2 -translate-y-1/2 blur-2xl" />
-                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#0052ff]/5 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
+                            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#3FB7E5]/5 rounded-full -translate-x-1/2 translate-y-1/2 blur-2xl" />
 
                             <button
                                 onClick={() => setShowSuccess(false)}
@@ -365,7 +373,7 @@ export default function Footer() {
                                     Thank you for reaching out. We&apos;ve received your enquiry and our team is excited to help you explore the perfect learning path for your child. We&apos;ll get in touch with you within the next <span className="text-[#ef4225] font-bold">24 hours</span> to discuss your requirements.
                                     <br /><br />
                                     <span className="text-sm text-gray-500 italic block">
-                                    If you don&apos;t hear from us within that time, feel free to contact us through WhatsApp or call at <a href="tel:+919072500435" className="text-[#0052ff] font-bold hover:underline">+91 9072 500 435</a>.
+                                        If you don&apos;t hear from us within that time, feel free to contact us through WhatsApp or call at <a href="tel:+919072500435" className="text-[#3FB7E5] font-bold hover:underline">+91 9072 500 435</a>.
                                     </span>
                                 </p>
 
