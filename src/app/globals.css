@@ -7,7 +7,6 @@
   --foreground: #222222;
   --color-primary: #ef4225;
   --color-secondary: #fbaf01;
-  --color-text-muted: #6b7280;
 }
 
 .dark {
@@ -15,8 +14,6 @@
   /* Slate 900 */
   --foreground: #f8fafc;
   /* Slate 50 */
-  --color-text-muted: #94a3b8;
-  /* Slate 400 */
 }
 
 @theme inline {
@@ -24,7 +21,6 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
-  --color-text-muted: var(--color-text-muted);
   --font-heading: var(--font-kumbh-sans), 'Kumbh Sans', sans-serif;
   --font-body: var(--font-kumbh-sans), 'Kumbh Sans', sans-serif;
 }
@@ -35,11 +31,7 @@ body {
   font-family: var(--font-body);
 }
 
-* {
-  box-sizing: border-box;
-}
-
-h1,
+ h1,
 h2,
 h3,
 h4,

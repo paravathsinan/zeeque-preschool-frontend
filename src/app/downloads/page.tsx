@@ -4,8 +4,9 @@ import Link from "next/link";
 import TopHeader from "@/components/TopHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, Upload, FolderPlus, Undo2, ArrowLeft, FileText, Grid, List as ListIcon, ChevronDown, ChevronUp, Image as ImageIcon, Users as UsersIcon } from "lucide-react";
+import { ChevronRight, FileDown, Folder, FolderOpen, Plus, MoreVertical, X, FolderPlus, Undo2, ArrowLeft, FileText, Grid, List as ListIcon, ChevronDown, ChevronUp, Image as ImageIcon, Users as UsersIcon } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 
 const initialFolders = [
@@ -159,6 +160,23 @@ export default function DownloadsPage() {
                                 </span>
                             </div>
                             <div className="flex flex-wrap items-center gap-3">
+                                {/* Google Drive Link Button */}
+                                <a
+                                    href="https://drive.google.com/drive/folders/1N58LlziulWnB0qw-4dP-DVnwBrvgy8qF"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-300 px-4 py-2.5 rounded-xl font-heading font-medium text-sm transition-all duration-300 active:scale-95 border border-gray-200 dark:border-slate-700 group/drive"
+                                    title="Open ZeeQue Google Drive"
+                                >
+                                    <Image
+                                        src="/images/icons/google-drive.png"
+                                        alt="Google Drive"
+                                        width={22}
+                                        height={22}
+                                        className="object-contain transition-transform group-hover/drive:scale-110"
+                                    />
+                                </a>
+
                                 {/* View Mode Toggle */}
                                 <div className="flex items-center bg-gray-100 dark:bg-slate-800 p-1 rounded-xl border border-gray-200 dark:border-slate-700">
                                     <button
@@ -272,57 +290,95 @@ export default function DownloadsPage() {
                                     transition={{ duration: 0.3 }}
                                 >
                                     {/* Action bar for folder */}
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <button
-                                            onClick={() => setOpenFolder(null)}
-                                            className="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
-                                        >
-                                            <ArrowLeft className="w-5 h-5" />
-                                        </button>
-                                        <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-xl font-heading font-bold text-sm hover:bg-blue-600 transition-colors shadow-lg shadow-blue-500/20">
-                                            <Upload className="w-4 h-4" />
-                                            Upload Files
-                                        </button>
+                                    <div className="flex items-center justify-between w-full mb-6 text-zinc-900 dark:text-gray-100">
+                                        <div className="flex items-center gap-4">
+                                            <button
+                                                onClick={() => setOpenFolder(null)}
+                                                className="p-2 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-500 hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors"
+                                            >
+                                                <ArrowLeft className="w-5 h-5" />
+                                            </button>
+                                            <div className="flex flex-col">
+                                                <h2 className="font-heading font-bold text-[#222] dark:text-white text-xl">
+                                                    {folders.find(f => f.id === openFolder)?.name}
+                                                </h2>
+                                                <span className="text-gray-400 dark:text-gray-500 font-body text-xs">
+                                                    3 files
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     {/* Files Content */}
                                     <div className="bg-white/40 dark:bg-slate-800/30 backdrop-blur-xl rounded-[28px] border border-gray-200/50 dark:border-slate-700/50 overflow-hidden shadow-sm">
                                         <div className="p-4 sm:p-6">
                                             {openFolder === 1 ? (
-                                                <div className="space-y-1">
+                                                <div className={viewMode === "grid"
+                                                    ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
+                                                    : "flex flex-col space-y-1"
+                                                }>
                                                     {[
                                                         { name: "3 fold.psd", size: "307.5 MB", date: "Dec 26, 2025", color: "bg-red-500", icon: ImageIcon },
                                                         { name: "admission-post.jpg", size: "3.7 MB", date: "Dec 13, 2025", color: "bg-pink-400", icon: ImageIcon },
                                                         { name: "admission.psd", size: "92.2 MB", date: "Dec 13, 2025", color: "bg-blue-500", icon: ImageIcon },
                                                     ].map((file, i) => (
-                                                        <div key={i} className="group flex items-center gap-4 p-4 rounded-2xl hover:bg-white dark:hover:bg-slate-800/80 transition-all border border-transparent hover:border-gray-100 dark:hover:border-slate-700 hover:shadow-lg hover:shadow-gray-200/20 dark:hover:shadow-none">
-                                                            <div className={`w-12 h-12 rounded-xl ${file.color} flex items-center justify-center flex-shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
-                                                                <file.icon className="w-6 h-6 text-white" />
-                                                            </div>
-                                                            <div className="flex-1 min-w-0">
-                                                                <div className="flex items-center gap-2">
-                                                                    <h4 className="font-body font-bold text-[#222] dark:text-gray-200 text-base truncate">{file.name}</h4>
-                                                                    <UsersIcon className="w-4 h-4 text-gray-400" />
-                                                                </div>
-                                                                <div className="flex items-center gap-3 mt-1.5">
-                                                                    <div className="flex items-center gap-2">
-                                                                        <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-[10px] font-bold">P</div>
-                                                                        <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">pro</span>
+                                                        <div key={i} className={`group relative transition-all border border-transparent hover:border-gray-100 dark:hover:border-slate-700 hover:shadow-lg hover:shadow-gray-200/20 dark:hover:shadow-none ${
+                                                            viewMode === "grid"
+                                                            ? "bg-gray-50 dark:bg-slate-800/40 rounded-xl p-3.5 hover:bg-white dark:hover:bg-slate-800/80"
+                                                            : "flex items-center gap-4 p-4 rounded-2xl hover:bg-white dark:hover:bg-slate-800/80"
+                                                        }`}>
+                                                            {viewMode === "grid" ? (
+                                                                <>
+                                                                    <div className={`w-full aspect-[16/10] rounded-lg ${file.color} flex items-center justify-center mb-3 relative overflow-hidden group-hover:scale-[1.02] transition-transform`}>
+                                                                        <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none" />
+                                                                        <file.icon className="w-8 h-8 text-white drop-shadow-md" />
                                                                     </div>
-                                                                    <span className="text-gray-300 dark:text-gray-600">•</span>
-                                                                    <span className="text-xs text-gray-400 dark:text-gray-500">{file.date}</span>
-                                                                    <span className="text-gray-300 dark:text-gray-600">•</span>
-                                                                    <span className="text-xs text-gray-400 dark:text-gray-500">{file.size}</span>
-                                                                </div>
-                                                            </div>
-                                                            <div className="flex items-center gap-1">
-                                                                <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-primary transition-all">
-                                                                    <FileDown className="w-5 h-5" />
-                                                                </button>
-                                                                <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
-                                                                    <MoreVertical className="w-5 h-5" />
-                                                                </button>
-                                                            </div>
+                                                                    <div className="flex-1 min-w-0">
+                                                                        <div className="flex items-center justify-between gap-2 mb-1">
+                                                                            <h4 className="font-body font-bold text-[#222] dark:text-gray-200 text-sm truncate">{file.name}</h4>
+                                                                            <MoreVertical className="w-4 h-4 text-gray-400" />
+                                                                        </div>
+                                                                        <div className="flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400">
+                                                                            <span>{file.size}</span>
+                                                                            <span>{file.date}</span>
+                                                                        </div>
+                                                                        <button className="mt-3 w-full flex items-center justify-center gap-2 py-2 bg-white dark:bg-slate-700 border border-gray-100 dark:border-slate-600 rounded-lg text-[11px] font-bold text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-all">
+                                                                            <FileDown className="w-3.5 h-3.5" />
+                                                                            Download
+                                                                        </button>
+                                                                    </div>
+                                                                </>
+                                                            ) : (
+                                                                <>
+                                                                    <div className={`w-12 h-12 rounded-xl ${file.color} flex items-center justify-center flex-shrink-0 shadow-sm transition-transform group-hover:scale-105`}>
+                                                                        <file.icon className="w-6 h-6 text-white" />
+                                                                    </div>
+                                                                    <div className="flex-1 min-w-0">
+                                                                        <div className="flex items-center gap-2">
+                                                                            <h4 className="font-body font-bold text-[#222] dark:text-gray-200 text-base truncate">{file.name}</h4>
+                                                                            <UsersIcon className="w-4 h-4 text-gray-400" />
+                                                                        </div>
+                                                                        <div className="flex items-center gap-3 mt-1.5">
+                                                                            <div className="flex items-center gap-2">
+                                                                                <div className="w-5 h-5 rounded-full bg-green-600 text-white flex items-center justify-center text-[10px] font-bold">P</div>
+                                                                                <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">pro</span>
+                                                                            </div>
+                                                                            <span className="text-gray-300 dark:text-gray-600">•</span>
+                                                                            <span className="text-xs text-gray-400 dark:text-gray-500">{file.date}</span>
+                                                                            <span className="text-gray-300 dark:text-gray-600">•</span>
+                                                                            <span className="text-xs text-gray-400 dark:text-gray-500">{file.size}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className="flex items-center gap-1">
+                                                                        <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 hover:text-primary transition-all">
+                                                                            <FileDown className="w-5 h-5" />
+                                                                        </button>
+                                                                        <button className="w-10 h-10 rounded-xl flex items-center justify-center text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                                                                            <MoreVertical className="w-5 h-5" />
+                                                                        </button>
+                                                                    </div>
+                                                                </>
+                                                            )}
                                                         </div>
                                                     ))}
                                                 </div>
@@ -333,10 +389,6 @@ export default function DownloadsPage() {
                                                     </div>
                                                     <h4 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">No files yet</h4>
                                                     <p className="text-gray-400 dark:text-gray-500 font-body text-base max-w-xs mb-8">This folder is empty. Files added to this folder will appear here.</p>
-                                                    <button className="flex items-center gap-3 px-8 py-3 bg-blue-500 text-white rounded-2xl font-heading font-bold text-sm hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/20">
-                                                        <Upload className="w-5 h-5" />
-                                                        Upload Files
-                                                    </button>
                                                 </div>
                                             )}
                                         </div>

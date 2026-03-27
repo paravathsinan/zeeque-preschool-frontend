@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
@@ -21,15 +21,29 @@ const galleryImages = [
 
 export default function Gallery() {
     const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+    const displayedImages = galleryImages.slice(0, 3);
 
     const openLightbox = (index: number) => setSelectedIndex(index);
     const closeLightbox = () => setSelectedIndex(null);
     const goNext = () => {
-        if (selectedIndex !== null) setSelectedIndex((selectedIndex + 1) % galleryImages.length);
+        if (selectedIndex !== null) setSelectedIndex((selectedIndex + 1) % displayedImages.length);
     };
     const goPrev = () => {
-        if (selectedIndex !== null) setSelectedIndex((selectedIndex - 1 + galleryImages.length) % galleryImages.length);
+        if (selectedIndex !== null) setSelectedIndex((selectedIndex - 1 + displayedImages.length) % displayedImages.length);
     };
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (selectedIndex === null) return;
+            if (e.key === "ArrowRight") goNext();
+            if (e.key === "ArrowLeft") goPrev();
+            if (e.key === "Escape") closeLightbox();
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+        return () => window.removeEventListener("keydown", handleKeyDown);
+    }, [selectedIndex]);
 
     return (
         <section className="py-10 lg:py-16 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
@@ -58,7 +72,7 @@ export default function Gallery() {
 
                 {/* Uniform Image Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {galleryImages.slice(0, 3).map((img, index) => (
+                    {displayedImages.map((img, index) => (
                         <motion.div
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
@@ -68,7 +82,7 @@ export default function Gallery() {
                             className="cursor-pointer group"
                             onClick={() => openLightbox(index)}
                         >
-                            <div className="relative overflow-hidden rounded-2xl shadow-sm hover:shadow-xl transition-shadow duration-300 aspect-[4/3]">
+                            <div className="relative overflow-hidden rounded-3xl shadow-sm hover:shadow-xl transition-shadow duration-300 aspect-[4/3]">
                                 <Image
                                     src={img.src}
                                     alt={img.alt}
@@ -151,14 +165,14 @@ export default function Gallery() {
                             onClick={(e) => e.stopPropagation()}
                         >
                             <Image
-                                src={galleryImages[selectedIndex].src}
-                                alt={galleryImages[selectedIndex].alt}
+                                src={displayedImages[selectedIndex].src}
+                                alt={displayedImages[selectedIndex].alt}
                                 width={1200}
                                 height={800}
-                                className="w-full h-auto max-h-[80vh] object-contain rounded-xl"
+                                className="w-full h-auto max-h-[80vh] object-contain rounded-[32px]"
                             />
                             <p className="text-white/60 text-center mt-4 font-body text-sm">
-                                {selectedIndex + 1} / {galleryImages.length}
+                                {selectedIndex + 1} / {displayedImages.length}
                             </p>
                         </motion.div>
                     </motion.div>
