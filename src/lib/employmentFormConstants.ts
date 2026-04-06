@@ -81,16 +81,25 @@ export const TRAINING_RESIDENTIAL_BATCH_OPTIONS = [
     { value: "RB4", label: "RB4" },
     { value: "RB5", label: "RB5" },
     { value: "RB6", label: "RB6" },
+    { value: "RB7", label: "RB7" },
+    { value: "RB8", label: "RB8" },
+    { value: "RB9", label: "RB9" },
+    { value: "RB10", label: "RB10" },
+    { value: "RB11", label: "RB11" },
 ] as const;
 
 /**
  * When basic batch = regular — update labels/values here as programmes change.
  */
 export const TRAINING_REGULAR_BATCH_OPTIONS = [
-    { value: "regular-01", label: "Regular batch 01" },
-    { value: "regular-02", label: "Regular batch 02" },
-    { value: "regular-03", label: "Regular batch 03" },
-    { value: "regular-04", label: "Regular batch 04" },
+    { value: "regular-01", label: "Taliparamba" },
+    { value: "regular-02", label: "Thalassery" },
+    { value: "regular-03", label: "MIS Eranhipaalam" },
+    { value: "regular-04", label: "Manjeri" },
+    { value: "regular-05", label: "Edappal" },
+    { value: "regular-06", label: "Ernakulam" },
+    { value: "regular-07", label: "MEMS" },
+    { value: "regular-08", label: "IHRAM Karanthur" },
 ] as const;
 
 export const TRAINING_RESIDENTIAL_BATCH_VALUES = TRAINING_RESIDENTIAL_BATCH_OPTIONS.map((o) => o.value);
