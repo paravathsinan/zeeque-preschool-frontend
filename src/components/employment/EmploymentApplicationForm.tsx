@@ -76,6 +76,8 @@ type ConfettiPiece = {
     colorI: number;
 };
 
+const SUCCESS_AUTO_CLOSE_MS = 11000;
+
 function SubmissionSuccessScreen({
     enrollmentNumber,
     onDismiss,
@@ -84,6 +86,7 @@ function SubmissionSuccessScreen({
     onDismiss: () => void;
 }) {
     const [reduceMotion, setReduceMotion] = useState(false);
+    const [secondsLeft, setSecondsLeft] = useState(() => Math.ceil(SUCCESS_AUTO_CLOSE_MS / 1000));
 
     useEffect(() => {
         const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -92,6 +95,17 @@ function SubmissionSuccessScreen({
         mq.addEventListener("change", onChange);
         return () => mq.removeEventListener("change", onChange);
     }, []);
+
+    useEffect(() => {
+        const started = Date.now();
+        const tick = () => {
+            const msLeft = Math.max(0, SUCCESS_AUTO_CLOSE_MS - (Date.now() - started));
+            setSecondsLeft(Math.ceil(msLeft / 1000));
+            if (msLeft <= 0) onDismiss();
+        };
+        const id = window.setInterval(tick, 250);
+        return () => window.clearInterval(id);
+    }, [onDismiss]);
 
     const pieces = useMemo((): ConfettiPiece[] => {
         if (reduceMotion) return [];
@@ -185,10 +199,20 @@ function SubmissionSuccessScreen({
                     <h2 className="mb-3 font-heading text-3xl font-extrabold uppercase tracking-wide text-[#222] dark:text-white md:text-4xl">
                         Application submitted
                     </h2>
-                    <p className="mb-8 text-base leading-relaxed text-gray-600 dark:text-gray-400">
-                        Thank you for applying with ZeeQue. Your details are safely on file. Our team will review your
-                        application and reach out if we need anything else.
-                    </p>
+
+                    <div className="mb-8 rounded-2xl border border-emerald-200/70 bg-emerald-50/70 px-5 py-5 text-left dark:border-emerald-900/50 dark:bg-emerald-950/20">
+                        <p className="font-heading text-base font-extrabold text-emerald-800 dark:text-emerald-200 normal-case tracking-normal">
+                            നിങ്ങളുടെ രജിസ്‌ട്രേഷൻ വിജയകരമായി പൂർത്തിയായിരിക്കുന്നു
+                        </p>
+                        <div className="mt-3 space-y-2 text-sm text-emerald-900/90 dark:text-emerald-100/90 normal-case tracking-normal leading-relaxed">
+                            <p>
+                                പ്രൈമറി അസസ്‌മെന്റിനായി (Primary Assessment) ഒരു സീക്യൂ പ്ലസ് കോർഡിനേറ്റർ നിങ്ങളെ പിന്നീട്
+                                ബന്ധപ്പെടുന്നതാണ്. അസസ്‌മെന്റിന് ശേഷം മാത്രമായിരിക്കും നിങ്ങൾക്കുള്ള ക്ലാസുകൾ നിശ്ചയിക്കുന്നത്.
+                            </p>
+                            <p>ക്ലാസുകൾ ആരംഭിക്കുന്നത്: 2026 ജൂൺ മുതൽ</p>
+                            <p className="font-semibold">നിങ്ങളുടെ സഹകരണത്തിന് നന്ദി!</p>
+                        </div>
+                    </div>
 
                     <div className="mb-8 rounded-2xl border border-gray-200/80 bg-gray-50/90 px-5 py-5 dark:border-slate-700 dark:bg-slate-800/60">
                         <p className="mb-2 text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">
@@ -202,15 +226,32 @@ function SubmissionSuccessScreen({
                         </p>
                     </div>
 
-                    <motion.button
-                        type="button"
-                        onClick={onDismiss}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className="inline-flex min-h-[52px] w-full items-center justify-center rounded-2xl bg-primary px-8 py-3.5 font-heading text-sm font-extrabold uppercase tracking-wide text-white shadow-lg shadow-primary/30 transition-shadow hover:shadow-xl hover:shadow-primary/35 sm:w-auto"
-                    >
-                        Submit another application
-                    </motion.button>
+                    <div className="space-y-3">
+                        <div className="mx-auto max-w-sm">
+                            <div className="h-1.5 overflow-hidden rounded-full bg-gray-200/70 dark:bg-slate-700/70">
+                                <motion.div
+                                    aria-hidden
+                                    className="h-full rounded-full bg-primary"
+                                    initial={{ width: "100%" }}
+                                    animate={{ width: "0%" }}
+                                    transition={{ duration: SUCCESS_AUTO_CLOSE_MS / 1000, ease: "linear" }}
+                                />
+                            </div>
+                            <p className="mt-2 text-xs text-gray-500 dark:text-gray-400 normal-case tracking-normal">
+                                This screen will close automatically in <span className="font-bold">{secondsLeft}s</span>.
+                            </p>
+                        </div>
+
+                        <motion.button
+                            type="button"
+                            onClick={onDismiss}
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="inline-flex min-h-[52px] w-full items-center justify-center rounded-2xl bg-primary px-8 py-3.5 font-heading text-sm font-extrabold uppercase tracking-wide text-white shadow-lg shadow-primary/30 transition-shadow hover:shadow-xl hover:shadow-primary/35 sm:w-auto"
+                        >
+                            Close
+                        </motion.button>
+                    </div>
                 </motion.div>
             </div>
         </motion.div>
@@ -939,7 +980,7 @@ function StepPersonal({
                 <div className="md:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
                     <div className="min-w-0">
                         <label className={`block text-sm font-bold mb-2 ${fieldWrapClass(!!errors.state)}`}>
-                            State / Province <span className="text-red-500">*</span>
+                            State<span className="text-red-500">*</span>
                         </label>
                         <Controller
                             name="state"
