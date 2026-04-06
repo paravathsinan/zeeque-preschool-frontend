@@ -18,6 +18,8 @@ interface CustomSelectProps {
     searchable?: boolean;
     hasError?: boolean;
     label?: string;
+    /** Show labels and trigger text in capitals (values stay unchanged). */
+    uppercase?: boolean;
 }
 
 export default function CustomSelect({
@@ -28,7 +30,8 @@ export default function CustomSelect({
     className = "",
     searchable = false,
     hasError = false,
-    label
+    label,
+    uppercase = false,
 }: CustomSelectProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
@@ -68,14 +71,16 @@ export default function CustomSelect({
                 onClick={() => setIsOpen(!isOpen)}
                 className={`
                     w-full flex items-center justify-between cursor-pointer
-                    bg-[#f8f9fa] dark:bg-slate-800 border-2 border-transparent
+                    bg-white dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-600 shadow-sm
                     transition-all duration-300 rounded-2xl px-6 py-4
-                    ${isOpen ? 'border-primary/30 bg-white dark:bg-slate-700 ring-4 ring-primary/5' : ''}
-                    ${hasError ? 'border-red-500/50' : ''}
+                    ${isOpen ? 'border-primary/50 bg-white dark:bg-slate-800 ring-4 ring-primary/5 shadow-md' : ''}
+                    ${hasError ? 'border-red-500/60 bg-red-50/40 dark:bg-red-950/25' : ''}
                     ${className}
                 `}
             >
-                <span className={`truncate ${selectedOption ? 'text-gray-700 dark:text-gray-200' : 'text-gray-400'}`}>
+                <span
+                    className={`truncate ${selectedOption ? "text-gray-700 dark:text-gray-200" : "text-gray-400"} ${uppercase ? "uppercase" : ""}`}
+                >
                     {selectedOption ? selectedOption.label : placeholder}
                 </span>
                 <ChevronDown 
@@ -99,9 +104,9 @@ export default function CustomSelect({
                                     <input
                                         type="text"
                                         placeholder="Search..."
-                                        className="w-full bg-gray-50 dark:bg-slate-800 rounded-xl pl-10 pr-4 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+                                        className={`w-full bg-gray-50 dark:bg-slate-800 rounded-xl pl-10 pr-4 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/20 transition-all ${uppercase ? "uppercase" : ""}`}
                                         value={searchTerm}
-                                        onChange={(e) => setSearchTerm(e.target.value)}
+                                        onChange={(e) => setSearchTerm(uppercase ? e.target.value.toUpperCase() : e.target.value)}
                                         onClick={(e) => e.stopPropagation()}
                                     />
                                 </div>
@@ -122,6 +127,7 @@ export default function CustomSelect({
                                             ${value === option.value 
                                                 ? 'bg-primary/10 text-primary font-bold' 
                                                 : 'hover:bg-gray-50 dark:hover:bg-slate-800 text-gray-600 dark:text-gray-300'}
+                                            ${uppercase ? "uppercase" : ""}
                                         `}
                                     >
                                         <span>{option.label}</span>
