@@ -15,6 +15,7 @@ import {
 } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion, AnimatePresence } from "framer-motion";
+import imageCompression from "browser-image-compression";
 import {
     User,
     Users,
@@ -393,8 +394,8 @@ export default function EmploymentApplicationForm() {
     const trainingFA = useFieldArray({ control, name: "trainingHistory" });
     const longLeaveFA = useFieldArray({ control, name: "longLeaveRows" });
 
-    const handlePhotoFile = useCallback((file: File | null | undefined) => {
-        const f = file ?? null;
+    const handlePhotoFile = useCallback(async (file: File | null | undefined) => {
+        let f = file ?? null;
         setPhotoError(null);
         if (!f) {
             if (photoInputRef.current) photoInputRef.current.value = "";
@@ -407,6 +408,22 @@ export default function EmploymentApplicationForm() {
             if (photoInputRef.current) photoInputRef.current.value = "";
             return;
         }
+
+        try {
+            const options = {
+                maxSizeMB: 1,
+                maxWidthOrHeight: 1920,
+                useWebWorker: true,
+            };
+            console.log(`[Image Optimization] Original size: ${(f.size / 1024 / 1024).toFixed(2)} MB`);
+            const compressed = await imageCompression(f, options);
+            console.log(`[Image Optimization] Compressed size: ${(compressed.size / 1024 / 1024).toFixed(2)} MB`);
+            f = compressed;
+        } catch (error) {
+            console.error("Image compression error:", error);
+            // Fallback to original file if compression fails
+        }
+
         if (f.size > PHOTO_MAX_BYTES) {
             setPhotoError("Photo must be 5MB or smaller.");
             if (photoInputRef.current) photoInputRef.current.value = "";
@@ -1333,7 +1350,9 @@ function StepEmployment({
                         <Err name={errors.isZahrawi?.message} />
                     </div>
                     <div className="min-w-0">
-                        <label className="block text-sm font-bold mb-2 text-gray-700 dark:text-gray-300">Join date (if applicable)</label>
+                        <label className={`block text-sm font-bold mb-2 ${fieldWrapClass(!!errors.currentSchoolJoinDate)}`}>
+                            RB Join Date <span className="text-red-500">*</span>
+                        </label>
                         <Controller
                             name="currentSchoolJoinDate"
                             control={control}
@@ -1341,7 +1360,7 @@ function StepEmployment({
                                 <DatePicker
                                     value={field.value || ""}
                                     onChange={field.onChange}
-                                    placeholder="Optional"
+                                    placeholder="Select date"
                                     hasError={!!errors.currentSchoolJoinDate}
                                     uppercase
                                     className={inputClass(!!errors.currentSchoolJoinDate)}
@@ -1808,7 +1827,7 @@ function labelFor(key: keyof EmploymentApplicationFormValues): string {
         isZahrawi: "Zahrawi",
         zahrawiYear: "Zahrawi year",
         currentSchoolName: "Current school",
-        currentSchoolJoinDate: "School join date",
+        currentSchoolJoinDate: "RB Join Date",
     };
     return map[key] ?? String(key);
 }

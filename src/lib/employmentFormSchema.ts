@@ -124,7 +124,7 @@ export const employmentApplicationSchema = z
             .string()
             .min(1, "Select your school or N/A if not listed / not working")
             .refine((v) => WORK_CURRENT_SCHOOL_VALUE_SET.has(v), "Choose a school from the list or N/A"),
-        currentSchoolJoinDate: optionalDateStr,
+        currentSchoolJoinDate: dateStr("RB Join Date"),
         isZahrawi: z.enum(["yes", "no"], { message: "Please select if you are Zahrawi" }),
         zahrawiYear: z.string().default(""),
         religiousEdu: z.string().min(1, "Religious education is required"),
