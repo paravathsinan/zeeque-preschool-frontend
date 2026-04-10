@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
 export default function WhoWeAre() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <section className="py-10 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
@@ -82,9 +81,11 @@ export default function WhoWeAre() {
                         </div>
 
                         {/* Bottom Wide Video Card */}
-                        <div
+                        <Link
+                            href="https://www.youtube.com/watch?v=AQc09O3uEbM"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer border-2 border-white/10"
-                            onClick={() => setIsModalOpen(true)}
                         >
                             {/* Background Video */}
                             <video
@@ -98,17 +99,9 @@ export default function WhoWeAre() {
                                 <source src="/videos/ZAHRATUL_QUR_AN_THE_ZEE_QUE_PRESCHOOL_ENGLISH_PROMO_VIDEO_1080P - Trim.mp4" type="video/mp4" />
                             </video>
 
-                            {/* Refined Dark Overlay & Play Button */}
-                            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
-                                <div className="relative flex items-center justify-center">
-                                    {/* Subtle Pulse Animation */}
-                                    <div className="absolute w-[140%] h-[140%] bg-white/10 rounded-full animate-ping duration-[3000ms]"></div>
-                                    <div className="relative w-20 h-20 bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center text-[#e83e8c] shadow-[0_0_30px_rgba(0,0,0,0.3)] transition-all duration-300 group-hover:scale-110 group-hover:bg-white z-10">
-                                        <Play className="w-8 h-8 ml-1 fill-current" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            {/* Subtle Overlay on hover */}
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
+                        </Link>
                     </div>
 
 
@@ -117,47 +110,6 @@ export default function WhoWeAre() {
 
             </div>
 
-            {/* YouTube Modal */}
-            <AnimatePresence>
-                {isModalOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
-                        onClick={() => setIsModalOpen(false)}
-                    >
-                        <motion.div
-                            initial={{ scale: 0.95, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.95, opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeOut" }}
-                            className="relative w-full max-w-4xl aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl"
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            <button
-                                className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-colors border border-white/10"
-                                onClick={() => setIsModalOpen(false)}
-                                aria-label="Close video"
-                            >
-                                <X className="w-5 h-5" />
-                            </button>
-                            {/* Lazy Loaded YouTube Iframe */}
-                            <iframe
-                                width="100%"
-                                height="100%"
-                                src="https://www.youtube.com/embed/AQc09O3uEbM?si=c42bVPC0Jfz4fd2G&autoplay=1"
-                                title="YouTube video player"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                referrerPolicy="strict-origin-when-cross-origin"
-                                allowFullScreen
-                                className="w-full h-full border-0 bg-black"
-                            ></iframe>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </section>
     );
 }
