@@ -26,6 +26,14 @@ export default function AdminDashboardLayout({
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const router = useRouter();
 
+  // Authentication Guard
+  React.useEffect(() => {
+    const isAuthenticated = sessionStorage.getItem("is_admin_authenticated") === "true";
+    if (!isAuthenticated) {
+      router.replace("/?login=true");
+    }
+  }, [router]);
+
   const menuItems = [
     { name: "Dashboard", icon: LayoutDashboard, href: "#" },
     { name: "RB (Teacher Trainees)", icon: GraduationCap, href: "/admin-dashboard", active: true },
@@ -33,6 +41,7 @@ export default function AdminDashboardLayout({
   ];
 
   const handleLogout = () => {
+    sessionStorage.removeItem("is_admin_authenticated");
     router.push("/");
   };
 
@@ -46,7 +55,7 @@ export default function AdminDashboardLayout({
       >
         {/* Logo Section */}
         <div className="h-16 flex items-center px-4 border-b border-gray-100 dark:border-slate-800">
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/admin-dashboard" className="flex items-center gap-3">
             <div className={`relative ${isSidebarOpen ? "w-10" : "w-10"} h-10 overflow-hidden rounded-xl bg-primary/10 flex items-center justify-center shrink-0`}>
               <Image src="/images/logo/logo-new.svg" alt="Logo" width={40} height={40} className="object-contain" />
             </div>

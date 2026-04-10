@@ -46,6 +46,7 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
         // Mock Admin Login Check
         if (data.username === "zqpreschool" && data.password === "admin@1234") {
             // Success! Mock login
+            sessionStorage.setItem("is_admin_authenticated", "true");
             onClose();
             router.push("/admin-dashboard");
         } else {
