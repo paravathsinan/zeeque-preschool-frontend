@@ -1,7 +1,8 @@
 "use client";
 
-import { X, Eye, EyeOff, Send, CheckCircle, AlertCircle } from "lucide-react";
+import { X, Eye, EyeOff, Send, AlertCircle, User, Lock } from "lucide-react";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
@@ -9,8 +10,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 const loginSchema = z.object({
-    email: z.string().email("Please enter a valid email address"),
-    password: z.string().min(6, "Password must be at least 6 characters"),
+    username: z.string().min(1, "Username is required"),
+    password: z.string().min(1, "Password is required"),
 });
 
 type LoginFormData = z.infer<typeof loginSchema>;
@@ -24,8 +25,10 @@ interface SignInModalProps {
 
 export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgotPassword }: SignInModalProps) {
     const [showPassword, setShowPassword] = useState(false);
-    const [loginRole, setLoginRole] = useState<'ao' | 'franchise' | 'admin'>('ao');
     const [shakeFields, setShakeFields] = useState<Record<string, boolean>>({});
+    const [loginError, setLoginError] = useState<string | null>(null);
+    const router = useRouter();
+    const loginRole = 'admin';
 
     const {
         register,
@@ -34,12 +37,24 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
         reset,
     } = useForm<LoginFormData>({
         resolver: zodResolver(loginSchema),
-        mode: "onTouched",
+        mode: "onSubmit",
     });
 
     const onSubmit = (data: LoginFormData) => {
-        console.log("Login submitted:", { ...data, role: loginRole });
-        // Handle login submission here
+        setLoginError(null);
+        
+        // Mock Admin Login Check
+        if (data.username === "zqpreschool" && data.password === "admin@1234") {
+            // Success! Mock login
+            onClose();
+            router.push("/admin-dashboard");
+        } else {
+            setLoginError("Invalid username or password");
+            // Highlight fields with error
+            const newShake: Record<string, boolean> = { username: true, password: true };
+            setShakeFields(newShake);
+            setTimeout(() => setShakeFields({}), 400);
+        }
     };
 
     const onError = (fieldErrors: Record<string, unknown>) => {
@@ -59,9 +74,8 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
 
     const getInputClasses = (fieldName: keyof LoginFormData) => {
         const { hasError, isValid } = getFieldState(fieldName);
-        const base = "w-full bg-[#F3F4F6] dark:bg-slate-800/50 border rounded-[16px] py-3 px-4 pr-10 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all duration-300 font-medium text-[14px]";
+        const base = "w-full bg-[#F3F4F6] dark:bg-slate-800/50 border rounded-[16px] py-3 pl-11 pr-10 text-gray-900 dark:text-white placeholder:text-gray-400 focus:outline-none focus:bg-white dark:focus:bg-slate-800 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all duration-300 font-medium text-[14px]";
         if (hasError) return `${base} border-red-400 dark:border-red-500 focus:ring-2 focus:ring-red-400/50 ${shakeFields[fieldName] ? 'animate-shake' : ''}`;
-        if (isValid) return `${base} border-green-400 dark:border-green-500 focus:ring-2 focus:ring-green-400/50`;
         return `${base} border-transparent focus:ring-2 focus:ring-[#ffb606]/50 focus:shadow-[0_0_15px_rgba(255,182,6,0.15)]`;
     };
 
@@ -69,11 +83,14 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
+            document.body.classList.add("modal-open");
         } else {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
         }
         return () => {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
         };
     }, [isOpen]);
 
@@ -113,62 +130,51 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
                             </button>
 
                             <div className="max-w-md mx-auto w-full pt-1">
-                                {/* Login Role Tabs */}
-                                <div className="flex gap-2 mb-3 justify-center">
-                                    {[
-                                        { key: 'ao' as const, label: 'AO', activeClass: 'bg-gradient-to-br from-[#4361EE] to-[#3A56D4] text-white shadow-lg shadow-blue-500/20' },
-                                        { key: 'franchise' as const, label: 'Franchise', activeClass: 'bg-gradient-to-br from-[#2DC653] to-[#1FAB40] text-white shadow-lg shadow-green-500/20' },
-                                        { key: 'admin' as const, label: 'Admin', activeClass: 'bg-gradient-to-br from-[#7B61FF] to-[#6345E0] text-white shadow-lg shadow-purple-500/20' },
-                                    ].map((role) => (
-                                        <button
-                                            key={role.key}
-                                            type="button"
-                                            onClick={() => setLoginRole(role.key)}
-                                            className={`px-3 py-1 rounded-full text-[12px] font-bold transition-all duration-300 ${loginRole === role.key
-                                                ? role.activeClass
-                                                : 'bg-white/60 dark:bg-slate-800/60 text-gray-600 dark:text-gray-300 border border-gray-200/60 dark:border-gray-700/60 hover:bg-white dark:hover:bg-slate-700/80'
-                                                }`}
-                                        >
-                                            {role.label}
-                                        </button>
-                                    ))}
+                                {/* Admin Title Only */}
+                                <div className="flex justify-center mb-3">
+                                    <div className="bg-gradient-to-br from-[#7B61FF] to-[#6345E0] text-white shadow-lg shadow-purple-500/20 px-5 py-1.5 rounded-full text-[13px] font-bold">
+                                        Admin
+                                    </div>
                                 </div>
 
                                 <div className="text-center mb-4">
                                     <h2 className="text-xl leading-tight font-heading font-extrabold text-[#1A1A1A] dark:text-white mb-0.5 tracking-tight">
-                                        Welcome Back
+                                        Admin Login
                                     </h2>
                                     <p className="text-[#6B7280] dark:text-gray-400 text-[11px] font-medium">
-                                        Sign in to access the Zeeque platform
+                                        Enter your credentials to access the dashboard
                                     </p>
                                 </div>
 
                                 <form className="space-y-3" onSubmit={handleSubmit(onSubmit, onError)} noValidate>
-                                    {/* Email Field */}
+                                    {/* Username Field */}
                                     <div>
+                                        <label className="block text-[#1A1A1A] dark:text-white text-[13px] font-bold mb-1.5 ml-1">
+                                            Enter Username
+                                        </label>
                                         <div className="relative">
+                                            <User className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-400" />
                                             <input
-                                                type="email"
-                                                id="signin-email"
-                                                autoComplete="email"
-                                                placeholder="Email Address"
-                                                {...register("email")}
-                                                className={getInputClasses("email")}
+                                                type="text"
+                                                id="signin-username"
+                                                autoComplete="username"
+                                                placeholder="Enter your username"
+                                                {...register("username")}
+                                                className={getInputClasses("username")}
                                             />
                                             <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none">
-                                                {getFieldState("email").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
-                                                {getFieldState("email").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
+                                                {getFieldState("username").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
                                             </div>
                                         </div>
                                         <AnimatePresence>
-                                            {getFieldState("email").hasError && (
+                                            {getFieldState("username").hasError && (
                                                 <motion.p
                                                     initial={{ opacity: 0, y: -4 }}
                                                     animate={{ opacity: 1, y: 0 }}
                                                     exit={{ opacity: 0, y: -4 }}
                                                     className="text-red-500 text-[12px] font-medium mt-1.5 ml-5"
                                                 >
-                                                    {errors.email?.message}
+                                                    {errors.username?.message}
                                                 </motion.p>
                                             )}
                                         </AnimatePresence>
@@ -176,18 +182,21 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
 
                                     {/* Password Field */}
                                     <div>
+                                        <label className="block text-[#1A1A1A] dark:text-white text-[13px] font-bold mb-1.5 ml-1">
+                                            Password
+                                        </label>
                                         <div className="relative">
+                                            <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-400" />
                                             <input
                                                 type={showPassword ? "text" : "password"}
                                                 id="signin-password"
                                                 autoComplete="current-password"
-                                                placeholder="••••••••••••"
+                                                placeholder="Enter your password"
                                                 {...register("password")}
                                                 className={getInputClasses("password")}
                                             />
                                             <div className="absolute right-5 top-1/2 -translate-y-1/2 flex items-center gap-2">
                                                 <span className="pointer-events-none">
-                                                    {getFieldState("password").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
                                                     {getFieldState("password").hasError && <AlertCircle className="w-[18px] h-[18px] text-red-500" />}
                                                 </span>
                                                 <button
@@ -213,15 +222,13 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
                                         </AnimatePresence>
                                     </div>
 
-                                    <div className="flex justify-end pr-2 pt-0.5">
-                                        <button
-                                            type="button"
-                                            onClick={onForgotPassword}
-                                            className="text-[11px] font-bold text-[#4361EE] hover:text-[#3A56D4] transition-colors"
-                                        >
-                                            Forgot Password?
-                                        </button>
-                                    </div>
+
+                                    {loginError && (
+                                        <div className="flex items-center gap-2 p-3 mb-3 text-xs font-bold text-red-500 rounded-xl bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-900/50 uppercase tracking-wide">
+                                            <AlertCircle className="w-4 h-4" />
+                                            {loginError}
+                                        </div>
+                                    )}
 
                                     <div className="pt-2 mt-1 border-t border-dashed border-gray-200/60 dark:border-slate-800">
                                         <button
@@ -237,19 +244,6 @@ export default function SignInModal({ isOpen, onClose, onSwitchToSignUp, onForgo
 
 
 
-                                {/* Bottom Links */}
-                                <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2 border-t border-gray-100 dark:border-slate-800 pt-3">
-                                    <div className="text-[12px]">
-                                        <span className="text-gray-500 dark:text-gray-400">Don't have an account? </span>
-                                        <button
-                                            type="button"
-                                            onClick={onSwitchToSignUp}
-                                            className="font-bold text-primary hover:text-primary/80 transition-colors"
-                                        >
-                                            Sign up
-                                        </button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </motion.div>

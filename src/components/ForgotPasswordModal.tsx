@@ -70,13 +70,16 @@ export default function ForgotPasswordModal({ isOpen, onClose }: ForgotPasswordM
     useEffect(() => {
         if (isOpen) {
             document.body.style.overflow = "hidden";
+            document.body.classList.add("modal-open");
             setIsSubmitted(false);
             reset();
         } else {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
         }
         return () => {
             document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
         };
     }, [isOpen, reset]);
 

@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send, Bot, Volume2, VolumeX } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 interface Message {
     id: number;
@@ -24,6 +25,7 @@ const welcomeMessage: Message = {
 };
 
 export default function AIChatBot() {
+    const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
@@ -102,6 +104,8 @@ export default function AIChatBot() {
         }, 800);
     };
 
+    if (pathname?.startsWith("/admin-dashboard")) return null;
+
     return (
         <>
             {/* Chat Popup */}
@@ -112,7 +116,7 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[480px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700"
+                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[480px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hide-on-modal"
                     >
                         {/* Header */}
                         <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#EF4225] p-5 flex items-center gap-3 shrink-0">
@@ -222,7 +226,7 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.8, y: 10, transition: { duration: 0.2 } }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                        className="fixed bottom-[84px] right-4 sm:bottom-[114px] sm:right-8 z-[110] cursor-pointer group/tooltip perspective-1000"
+                        className="fixed bottom-[84px] right-4 sm:bottom-[114px] sm:right-8 z-[110] cursor-pointer group/tooltip perspective-1000 hide-on-modal"
                         onClick={() => {
                             setIsOpen(true);
                             setShowPopup(false);
@@ -275,7 +279,7 @@ export default function AIChatBot() {
                             setIsOpen(true);
                             setShowPopup(false);
                         }}
-                        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20"
+                        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20 hide-on-modal"
                         aria-label="Open AI chat"
                     >
 
