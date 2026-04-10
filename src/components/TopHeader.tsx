@@ -8,7 +8,9 @@ import SignInModal from "./SignInModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
 import { useSearchParams } from "next/navigation";
 
-export default function TopHeader() {
+import { Suspense } from "react";
+
+function TopHeaderInner() {
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [mounted, setMounted] = useState(false);
     const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
@@ -35,18 +37,6 @@ export default function TopHeader() {
             }
         }
     }, [searchParams]);
-
-
-
-    useEffect(() => {
-        setMounted(true);
-        if (typeof window !== "undefined") {
-            const saved = localStorage.getItem("theme");
-            const prefersDark = saved === "dark";
-            setIsDarkMode(prefersDark);
-            document.documentElement.classList.toggle("dark", prefersDark);
-        }
-    }, []);
 
     const toggleTheme = () => {
         const next = !isDarkMode;
@@ -139,7 +129,6 @@ export default function TopHeader() {
                 onClose={() => setIsSignInModalOpen(false)}
                 onSwitchToSignUp={() => {
                     setIsSignInModalOpen(false);
-                    // The "Enquiry Now" mapping to LoginModal is in Hero/Navbar.
                 }}
                 onForgotPassword={() => {
                     setIsSignInModalOpen(false);
@@ -152,5 +141,13 @@ export default function TopHeader() {
                 onClose={() => setIsForgotPasswordModalOpen(false)}
             />
         </div>
+    );
+}
+
+export default function TopHeader() {
+    return (
+        <Suspense fallback={null}>
+            <TopHeaderInner />
+        </Suspense>
     );
 }
