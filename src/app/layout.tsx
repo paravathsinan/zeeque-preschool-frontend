@@ -13,6 +13,7 @@ const kumbhSans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("http://localhost:3000"),
   title: "India's Fastest Growing Islamic Preschool Network | ZeeQue",
   description: "Zeeque Preschool - A unique and state-of-the-art Early Childhood Care and Education program.",
 };

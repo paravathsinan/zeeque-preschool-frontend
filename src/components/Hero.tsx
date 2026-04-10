@@ -20,12 +20,30 @@ const heroImages = [
 export default function Hero() {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+    // Effect to handle the rotation timer + preloading
     useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-        }, 3000);
-        return () => clearInterval(interval);
-    }, []);
+        const timer = setTimeout(() => {
+            const nextIndex = (currentImageIndex + 1) % heroImages.length;
+            
+            // Native JS preloading is more reliable than hidden components
+            const img = new window.Image();
+            img.src = heroImages[nextIndex];
+            
+            const handleLoad = () => {
+                setCurrentImageIndex(nextIndex);
+            };
+
+            // If it's already cached or loads successfully
+            if (img.complete) {
+                handleLoad();
+            } else {
+                img.onload = handleLoad;
+                img.onerror = handleLoad; // Move anyway if error to avoid sticking
+            }
+        }, 5000); 
+
+        return () => clearTimeout(timer);
+    }, [currentImageIndex]);
     return (
         <section className="relative w-full pt-16 pb-48 overflow-hidden z-0">
 
@@ -106,13 +124,13 @@ export default function Hero() {
                                 overflow: 'hidden'
                             }}
                         >
-                            <AnimatePresence>
+                            <AnimatePresence initial={false}>
                                 <motion.div
                                     key={currentImageIndex}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.8 }}
+                                    exit={{ opacity: 0, transition: { duration: 0.5 } }}
+                                    transition={{ duration: 0.8, ease: "easeInOut" }}
                                     className="absolute inset-0 w-full h-full"
                                 >
                                     <Image
@@ -120,7 +138,7 @@ export default function Hero() {
                                         alt="Happy child engaged in fun learning activities at Zeeque Preschool in Kozhikode, Kerala."
                                         fill
                                         className="object-cover"
-                                        priority={currentImageIndex === 0}
+                                        priority
                                         sizes="(max-width: 1024px) 90vw, 50vw"
                                     />
                                 </motion.div>

@@ -31,6 +31,10 @@ body {
   font-family: var(--font-body);
 }
 
+body.modal-open .hide-on-modal {
+  display: none !important;
+}
+
  h1,
 h2,
 h3,
@@ -39,6 +43,7 @@ h5,
 h6 {
   font-family: var(--font-heading);
 }
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {

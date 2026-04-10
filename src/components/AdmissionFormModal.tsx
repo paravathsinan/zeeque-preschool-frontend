@@ -1,7 +1,7 @@
 "use client";
 
 import { X, CloudDownload, CheckCircle, AlertCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -39,6 +39,20 @@ export default function AdmissionFormModal({ isOpen, onClose }: AdmissionFormMod
         resolver: zodResolver(admissionSchema),
         mode: "onTouched",
     });
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+            document.body.classList.add("modal-open");
+        } else {
+            document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+            document.body.classList.remove("modal-open");
+        };
+    }, [isOpen]);
 
     if (!isOpen) return null;
 

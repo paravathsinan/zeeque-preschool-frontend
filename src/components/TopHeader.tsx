@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import AdmissionFormModal from "./AdmissionFormModal";
 import SignInModal from "./SignInModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
+import { useSearchParams } from "next/navigation";
 
 export default function TopHeader() {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -13,6 +14,27 @@ export default function TopHeader() {
     const [isAdmissionModalOpen, setIsAdmissionModalOpen] = useState(false);
     const [isSignInModalOpen, setIsSignInModalOpen] = useState(false);
     const [isForgotPasswordModalOpen, setIsForgotPasswordModalOpen] = useState(false);
+    
+    const searchParams = useSearchParams();
+
+    useEffect(() => {
+        setMounted(true);
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem("theme");
+            const prefersDark = saved === "dark";
+            setIsDarkMode(prefersDark);
+            document.documentElement.classList.toggle("dark", prefersDark);
+            
+            // Auto-open login if redirected from dashboard
+            const loginRequired = searchParams.get("login") === "true";
+            if (loginRequired) {
+                setIsSignInModalOpen(true);
+                // Optionally clear the URL param without refresh
+                const newUrl = window.location.pathname;
+                window.history.replaceState({}, '', newUrl);
+            }
+        }
+    }, [searchParams]);
 
 
 
