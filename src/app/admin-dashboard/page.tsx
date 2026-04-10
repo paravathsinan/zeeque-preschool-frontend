@@ -141,7 +141,7 @@ export default function AdminDashboardPage() {
   const [actionType, setActionType] = useState<"view" | "edit" | "delete" | null>(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
-  
+
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 50;
@@ -610,7 +610,13 @@ export default function AdminDashboardPage() {
                         <td className="px-4 py-3">
                           <div className="flex items-center gap-3">
                             <div className="relative w-9 h-9 shrink-0 rounded-xl overflow-hidden border-2 border-white dark:border-slate-800 shadow-sm ring-2 ring-gray-100 dark:ring-slate-800 group-hover:scale-110 transition-transform duration-300">
-                              <Image src={trainee.photo} alt={trainee.name} fill className="object-cover" />
+                              <Image 
+                                src={trainee.photo} 
+                                alt={trainee.name} 
+                                fill 
+                                unoptimized
+                                className="object-cover" 
+                              />
                             </div>
                             <div className="flex flex-col">
                               <span className="font-bold text-gray-900 dark:text-white text-[14px] group-hover:text-primary transition-colors">{trainee.name}</span>
@@ -790,7 +796,13 @@ export default function AdminDashboardPage() {
               <div className="w-full md:w-64 bg-gray-50 dark:bg-slate-800/50 border-r border-gray-100 dark:border-slate-800 p-6 flex flex-col">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="relative w-12 h-12 rounded-2xl overflow-hidden shadow-sm border border-white dark:border-slate-700">
-                    <Image src={selectedTrainee.photo} alt={selectedTrainee.name} fill className="object-cover" />
+                    <Image 
+                      src={selectedTrainee.photo} 
+                      alt={selectedTrainee.name} 
+                      fill 
+                      unoptimized
+                      className="object-cover" 
+                    />
                   </div>
                   <div className="min-w-0">
                     <h3 className="font-bold text-gray-900 dark:text-white text-sm truncate">{selectedTrainee.name}</h3>
