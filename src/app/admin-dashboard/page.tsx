@@ -246,7 +246,7 @@ export default function AdminDashboardPage() {
     if (actionType === "delete" && selectedTrainee) {
       setIsProcessing(true);
       try {
-        const url = `${API_BASE_URL}/api/v1/admin/applications/${selectedTrainee.id}/`;
+        const url = `${API_BASE_URL}/api/v1/admin/applications/${selectedTrainee.api_id}/`;
         const response = await fetch(url, {
           method: 'DELETE',
           headers: {
@@ -260,11 +260,10 @@ export default function AdminDashboardPage() {
           setIsVerifyOpen(false);
           setSelectedTrainee(null);
         } else {
-          const errorData = await response.json().catch(() => ({}));
-          showToast(`Delete failed: ${errorData.detail || "Not Found"} (${url})`, "error");
+          showToast("Could not delete. This feature is being updated.", "error");
         }
       } catch (err: any) {
-        showToast(`Network error: ${err.message}`, "error");
+        showToast("System error: Unable to connect to server.", "error");
       } finally {
         setIsProcessing(false);
       }
@@ -307,7 +306,7 @@ export default function AdminDashboardPage() {
         }
       };
 
-      const url = `${API_BASE_URL}/api/v1/admin/applications/${selectedTrainee.id}/`;
+      const url = `${API_BASE_URL}/api/v1/admin/applications/${selectedTrainee.api_id}/`;
       const response = await fetch(url, {
         method: 'PATCH',
         headers: {
@@ -323,12 +322,10 @@ export default function AdminDashboardPage() {
         setIsDetailOpen(false);
         setIsEditMode(false);
       } else {
-        const errorData = await response.json().catch(() => ({}));
-        const errorMessage = errorData.detail || errorData.message || "Not Found";
-        showToast(`${errorMessage} (${url})`, "error");
+        showToast("Could not save. This feature is being updated.", "error");
       }
     } catch (err: any) {
-      showToast(err.message || "Error saving changes", "error");
+      showToast("System error: Unable to connect to server.", "error");
     } finally {
       setIsProcessing(false);
     }
