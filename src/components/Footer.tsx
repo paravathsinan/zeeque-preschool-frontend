@@ -175,7 +175,7 @@ export default function Footer() {
                         {/* Column 2: Company Links */}
                         <div>
                             <h3 className="font-heading font-bold text-white text-lg mb-6 relative">
-                                Our Company
+                                Quick Links
                                 <span className="absolute -bottom-2 left-0 w-10 h-[3px] bg-[#ef4225] rounded-full" />
                             </h3>
 

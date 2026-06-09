@@ -77,7 +77,7 @@ const eventsData = [
 
 
 export default function EventsPage() {
-    const [activeTab, setActiveTab] = useState<'news' | 'events'>('news');
+    const [activeTab, setActiveTab] = useState<'news' | 'events'>('events');
 
     return (
         <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
@@ -210,6 +210,15 @@ export default function EventsPage() {
                         {/* Toggle Buttons */}
                         <div className="flex items-center p-1.5 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-gray-100 dark:border-slate-700">
                             <button
+                                onClick={() => setActiveTab('events')}
+                                className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'events'
+                                    ? 'bg-[#3FB7E5] text-white shadow-md'
+                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                                    }`}
+                            >
+                                Events
+                            </button>
+                            <button
                                 onClick={() => setActiveTab('news')}
                                 className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'news'
                                     ? 'bg-[#3FB7E5] text-white shadow-md'
@@ -217,15 +226,6 @@ export default function EventsPage() {
                                     }`}
                             >
                                 News
-                            </button>
-                            <button
-                                onClick={() => setActiveTab('events')}
-                                className={`px-8 py-3 rounded-xl font-heading font-bold text-[15px] transition-all duration-300 ${activeTab === 'events'
-                                    ? 'bg-[#fbaf01] text-white shadow-md'
-                                    : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
-                                    }`}
-                            >
-                                Events
                             </button>
                         </div>
                     </div>
