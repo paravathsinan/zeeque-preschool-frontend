@@ -2,25 +2,43 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, Volume2, VolumeX } from "lucide-react";
+import { MessageCircle, X, Send, Bot, Volume2, VolumeX, ExternalLink } from "lucide-react";
 import { usePathname } from "next/navigation";
+import ReactMarkdown from "react-markdown";
+
+interface Source {
+    title: string;
+    source: string;
+}
 
 interface Message {
     id: number;
     text: string;
     isBot: boolean;
+    sources?: Source[];
+    isStreaming?: boolean;
 }
 
 const quickActions = [
-    { label: "Admission Info", response: "Our admissions are currently open! You can apply online at admission.zeeque.in or visit our campus at Zahra Park, Koduvally, Kozhikode. We accept children from ages 2 to 6. Would you like to know more about the admission process?" },
-    { label: "Programs", response: "We offer comprehensive early childhood programs including Playgroup (2-3 yrs), Nursery (3-4 yrs), LKG (4-5 yrs), and UKG (5-6 yrs). Each program includes trilingual education, creative arts, physical development, and Islamic values education." },
-    { label: "Contact Us", response: "You can reach us at:\n📞 Phone: +91 9072 500 435\n📧 Email: contact@zeeque.in\n📍 Address: Zahra Park, Koduvally, Kozhikode, Kerala - 673572\n\nOur team is available to assist you!" },
-    { label: "Fee Structure", response: "For detailed fee information, please contact our admissions team at +91 9072 500 435 or visit our campus. We offer flexible payment plans and early-bird discounts for advance registrations." },
+    { label: "Admission Info", query: "How can I apply for admission at Zeeque Preschool?" },
+    { label: "Programs", query: "What programs does Zeeque Preschool offer?" },
+    { label: "Contact Us", query: "What are the contact details for Zeeque Preschool?" },
+    { label: "Fee Structure", query: "What is the fee structure at Zeeque Preschool?" },
+    { label: "ZET Exam", query: "Tell me about the ZeeQue Entrance Test (ZET) 2025-26" },
 ];
+
+const SOURCE_LINKS: Record<string, string> = {
+    about: "/about-zeeque-preschool-kerala",
+    programs: "/preschool-programs-kerala",
+    admissions: "/preschool-admission-kerala-2026",
+    contact: "/contact",
+    features: "/best-preschool-features-kerala",
+    faq: "/",
+};
 
 const welcomeMessage: Message = {
     id: 0,
-    text: "Hi! 👋 I'm Zeeque's AI assistant. How can I help you today?",
+    text: "Hi! 👋 I'm Zeeque's AI assistant. I can answer questions about our programs, admissions, fees, and more. How can I help you today?",
     isBot: true,
 };
 
@@ -31,32 +49,42 @@ export default function AIChatBot() {
     const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
     const [inputText, setInputText] = useState("");
     const [isMuted, setIsMuted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const chatHistoryRef = useRef<{ role: "user" | "assistant"; content: string }[]>([]);
 
     // Audio refs
     const sendSound = useRef<HTMLAudioElement | null>(null);
     const receiveSound = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
-        // Initialize audio objects with softer, standard messaging pop sounds
-        sendSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3'); // soft click/send pop
-        receiveSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3'); // soft ping/receive pop
+        sendSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3');
+        receiveSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3');
     }, []);
+
+    // Lock page scroll when chatbot is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isOpen]);
 
     const playSound = useCallback((type: 'send' | 'receive') => {
         if (isMuted) return;
-
         try {
             if (type === 'send' && sendSound.current) {
                 sendSound.current.currentTime = 0;
-                sendSound.current.play().catch(e => console.log('Audio play failed:', e));
+                sendSound.current.play().catch(() => {});
             } else if (type === 'receive' && receiveSound.current) {
                 receiveSound.current.currentTime = 0;
-                receiveSound.current.play().catch(e => console.log('Audio play failed:', e));
+                receiveSound.current.play().catch(() => {});
             }
-        } catch (error) {
-            console.log('Audio playback error', error);
-        }
+        } catch { /* ignore */ }
     }, [isMuted]);
 
     const scrollToBottom = () => {
@@ -68,40 +96,120 @@ export default function AIChatBot() {
     }, [messages]);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowPopup(true);
-        }, 3000);
+        const timer = setTimeout(() => setShowPopup(true), 3000);
         return () => clearTimeout(timer);
     }, []);
 
-    const handleQuickAction = (action: typeof quickActions[0]) => {
-        playSound('send');
-        const userMsg: Message = { id: Date.now(), text: action.label, isBot: false };
-        setMessages((prev) => [...prev, userMsg]);
+    /**
+     * Send a message to the RAG chat API and stream the response.
+     */
+    const sendMessage = useCallback(async (text: string) => {
+        if (!text.trim() || isLoading) return;
 
-        setTimeout(() => {
+        playSound('send');
+
+        const userMsg: Message = { id: Date.now(), text, isBot: false };
+        setMessages((prev) => [...prev, userMsg]);
+        setInputText("");
+        setIsLoading(true);
+
+        // Placeholder streaming message
+        const botMsgId = Date.now() + 1;
+        const botMsg: Message = {
+            id: botMsgId,
+            text: "",
+            isBot: true,
+            isStreaming: true,
+        };
+        setMessages((prev) => [...prev, botMsg]);
+
+        try {
+            const response = await fetch("/api/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    message: text,
+                    history: chatHistoryRef.current,
+                }),
+            });
+
+            if (!response.ok || !response.body) {
+                throw new Error("API request failed");
+            }
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let accumulated = "";
+            let sources: Source[] = [];
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+
+                accumulated += decoder.decode(value, { stream: true });
+
+                // Check if sources marker is present
+                const sourcesIdx = accumulated.indexOf("\n\n__SOURCES__:");
+                if (sourcesIdx !== -1) {
+                    const cleanText = accumulated.slice(0, sourcesIdx);
+                    const sourcesJson = accumulated.slice(sourcesIdx + "\n\n__SOURCES__:".length);
+                    try {
+                        sources = JSON.parse(sourcesJson);
+                    } catch { /* ignore parse errors */ }
+                    accumulated = cleanText;
+                }
+
+                // Update the streaming message in place
+                setMessages((prev) =>
+                    prev.map((m) =>
+                        m.id === botMsgId
+                            ? { ...m, text: accumulated, isStreaming: true }
+                            : m
+                    )
+                );
+            }
+
+            // Finalize the message — remove streaming flag, attach sources
             playSound('receive');
-            const botMsg: Message = { id: Date.now() + 1, text: action.response, isBot: true };
-            setMessages((prev) => [...prev, botMsg]);
-        }, 600);
+            setMessages((prev) =>
+                prev.map((m) =>
+                    m.id === botMsgId
+                        ? { ...m, text: accumulated, isStreaming: false, sources }
+                        : m
+                )
+            );
+
+            // Update conversation history for next turn
+            chatHistoryRef.current = [
+                ...chatHistoryRef.current,
+                { role: "user" as const, content: text },
+                { role: "assistant" as const, content: accumulated },
+            ].slice(-12); // Keep last 12 messages
+
+        } catch {
+            playSound('receive');
+            setMessages((prev) =>
+                prev.map((m) =>
+                    m.id === botMsgId
+                        ? {
+                            ...m,
+                            text: "Sorry, something went wrong. Please try again or contact us at +91 9072 500 435.",
+                            isStreaming: false,
+                        }
+                        : m
+                )
+            );
+        } finally {
+            setIsLoading(false);
+        }
+    }, [isLoading, playSound]);
+
+    const handleQuickAction = (action: typeof quickActions[0]) => {
+        sendMessage(action.query);
     };
 
     const handleSend = () => {
-        if (!inputText.trim()) return;
-        playSound('send');
-        const userMsg: Message = { id: Date.now(), text: inputText, isBot: false };
-        setMessages((prev) => [...prev, userMsg]);
-        setInputText("");
-
-        setTimeout(() => {
-            playSound('receive');
-            const botMsg: Message = {
-                id: Date.now() + 1,
-                text: "Thanks for your message! Our team will get back to you shortly. In the meantime, feel free to use the quick action buttons above for instant answers.",
-                isBot: true,
-            };
-            setMessages((prev) => [...prev, botMsg]);
-        }, 800);
+        if (inputText.trim()) sendMessage(inputText.trim());
     };
 
     if (pathname?.startsWith("/admin-dashboard")) return null;
@@ -116,7 +224,7 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[480px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hide-on-modal"
+                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[520px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hide-on-modal"
                     >
                         {/* Header */}
                         <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#EF4225] p-5 flex items-center gap-3 shrink-0">
@@ -126,8 +234,10 @@ export default function AIChatBot() {
                             <div className="flex-1">
                                 <h3 className="font-heading font-bold text-white text-sm">Zeeque AI Assistant</h3>
                                 <div className="flex items-center gap-1.5">
-                                    <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                                    <span className="text-white/70 text-xs font-body">Online</span>
+                                    <div className={`w-2 h-2 rounded-full ${isLoading ? "bg-yellow-300 animate-pulse" : "bg-green-400 animate-pulse"}`} />
+                                    <span className="text-white/70 text-xs font-body">
+                                        {isLoading ? "Thinking…" : "Online"}
+                                    </span>
                                 </div>
                             </div>
                             <div className="flex items-center gap-1">
@@ -161,13 +271,55 @@ export default function AIChatBot() {
                                     transition={{ duration: 0.3 }}
                                     className={`flex ${msg.isBot ? "justify-start" : "justify-end"}`}
                                 >
-                                    <div
-                                        className={`max-w-[85%] px-4 py-3 rounded-2xl text-sm font-body leading-relaxed whitespace-pre-line ${msg.isBot
-                                            ? "bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 rounded-bl-md shadow-sm border border-gray-100 dark:border-slate-600"
-                                            : "bg-gradient-to-r from-primary to-[#e83e8c] text-white rounded-br-md shadow-md"
-                                            }`}
-                                    >
-                                        {msg.text}
+                                    <div className="max-w-[88%]">
+                                        <div
+                                            className={`px-4 py-3 rounded-2xl text-sm font-body leading-relaxed ${msg.isBot
+                                                ? "bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 rounded-bl-md shadow-sm border border-gray-100 dark:border-slate-600"
+                                                : "bg-gradient-to-r from-primary to-[#e83e8c] text-white rounded-br-md shadow-md"
+                                                }`}
+                                        >
+                                            {msg.text ? (
+                                                <div className="markdown-content">
+                                                    <ReactMarkdown
+                                                        components={{
+                                                            p: ({ node, ...props }) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+                                                            strong: ({ node, ...props }) => <strong className="font-bold text-gray-900 dark:text-white" {...props} />,
+                                                            ul: ({ node, ...props }) => <ul className="list-disc pl-4 mb-2 space-y-1 marker:text-gray-400 dark:marker:text-gray-400" {...props} />,
+                                                            ol: ({ node, ...props }) => <ol className="list-decimal pl-4 mb-2 space-y-1 marker:text-gray-400 dark:marker:text-gray-400" {...props} />,
+                                                            li: ({ node, ...props }) => <li className="pl-1" {...props} />,
+                                                            a: ({ node, ...props }) => <a className="text-primary hover:text-[#e83e8c] hover:underline font-medium transition-colors" target="_blank" rel="noopener noreferrer" {...props} />,
+                                                            h3: ({ node, ...props }) => <h3 className="font-bold text-base mb-1 mt-3 text-gray-900 dark:text-white" {...props} />,
+                                                            h4: ({ node, ...props }) => <h4 className="font-bold text-sm mb-1 mt-2 text-gray-900 dark:text-white" {...props} />,
+                                                        }}
+                                                    >
+                                                        {msg.text}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            ) : (msg.isStreaming && (
+                                                <span className="flex gap-1 items-center h-4">
+                                                    <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
+                                                    <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
+                                                    <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        {/* Source pills — shown after streaming is done */}
+                                        {msg.isBot && !msg.isStreaming && msg.sources && msg.sources.length > 0 && (
+                                            <div className="flex flex-wrap gap-1.5 mt-1.5 pl-1">
+                                                {msg.sources.map((s) => (
+                                                    <a
+                                                        key={s.source}
+                                                        href={SOURCE_LINKS[s.source] ?? "/"}
+                                                        className="inline-flex items-center gap-1 text-[10px] font-heading font-bold text-primary/70 hover:text-primary bg-primary/5 hover:bg-primary/10 border border-primary/15 rounded-full px-2 py-0.5 transition-colors"
+                                                        title={`View ${s.title} page`}
+                                                    >
+                                                        <ExternalLink className="w-2.5 h-2.5" />
+                                                        {s.title}
+                                                    </a>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </motion.div>
                             ))}
@@ -175,22 +327,21 @@ export default function AIChatBot() {
                         </div>
 
                         {/* Quick Actions */}
-                        {(
-                            <div className="px-4 py-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0">
-                                <p className="text-xs text-gray-400 dark:text-gray-500 font-body mb-2">Quick actions</p>
-                                <div className="flex flex-wrap gap-2">
-                                    {quickActions.map((action) => (
-                                        <button
-                                            key={action.label}
-                                            onClick={() => handleQuickAction(action)}
-                                            className="px-3 py-1.5 rounded-full text-xs font-heading font-bold bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-all"
-                                        >
-                                            {action.label}
-                                        </button>
-                                    ))}
-                                </div>
+                        <div className="px-4 py-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0">
+                            <p className="text-xs text-gray-400 dark:text-gray-500 font-body mb-2">Quick actions</p>
+                            <div className="flex flex-wrap gap-2">
+                                {quickActions.map((action) => (
+                                    <button
+                                        key={action.label}
+                                        onClick={() => handleQuickAction(action)}
+                                        disabled={isLoading}
+                                        className="px-3 py-1.5 rounded-full text-xs font-heading font-bold bg-gray-100 dark:bg-slate-700 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary dark:hover:bg-primary/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                                    >
+                                        {action.label}
+                                    </button>
+                                ))}
                             </div>
-                        )}
+                        </div>
 
                         {/* Input */}
                         <div className="p-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0">
@@ -201,13 +352,14 @@ export default function AIChatBot() {
                                     name="chat-message"
                                     value={inputText}
                                     onChange={(e) => setInputText(e.target.value)}
-                                    onKeyDown={(e) => e.key === "Enter" && handleSend()}
-                                    placeholder="Type a message..."
-                                    className="flex-1 bg-transparent text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 outline-none font-body"
+                                    onKeyDown={(e) => e.key === "Enter" && !isLoading && handleSend()}
+                                    placeholder={isLoading ? "Please wait…" : "Ask anything about Zeeque…"}
+                                    disabled={isLoading}
+                                    className="flex-1 bg-transparent text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 outline-none font-body disabled:opacity-60"
                                 />
                                 <button
                                     onClick={handleSend}
-                                    disabled={!inputText.trim()}
+                                    disabled={!inputText.trim() || isLoading}
                                     className="w-9 h-9 rounded-xl bg-gradient-to-r from-primary to-[#e83e8c] flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform disabled:opacity-40 disabled:hover:scale-100 shrink-0"
                                 >
                                     <Send className="w-4 h-4" />
@@ -232,11 +384,11 @@ export default function AIChatBot() {
                             setShowPopup(false);
                         }}
                     >
-                            <motion.div
-                                animate={{ y: [0, -6, 0] }}
-                                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                                className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl p-1.5 pr-8 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border border-white/40 dark:border-slate-700/40 flex items-start gap-2 w-max max-w-[260px] group-hover/tooltip:shadow-[0_8px_32px_0_rgba(31,38,135,0.25)] transition-all duration-300"
-                            >
+                        <motion.div
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                            className="relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-xl p-1.5 pr-8 rounded-[16px] shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] dark:shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] border border-white/40 dark:border-slate-700/40 flex items-start gap-2 w-max max-w-[260px] group-hover/tooltip:shadow-[0_8px_32px_0_rgba(31,38,135,0.25)] transition-all duration-300"
+                        >
                             <div className="flex flex-col mt-0.5">
                                 <span className="text-[12px] font-extrabold text-gray-800 dark:text-gray-100 font-heading leading-tight mb-0.5">
                                     Have doubts?
@@ -257,14 +409,14 @@ export default function AIChatBot() {
                                 <X className="w-3 h-3" />
                             </button>
 
-                            {/* Triangle Pointer pointing down towards the FAB */}
+                            {/* Triangle Pointer */}
                             <div className="absolute -bottom-1 right-[20px] w-2.5 h-2.5 bg-white/50 dark:bg-slate-800/50 transform rotate-45 border-b border-r border-white/40 dark:border-slate-700/40 backdrop-blur-xl"></div>
                         </motion.div>
                     </motion.div>
                 )}
             </AnimatePresence>
 
-            {/* Floating Button or Chat Popup */}
+            {/* Floating Action Button */}
             <AnimatePresence>
                 {!isOpen && (
                     <motion.button
@@ -282,7 +434,6 @@ export default function AIChatBot() {
                         className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20 hide-on-modal"
                         aria-label="Open AI chat"
                     >
-
                         {/* Shimmer sweep */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out" />
 

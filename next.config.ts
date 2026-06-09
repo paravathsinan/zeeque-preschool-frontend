@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 /** Origins allowed for fetch/XHR (employment API, local FastAPI, etc.) */
 function connectSrcAllowlist(): string {
-  const origins = new Set<string>(["http://127.0.0.1:8000", "http://localhost:8000", "https://api.myzeeque.com"]);
+  const origins = new Set<string>(["http://127.0.0.1:8000", "http://localhost:8000", "https://api.myzeeque.com", "https://generativelanguage.googleapis.com"]);
   const api = process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.trim();
   if (api) {
     try {
