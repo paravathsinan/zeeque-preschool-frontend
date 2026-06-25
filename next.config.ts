@@ -4,9 +4,11 @@ import type { NextConfig } from "next";
 function connectSrcAllowlist(): string {
   const origins = new Set<string>(["http://127.0.0.1:8000", "http://localhost:8000"]);
   const api = process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.trim();
-  if (api) {
+  const admissionApi = process.env.NEXT_PUBLIC_ADMISSION_API_URL?.trim();
+  for (const raw of [api, admissionApi]) {
+    if (!raw) continue;
     try {
-      const { protocol, host } = new URL(api);
+      const { protocol, host } = new URL(raw);
       origins.add(`${protocol}//${host}`);
     } catch {
       /* invalid URL in env — skip */

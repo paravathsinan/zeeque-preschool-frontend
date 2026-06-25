@@ -62,7 +62,7 @@ export default function Hero() {
                         className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8 mt-6 lg:mt-8"
                     >
                         <Link
-                            href="https://admission.zeeque.in/"
+                            href="/preschool-admission-kerala-2026#apply"
                             className="group flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3.5 rounded-2xl font-heading font-bold text-[19px] tracking-wide hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
                         >
                             Enquiry Now
