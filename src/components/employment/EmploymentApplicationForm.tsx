@@ -547,12 +547,13 @@ export default function EmploymentApplicationForm() {
             const fd = new FormData();
             fd.append("payload", JSON.stringify(toEmploymentApiPayload(values)));
             fd.append("photo", photoFile, photoFile.name || "photo.jpg");
-            const res = await fetch(`${apiBase}/api/v1/employment-applications`, {
+            const res = await fetch(`${apiBase}/api/v1/employment-applications/`, {
                 method: "POST",
                 body: fd,
             });
             const data = (await res.json().catch(() => ({}))) as {
                 id?: string;
+                enrollmentNumber?: string;
                 enrollment_number?: string;
                 detail?: string | Array<{ msg?: string; loc?: unknown }>;
             };
@@ -560,7 +561,7 @@ export default function EmploymentApplicationForm() {
                 const msg = formatFastApiDetail(data.detail) || `Submission failed (${res.status})`;
                 throw new Error(msg);
             }
-            const enrollment = data.enrollment_number ?? data.id;
+            const enrollment = data.enrollmentNumber ?? data.enrollment_number ?? data.id;
             if (!enrollment) throw new Error("Invalid server response.");
             setSubmittedEnrollment(enrollment);
             setShowConfirm(false);
