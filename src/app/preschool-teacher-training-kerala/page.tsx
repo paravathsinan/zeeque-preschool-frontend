@@ -22,7 +22,7 @@ export default function TeacherTraineesPage() {
                 </div>
             </div>
 
-            <section className="relative py-12 md:py-32 overflow-hidden">
+            <section className="relative overflow-hidden py-10 md:py-16">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -46,7 +46,7 @@ export default function TeacherTraineesPage() {
                 </div>
             </section>
 
-            <section className="py-12 lg:py-24 relative overflow-hidden">
+            <section className="relative overflow-hidden py-8 lg:py-12">
                 <div className="max-w-[900px] mx-auto px-4 sm:px-6 relative z-10">
                     <EmploymentApplicationForm />
                     <div className="absolute -top-20 -left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />

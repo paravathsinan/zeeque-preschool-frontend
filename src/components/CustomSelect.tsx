@@ -20,6 +20,7 @@ interface CustomSelectProps {
     label?: string;
     /** Show labels and trigger text in capitals (values stay unchanged). */
     uppercase?: boolean;
+    disabled?: boolean;
 }
 
 export default function CustomSelect({
@@ -32,6 +33,7 @@ export default function CustomSelect({
     hasError = false,
     label,
     uppercase = false,
+    disabled = false,
 }: CustomSelectProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
@@ -68,11 +70,14 @@ export default function CustomSelect({
             )}
             
             <div
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {
+                    if (!disabled) setIsOpen(!isOpen);
+                }}
                 className={`
-                    w-full flex items-center justify-between cursor-pointer
+                    w-full flex items-center justify-between
                     bg-white dark:bg-slate-900 border-2 border-gray-200 dark:border-slate-600 shadow-sm
                     transition-all duration-300 rounded-2xl px-6 py-4
+                    ${disabled ? "cursor-not-allowed opacity-60" : "cursor-pointer"}
                     ${isOpen ? 'border-primary/50 bg-white dark:bg-slate-800 ring-4 ring-primary/5 shadow-md' : ''}
                     ${hasError ? 'border-red-500/60 bg-red-50/40 dark:bg-red-950/25' : ''}
                     ${className}

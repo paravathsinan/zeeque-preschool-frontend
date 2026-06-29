@@ -9,7 +9,7 @@ const steps = [
         title: "Apply for Admission",
         description: "Begin your child's joyful learning adventure today.",
         buttonText: "Apply Now",
-        buttonHref: "https://admission.zeeque.in/",
+        buttonHref: "/preschool-admission-kerala-2026#apply",
         glowColor: "rgba(245,158,11,0.25)",
         hoverGlow: "rgba(245,158,11,0.45)",
         cardBg: "bg-gradient-to-br from-amber-50/60 via-white/80 to-amber-50/40 dark:from-slate-800/80 dark:via-slate-800/60 dark:to-slate-800/80",
