@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StatsSection from "@/components/StatsSection";
@@ -55,37 +55,58 @@ const rdMembers = [
    ══════════════════════════════════════════════ */
 export default function OurTeamPage() {
     return (
-        <main className="min-h-screen bg-[#fafafa] dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
-            <div className="w-full relative z-50 bg-white dark:bg-slate-900">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
-                </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
-                    <Navbar />
-                </div>
+            <div className="w-full relative z-50">
+                <Navbar />
             </div>
 
             {/* ══════════════════════════════════
-                HERO
+                SECTION 1: Custom Team Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden bg-gradient-to-b from-white to-[#fafafa] dark:from-slate-900 dark:to-slate-950">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-2 border-dashed border-gray-200 dark:border-slate-700 opacity-60" />
-                    <div className="absolute bottom-10 left-[8%] w-16 h-16 rounded-full border-2 border-dashed border-gray-200 dark:border-slate-700 opacity-40" />
+            <section className="relative w-full pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white dark:from-slate-900 dark:to-slate-950">
+                
+                {/* Abstract Background Shapes */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-[1440px] mx-auto">
+                    <div className="absolute top-[10%] left-[5%] w-64 h-64 rounded-full bg-[#FFCB05]/20 blur-3xl" />
+                    <div className="absolute top-[40%] right-[10%] w-80 h-80 rounded-full bg-[#0fb85c]/15 blur-3xl" />
+                    <div className="absolute bottom-[10%] left-[20%] w-72 h-72 rounded-full bg-[#0060D6]/10 blur-3xl" />
+                    
+                    {/* Dotted pattern overlay */}
+                    <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#222 2px, transparent 2px)', backgroundSize: '32px 32px' }} />
                 </div>
 
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
-                    <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about" className="text-gray-400 dark:text-gray-500 hover:text-primary transition-colors">About</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-300 dark:text-gray-600" />
-                            <span className="text-primary font-semibold">Our Team</span>
+
+
+                {/* ===== Main Content Area ===== */}
+                <div className="relative z-20 flex flex-col items-center px-4 max-w-[800px] mx-auto text-center mt-10 md:mt-16">
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+                    >
+                        {/* Breadcrumb */}
+                        <div className="flex items-center justify-center gap-2 mb-8 font-body text-sm bg-white/60 dark:bg-slate-800/60 backdrop-blur-md px-5 py-2 rounded-full w-fit mx-auto border border-gray-200 dark:border-slate-700 shadow-sm">
+                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 hover:text-primary transition-colors font-medium">About</Link>
+                            <ChevronRight className="w-4 h-4 text-gray-400" />
+                            <span className="font-bold text-primary">Our Team</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl lg:text-7xl leading-[1.1] mb-5">
-                            Our Team
+
+                        {/* Tagline */}
+                        <span className="block text-primary font-heading font-bold tracking-wider uppercase text-sm mb-4">
+                            The Minds Behind ZeeQue
+                        </span>
+
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-[64px] leading-[1.1] mb-8 tracking-tight">
+                            Meet Our Expert <br /> Educators & Leaders
                         </h1>
+
+                        {/* Description */}
+                        <p className="font-body text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+                            A passionate collective of educators, researchers, and visionary leaders dedicated to shaping the future of early childhood education.
+                        </p>
                     </motion.div>
                 </div>
             </section>
@@ -96,9 +117,6 @@ export default function OurTeamPage() {
             <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-                        <div className="inline-flex items-center bg-[#ffb606]/10 border border-[#ffb606]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ffb606]/15 transition-all duration-300 w-fit">
-                            <span className="text-sm font-heading font-bold text-[#ffb606] tracking-tight">Guidance</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl">Chief Patrons</h2>
                     </motion.div>
 
@@ -131,9 +149,6 @@ export default function OurTeamPage() {
             <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
-                        <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 w-fit">
-                            <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Leadership</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl">Directorate of Zeeque Preschool</h2>
                         <p className="text-gray-500 dark:text-gray-400 font-body text-base mt-2 max-w-xl">The core leadership team driving Zeeque Preschool&apos;s vision, strategy, and academic excellence across 50+ centers.</p>
                     </motion.div>
@@ -169,24 +184,22 @@ export default function OurTeamPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                         {/* Council of Administration */}
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
-                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Governance</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl mb-8">Council of Administration</h2>
 
-                            <div className="grid grid-cols-1 gap-4">
+                            <div className="grid grid-cols-1 gap-5">
                                 {councilMembers.map((member) => {
                                     const [name, designation] = member.split(" — ");
                                     return (
-                                        <div key={member} className="flex flex-col p-6 rounded-2xl bg-white/40 dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700 border-l-4 border-l-[#0fb85c] hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-[#0fb85c]/10 hover:-translate-y-1 transition-all duration-300 group">
-                                            <div className="mb-1">
-                                                <p className="font-heading font-extrabold text-[#222] dark:text-white text-[19px] leading-tight group-hover:text-[#0fb85c] transition-colors">{name}</p>
+                                        <div key={member} className="group relative flex flex-col p-6 rounded-3xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-[0_8px_30px_rgba(15,184,92,0.12)] hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-default">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#0fb85c]/20 to-transparent rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <div className="relative z-10 flex items-start gap-4">
+                                                <div className="flex flex-col pt-1">
+                                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-[19px] leading-tight group-hover:text-[#0fb85c] transition-colors duration-300">{name}</h3>
+                                                    {designation && (
+                                                        <p className="text-xs uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 mt-1.5 group-hover:text-gray-500 transition-colors duration-300">{designation}</p>
+                                                    )}
+                                                </div>
                                             </div>
-                                            {designation && (
-                                                <p className="text-xs uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 group-hover:text-gray-500 transition-colors">
-                                                    {designation}
-                                                </p>
-                                            )}
                                         </div>
                                     );
                                 })}
@@ -195,12 +208,9 @@ export default function OurTeamPage() {
 
                         {/* Research & Development */}
                         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.15 }}>
-                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Innovation</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl mb-8">Research & Development</h2>
 
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 {rdMembers.map((member) => {
                                     const parenMatch = member.match(/^(.+?)\s*\((.+)\)$/);
                                     const dashMatch = member.match(/^(.+?)\s*—\s*(.+)$/);
@@ -214,15 +224,16 @@ export default function OurTeamPage() {
                                         designation = dashMatch[2];
                                     }
                                     return (
-                                        <div key={member} className="flex flex-col p-5 rounded-2xl bg-white/40 dark:bg-slate-800/40 border border-gray-100 dark:border-slate-700 border-l-4 border-l-[#EF4225] hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl hover:shadow-[#EF4225]/10 hover:-translate-y-1 transition-all duration-300 group">
-                                            <div className="mb-2">
-                                                <p className="font-heading font-extrabold text-[#222] dark:text-white text-[17px] leading-tight group-hover:text-[#EF4225] transition-colors">{name}</p>
+                                        <div key={member} className="group relative flex flex-col p-5 rounded-3xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-xl border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-[0_8px_30px_rgba(239,66,37,0.12)] hover:-translate-y-1 transition-all duration-500 overflow-hidden cursor-default">
+                                            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-[#EF4225]/20 to-transparent rounded-full blur-2xl -mr-10 -mt-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                                            <div className="relative z-10 flex items-start gap-4">
+                                                <div className="flex flex-col pt-0.5">
+                                                    <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-[17px] leading-tight group-hover:text-[#EF4225] transition-colors duration-300">{name}</h3>
+                                                    {designation && (
+                                                        <p className="text-[11px] uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 mt-1.5 leading-relaxed group-hover:text-gray-500 transition-colors duration-300">{designation}</p>
+                                                    )}
+                                                </div>
                                             </div>
-                                            {designation && (
-                                                <p className="text-[11px] uppercase font-bold tracking-[0.1em] text-gray-400 dark:text-slate-500 leading-relaxed group-hover:text-gray-500 transition-colors">
-                                                    {designation}
-                                                </p>
-                                            )}
                                         </div>
                                     );
                                 })}
@@ -250,10 +261,10 @@ export default function OurTeamPage() {
                             Whether you&apos;re a parent looking for the best start for your child, or an educator passionate about shaping young minds — we&apos;d love to hear from you.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="https://admission.zeeque.in/" className="flex items-center gap-2 bg-[#ffb606] text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all">
+                            <Link href="https://admission.zeeque.in/" className="flex items-center justify-center gap-2 bg-[#ffb606] text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all whitespace-nowrap w-full sm:w-auto">
                                 Enquiry Now <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                             </Link>
-                            <Link href="/contact" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                            <Link href="/contact" className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all whitespace-nowrap w-full sm:w-auto">
                                 <Mail className="w-4 h-4" /> Contact Us
                             </Link>
                         </div>

@@ -2,134 +2,97 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronRight, Calendar, Sparkles, MapPin, Clock, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
-const newsData = [
-    {
-        id: 1,
-        title: "Admissions Open for 2026-27",
-        date: "March 15, 2026",
-        description: "We are delighted to announce that admissions for the upcoming academic year are now open. Secure a bright future for your child today.",
-        image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
-        category: "Announcement",
-        alt: "Admissions open announcement with smiling preschool students at ZeeQue Preschool in Kerala."
-    },
-    {
-        id: 2,
-        title: "New Smart Classrooms Introduced",
-        date: "February 28, 2026",
-        description: "Experience our newly designed child-friendly smart classrooms equipped with the latest multimedia learning tools and colorful decor.",
-        image: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=600&auto=format&fit=crop",
-        category: "Campus",
-        alt: "Newly designed, child-friendly smart classrooms ready for students at ZeeQue Preschool in Kerala."
-    },
-    {
-        id: 3,
-        title: "Parent Orientation Program",
-        date: "February 10, 2026",
-        description: "A successful orientation program was held for new parents to understand our curriculum, approach, and the ZeeQue vision deeply.",
-        image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=600&auto=format&fit=crop",
-        category: "Community",
-        alt: "Parents and teachers interacting during a successful orientation program at ZeeQue Preschool in Kerala."
-    }
-];
-
-const eventsData = [
-    {
-        id: 1,
-        title: "Annual Sports Day",
-        date: "April 12, 2026",
-        time: "09:00 AM - 01:00 PM",
-        location: "Main Playground",
-        description: "Get ready to witness our little champions showcase their athletic skills, teamwork, and sportsmanship in a day full of fun events.",
-        image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
-        color: "#ef4225",
-        alt: "Little champions participating in Annual Sports Day on the main playground at ZeeQue Preschool in Kerala."
-    },
-    {
-        id: 2,
-        title: "Colors Day Celebration",
-        date: "May 05, 2026",
-        time: "10:00 AM - 12:30 PM",
-        location: "Campus Hall",
-        description: "A vibrant day where children dress in their favorite colors, engage in creative arts, and learn about the beauty of the spectrum.",
-        image: "/images/gallery/gallery photos/IMG_5781.JPG",
-        color: "#fbaf01",
-        alt: "Children dressed in vibrant colors celebrating Colors Day in the campus hall at ZeeQue Preschool in Kerala."
-    },
-    {
-        id: 3,
-        title: "Meelad Day Reflections",
-        date: "June 20, 2026",
-        time: "09:30 AM - 11:30 AM",
-        location: "Auditorium",
-        description: "A special and peaceful gathering where kids recite beautiful surahs, perform adhkars, and learn about the importance of sharing and caring.",
-        image: "/images/gallery/gallery photos/IMG_6331 - Copy.JPG",
-        color: "#0fb85c",
-        alt: "Kids performing adhkars and reciting surahs during Meelad Day in the auditorium at ZeeQue Preschool in Kerala."
-    }
-];
-
+import { getAllNews, getEventsPageEvents } from "@/data/newsAndEvents";
 
 export default function EventsPage() {
     const [activeTab, setActiveTab] = useState<'news' | 'events'>('events');
+    const newsData = getAllNews();
+    const eventsData = getEventsPageEvents();
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
-                </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300 relative z-50">
-                    <Navbar />
-                </div>
+                <Navbar />
             </div>
 
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-                {/* Background decorations */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#fbaf01]/10 animate-pulse" />
-                    <div className="absolute top-20 right-[15%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-10 left-[20%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
-                    <div className="absolute top-1/2 right-[8%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
+            <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+                
+                {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
+                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                    <Image
+                        src="/images/assets/images/hero-section-bg.png"
+                        alt="Blue sky background with cityscape"
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                        sizes="100vw"
+                    />
+                    
+                    {/* Cloud Shape Divider at the bottom of the blue section */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                        <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="currentColor" className="text-white dark:text-slate-900" />
+                        </svg>
+                    </div>
                 </div>
 
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
+                {/* ===== Floating 3D Objects ===== */}
+                <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                        <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
+                    </div>
+                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                    </div>
+                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                    </div>
+                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                    </div>
+                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
+                    </div>
+                </div>
+
+                {/* ===== Main Content Area ===== */}
+                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="text-center"
                     >
                         {/* Breadcrumb */}
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">Home</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <Link href="#" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors cursor-default pointer-events-none">Updates</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <span className="text-primary font-semibold">Events</span>
+                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full w-fit mx-auto border border-white/30 text-white">
+                            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <Link href="#" className="hover:text-yellow-300 transition-colors cursor-default pointer-events-none">Updates</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <span className="font-semibold text-yellow-300">Events</span>
                         </div>
 
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                            ZeeQue Preschool Events & News <br className="hidden md:block" /> Exploring the Joy of Learning in Kerala
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-[52px] max-w-5xl mx-auto leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                            Events & Updates <br className="hidden md:block" /> at ZeeQue Preschool
                         </h1>
-                    </motion.div>
-                </div>
 
-                {/* Wavy divider */}
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-                    <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                        <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
-                    </svg>
+                        {/* Description */}
+                        <p className="font-body font-medium text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] bg-black/10 px-6 py-3 rounded-2xl backdrop-blur-[2px]">
+                            Stay up-to-date with the latest events, announcements, and celebrations happening in our vibrant preschool community.
+                        </p>
+                    </motion.div>
                 </div>
             </section>
 
@@ -147,9 +110,6 @@ export default function EventsPage() {
                         transition={{ duration: 0.7 }}
                         className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
                     >
-                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 w-fit mx-auto lg:mx-0">
-                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Joyful Moments</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl leading-[1.2] mb-6">
                             At ZeeQue Every <span className="text-[#fbaf01]">Day is Special</span>
                         </h2>
@@ -267,7 +227,7 @@ export default function EventsPage() {
                                                 <p className="text-gray-600 dark:text-gray-400 text-sm font-body line-clamp-3 mb-5 leading-relaxed flex-grow">
                                                     {news.description}
                                                 </p>
-                                                <Link href="#" className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#3FB7E5] hover:gap-2.5 transition-all mt-auto shrink-0">
+                                                <Link href={`/events/${news.slug}`} className="inline-flex items-center gap-1.5 text-sm font-heading font-bold text-[#3FB7E5] hover:gap-2.5 transition-all mt-auto shrink-0">
                                                     Read Full Story <ArrowRight className="w-4 h-4" />
                                                 </Link>
                                             </div>
@@ -321,7 +281,7 @@ export default function EventsPage() {
                                                     {event.description}
                                                 </p>
 
-                                                <Link href="#" className="flex items-center justify-center w-full py-2.5 rounded-xl font-heading font-bold text-sm transition-colors shrink-0 hover:opacity-90 active:scale-[0.98]"
+                                                <Link href={`/events/${event.slug}`} className="flex items-center justify-center w-full py-2.5 rounded-xl font-heading font-bold text-sm transition-colors shrink-0 hover:opacity-90 active:scale-[0.98]"
                                                     style={{ backgroundColor: `${event.color}15`, color: event.color }}>
                                                     Event Details
                                                 </Link>

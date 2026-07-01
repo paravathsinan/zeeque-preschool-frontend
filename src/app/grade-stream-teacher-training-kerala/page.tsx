@@ -19,7 +19,7 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DatePicker from "@/components/DatePicker";
@@ -547,7 +547,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="w-full sm:w-[200px] bg-[#c2185b] text-white font-heading font-extrabold text-lg py-4 rounded-2xl sm:rounded-3xl shadow-[0_10px_30px_rgba(194,24,91,0.3)] hover:shadow-[0_15px_40px_rgba(194,24,91,0.4)] transition-all duration-300 mx-auto block group relative overflow-hidden"
+                                    className="w-full sm:w-[200px] bg-primary text-white font-heading font-extrabold text-lg py-4 rounded-2xl sm:rounded-3xl shadow-[0_10px_30px_rgba(251,175,1,0.3)] hover:shadow-[0_15px_40px_rgba(251,175,1,0.4)] transition-all duration-300 mx-auto block group relative overflow-hidden"
                                 >
                                     <span className="relative z-10 uppercase tracking-widest text-sm">Submit Now</span>
 
@@ -565,23 +565,7 @@ export default function GradeStreamTeacherTraineesPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 3: Footer Decoration
-               ══════════════════════════════════ */}
-            <div className="w-full h-24 relative overflow-hidden pointer-events-none">
-                {/* Illustrated background as per reference image */}
-                <div className="absolute inset-x-0 bottom-0">
-                    <svg viewBox="0 0 1440 100" className="w-full h-auto">
-                        {/* Rolling hills */}
-                        <path d="M0,80 C360,110 720,50 1080,80 C1260,95 1380,60 1440,80 L1440,100 L0,100 Z" fill="#4B8C1F" />
-                        <path d="M0,90 C480,110 960,70 1440,90 L1440,100 L0,100 Z" fill="#2E5A12" />
-                    </svg>
-                    {/* Small illustated trees (simulated with SVG circles/paths) */}
-                    <div className="absolute bottom-4 left-[20%] w-8 h-12 bg-[#3D7A19] rounded-t-full" />
-                    <div className="absolute bottom-6 left-[45%] w-10 h-16 bg-[#3D7A19] rounded-t-full" />
-                    <div className="absolute bottom-2 left-[75%] w-6 h-10 bg-[#3D7A19] rounded-t-full" />
-                </div>
-            </div>
+
 
             {/* ── Footer ── */}
             <Footer />

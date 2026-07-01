@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight } from "lucide-react";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EmploymentApplicationForm from "@/components/employment/EmploymentApplicationForm";
@@ -13,7 +13,7 @@ export default function TeacherTraineesPage() {
         <main className="min-h-screen bg-[#fffcf2] dark:bg-slate-950 font-body selection:bg-secondary selection:text-white transition-colors duration-300">
             <div className="w-full relative z-50">
                 <div className="hidden lg:block w-full bg-white dark:bg-slate-800">
-                    <TopHeader />
+
                 </div>
                 <div className="w-full bg-[#FFFCF2] dark:bg-slate-950 transition-colors duration-300">
                     <div className="max-w-[1140px] mx-auto relative z-10 transition-colors duration-300">
@@ -54,20 +54,7 @@ export default function TeacherTraineesPage() {
                 </div>
             </section>
 
-            <div className="w-full h-24 relative overflow-hidden pointer-events-none">
-                <div className="absolute inset-x-0 bottom-0">
-                    <svg viewBox="0 0 1440 100" className="w-full h-auto" aria-hidden>
-                        <path
-                            d="M0,80 C360,110 720,50 1080,80 C1260,95 1380,60 1440,80 L1440,100 L0,100 Z"
-                            fill="#4B8C1F"
-                        />
-                        <path d="M0,90 C480,110 960,70 1440,90 L1440,100 L0,100 Z" fill="#2E5A12" />
-                    </svg>
-                    <div className="absolute bottom-4 left-[20%] w-8 h-12 bg-[#3D7A19] rounded-t-full" />
-                    <div className="absolute bottom-6 left-[45%] w-10 h-16 bg-[#3D7A19] rounded-t-full" />
-                    <div className="absolute bottom-2 left-[75%] w-6 h-10 bg-[#3D7A19] rounded-t-full" />
-                </div>
-            </div>
+
 
             <Footer />
         </main>

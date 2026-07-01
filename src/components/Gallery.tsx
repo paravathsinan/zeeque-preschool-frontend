@@ -46,11 +46,11 @@ export default function Gallery() {
     }, [selectedIndex]);
 
     return (
-        <section className="py-10 lg:py-16 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-white relative overflow-hidden">
 
             {/* Playful decorative elements */}
-            <div className="absolute top-10 left-10 w-20 h-20 rounded-full border-4 border-dotted border-[#7AC255]/20 pointer-events-none hidden lg:block" />
-            <div className="absolute bottom-14 right-16 w-12 h-12 rounded-full bg-[#fbaf01]/10 pointer-events-none hidden lg:block" />
+            <div className="absolute top-10 left-10 w-20 h-20 rounded-full border-4 border-dotted border-[#0060D6]/10 pointer-events-none hidden lg:block" />
+            <div className="absolute bottom-14 right-16 w-12 h-12 rounded-full bg-[#FFCB05]/10 pointer-events-none hidden lg:block" />
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
 
@@ -62,10 +62,17 @@ export default function Gallery() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center max-w-2xl mx-auto mb-14"
                 >
-                    <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-tight mb-4">
-                        Our <span className="text-[#7AC255]">Gallery</span>
+                    <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4 gap-y-2">
+                        <span className="font-courgette font-bold tracking-wide">Our</span> 
+                        <span className="relative text-[#0060D6] font-bold font-quicksand z-10">
+                            Gallery
+                            {/* Yellow swoosh underline */}
+                            <svg className="absolute -bottom-4 left-0 w-full h-5 text-[#FFC107] -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                <path d="M5,15 Q50,0 95,15" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                            </svg>
+                        </span>
                     </h2>
-                    <p className="text-gray-500 dark:text-gray-400 font-body text-lg">
+                    <p className="text-gray-500 font-body text-lg">
                         Capturing the joy, creativity, and learning moments of our little stars.
                     </p>
                 </motion.div>
@@ -92,7 +99,7 @@ export default function Gallery() {
                                 />
                                 {/* Hover overlay */}
                                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                                    <span className="text-white text-sm font-heading font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="text-white text-sm font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         View
                                     </span>
                                 </div>
@@ -101,7 +108,7 @@ export default function Gallery() {
                     ))}
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button — Yellow with blue shadow */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +118,7 @@ export default function Gallery() {
                 >
                     <Link
                         href="/gallery"
-                        className="inline-flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3 rounded-2xl font-body font-bold text-[18px] hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
+                        className="inline-flex items-center gap-2 bg-[#FFCB05] text-[#222] px-8 py-3 rounded-full font-bold text-[18px] shadow-[4px_4px_0_0_#0060D6] hover:shadow-[2px_2px_0_0_#0060D6] hover:translate-y-[2px] hover:translate-x-[2px] transition-all cursor-pointer border-none"
                     >
                         More Photos
                         <ArrowRight className="w-5 h-5 stroke-[2.5]" />

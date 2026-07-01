@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion, useInView, Variants } from "framer-motion";
@@ -151,56 +151,92 @@ function StatCard({ value, suffix, label, color }: { value: number; suffix: stri
    ══════════════════════════════════════════════ */
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
-                </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
-                    <Navbar />
-                </div>
+                <Navbar />
             </div>
 
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
-                {/* Background decorations */}
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#fbaf01]/10 animate-pulse" />
-                    <div className="absolute top-20 right-[15%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-10 left-[20%] w-16 h-16 rounded-full bg-[#0fb85c]/10 animate-pulse delay-1000" />
-                    <div className="absolute top-1/2 right-[8%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10" />
-                    <div className="absolute bottom-20 right-[25%] w-10 h-10 rounded-full bg-[#3FB7E5]/10 animate-pulse delay-700" />
+            <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+                
+                {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
+                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                    <Image
+                        src="/images/assets/images/hero-section-bg.png"
+                        alt="Blue sky background with cityscape"
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                        sizes="100vw"
+                    />
+                    
+                    {/* Cloud Shape Divider at the bottom of the blue section */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                        <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="currentColor" className="text-white dark:text-slate-900" />
+                        </svg>
+                    </div>
                 </div>
 
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
+                {/* ===== Floating 3D Objects ===== */}
+                <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                    {/* Airplane */}
+                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                        <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
+                    </div>
+
+                    {/* Sun */}
+                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                    </div>
+
+                    {/* Cloud Left */}
+                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                    </div>
+
+                    {/* Cloud Right */}
+                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                    </div>
+
+                    {/* Large Smiling Muslim Child (as requested) */}
+                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
+                    </div>
+                </div>
+
+                {/* ===== Main Content Area ===== */}
+                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="text-center"
                     >
                         {/* Breadcrumb */}
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <span className="text-primary font-semibold">About Us</span>
+                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full w-fit mx-auto border border-white/30 text-white">
+                            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <span className="font-semibold text-yellow-300">About Us</span>
                         </div>
 
-                            <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                                About ZeeQue Preschool
-                                <br className="hidden md:block" /> Kerala&apos;s Fastest Growing Islamic Montessori Preschool
-                            </h1>
-                        </motion.div>
-                </div>
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-[52px] max-w-5xl mx-auto leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                            Kerala&apos;s Fastest Growing <br className="hidden md:block" /> 
+                            Islamic Montessori Preschool
+                        </h1>
 
-                {/* Wavy divider */}
-                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-                    <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                        <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="white" className="dark:fill-slate-900" />
-                    </svg>
+                        {/* Description */}
+                        <p className="font-body font-medium text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] bg-black/10 px-6 py-3 rounded-2xl backdrop-blur-[2px]">
+                            Nurturing confident learners with a perfect blend of modern Montessori education and timeless Islamic values.
+                        </p>
+
+                    </motion.div>
                 </div>
             </section>
 
@@ -222,9 +258,6 @@ export default function AboutPage() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mb-10 lg:mb-0"
                     >
-                        <div className="inline-flex items-center bg-amber-50/80 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-amber-100/50 transition-all duration-300 w-fit">
-                            <span className="text-sm font-heading font-bold text-amber-600 dark:text-amber-400 tracking-tight">Who We Are</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                             ZeeQue Preschool{" "}
                             <span className="text-primary">Network</span>
@@ -328,9 +361,6 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200/50 dark:border-emerald-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-emerald-100/50 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">Our Approach</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Theme-Based, <span className="text-[#fbaf01]">Play Way</span> Method
                         </h2>
@@ -388,51 +418,6 @@ export default function AboutPage() {
             </section>
 
             {/* ══════════════════════════════════
-                SECTION 4: Our Values
-               ══════════════════════════════════ */}
-            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
-                    >
-                        <div className="inline-flex items-center bg-rose-50/80 dark:bg-rose-900/20 border border-rose-200/50 dark:border-rose-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-rose-100/50 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-rose-600 dark:text-rose-400 tracking-tight">What We Stand For</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Our Core <span className="text-[#ef4225]">Values</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
-                            Every day at ZeeQue is guided by principles that shape compassionate, creative, and confident young learners.
-                        </p>
-                    </motion.div>
-
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-                        {values.map((v, i) => (
-                            <motion.div
-                                key={v.title}
-                                custom={i}
-                                variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 border-2 border-gray-100 dark:border-slate-700 rounded-3xl p-7 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group"
-                            >
-                                <div
-                                    className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                                    style={{ backgroundColor: `${v.color}12` }}
-                                >
-                                    <v.icon className="w-7 h-7" style={{ color: v.color }} />
-                                </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">{v.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{v.description}</p>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════
                 SECTION 5: A Day at ZeeQue
                ══════════════════════════════════ */}
             <section className="py-10 md:py-14 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
@@ -444,9 +429,6 @@ export default function AboutPage() {
                         transition={{ duration: 0.7 }}
                         className="text-center mb-16"
                     >
-                        <div className="inline-flex items-center bg-amber-50/80 dark:bg-amber-900/20 border border-amber-200/50 dark:border-amber-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-amber-100/50 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-amber-600 dark:text-amber-400 tracking-tight">Daily Routine</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             A Day at <span className="text-[#fbaf01]">ZeeQue</span>
                         </h2>
@@ -534,9 +516,6 @@ export default function AboutPage() {
                         className="text-center mb-20"
                     >
                         <div className="flex items-center justify-center mb-8">
-                            <div className="inline-flex items-center bg-blue-50/80 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-700/30 px-4 py-2 rounded-full backdrop-blur-md shadow-sm group hover:bg-blue-100/50 transition-all duration-300 mx-auto">
-                                <span className="text-sm font-heading font-bold text-blue-600 dark:text-blue-400 tracking-tight">World-Class Setup</span>
-                            </div>
                         </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-5xl md:text-6xl tracking-tight leading-[1.1] mb-6">
                             Infrastructure & <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">Facilities</span>
@@ -585,162 +564,6 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 7: Activities & Events
-               ══════════════════════════════════ */}
-            <section className="py-10 md:py-14 lg:py-18 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
-                    >
-                        <div className="inline-flex items-center bg-red-50/80 dark:bg-red-900/20 border border-red-200/50 dark:border-red-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-red-100/50 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-red-600 dark:text-red-400 tracking-tight">Fun Beyond Classrooms</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Activities & <span className="text-[#EF4225]">Events</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">
-                            From puppetry to nature camps, our rich co-curricular activities enrich every child&apos;s learning journey and create unforgettable memories.
-                        </p>
-                    </motion.div>
-
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
-                        {activities.map((act, i) => (
-                            <motion.div
-                                key={act.title}
-                                custom={i}
-                                variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-3xl p-6 border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group text-center cursor-default"
-                            >
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-[15px] mt-2">{act.title}</h3>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* Extra activities text */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 }}
-                        className="mt-12 text-center"
-                    >
-                        <p className="text-gray-500 dark:text-gray-400 font-body text-base italic">
-                            Plus exciting picnics to zoos, botanical gardens, fire stations, post offices, and more!
-                        </p>
-                    </motion.div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════
-                SECTION 8: Teacher Support
-               ══════════════════════════════════ */}
-            <section className="py-10 md:py-14 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7 }}
-                        className="text-center mb-16"
-                    >
-                        <div className="inline-flex items-center bg-emerald-50/80 dark:bg-emerald-900/20 border border-emerald-200/50 dark:border-emerald-700/30 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-emerald-100/50 transition-all duration-300 w-fit">
-                            <span className="text-sm font-heading font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">Expert Care</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
-                            Teacher <span className="text-[#0fb85c]">Support</span> System
-                        </h2>
-                    </motion.div>
-
-                    <div className="flex flex-col lg:flex-row items-center gap-16">
-
-                        {/* Left Image */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8 }}
-                            className="w-full lg:w-1/2 relative"
-                        >
-                            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
-                                <Image
-                                    src="https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=1000&auto=format&fit=crop"
-                                    alt="Dedicated ZeeQue mentors interacting joyfully with preschool children in Kerala."
-                                    fill
-                                    className="object-cover"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-t from-[#0fb85c]/30 to-transparent" />
-                            </div>
-
-                            {/* Floating card */}
-                            <div className="absolute -bottom-6 -right-4 bg-white/70 dark:bg-slate-800/60 backdrop-blur-xl rounded-2xl p-4 shadow-2xl border border-white/40 dark:border-slate-700/40 z-20 hidden sm:block">
-                                <div className="flex items-center gap-3">
-                                    <div className="w-11 h-11 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                                        <Users className="w-5 h-5 text-emerald-500" />
-                                    </div>
-                                    <div>
-                                        <div className="font-heading font-extrabold text-[#222] dark:text-white text-xl leading-none">3</div>
-                                        <div className="text-gray-500 dark:text-gray-400 text-[11px] font-body font-medium tracking-wide">Mentors per Class</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-
-                        {/* Right Content */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 40 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true, margin: "-100px" }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="w-full lg:w-1/2"
-                        >
-
-                            <div className="space-y-5">
-                                {[
-                                    { icon: HandHeart, title: "3 Mentors in Every Classroom", desc: "Individual care and personalized attention for every child, ensuring no one is left behind.", color: "#0fb85c" },
-                                    { icon: Eye, title: "On-Site Academic Executives", desc: "Specially trained Academic Executives provide timely on-site support and constant monitoring of the classroom process.", color: "#3FB7E5" },
-                                    { icon: Award, title: "Proven ZeeQue Curriculum", desc: "Our exclusive, tested, and proven curriculum is the result of extensive research and studies in early childhood education.", color: "#e83e8c" },
-                                    { icon: GraduationCap, title: "Continuous Training", desc: "Regular professional development ensures our educators stay at the forefront of early childhood education best practices.", color: "#fbaf01" },
-                                ].map((item) => (
-                                    <div key={item.title} className="flex items-start gap-4 group">
-                                        <div className="w-12 h-12 rounded-xl flex-shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform duration-300" style={{ backgroundColor: `${item.color}12` }}>
-                                            <item.icon className="w-6 h-6" style={{ color: item.color }} />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-heading font-bold text-[#222] dark:text-white text-[17px] mb-1">{item.title}</h3>
-                                            <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{item.desc}</p>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════
-                SECTION 9: Stats Counter
-               ══════════════════════════════════ */}
-            <section className="py-10 md:py-14 bg-gradient-to-b from-gray-50 to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.7 }}
-                        className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6"
-                    >
-                        {stats.map((stat) => (
-                            <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} color="" />
-                        ))}
-                    </motion.div>
-                </div>
-            </section>
 
             {/* ══════════════════════════════════
                 SECTION 10: CTA

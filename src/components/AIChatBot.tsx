@@ -2,9 +2,10 @@
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send, Bot, Volume2, VolumeX, ExternalLink } from "lucide-react";
+import { MessageCircle, X, Send, Bot, ExternalLink } from "lucide-react";
 import { usePathname } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import Image from "next/image";
 
 interface Source {
     title: string;
@@ -48,19 +49,9 @@ export default function AIChatBot() {
     const [showPopup, setShowPopup] = useState(false);
     const [messages, setMessages] = useState<Message[]>([welcomeMessage]);
     const [inputText, setInputText] = useState("");
-    const [isMuted, setIsMuted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const chatHistoryRef = useRef<{ role: "user" | "assistant"; content: string }[]>([]);
-
-    // Audio refs
-    const sendSound = useRef<HTMLAudioElement | null>(null);
-    const receiveSound = useRef<HTMLAudioElement | null>(null);
-
-    useEffect(() => {
-        sendSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2364/2364-preview.mp3');
-        receiveSound.current = new Audio('https://assets.mixkit.co/active_storage/sfx/2354/2354-preview.mp3');
-    }, []);
 
     // Lock page scroll when chatbot is open
     useEffect(() => {
@@ -74,19 +65,6 @@ export default function AIChatBot() {
         };
     }, [isOpen]);
 
-    const playSound = useCallback((type: 'send' | 'receive') => {
-        if (isMuted) return;
-        try {
-            if (type === 'send' && sendSound.current) {
-                sendSound.current.currentTime = 0;
-                sendSound.current.play().catch(() => {});
-            } else if (type === 'receive' && receiveSound.current) {
-                receiveSound.current.currentTime = 0;
-                receiveSound.current.play().catch(() => {});
-            }
-        } catch { /* ignore */ }
-    }, [isMuted]);
-
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -96,8 +74,7 @@ export default function AIChatBot() {
     }, [messages]);
 
     useEffect(() => {
-        const timer = setTimeout(() => setShowPopup(true), 3000);
-        return () => clearTimeout(timer);
+        // Auto-show popup disabled as per user request
     }, []);
 
     /**
@@ -105,8 +82,6 @@ export default function AIChatBot() {
      */
     const sendMessage = useCallback(async (text: string) => {
         if (!text.trim() || isLoading) return;
-
-        playSound('send');
 
         const userMsg: Message = { id: Date.now(), text, isBot: false };
         setMessages((prev) => [...prev, userMsg]);
@@ -170,7 +145,6 @@ export default function AIChatBot() {
             }
 
             // Finalize the message — remove streaming flag, attach sources
-            playSound('receive');
             setMessages((prev) =>
                 prev.map((m) =>
                     m.id === botMsgId
@@ -187,7 +161,6 @@ export default function AIChatBot() {
             ].slice(-12); // Keep last 12 messages
 
         } catch {
-            playSound('receive');
             setMessages((prev) =>
                 prev.map((m) =>
                     m.id === botMsgId
@@ -202,7 +175,7 @@ export default function AIChatBot() {
         } finally {
             setIsLoading(false);
         }
-    }, [isLoading, playSound]);
+    }, [isLoading]);
 
     const handleQuickAction = (action: typeof quickActions[0]) => {
         sendMessage(action.query);
@@ -224,10 +197,10 @@ export default function AIChatBot() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 20, scale: 0.9 }}
                         transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                        className="fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] h-[520px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 hide-on-modal"
+                        className={`fixed bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:bottom-8 z-[110] w-auto sm:w-[360px] max-h-[calc(100vh-32px)] rounded-[28px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.4)] flex flex-col bg-white dark:bg-slate-900 hide-on-modal transition-all duration-300 ease-in-out ${messages.length > 1 ? "h-[720px]" : "h-[520px]"}`}
                     >
                         {/* Header */}
-                        <div className="bg-gradient-to-r from-primary via-[#e83e8c] to-[#EF4225] p-5 flex items-center gap-3 shrink-0">
+                        <div className="bg-primary p-5 flex items-center gap-3 shrink-0">
                             <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center">
                                 <Bot className="w-5 h-5 text-white" />
                             </div>
@@ -241,17 +214,6 @@ export default function AIChatBot() {
                                 </div>
                             </div>
                             <div className="flex items-center gap-1">
-                                <button
-                                    onClick={() => setIsMuted(!isMuted)}
-                                    className="w-8 h-8 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"
-                                    title={isMuted ? "Unmute sounds" : "Mute sounds"}
-                                >
-                                    {isMuted ? (
-                                        <VolumeX className="w-4 h-4 text-white/80" />
-                                    ) : (
-                                        <Volume2 className="w-4 h-4 text-white/80" />
-                                    )}
-                                </button>
                                 <button
                                     onClick={() => setIsOpen(false)}
                                     className="w-8 h-8 rounded-xl bg-white/15 hover:bg-white/25 flex items-center justify-center transition-colors"
@@ -275,7 +237,7 @@ export default function AIChatBot() {
                                         <div
                                             className={`px-4 py-3 rounded-2xl text-sm font-body leading-relaxed ${msg.isBot
                                                 ? "bg-white dark:bg-slate-700 text-gray-700 dark:text-gray-200 rounded-bl-md shadow-sm border border-gray-100 dark:border-slate-600"
-                                                : "bg-gradient-to-r from-primary to-[#e83e8c] text-white rounded-br-md shadow-md"
+                                                : "bg-primary text-white rounded-br-md shadow-md"
                                                 }`}
                                         >
                                             {msg.text ? (
@@ -327,7 +289,7 @@ export default function AIChatBot() {
                         </div>
 
                         {/* Quick Actions */}
-                        <div className="px-4 py-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0">
+                        <div className="px-4 py-3 border-t border-gray-100 dark:border-slate-700 bg-white dark:bg-slate-900 shrink-0 transition-all duration-300">
                             <p className="text-xs text-gray-400 dark:text-gray-500 font-body mb-2">Quick actions</p>
                             <div className="flex flex-wrap gap-2">
                                 {quickActions.map((action) => (
@@ -360,7 +322,7 @@ export default function AIChatBot() {
                                 <button
                                     onClick={handleSend}
                                     disabled={!inputText.trim() || isLoading}
-                                    className="w-9 h-9 rounded-xl bg-gradient-to-r from-primary to-[#e83e8c] flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform disabled:opacity-40 disabled:hover:scale-100 shrink-0"
+                                    className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center text-white hover:scale-105 active:scale-95 transition-transform disabled:opacity-40 disabled:hover:scale-100 shrink-0"
                                 >
                                     <Send className="w-4 h-4" />
                                 </button>
@@ -424,14 +386,14 @@ export default function AIChatBot() {
                         initial={{ opacity: 0, scale: 0 }}
                         animate={{ opacity: 1, scale: 1 }}
                         exit={{ opacity: 0, scale: 0, transition: { duration: 0.2 } }}
-                        transition={{ delay: 1, duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                        transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
                         whileHover={{ scale: 1.1, translateY: -3 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => {
                             setIsOpen(true);
                             setShowPopup(false);
                         }}
-                        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-[#4DB8FF] text-white flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden border-2 border-white/20 hide-on-modal"
+                        className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-[100] w-[60px] h-[60px] rounded-full bg-transparent flex items-center justify-center shadow-lg hover:shadow-xl cursor-pointer group overflow-hidden hide-on-modal"
                         aria-label="Open AI chat"
                     >
                         {/* Shimmer sweep */}
@@ -446,9 +408,14 @@ export default function AIChatBot() {
                             animate={{ rotate: 0, opacity: 1 }}
                             exit={{ rotate: -90, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="relative z-10"
+                            className="relative z-10 w-full h-full flex items-center justify-center"
                         >
-                            <MessageCircle className="w-6 h-6" />
+                            <Image
+                                src="/images/assets/images/aichatbot-icon.png"
+                                alt="AI Chatbot Icon"
+                                fill
+                                className="object-cover scale-[1.35]"
+                            />
                         </motion.div>
                     </motion.button>
                 )}

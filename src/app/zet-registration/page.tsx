@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -15,7 +15,7 @@ export default function ZETRegistration() {
             {/* Floating Header Container */}
             <div className="w-full relative z-50">
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
+
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
@@ -23,7 +23,7 @@ export default function ZETRegistration() {
             </div>
 
             {/* Main Content Section */}
-            <section className="relative pt-20 pb-40 min-h-[70vh] flex flex-col items-center">
+            <section className="relative pt-36 pb-40 min-h-[70vh] flex flex-col items-center">
                 <motion.h1
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}

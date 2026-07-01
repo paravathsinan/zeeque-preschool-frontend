@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -21,11 +21,11 @@ import {
 
 export default function ContactPage() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-[#FFCB05] selection:text-[#222] relative overflow-hidden transition-colors duration-300">
             {/* ── Header ── */}
             <div className="w-full relative z-50">
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
+
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
@@ -35,7 +35,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-8 md:py-12 lg:py-16 overflow-hidden">
+            <section className="relative pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-48 lg:pb-16 overflow-hidden">
 
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
@@ -48,12 +48,9 @@ export default function ContactPage() {
                             className="w-full lg:w-1/2 text-center lg:text-left"
                         >
                             {/* Breadcrumb/Badge */}
-                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Get in Touch</span>
-                            </div>
 
                             <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                                Contact <span className="relative inline-block"><span className="text-primary">ZeeQue</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#fbaf01" strokeWidth="3" strokeLinecap="round" /></svg></span> Preschool <br className="hidden md:block" /> — India&apos;s Fastest Growing Islamic Montessori Network
+                                Contact <span className="relative inline-block"><span className="text-primary">ZeeQue</span><svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none"><path d="M2 8C40 2 80 2 100 6C120 10 160 10 198 4" stroke="#FFCB05" strokeWidth="3" strokeLinecap="round" /></svg></span> Preschool <br className="hidden md:block" /> — India&apos;s Fastest Growing Islamic Montessori Network
                             </h1>
                             <p className="text-gray-600 dark:text-gray-300 font-body text-lg md:text-xl leading-relaxed mb-8 max-w-xl">
                                 We&apos;re here to help you find the perfect learning foundation for your child. Whether you&apos;re enquiring about our flagship 3-year KG, primary Grade Stream, or our professional teacher training diplomas, reach out to our team in Koduvally.
@@ -62,18 +59,18 @@ export default function ContactPage() {
                             {/* Navigation Buttons */}
                             <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-10">
                                 <Link
-                                    href="/preschool-admission-kerala-2026"
-                                    className="group flex items-center gap-2 bg-[#EF4225] text-white px-8 py-4 rounded-2xl font-heading font-extrabold text-[16px] hover:bg-[#d83a1f] shadow-[0_6px_0_0_#bf361d] hover:shadow-[0_4px_0_0_#bf361d] hover:translate-y-[2px] transition-all"
+                                    href="/preschool-admission-kerala-2026#apply"
+                                    className="group flex items-center gap-2 bg-[#FFCB05] text-[#222] px-8 py-4 rounded-full font-heading font-extrabold text-[16px] shadow-[4px_4px_0_0_#0060D6] border-none cursor-pointer hover:-translate-y-1 transition-all"
                                 >
                                     Admission Enquiry
-                                    <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+                                    <ArrowRight className="w-5 h-5 stroke-[3] transition-transform group-hover:translate-x-1" />
                                 </Link>
                                 <Link
                                     href="/preschool-programs-kerala"
-                                    className="group flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-8 py-4 rounded-2xl font-heading font-extrabold text-[16px] border-2 border-[#3FB7E5]/20 hover:border-[#3FB7E5]/40 shadow-xl shadow-[#3FB7E5]/5 hover:shadow-[#3FB7E5]/10 hover:-translate-y-1 transition-all"
+                                    className="group flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-8 py-4 rounded-full font-heading font-extrabold text-[16px] border-2 border-gray-200 hover:border-primary shadow-lg hover:-translate-y-1 transition-all"
                                 >
                                     Explore Programs
-                                    <Sparkles className="w-5 h-5 text-[#fbaf01]" />
+                                    <Sparkles className="w-5 h-5 text-[#FFCB05]" />
                                 </Link>
                             </div>
                         </motion.div>
@@ -131,9 +128,6 @@ export default function ContactPage() {
                         className="max-w-4xl mx-auto text-center relative"
                     >
                         {/* Decorative floating badge */}
-                        <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-8 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Get Support</span>
-                        </div>
 
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-10">
                             Start Your Child&apos;s{" "}
@@ -156,7 +150,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 3: Contact Form & Info
                ══════════════════════════════════ */}
-            <section className="py-10 bg-gradient-to-b from-white to-[#fffcf2] dark:from-slate-900 dark:to-slate-950 relative overflow-hidden">
+            <section className="py-10 bg-white dark:bg-slate-950 relative overflow-hidden">
                 {/* Background decorative blob */}
                 <div className="absolute top-1/2 left-0 -translate-y-1/2 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
                 <div className="absolute top-1/4 right-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
@@ -191,7 +185,7 @@ export default function ContactPage() {
                                             name="user-name"
                                             autoComplete="name"
                                             placeholder="Your name"
-                                            className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
+                                            className="w-full bg-gray-50 dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                         />
                                     </div>
                                     <div className="space-y-2">
@@ -202,7 +196,7 @@ export default function ContactPage() {
                                             name="user-email"
                                             autoComplete="email"
                                             placeholder="contact@zeeque.in"
-                                            className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
+                                            className="w-full bg-gray-50 dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                         />
                                     </div>
                                 </div>
@@ -213,7 +207,7 @@ export default function ContactPage() {
                                         id="contact-subject"
                                         name="subject"
                                         placeholder="Enquiry status/admission"
-                                        className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
+                                        className="w-full bg-gray-50 dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -223,10 +217,10 @@ export default function ContactPage() {
                                         name="message"
                                         rows={4}
                                         placeholder="Tell us what's on your mind..."
-                                        className="w-full bg-[#fffcf2] dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200 resize-none"
+                                        className="w-full bg-gray-50 dark:bg-slate-900 border-2 border-transparent focus:border-primary/30 rounded-2xl px-6 py-4 outline-none transition-all font-body text-gray-700 dark:text-gray-200 resize-none"
                                     ></textarea>
                                 </div>
-                                <button className="w-full bg-[#EF4225] hover:bg-[#d83a1f] text-white py-5 rounded-2xl font-heading font-extrabold text-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#EF4225]/20">
+                                <button className="w-full bg-[#0060D6] hover:bg-[#004bb5] text-white py-5 rounded-2xl font-heading font-extrabold text-lg flex items-center justify-center gap-3 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-[#0060D6]/20">
                                     Send Message
                                     <Send className="w-5 h-5" />
                                 </button>
@@ -253,7 +247,7 @@ export default function ContactPage() {
 
                                 <div className="space-y-8">
                                     <div className="flex items-start gap-5 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#3FB7E5] flex items-center justify-center text-white flex-shrink-0 transition-transform shadow-lg shadow-[#3FB7E5]/20">
+                                        <div className="w-14 h-14 rounded-2xl bg-[#EAF4FF] flex items-center justify-center text-[#0060D6] flex-shrink-0 transition-transform shadow-lg shadow-[#0060D6]/5">
                                             <Phone className="w-6 h-6 group-hover:animate-ringing origin-center transition-transform" />
                                         </div>
                                         <div>
@@ -263,8 +257,8 @@ export default function ContactPage() {
                                     </div>
 
                                     <div className="flex items-start gap-5 group">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#e83e8c] flex items-center justify-center text-white flex-shrink-0 group-hover:-rotate-12 transition-transform shadow-lg shadow-[#e83e8c]/20">
-                                            <Mail className="w-6 h-6" />
+                                        <div className="w-14 h-14 rounded-2xl bg-[#FFF8D6] flex items-center justify-center text-[#FFCB05] flex-shrink-0 group-hover:-rotate-12 transition-transform shadow-lg shadow-[#FFCB05]/10">
+                                            <Mail className="w-6 h-6 text-[#FFCB05]" />
                                         </div>
                                         <div>
                                             <div className="text-sm font-heading font-bold text-gray-400 uppercase tracking-widest mb-1">Email</div>
@@ -284,16 +278,16 @@ export default function ContactPage() {
                             >
                                 <div className="flex items-center justify-between mb-8">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 rounded-2xl bg-[#0fb85c] flex items-center justify-center text-white">
+                                        <div className="w-12 h-12 rounded-2xl bg-[#0060D6] flex items-center justify-center text-white">
                                             <Clock className="w-6 h-6" />
                                         </div>
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl">Business Hours</h3>
                                     </div>
                                 </div>
 
-                                <div className="bg-[#0fb85c]/5 border-2 border-dashed border-[#0fb85c]/20 rounded-3xl p-6 text-center">
-                                    <div className="flex items-center justify-center gap-2 text-[#0fb85c] mb-1">
-                                        <div className="w-2 h-2 bg-[#0fb85c] rounded-full" />
+                                <div className="bg-[#EAF4FF] border-2 border-dashed border-[#0060D6]/20 rounded-3xl p-6 text-center">
+                                    <div className="flex items-center justify-center gap-2 text-[#0060D6] mb-1">
+                                        <div className="w-2 h-2 bg-[#0060D6] rounded-full animate-pulse" />
                                         <span className="font-heading font-extrabold text-sm uppercase tracking-wider">Available</span>
                                     </div>
                                     <div className="text-4xl font-heading font-extrabold text-[#222] dark:text-white mb-2">24/7</div>
@@ -309,7 +303,7 @@ export default function ContactPage() {
             {/* ══════════════════════════════════
                 SECTION 4: Map Section
                ══════════════════════════════════ */}
-            <section className="py-10 pb-24 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
+            <section className="py-10 pb-24 bg-gray-50 dark:bg-slate-950 relative overflow-hidden">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
@@ -321,7 +315,7 @@ export default function ContactPage() {
                         {/* Map Header */}
                         <div className="flex flex-col md:flex-row items-start md:items-center justify-between p-6 gap-6">
                             <div className="flex items-center gap-5">
-                                <div className="w-16 h-16 rounded-[20px] bg-[#ef4225] flex items-center justify-center text-white shadow-lg shadow-[#ef4225]/20">
+                                <div className="w-16 h-16 rounded-[20px] bg-[#0060D6] flex items-center justify-center text-white shadow-lg shadow-[#0060D6]/20">
                                     <MapPin className="w-8 h-8" />
                                 </div>
                                 <div>
@@ -330,7 +324,7 @@ export default function ContactPage() {
                                 </div>
                             </div>
                             <div className="flex flex-nowrap gap-3">
-                                <button className="bg-[#EF4225] text-white px-6 py-3 rounded-xl font-heading font-bold text-sm flex items-center gap-2 hover:bg-[#d83a1f] transition-all">
+                                <button className="bg-[#0060D6] text-white px-6 py-3 rounded-xl font-heading font-bold text-sm flex items-center gap-2 hover:bg-[#004bb5] transition-all">
                                     Open Maps <ArrowRight className="w-4 h-4" />
                                 </button>
                                 <a
@@ -352,7 +346,7 @@ export default function ContactPage() {
 
                         {/* Map Sub-Header / Location Info */}
                         <div className="px-6 pb-6 pt-2">
-                            <div className="bg-[#fffcf2] dark:bg-slate-900 rounded-2xl p-4 flex items-center gap-3 border border-gray-100 dark:border-slate-700">
+                            <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 flex items-center gap-3 border border-gray-100 dark:border-slate-700">
                                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                                     <MapPin className="w-4 h-4" />
                                 </div>
@@ -388,52 +382,6 @@ export default function ContactPage() {
                 </div>
             </section>
 
-            {/* ══════════════════════════════════
-                SECTION 5: Immediate Assistance (CTA)
-               ══════════════════════════════════ */}
-            <section className="py-12 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-br from-primary via-[#d63384] to-[#e83e8c] rounded-[40px] p-10 md:p-14 text-center text-white relative overflow-hidden shadow-[0_20px_60px_rgba(239,66,37,0.25)]"
-                    >
-                        {/* Decorative elements */}
-                        <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl" />
-
-                        <div className="relative z-10 max-w-2xl mx-auto">
-                            <div className="w-14 h-14 bg-white/15 backdrop-blur-xl rounded-2xl flex items-center justify-center mx-auto mb-8 transform -rotate-12 border border-white/20">
-                                <MessageSquare className="w-7 h-7 text-white" />
-                            </div>
-                            <h2 className="font-heading font-extrabold text-3xl md:text-4xl lg:text-5xl mb-5 leading-tight">
-                                Need Immediate Assistance?
-                            </h2>
-                            <p className="text-white/70 font-body text-base md:text-lg mb-10 leading-relaxed max-w-xl mx-auto">
-                                Reach out to us by phone, email, or visit our campus to take the next step in your child&apos;s academic journey.
-                            </p>
-                            <div className="flex flex-wrap justify-center gap-4">
-                                <Link
-                                    href="tel:+919072500435"
-                                    className="bg-white text-primary px-8 py-4 rounded-2xl font-heading font-bold text-base shadow-lg shadow-black/10 hover:scale-[1.03] active:scale-95 transition-all flex items-center gap-2.5 group"
-                                >
-                                    <Phone className="w-4.5 h-4.5 group-hover:animate-ringing origin-center transition-transform" />
-                                    Call Us Now
-                                </Link>
-                                <Link
-                                    href="mailto:contact@zeeque.in"
-                                    className="bg-white/10 backdrop-blur-xl border border-white/20 text-white px-8 py-4 rounded-2xl font-heading font-bold text-base hover:bg-white/20 transition-all flex items-center gap-2.5"
-                                >
-                                    <Mail className="w-4.5 h-4.5" />
-                                    Send Email
-                                </Link>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
 
             <Footer />
         </main>

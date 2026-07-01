@@ -2,180 +2,118 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, PhoneCall } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
-
-const heroImages = [
-    "/images/gallery/gallery photos/IMG_5246.JPG",
-    "/images/gallery/gallery photos/IMG_5282.JPG",
-    "/images/gallery/gallery photos/IMG_5316.JPG",
-    "/images/gallery/gallery photos/IMG_5744 (2) - Copy.JPG",
-    "/images/gallery/gallery photos/IMG_5781.JPG",
-    "/images/gallery/gallery photos/IMG_5836 (2) - Copy.JPG",
-    "/images/gallery/gallery photos/IMG_6331 - Copy.JPG",
-    "/images/gallery/gallery photos/RYZ03180.JPG"
-];
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    // Effect to handle the rotation timer + preloading
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const nextIndex = (currentImageIndex + 1) % heroImages.length;
-            
-            // Native JS preloading is more reliable than hidden components
-            const img = new window.Image();
-            img.src = heroImages[nextIndex];
-            
-            const handleLoad = () => {
-                setCurrentImageIndex(nextIndex);
-            };
-
-            // If it's already cached or loads successfully
-            if (img.complete) {
-                handleLoad();
-            } else {
-                img.onload = handleLoad;
-                img.onerror = handleLoad; // Move anyway if error to avoid sticking
-            }
-        }, 5000); 
-
-        return () => clearTimeout(timer);
-    }, [currentImageIndex]);
     return (
-        <section className="relative w-full pt-16 pb-48 overflow-hidden z-0">
-
-            {/* Premium Solid Background */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none bg-[#FFE7B1] dark:bg-slate-900 -z-10">
-                {/* Pure CSS Grid Overlay for premium texture */}
-                <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px]" />
-
-                {/* Soft Frosted Glass Blend Layer */}
-                <div className="absolute inset-0 dark:bg-slate-950/40 backdrop-blur-[50px]" />
+        <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[850px] overflow-hidden z-0 bg-white">
+            
+            {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
+            <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                <Image
+                    src="/images/assets/images/hero-section-bg.png"
+                    alt="Blue sky background with cityscape"
+                    fill
+                    className="object-cover object-bottom"
+                    priority
+                    sizes="100vw"
+                />
+                
+                {/* Cloud Shape Divider at the bottom of the blue section */}
+                <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                    <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="white"/>
+                    </svg>
+                </div>
             </div>
 
-            <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-20 flex flex-col lg:flex-row items-center justify-center text-center lg:text-left">
-
-                {/* Left Content */}
-                <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start gap-6">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-100px" }}
-                        transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-                        className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-tight"
-                    >
-                        The Best Preschool in Kerala <br />
-                        Where Little Minds <br />
-                        Grow Bright
-                    </motion.h1>
-
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                        className="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-8 mt-6 lg:mt-8"
-                    >
-                        <Link
-                            href="/preschool-admission-kerala-2026#apply"
-                            className="group flex items-center gap-2 bg-[#ffb606] text-white px-8 py-3.5 rounded-2xl font-heading font-bold text-[19px] tracking-wide hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all"
-                        >
-                            Enquiry Now
-                            <ArrowRight className="w-5 h-5 stroke-[2.5] transition-transform duration-300 group-hover:translate-x-1" />
-                        </Link>
-
-                        <div className="flex items-center gap-3">
-                            <div className="relative group cursor-pointer inline-flex">
-                                <Image src="/images/icons/about-us-icon1.png" alt="Contact icon to reach admission counselor at Zeeque Preschool Kerala." width={55} height={55} className="object-contain group-hover:animate-ringing origin-center transition-transform" />
-                            </div>
-                            <div className="flex flex-col justify-center text-left">
-                                <span className="text-[17px] text-gray-900 dark:text-gray-200 font-medium mb-1 leading-none">Admission Counsellor</span>
-                                <a href="tel:+919072500435" className="hover:text-amber-500 transition-colors">
-                                    <span className="font-heading font-extrabold text-primary text-[22px] sm:text-[26px] tracking-wide leading-none">+91 9072 500 435</span>
-                                </a>
-                            </div>
-                        </div>
-                    </motion.div>
+            {/* ===== Floating 3D Objects (Positioned relative to the center container to prevent zooming issues) ===== */}
+            <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                
+                {/* Biplane (far top left) */}
+                <div className="absolute top-[18%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
                 </div>
 
-                {/* Right Content / Image */}
-                <motion.div
-                    initial={{ opacity: 0, x: 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-                    className="w-full lg:w-1/2 relative flex justify-center mt-12 lg:mt-0"
-                >
-                    <div className="relative w-full max-w-[280px] sm:max-w-md lg:max-w-lg aspect-square mx-auto">
-                        {/* Background Dashed Blob */}
-                        <div
-                            className="absolute inset-0 border-4 border-dashed border-[#fbaf01] transform rotate-6 opacity-70"
-                            style={{ borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%' }}
-                        />
+                {/* Sun (far top right) */}
+                <div className="absolute top-[12%] right-[2%] xl:right-[6%] hidden md:block">
+                    <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                </div>
 
-                        {/* Main Image Blob */}
-                        <div
-                            className="absolute inset-4 shadow-2xl bg-yellow-100 dark:bg-slate-800"
-                            style={{
-                                borderRadius: '40% 60% 70% 30% / 40% 50% 60% 50%',
-                                overflow: 'hidden'
-                            }}
-                        >
-                            <AnimatePresence initial={false}>
-                                <motion.div
-                                    key={currentImageIndex}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0, transition: { duration: 0.5 } }}
-                                    transition={{ duration: 0.8, ease: "easeInOut" }}
-                                    className="absolute inset-0 w-full h-full"
-                                >
-                                    <Image
-                                        src={heroImages[currentImageIndex]}
-                                        alt="Happy child engaged in fun learning activities at Zeeque Preschool in Kozhikode, Kerala."
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                        sizes="(max-width: 1024px) 90vw, 50vw"
-                                    />
-                                </motion.div>
-                            </AnimatePresence>
+                {/* Cloud Left (far mid left) */}
+                <div className="absolute top-[32%] left-[4%] xl:left-[8%] hidden md:block">
+                    <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                </div>
+
+                {/* Cloud Right (far mid right) */}
+                <div className="absolute top-[32%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                    <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                </div>
+
+                {/* Red Cube A (near left cloud) */}
+                <div className="absolute top-[26%] left-[14%] xl:left-[18%] hidden md:block" style={{ transform: 'rotate(-25deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={45} height={45} className="object-contain drop-shadow-lg w-[35px] lg:w-[45px]" />
+                </div>
+
+                {/* Yellow Cube B (mid right) */}
+                <div className="absolute top-[42%] right-[4%] xl:right-[8%] hidden md:block" style={{ transform: 'rotate(20deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-cubeB.png" alt="" width={50} height={50} className="object-contain drop-shadow-lg w-[40px] lg:w-[50px]" />
+                </div>
+
+                {/* Parachute (bottom right) */}
+                <div className="absolute top-[58%] right-[1%] xl:right-[4%] z-40 hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="3D Parachute" width={110} height={140} className="object-contain drop-shadow-lg w-[80px] lg:w-[110px]" />
+                </div>
+            </div>
+
+            {/* ===== Main Content Area (Heading + CTA) ===== */}
+            <div className="absolute top-[22%] sm:top-[20%] md:top-[14%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4">
+                
+                    {/* Heading Wrapper Container for Relative Icons */}
+                    <div className="relative inline-block text-center mb-6 mt-4 md:mt-6">
+
+                    {/* Hero Heading */}
+                    <h1 className="hero-heading relative z-20 leading-[1.05]">
+                        WELCOME TO ZEEQUE <br />
+                        PRESCHOOL
+                    </h1>
+                </div>
+
+                {/* CTA Area — Mobile Only */}
+                <div className="flex md:hidden flex-wrap items-center justify-center gap-3 z-40 relative mt-4 pb-4">
+                    <Link
+                        href="/preschool-admission-kerala-2026#apply"
+                        className="group flex items-center gap-2 bg-[#FFCB05] text-[#222] px-6 py-3 rounded-full font-bold text-[15px] tracking-wide shadow-[4px_4px_0_0_#0060D6] border-none cursor-pointer"
+                    >
+                        Enquiry Now
+                        <ArrowRight className="w-4 h-4 stroke-[3]" />
+                    </Link>
+
+                    <div className="flex items-center gap-2 bg-white/70 backdrop-blur-md px-5 py-2.5 rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-white/50">
+                        <div className="relative group cursor-pointer inline-flex">
+                            <Image src="/images/icons/about-us-icon1.png" alt="Contact icon" width={32} height={32} className="object-contain" />
                         </div>
-
-                        {/* Floating Admission Badge (3D Styled) */}
-                        <div className="absolute top-[40%] -right-4 sm:-right-8 flex flex-col items-center sm:items-end z-30 drop-shadow-2xl animate-bounce-slow transform-gpu perspective-1000">
-                            {/* Red School Badge */}
-                            <div className="bg-gradient-to-b from-[#ff5e45] to-[#ef4225] text-white px-5 py-1.5 rounded-full text-xs sm:text-sm font-heading font-bold uppercase tracking-widest mb-[-12px] sm:mr-8 relative z-10 shadow-[0_4px_0_0_#c42f17,0_8px_15px_rgba(239,66,37,0.4)] border border-[#ff7a66]/30 -top-[1px] transform rotate-[-2deg] hover:translate-y-[2px] hover:shadow-[0_2px_0_0_#c42f17,0_4px_8px_rgba(239,66,37,0.4)] transition-all cursor-default">
-                                School
-                            </div>
-
-                            {/* Orange Admission Badge */}
-                            <div className="bg-gradient-to-b from-[#ffc83d] to-[#fbaf01] text-[#222222] px-6 sm:px-10 py-2 sm:py-3 rounded-[20px] sm:rounded-[30px] rounded-br-sm text-lg sm:text-2xl font-heading font-extrabold shadow-[0_6px_0_0_#d89600,0_12px_20px_rgba(251,175,1,0.3)] border border-[#ffd566]/50 relative z-20 transform rotate-[1deg] hover:translate-y-[3px] hover:shadow-[0_3px_0_0_#d89600,0_6px_10px_rgba(251,175,1,0.3)] transition-all cursor-default">
-                                ADMISSION
-                            </div>
-
-                            {/* Red Open Badge */}
-                            <div className="bg-gradient-to-b from-[#ff5e45] to-[#ef4225] text-white px-6 sm:px-8 py-2 rounded-full text-lg sm:text-xl font-heading font-extrabold flex items-center gap-2 mt-[-10px] sm:ml-8 relative z-30 shadow-[0_5px_0_0_#c42f17,0_10px_15px_rgba(239,66,37,0.4)] border border-[#ff7a66]/30 transform rotate-[-1deg] hover:translate-y-[2px] hover:shadow-[0_3px_0_0_#c42f17,0_6px_8px_rgba(239,66,37,0.4)] transition-all cursor-default">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#ffe082] -ml-2 drop-shadow-sm">
-                                    <path d="m3 11 18-5v12L3 14v-3z"></path>
-                                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
-                                </svg>
-                                OPEN
-                            </div>
+                        <div className="flex flex-col justify-center text-left">
+                            <span className="text-[10px] text-gray-700 font-extrabold mb-0.5 tracking-wider uppercase leading-none">Admission Counsellor</span>
+                            <a href="tel:+919072500435">
+                                <span className="font-extrabold text-[#0060D6] text-[16px] tracking-wide leading-none">+91 9072 500 435</span>
+                            </a>
                         </div>
                     </div>
-                </motion.div>
+                </div>
 
             </div>
 
-            {/* Wavy bottom divider */}
-            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-                <svg viewBox="0 0 1440 100" fill="none" className="w-full h-auto">
-                    <path d="M0,60 C360,100 720,20 1080,60 C1260,80 1380,40 1440,60 L1440,100 L0,100 Z" fill="#FCFDFD" className="dark:fill-[#0B1023]" />
-                </svg>
+            {/* ===== Kids Group — Anchored absolutely at the bottom! ===== */}
+            <div className="absolute bottom-[-1%] md:bottom-[-2%] left-1/2 -translate-x-1/2 w-[98%] max-w-[1250px] z-30 flex justify-center pointer-events-none">
+                <Image
+                    src="/images/assets/images/kids-group.png"
+                    alt="Muslim children sitting together reading and learning at ZeeQue Preschool"
+                    width={1250}
+                    height={450}
+                    className="object-contain w-full h-auto"
+                    priority
+                />
             </div>
 
         </section>

@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
+import Image from "next/image";
 import { useInView } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 function AnimatedNumber({ value }: { value: string }) {
   const numMatches = value.match(/\d+/);
@@ -44,27 +47,56 @@ function AnimatedNumber({ value }: { value: string }) {
 
 export default function StatsSection() {
   const stats = [
-    { value: "4", label: "Countries" },
-    { value: "152", label: "Schools" },
-    { value: "15000", label: "Happy Students" },
-    { value: "2200", label: "Trained Teachers" },
+    { value: "4+", label: "Countries" },
+    { value: "150+", label: "Schools" },
+    { value: "15000+", label: "Happy Students" },
+    { value: "2200+", label: "Trained Teachers" },
   ];
 
   return (
-    <section className="py-10 lg:py-16 bg-[#f9f9f9] dark:bg-slate-950 relative overflow-hidden">
-      <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+    <section className="py-16 lg:py-24 relative overflow-hidden bg-white">
+      {/* Background Floating Icons */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <Image src="/images/assets/icons/Boy Student.svg" alt="" width={80} height={80} className="absolute top-[15%] left-[8%] rotate-[-15deg] opacity-10 animate-[pulse_6s_ease-in-out_infinite]" />
+        <Image src="/images/assets/icons/Book pen.svg" alt="" width={60} height={60} className="absolute top-[40%] right-[30%] rotate-[10deg] opacity-10 animate-[pulse_5s_ease-in-out_infinite]" />
+        <Image src="/images/assets/icons/Language.svg" alt="" width={90} height={90} className="absolute bottom-[10%] left-[40%] rotate-12 opacity-10 animate-[pulse_7s_ease-in-out_infinite]" />
+        <Image src="/images/assets/icons/Trophy.svg" alt="" width={75} height={75} className="absolute top-[20%] right-[10%] rotate-[-20deg] opacity-10 animate-[pulse_6s_ease-in-out_infinite_1s]" />
+        <Image src="/images/assets/icons/Library.svg" alt="" width={70} height={70} className="absolute bottom-[15%] right-[5%] rotate-6 opacity-10 animate-[pulse_8s_ease-in-out_infinite]" />
+      </div>
+      <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
+        
+        {/* Top Content Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mb-16 lg:mb-24">
+            <h2 className="text-[#222] font-extrabold text-3xl md:text-4xl lg:text-[44px] leading-[1.15] uppercase max-w-lg tracking-tight">
+                We Build A Strong Foundation For Your Child's Future
+            </h2>
+            
+            <div className="flex flex-col items-start gap-6 pt-2 lg:pt-0 lg:ml-auto max-w-[450px]">
+                <p className="text-gray-500 font-body text-base lg:text-[15px] leading-relaxed">
+                    Whether it's interactive learning, a vibrant social environment, or captivating activities, we bring creativity and expertise to every child's growth.
+                </p>
+                <Link
+                    href="/about-zeeque-preschool-kerala"
+                    className="group inline-flex items-center gap-2 bg-[#FE3051] text-white px-8 py-3.5 rounded-full font-bold text-[15px] tracking-wide shadow-[4px_4px_0_0_#222] hover:-translate-y-1 hover:shadow-[6px_6px_0_0_#222] transition-all duration-300"
+                >
+                    Know More About us
+                    <ArrowRight className="w-5 h-5 stroke-[3] group-hover:translate-x-1 transition-transform" />
+                </Link>
+            </div>
+        </div>
+
+        {/* Stats Row */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 border-t border-gray-100 pt-12 lg:pt-16">
           {stats.map(({ value, label }) => (
             <div
               key={label}
-              className="bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-gray-200/40 dark:border-slate-700/40 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 text-center group"
+              className="flex flex-col items-start group"
             >
-              <div className="font-heading font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-2 text-[#222] dark:text-white group-hover:text-[#EF4225] transition-colors duration-300 flex items-center justify-center">
-                <AnimatedNumber value={value} />
-              </div>
-              <div className="w-8 h-0.5 bg-[#EF4225]/60 mx-auto mb-3 rounded-full" />
-              <div className="font-body font-medium text-gray-500 dark:text-gray-400 text-[15px] group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+              <div className="font-body font-bold text-gray-500 text-xs sm:text-[13px] uppercase tracking-[0.1em] mb-3">
                 {label}
+              </div>
+              <div className="font-extrabold tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[72px] text-[#222] group-hover:text-[#0060D6] transition-colors duration-300 leading-none">
+                <AnimatedNumber value={value} />
               </div>
             </div>
           ))}

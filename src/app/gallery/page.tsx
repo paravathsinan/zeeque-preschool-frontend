@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useState, useEffect } from "react";
@@ -92,11 +92,11 @@ export default function GalleryPage() {
     }, [selectedIndex, lightboxOpen]);
 
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
             {/* ── Header ── */}
             <div className="w-full relative z-50">
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
+
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300 relative z-50">
                     <Navbar />
@@ -106,7 +106,7 @@ export default function GalleryPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+            <section className="relative pt-24 pb-8 md:pt-32 md:pb-12 lg:pt-40 lg:pb-16 overflow-hidden">
                 {/* Background decorations */}
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 right-[10%] w-24 h-24 rounded-full bg-[#fbaf01]/10 animate-pulse" />
@@ -131,14 +131,8 @@ export default function GalleryPage() {
                             <span className="text-primary font-semibold">Gallery</span>
                         </div>
 
-                        <div className="flex items-center justify-center gap-3 mb-4">
-                            <div className="bg-[#e83e8c]/10 p-3 rounded-2xl">
-                                <Camera className="w-8 h-8 text-[#e83e8c]" />
-                            </div>
-                        </div>
-
                         <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                            ZeeQue Preschool Gallery <br className="hidden md:block" /> Glimpses of Joyful Learning and Growth in Kerala
+                            <br className="hidden md:block" /> Glimpses of Joyful Learning and Growth in Kerala
                         </h1>
                     </motion.div>
                 </div>

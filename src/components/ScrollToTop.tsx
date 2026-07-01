@@ -66,14 +66,14 @@ export default function ScrollToTop() {
                             cy="30"
                             r={radius}
                             fill="transparent"
-                            stroke="#ef4225"
+                            stroke="#0060D6"
                             strokeWidth="3"
                             strokeDasharray={circumference}
                             initial={{ strokeDashoffset: circumference }}
                             animate={{ strokeDashoffset: offset }}
                             transition={{ type: "spring", damping: 20, stiffness: 100 }}
                             strokeLinecap="round"
-                            className="drop-shadow-[0_0_5px_rgba(239,66,37,0.3)]"
+                            className="drop-shadow-[0_0_5px_rgba(0,96,214,0.3)]"
                         />
                     </svg>
 

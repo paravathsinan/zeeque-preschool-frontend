@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -58,12 +58,12 @@ const WavyDivider = ({ fill = "white", darkFill = "dark:fill-slate-900", flip = 
 
 export default function MissionVisionPage() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
                 <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
+
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
                     <Navbar />
@@ -73,33 +73,72 @@ export default function MissionVisionPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner (kept as-is)
                ══════════════════════════════════ */}
-            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-8 left-[8%] w-20 h-20 rounded-full bg-[#0fb85c]/10 animate-pulse" />
-                    <div className="absolute top-24 right-[12%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-16 left-[25%] w-14 h-14 rounded-full bg-[#e83e8c]/10 animate-pulse delay-700" />
-                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#3FB7E5]/10" />
-                    <div className="absolute bottom-8 right-[30%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
+                        <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+                
+                {/* Background � hero-section-bg.png (blue sky + cityscape + clouds) */}
+                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                    <Image
+                        src="/images/assets/images/hero-section-bg.png"
+                        alt="Blue sky background with cityscape"
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                        sizes="100vw"
+                    />
+                    
+                    {/* Cloud Shape Divider at the bottom of the blue section */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                        <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="currentColor" className="text-white dark:text-slate-900" />
+                        </svg>
+                    </div>
                 </div>
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                             <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <span className="text-primary font-semibold">Mission & Vision</span>
+
+                {/* ===== Floating 3D Objects ===== */}
+                <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                        <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
+                    </div>
+                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                    </div>
+                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                    </div>
+                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                    </div>
+                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
+                    </div>
+                </div>
+
+                {/* ===== Main Content Area ===== */}
+                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="text-center"
+                    >
+                        {/* Breadcrumb */}
+                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full w-fit mx-auto border border-white/30 text-white">
+                            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <span className="font-semibold text-yellow-300">Mission & Vision</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                            Our Mission & Vision
-                            <br className="hidden md:block" /> Nurturing Confident Muslim Learners Across Kerala
+
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-[52px] max-w-5xl mx-auto leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                            Nurturing Confident Muslim Learners <br className="hidden md:block" /> Across Kerala
                         </h1>
-                        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.5, duration: 0.5 }} className="mt-8 inline-flex items-center gap-3 bg-white dark:bg-slate-800 border-2 border-[#fbaf01]/30 rounded-full px-6 py-3 shadow-sm">
-                            <Lightbulb className="w-5 h-5 text-[#fbaf01]" />
-                            <span className="font-heading font-bold text-[#222] dark:text-white text-sm italic">&ldquo;One Who Is Illumined At The Beginning Is Illumined At The End&rdquo;</span>
-                        </motion.div>
-                        <p className="text-gray-400 dark:text-gray-500 text-xs mt-2 font-body">— Ibn Athaillah, 13th-century Alexandrian Philosopher</p>
+
+                        {/* Description */}
+                        <p className="font-body font-medium text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] bg-black/10 px-6 py-3 rounded-2xl backdrop-blur-[2px]">
+                            A core principle of Zeeque Preschool is to help future generations shape their lives in accordance with Islamic values through child-friendly mentoring.
+                        </p>
                     </motion.div>
                 </div>
-                <WavyDivider />
             </section>
 
             {/* ══════════════════════════════════
@@ -225,9 +264,6 @@ export default function MissionVisionPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">What We Stand For</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Our Core <span className="text-[#e83e8c]">Values</span>
                         </h2>
@@ -290,9 +326,6 @@ export default function MissionVisionPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
-                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Spiritual Foundation</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Rooted in <span className="text-[#0fb85c]">Islamic Values</span>
                             </h2>
@@ -343,155 +376,9 @@ export default function MissionVisionPage() {
             </section>
 
             {/* ══════════════════════════════════
-                SECTION 6: Objectives — Playful Grid
-               ══════════════════════════════════ */}
-            <section className="py-12 lg:py-16 bg-[#fffcf2] dark:bg-slate-950 relative overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[10%] w-20 h-20 rounded-full bg-[#EF4225]/5 animate-pulse hidden lg:block" />
-                </div>
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">What We Aim For</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Our <span className="text-[#EF4225]">Objectives</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">
-                            Every program, activity, and interaction at Zeeque Preschool is designed to achieve these key objectives — creating well-rounded, confident, and values-driven young learners.
-                        </p>
-                    </motion.div>
-
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {objectives.map((obj, i) => {
-                            const colors = ["#ef4225", "#0fb85c", "#3FB7E5", "#e83e8c", "#fbaf01", "#EF4225"];
-                            const color = colors[i % colors.length];
-                            return (
-                                <motion.div key={obj.title} custom={i} variants={fadeUp}
-                                    className="relative bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group overflow-hidden">
-
-                                    <div className="relative z-10">
-                                        <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${color}20, ${color}10)` }}>
-                                            <obj.icon className="w-7 h-7" style={{ color }} />
-                                        </div>
-                                        <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">{obj.title}</h3>
-                                        <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{obj.description}</p>
-                                    </div>
-                                </motion.div>
-                            );
-                        })}
-                    </motion.div>
-                </div>
-                <WavyDivider fill="white" darkFill="dark:fill-slate-900" />
-            </section>
-
-            {/* ══════════════════════════════════
-                SECTION 7: What Makes Us Different — Big Cards with Images
-               ══════════════════════════════════ */}
-            <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-20 left-[5%] w-24 h-24 rounded-full bg-[#fbaf01]/5 animate-pulse hidden lg:block" />
-                    <div className="absolute bottom-20 right-[8%] w-20 h-20 rounded-full bg-[#fbaf01]/5 hidden xl:block" />
-                </div>
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Why Zeeque Preschool?</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            What Makes Us <span className="text-[#fbaf01]">Different</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto">More than a preschool — we&apos;re a family that nurtures every child with love, safety, and world-class education.</p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {[
-                            { icon: Shield, title: "Safe & Secure Environment", description: "Supervised single-door entry/exit, two fenced outdoor play areas with age-appropriate equipment, and trained staff ensuring your child's complete safety at all times.", color: "#ef4225", extra: "CCTV monitored • First aid trained staff • Emergency protocols" },
-                            { icon: Users, title: "3 Mentors per Classroom", description: "Individual care and personalized attention with three dedicated mentors in every classroom, ensuring no child is left behind in their learning journey.", color: "#0fb85c", extra: "1:8 mentor-child ratio • Personalized learning plans" },
-                            { icon: GraduationCap, title: "Research-Backed Curriculum", description: "Our exclusive, thoroughly tested and proven Zeeque Preschool Curriculum is the result of extensive research and studies in early childhood education.", color: "#3FB7E5", extra: "Certified Academic Executives • Continuous curriculum updates" },
-                            { icon: HandHeart, title: "Values-Based Education", description: "Uniquely blending academic excellence with spiritual wisdom — teaching not just knowledge, but compassion, respect, sharing, and confidence.", color: "#e83e8c", extra: "Islamic values integration • Character building focus" },
-                        ].map((item, i) => (
-                            <motion.div key={item.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                                className="bg-gradient-to-br from-gray-50 to-white dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden">
-
-
-                                <div className="flex items-start gap-5">
-                                    <div className="w-16 h-16 rounded-2xl flex-shrink-0 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md" style={{ background: `linear-gradient(135deg, ${item.color}25, ${item.color}10)` }}>
-                                        <item.icon className="w-8 h-8" style={{ color: item.color }} />
-                                    </div>
-                                    <div className="flex-1">
-                                        <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-2">{item.title}</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 font-body text-[15px] leading-relaxed mb-4">{item.description}</p>
-                                        <div className="bg-white dark:bg-slate-700/50 rounded-xl px-4 py-2.5 border border-gray-100 dark:border-slate-600/50 shadow-sm">
-                                            <p className="text-gray-500 dark:text-gray-400 font-body text-xs font-medium flex items-center gap-1.5 transition-colors group-hover:text-gray-700 dark:group-hover:text-gray-300">
-                                                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.color }} />
-                                                {item.extra}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ══════════════════════════════════
-                SECTION 9: Growth Pillars
-               ══════════════════════════════════ */}
-            <section className="py-12 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 right-[10%] text-7xl opacity-[0.05] hidden lg:block">🌳</div>
-                    <div className="absolute bottom-10 left-[5%] w-24 h-24 rounded-full border-4 border-dashed border-[#ef4225]/10 hidden xl:block" />
-                </div>
-
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">Developmental Focus</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Pillars of <span className="text-[#ef4225]">Growth</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-2xl mx-auto leading-relaxed">Our ECCE program nurtures all dimensions of a child&apos;s development through thoughtfully designed experiences.</p>
-                    </motion.div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {[
-                            { title: "Social", description: "Building friendships, teamwork, and communication skills through collaborative play and group activities.", icon: Users, color: "#0fb85c", emoji: "🤝", details: ["Group projects", "Team games", "Social skills workshops"] },
-                            { title: "Emotional", description: "Developing self-awareness, empathy, and emotional regulation in a loving, supportive environment.", icon: Heart, color: "#e83e8c", emoji: "💖", details: ["Empathy building", "Feelings circles", "Conflict resolution"] },
-                            { title: "Cognitive", description: "Stimulating curiosity, problem-solving, and critical thinking through playful exploration.", icon: Brain, color: "#3FB7E5", emoji: "🧠", details: ["Puzzles & riddles", "Science exploration", "Creative problem-solving"] },
-                            { title: "Physical", description: "Strengthening motor skills, coordination, and a love for active living through sports.", icon: TreePine, color: "#fbaf01", emoji: "💪", details: ["Outdoor play", "Yoga & exercises", "Fine motor crafts"] },
-                        ].map((pillar, i) => (
-                            <motion.div key={pillar.title} custom={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group text-center relative overflow-hidden">
-
-
-                                <div className="w-16 h-16 rounded-full mx-auto flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-md" style={{ background: `linear-gradient(135deg, ${pillar.color}20, ${pillar.color}10)` }}>
-                                    <pillar.icon className="w-8 h-8" style={{ color: pillar.color }} />
-                                </div>
-                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-xl mb-2">{pillar.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[14px] leading-relaxed mb-4">{pillar.description}</p>
-
-                                <div className="bg-gray-50 dark:bg-slate-700 rounded-xl p-3 space-y-1">
-                                    {pillar.details.map((d) => (
-                                        <div key={d} className="text-xs font-body text-gray-400 dark:text-gray-500 flex items-center gap-1.5">
-                                            <span style={{ color: pillar.color }}>✓</span> {d}
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </section >
-
-            {/* ══════════════════════════════════
                 SECTION 10: CTA
                ══════════════════════════════════ */}
-            <section className="py-12 lg:py-16 bg-gradient-to-b from-[#fffcf2] to-white dark:from-slate-950 dark:to-slate-900 relative overflow-hidden">
+            <section className="py-12 lg:py-16 bg-white dark:bg-slate-950 relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute top-10 left-10 w-24 h-24 rounded-full border-4 border-dashed border-[#fbaf01]/15 hidden lg:block" />
                     <div className="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-[#0fb85c]/5 hidden lg:block" />

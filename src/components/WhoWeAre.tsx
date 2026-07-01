@@ -2,114 +2,137 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Play, User, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
+
+const features = [
+    {
+        title: "Digital Growth",
+        description: "Solicitudin nibh sit amet commodo nulla. Amet venenatis urna cursus eget nunc.",
+        icon: "/images/assets/icons/Library.svg",
+        bgColor: "bg-[#FFF3CD]",
+    },
+    {
+        title: "Trusted Surroundings",
+        description: "Aliquam faucibus purus in massa tempor nec feugiat. Pharetra vel turpis nunc eget.",
+        icon: "/images/assets/icons/Geology.svg",
+        bgColor: "bg-[#D4EDDA]",
+    },
+    {
+        title: "Prepared Learning Spaces",
+        description: "Dapibus ultrices in iaculis nunc sed augue lacus. Tortor id aliquet lectus proin.",
+        icon: "/images/assets/icons/Trophy.svg",
+        bgColor: "bg-[#F8D7DA]",
+    },
+];
 
 export default function WhoWeAre() {
-
     return (
-        <section className="py-10 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <section className="relative py-16 lg:py-24 overflow-hidden">
+            {/* Gradient background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#EAF4FF] to-white -z-10" />
 
-            {/* Decorative Background Elements */}
+            {/* Blue wavy top divider */}
+            <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-[5] -translate-y-[1px]">
+                <svg viewBox="0 0 1440 60" fill="none" className="w-full h-auto" preserveAspectRatio="none">
+                    <path d="M0,0 C240,60 480,0 720,40 C960,60 1200,10 1440,30 L1440,0 L0,0 Z" fill="#FFFFFF"/>
+                </svg>
+            </div>
 
+            {/* Floating decorations */}
+            <div className="absolute top-[20%] left-[2%] z-[2] animate-float hidden lg:block">
+                <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={65} height={90} className="object-contain" />
+            </div>
+            <div className="absolute top-[10%] right-[3%] z-[2] animate-float-slow hidden lg:block">
+                <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={70} height={40} className="object-contain opacity-70" />
+            </div>
+            <div className="absolute bottom-[10%] right-[3%] z-[2] animate-float-reverse hidden lg:block" style={{ transform: 'rotate(15deg)' }}>
+                <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={40} height={40} className="object-contain" />
+            </div>
+            <div className="absolute top-[40%] right-[2%] z-[2] animate-float-medium hidden lg:block" style={{ transform: 'rotate(-10deg)' }}>
+                <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={55} height={40} className="object-contain opacity-60" />
+            </div>
 
-            <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-16 xl:gap-24">
+            <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 xl:gap-20">
 
-                {/* Left Content */}
+                {/* Left — Child Image with blue blob border */}
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+                    className="w-full lg:w-[45%] flex justify-center"
                 >
-                    <span className="text-amber-600 dark:text-amber-400 font-heading font-bold text-sm mb-4 bg-amber-50/80 dark:bg-amber-900/20 backdrop-blur-md px-4 py-2 rounded-full border border-amber-200/50 dark:border-amber-700/30 w-fit shadow-sm group hover:bg-amber-100/50 transition-all duration-300">
-                        Who we are
-                    </span>
-                    <h2 className="font-heading font-extrabold text-[#222222] dark:text-white text-4xl md:text-5xl lg:text-[54px] leading-[1.1] mb-6">
-                        Zeeque Preschool Network
-                    </h2>
-                    <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-6">
-                        Zeeque Preschool is a unique and state of the art Early Childhood Care and Education program specially designed for children between 3 to 6 years of age, spanning three developmental stages: Lower, Middle, and Upper (LZQ, MZQ, and UZQ).
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-300 font-body text-lg leading-relaxed mb-10">
-                        We draw upon a diverse range of educational approaches, methods, and techniques, all geared towards nurturing creativity, collaboration, and joyful learning.
-                    </p>
-
-                    <Link
-                        href="/about"
-                        className="inline-flex items-center justify-center bg-[#ffb606] hover:bg-[#ffa000] text-white px-10 py-3.5 rounded-2xl font-body font-bold text-[18px] transition-all shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] border-none"
-                    >
-                        Know More
-                    </Link>
-
+                    <div className="relative">
+                        {/* Blue wavy border behind image */}
+                        <div className="absolute -inset-4 rounded-[40px] border-4 border-[#0060D6]/30" style={{ borderRadius: '60% 40% 55% 45% / 50% 60% 40% 50%' }} />
+                        <div className="relative rounded-[30px] overflow-hidden shadow-2xl bg-[#EAF4FF]" style={{ borderRadius: '55% 45% 50% 50% / 45% 55% 45% 55%' }}>
+                            <Image
+                                src="/images/assets/3d-elements/3d-kid.png"
+                                alt="Muslim student studying with laptop at ZeeQue Preschool"
+                                width={350}
+                                height={420}
+                                className="object-contain"
+                            />
+                        </div>
+                    </div>
                 </motion.div>
 
-                {/* Right Content / Image Collage */}
+                {/* Right — Content with features */}
                 <motion.div
                     initial={{ opacity: 0, x: 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="w-full lg:w-1/2 relative"
+                    className="w-full lg:w-[55%]"
                 >
+                    <h2 className="section-heading text-3xl md:text-4xl text-[#222] mb-4">
+                        Cross Disciplinary Curriculum
+                    </h2>
+                    <p className="text-gray-600 text-[15px] leading-relaxed mb-8 max-w-[500px]">
+                        Let the child be the director, and the actor in their own story. Crafting their journey with imagination and joy.
+                    </p>
 
-
-
-                    <div className="grid grid-cols-2 gap-4 sm:gap-6 relative z-10">
-                        {/* Top Left Image */}
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:-rotate-1 duration-300">
-                            <Image
-                                src="/images/gallery/gallery photos/IMG_5316.JPG"
-                                alt="Young students reading books together in the bright Zeeque Preschool library, Kerala."
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                        </div>
-
-                        {/* Top Right Image */}
-                        <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl transform transition-transform hover:scale-105 hover:rotate-1 duration-300 translate-y-4 sm:translate-y-8">
-                            <Image
-                                src="/images/gallery/gallery photos/IMG_5246.JPG"
-                                alt="Kids engaged in interactive learning at our Islamic Montessori preschool in Kerala."
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            />
-                        </div>
-
-                        {/* Bottom Wide Video Card */}
-                        <Link
-                            href="https://www.youtube.com/watch?v=AQc09O3uEbM"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative col-span-2 aspect-[16/9] rounded-3xl overflow-hidden shadow-2xl mt-4 sm:mt-8 group cursor-pointer border-2 border-white/10"
-                        >
-                            {/* Background Video */}
-                            <video
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                className="absolute inset-0 w-full h-full object-cover scale-[1.3] transition-transform duration-700 group-hover:scale-[1.4]"
-                                poster="/images/gallery/page-title.jpg"
+                    {/* Feature Items */}
+                    <div className="flex flex-col gap-6">
+                        {features.map((feature, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.5, delay: 0.1 * index }}
+                                className="flex items-start gap-4"
                             >
-                                <source src="/videos/ZAHRATUL_QUR_AN_THE_ZEE_QUE_PRESCHOOL_ENGLISH_PROMO_VIDEO_1080P - Trim.mp4" type="video/mp4" />
-                            </video>
+                                {/* Icon */}
+                                <div className={`w-[60px] h-[60px] rounded-2xl ${feature.bgColor} flex items-center justify-center flex-shrink-0`}>
+                                    <Image src={feature.icon} alt="" width={32} height={32} className="object-contain" />
+                                </div>
 
-                            {/* Subtle Overlay on hover */}
-                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300" />
-                        </Link>
+                                {/* Text */}
+                                <div>
+                                    <h3 className="font-bold text-[18px] text-[#222] mb-1">{feature.title}</h3>
+                                    <p className="text-gray-600 text-[14px] leading-relaxed">{feature.description}</p>
+                                </div>
+                            </motion.div>
+                        ))}
                     </div>
 
-
-
+                    {/* CTA */}
+                    <Link
+                        href="/about-zeeque-preschool-kerala"
+                        className="inline-flex items-center justify-center bg-[#FFCB05] hover:bg-[#FFD633] text-[#222] px-10 py-3.5 rounded-full font-bold text-[16px] transition-all shadow-[4px_4px_0_0_#0060D6] hover:shadow-[2px_2px_0_0_#0060D6] hover:translate-y-[2px] hover:translate-x-[2px] border-none mt-8"
+                    >
+                        Know More
+                    </Link>
                 </motion.div>
-
             </div>
 
+            {/* Blue wavy bottom divider */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-[5]">
+                <svg viewBox="0 0 1440 60" fill="none" className="w-full h-auto" preserveAspectRatio="none">
+                    <path d="M0,30 C240,0 480,60 720,30 C960,0 1200,60 1440,30 L1440,60 L0,60 Z" fill="#FFFFFF"/>
+                </svg>
+            </div>
         </section>
     );
 }

@@ -1,15 +1,29 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Quicksand, Luckiest_Guy, Courgette } from "next/font/google";
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AIChatBot from "@/components/AIChatBot";
 
-const kumbhSans = localFont({
-  src: "../../public/fonts/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf",
-  variable: "--font-kumbh-sans",
+const quicksand = Quicksand({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-quicksand",
   display: "swap",
-  preload: false,
+});
+
+const luckiestGuy = Luckiest_Guy({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-luckiest-guy",
+  display: "swap",
+});
+
+const courgette = Courgette({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-courgette",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,12 +39,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Titan+One&family=Fredoka+One&family=Courgette&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+      </head>
       <body
-        className={`${kumbhSans.className} ${kumbhSans.variable} antialiased`}
+        className={`${quicksand.className} ${quicksand.variable} ${luckiestGuy.variable} ${courgette.variable} antialiased`}
         suppressHydrationWarning
       >
         {children}
-        <ScrollToTop />
         <AIChatBot />
         <WhatsAppButton />
       </body>

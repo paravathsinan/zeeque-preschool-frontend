@@ -5,52 +5,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
 
-const events = [
-    {
-        title: "Annual Day Celebration 2025",
-        date: "March 15, 2025",
-        time: "10:00 AM - 2:00 PM",
-        category: "Celebration",
-        categoryColor: "bg-[#fbaf01] text-[#222]",
-        description:
-            "Join us for an exciting annual day filled with performances, art exhibitions, and fun activities by our little stars!",
-        image:
-            "https://images.unsplash.com/photo-1472162072942-cd5147eb3902?q=80&w=800&auto=format&fit=crop",
-        alt: "Children performing during the colorful Annual Day Celebration at Zeeque Preschool, Kerala.",
-    },
-    {
-        title: "Parent-Teacher Conference",
-        date: "March 22, 2025",
-        time: "9:00 AM - 12:00 PM",
-        category: "Meeting",
-        categoryColor: "bg-[#3FB7E5] text-white",
-        description:
-            "An opportunity for parents and teachers to discuss child development, progress reports, and upcoming curriculum plans.",
-        image:
-            "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
-        alt: "Parents and teachers discussing child development securely at our leading Kerala preschool.",
-    },
-    {
-        title: "Little Artists Exhibition",
-        date: "April 5, 2025",
-        time: "11:00 AM - 3:00 PM",
-        category: "Art",
-        categoryColor: "bg-[#c13088] text-white",
-        description:
-            "Watch our young learners showcase their creativity through paintings, crafts, and collaborative art projects.",
-        image:
-            "https://images.unsplash.com/photo-1596464716127-f2a82984de30?q=80&w=800&auto=format&fit=crop",
-        alt: "Young learners showcasing creative paintings at the Zeeque Islamic Montessori art exhibition.",
-    },
-];
-
+import { getFeaturedEvents } from "@/data/newsAndEvents";
 export default function NewsAndEvents() {
+    const events = getFeaturedEvents();
     return (
-        <section className="py-10 lg:py-16 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <section className="py-10 lg:py-16 bg-white relative overflow-hidden">
 
             {/* Playful background doodles */}
-            <div className="absolute top-8 right-16 w-24 h-24 rounded-full border-[6px] border-dotted border-[#fbaf01]/20 pointer-events-none hidden lg:block" />
-            <div className="absolute bottom-20 left-12 w-16 h-16 rounded-xl bg-[#3FB7E5]/5 rotate-12 pointer-events-none hidden lg:block" />
+            <div className="absolute top-8 right-16 w-24 h-24 rounded-full border-[6px] border-dotted border-[#0060D6]/10 pointer-events-none hidden lg:block" />
+            <div className="absolute bottom-20 left-12 w-16 h-16 rounded-xl bg-blue-50 rotate-12 pointer-events-none hidden lg:block" />
 
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
 
@@ -63,16 +26,23 @@ export default function NewsAndEvents() {
                     className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4"
                 >
                     <div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-tight">
-                            News & <span className="text-[#3FB7E5]">Events</span>
+                        <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap items-start sm:items-center gap-x-4 gap-y-2">
+                            <span className="font-courgette font-bold tracking-wide">News &</span> 
+                            <span className="relative text-[#0060D6] font-bold font-quicksand z-10">
+                                Events
+                                {/* Yellow swoosh underline */}
+                                <svg className="absolute -bottom-4 left-0 w-full h-5 text-[#FFC107] -z-10" viewBox="0 0 100 20" preserveAspectRatio="none">
+                                    <path d="M5,15 Q50,0 95,15" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+                                </svg>
+                            </span>
                         </h2>
-                        <p className="text-gray-500 dark:text-gray-400 font-body text-lg mt-3 max-w-lg">
+                        <p className="text-gray-500 font-body text-lg mt-3 max-w-lg">
                             Stay updated with the latest happenings at Zeeque Preschool.
                         </p>
                     </div>
                     <Link
                         href="/events"
-                        className="inline-flex items-center gap-2 text-[#3FB7E5] font-heading font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
+                        className="inline-flex items-center gap-2 text-[#0060D6] font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
                     >
                         View All Articles
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
@@ -93,7 +63,7 @@ export default function NewsAndEvents() {
                                 ease: "easeOut",
                             }}
                         >
-                            <div className="group bg-white dark:bg-slate-800 rounded-3xl overflow-hidden border border-gray-100 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all duration-400 hover:-translate-y-2 h-full flex flex-col">
+                            <div className="group bg-white rounded-3xl overflow-hidden border border-[#E8F0FE] shadow-[0_4px_24px_rgba(0,96,214,0.06)] hover:shadow-xl transition-all duration-400 hover:-translate-y-2 h-full flex flex-col">
                                 {/* Image */}
                                 <div className="relative h-52 overflow-hidden">
                                     <Image
@@ -102,18 +72,12 @@ export default function NewsAndEvents() {
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-700"
                                     />
-                                    {/* Category Badge */}
-                                    <div
-                                        className={`absolute top-4 left-4 px-4 py-1 rounded-full text-xs font-heading font-bold uppercase tracking-wide ${event.categoryColor}`}
-                                    >
-                                        {event.category}
-                                    </div>
                                 </div>
 
                                 {/* Content */}
                                 <div className="p-6 sm:p-7 flex flex-col flex-grow">
                                     {/* Date & Time */}
-                                    <div className="flex items-center gap-4 text-gray-400 dark:text-gray-500 text-sm mb-4">
+                                    <div className="flex items-center gap-4 text-gray-400 text-sm mb-4">
                                         <span className="flex items-center gap-1.5">
                                             <Calendar className="w-3.5 h-3.5" />
                                             {event.date}
@@ -124,18 +88,18 @@ export default function NewsAndEvents() {
                                         </span>
                                     </div>
 
-                                    <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl mb-3 group-hover:text-[#3FB7E5] transition-colors leading-snug">
+                                    <h3 className="font-bold text-[#222] text-xl mb-3 group-hover:text-[#0060D6] transition-colors leading-snug">
                                         {event.title}
                                     </h3>
 
-                                    <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed flex-grow">
+                                    <p className="text-gray-500 font-body text-[15px] leading-relaxed flex-grow">
                                         {event.description}
                                     </p>
 
                                     {/* Read More Link */}
                                     <Link
-                                        href="/events"
-                                        className="inline-flex items-center gap-2 text-[#3FB7E5] font-heading font-bold text-sm mt-5 hover:gap-3 transition-all"
+                                        href={`/events/${event.slug}`}
+                                        className="inline-flex items-center gap-2 text-[#0060D6] font-bold text-sm mt-5 hover:gap-3 transition-all"
                                     >
                                         Read More
                                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />

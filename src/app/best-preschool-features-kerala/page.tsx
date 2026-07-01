@@ -45,48 +45,82 @@ const WavyDivider = ({ fill = "white", darkFill = "dark:fill-slate-900", flip = 
    ══════════════════════════════════════════════ */
 export default function FeaturesPage() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
-                </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
-                    <Navbar />
-                </div>
+                <Navbar />
             </div>
 
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative py-10 md:py-14 lg:py-20 overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#ef4225]/10 animate-pulse" />
-                    <div className="absolute top-20 right-[15%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-16 left-[30%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
-                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
-                    <div className="absolute bottom-8 right-[25%]"><Star className="w-8 h-8 text-[#fbaf01]/20 fill-[#fbaf01]/10" /></div>
+            <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+                
+                {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
+                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                    <Image
+                        src="/images/assets/images/hero-section-bg.png"
+                        alt="Blue sky background with cityscape"
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                        sizes="100vw"
+                    />
+                    
+                    {/* Cloud Shape Divider at the bottom of the blue section */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                        <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="currentColor" className="text-white dark:text-slate-900" />
+                        </svg>
+                    </div>
                 </div>
 
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <span className="text-primary font-semibold">Features</span>
+                {/* ===== Floating 3D Objects ===== */}
+                <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                        <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
+                    </div>
+                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                    </div>
+                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                    </div>
+                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                    </div>
+                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
+                    </div>
+                </div>
+
+                {/* ===== Main Content Area ===== */}
+                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="text-center"
+                    >
+                        {/* Breadcrumb */}
+                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full w-fit mx-auto border border-white/30 text-white">
+                            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <span className="font-semibold text-yellow-300">Features</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                            Why ZeeQue is the Best Preschool in Kerala <br className="hidden md:block" /> What Makes Us Different
+
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-[52px] max-w-5xl mx-auto leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                            Experience the Joy of Learning <br className="hidden md:block" /> at ZeeQue Preschool
                         </h1>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-3">
-                            {["Quran & Culture", "Multilingual", "Play Way", "3 Mentors", "Smart Classrooms", "R&D Backed"].map((tag) => (
-                                <span key={tag} className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-gray-200/50 dark:border-slate-700/50 rounded-full px-5 py-2 font-heading font-bold text-sm text-gray-700 dark:text-gray-300 shadow-sm hover:bg-white/60 transition-all duration-300">{tag}</span>
-                            ))}
-                        </motion.div>
+
+                        {/* Description */}
+                        <p className="font-body font-medium text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] bg-black/10 px-6 py-3 rounded-2xl backdrop-blur-[2px]">
+                            Our state-of-the-art facilities and carefully designed features provide a safe, engaging, and nurturing environment for your child's early education.
+                        </p>
                     </motion.div>
                 </div>
-                <WavyDivider />
             </section>
 
             {/* ══════════════════════════════════
@@ -101,9 +135,7 @@ export default function FeaturesPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Light of Life</span>
-                            </div>
+                            
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Quran, Tradition & <span className="text-[#0fb85c]">Culture</span>
                             </h2>
@@ -198,9 +230,7 @@ export default function FeaturesPage() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 mx-auto w-fit">
-                                <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Multilingual Education</span>
-                            </div>
+                            
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
                                 Solid Foundation in <span className="text-[#3FB7E5]">Language</span>
                             </h2>
@@ -272,9 +302,7 @@ export default function FeaturesPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Character is Everything</span>
-                        </div>
+                        
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
                             Building <span className="text-[#e83e8c]">Character</span> from Day One
                         </h2>
@@ -283,30 +311,7 @@ export default function FeaturesPage() {
                         </p>
                     </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-5">
-                        {[
-                            { title: "Sharing", color: "#0fb85c" },
-                            { title: "Caring", color: "#e83e8c" },
-                            { title: "Good Manners", color: "#3FB7E5" },
-                            { title: "Confidence", color: "#fbaf01" },
-                            { title: "Independence", color: "#EF4225" },
-                            { title: "Leadership", color: "#ef4225" },
-                        ].map((v, i) => (
-                            <motion.div key={v.title} custom={i} variants={fadeUp}
-                                className="relative bg-white/60 dark:bg-slate-800/50 backdrop-blur-xl rounded-[24px] p-6 border border-white/40 dark:border-slate-700/40 text-center hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden"
-                            >
-                                {/* Inner Glow Effect */}
-                                <div
-                                    className="absolute -inset-2 bg-gradient-to-br transition-opacity duration-300 opacity-0 group-hover:opacity-100 pointer-events-none"
-                                    style={{
-                                        backgroundImage: `radial-gradient(circle at center, ${v.color}15, transparent 70%)`
-                                    }}
-                                />
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-base mb-2 relative z-10">{v.title}</h3>
-                                <div className="w-8 h-1 rounded-full mx-auto relative z-10" style={{ backgroundColor: v.color }} />
-                            </motion.div>
-                        ))}
-                    </motion.div>
+
 
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.5 }}
                         className="mt-12 bg-white/40 dark:bg-slate-800/40 backdrop-blur-xl rounded-[32px] p-8 md:p-10 border border-white/50 dark:border-slate-700/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.2)] relative overflow-hidden group">
@@ -342,9 +347,7 @@ export default function FeaturesPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Learning Through Play</span>
-                        </div>
+                        
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
                             Stress-Free <span className="text-[#fbaf01]">Play Way</span> Method
                         </h2>
@@ -393,25 +396,7 @@ export default function FeaturesPage() {
                         </motion.div>
                     </div>
 
-                    {/* Daily Session Flow */}
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
-                        <h3 className="font-heading font-bold text-[#222] dark:text-white text-xl text-center mb-8">A Typical Fun-Filled Day</h3>
-                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                            {[
-                                { name: "Welcome Circle", color: "#fbaf01" },
-                                { name: "Assembly", color: "#3FB7E5" },
-                                { name: "Meditation", color: "#EF4225" },
-                                { name: "Rhyme Time", color: "#e83e8c" },
-                                { name: "Story Session", color: "#0fb85c" },
-                                { name: "Outdoor Play", color: "#ef4225" },
-                            ].map((s) => (
-                                <div key={s.name} className="bg-white dark:bg-slate-800 rounded-2xl p-5 text-center border-2 border-gray-100 dark:border-slate-700 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-                                    <p className="font-heading font-bold text-[#222] dark:text-white text-sm">{s.name}</p>
-                                    <div className="w-8 h-1 rounded-full mx-auto mt-3" style={{ backgroundColor: s.color }} />
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
+
                 </div>
                 <WavyDivider fill="white" darkFill="dark:fill-slate-900" />
             </section>
@@ -436,9 +421,7 @@ export default function FeaturesPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#e83e8c]/10 border border-[#e83e8c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#e83e8c]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#e83e8c] tracking-tight">Personalized Care</span>
-                            </div>
+                            
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Individual <span className="text-[#e83e8c]">Mentoring</span>
                             </h2>
@@ -470,64 +453,7 @@ export default function FeaturesPage() {
             </section>
 
 
-            {/* ══════════════════════════════════
-                SECTION 8: Infrastructure & Facilities
-               ══════════════════════════════════ */}
-            <section className="py-12 lg:py-18 bg-white dark:bg-slate-900 relative overflow-hidden">
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center mb-16">
-                        <div className="inline-flex items-center bg-[#ef4225]/10 border border-[#ef4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#ef4225]/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-[#ef4225] tracking-tight">World-Class Facilities</span>
-                        </div>
-                        <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-5">
-                            Infrastructure & <span className="text-[#ef4225]">Facilities</span>
-                        </h2>
-                        <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-3xl mx-auto leading-relaxed">Designed to be healthy, safe, and stimulating — our centers have everything a child needs to thrive.</p>
-                    </motion.div>
 
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { title: "Sand Pit", desc: "Sensory play for tactile development and creative construction.", icon: Sparkles, color: "#fbaf01" },
-                            { title: "Splash Pool", desc: "Safe water play area for aquatic fun and motor skill development.", icon: Droplets, color: "#3FB7E5" },
-                            { title: "Mud Pond", desc: "Natural sensory exploration for hands-on, messy, joyful learning.", icon: Flower2, color: "#e83e8c" },
-                            { title: "Outdoor Play Areas", desc: "Two fenced areas with climbing structures, sand zones, and wheel toy paths.", icon: TreePine, color: "#0fb85c" },
-                            { title: "Indoor Play Zone", desc: "Age-appropriate toys, blocks, and learning games in a safe indoor space.", icon: Puzzle, color: "#EF4225" },
-                            { title: "Safety First", desc: "Supervised single-door entry/exit, CCTV monitoring, and trained safety staff.", icon: Shield, color: "#ef4225" },
-                        ].map((f, i) => (
-                            <motion.div key={f.title} custom={i} variants={fadeUp}
-                                className="bg-white dark:bg-slate-800 rounded-[28px] p-7 border-2 border-gray-100 dark:border-slate-700 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group relative overflow-hidden">
-                                <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-sm" style={{ background: `linear-gradient(135deg, ${f.color}20, ${f.color}10)` }}>
-                                    <f.icon className="w-7 h-7" style={{ color: f.color }} />
-                                </div>
-                                <h3 className="font-heading font-bold text-[#222] dark:text-white text-lg mb-2">{f.title}</h3>
-                                <p className="text-gray-500 dark:text-gray-400 font-body text-[15px] leading-relaxed">{f.desc}</p>
-                            </motion.div>
-                        ))}
-                    </motion.div>
-
-                    {/* Ponds Section */}
-                    <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-                        className="mt-12 bg-gradient-to-r from-[#3FB7E5]/5 to-[#0fb85c]/5 dark:from-slate-800 dark:to-slate-800 rounded-[28px] p-8 border border-[#3FB7E5]/10 dark:border-slate-700">
-                        <div className="flex flex-col md:flex-row items-center gap-8">
-                            <div className="w-20 h-20 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                                <Droplets className="w-10 h-10 text-primary" />
-                            </div>
-                            <div>
-                                <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl mb-3">Zeeque Preschool Ponds — A Unique Feature!</h3>
-                                <p className="text-gray-600 dark:text-gray-300 font-body text-[16px] leading-relaxed mb-3">
-                                    ZeeQue has <strong className="text-[#222] dark:text-white">three types of ponds</strong> for children to play in — filled with <strong className="text-[#3FB7E5]">water, sand, and clay</strong> respectively. Children play freely in these ponds to enhance their all-round physical and mental development.
-                                </p>
-                                <div className="flex flex-wrap gap-3">
-                                    {["Water Pond", "Sand Pond", "Clay Pond"].map((t) => (
-                                        <span key={t} className="bg-white/40 dark:bg-slate-700/40 backdrop-blur-md rounded-full px-5 py-2 font-heading font-bold text-sm text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-slate-600 shadow-sm hover:bg-white/60 transition-all duration-300">{t}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
-                <WavyDivider fill="#fffcf2" darkFill="dark:fill-slate-950" />
-            </section>
 
             {/* ══════════════════════════════════
                 SECTION 9: R&D
@@ -536,9 +462,7 @@ export default function FeaturesPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#EF4225]/10 border border-[#EF4225]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#EF4225]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#EF4225] tracking-tight">Innovation</span>
-                            </div>
+                            
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Research & <span className="text-[#EF4225]">Development</span>
                             </h2>
@@ -575,9 +499,7 @@ export default function FeaturesPage() {
                         </motion.div>
                     </div>
                 </div>
-                <WavyDivider fill="white" darkFill="dark:fill-slate-900" />
             </section>
-
 
             {/* ══════════════════════════════════
                 SECTION 11: CTA
@@ -599,14 +521,14 @@ export default function FeaturesPage() {
                         <p className="text-gray-600 dark:text-gray-300 font-body text-lg max-w-xl mx-auto leading-relaxed mb-10">
                             Give your child the best possible start with our proven ECCE program. Visit your nearest ZeeQue center or enroll online today!
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden">
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 sm:px-0">
+                            <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden whitespace-nowrap w-full sm:w-auto">
                                 {/* Subtle micro-pulse inner highlight */}
                                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                                <span className="relative z-10">Enquiry Now</span>
+                                <span className="relative z-10 whitespace-nowrap">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
-                            <Link href="/about-zeeque-preschool-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                            <Link href="/about-zeeque-preschool-kerala" className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all whitespace-nowrap w-full sm:w-auto">
                                 About Us
                             </Link>
                         </div>

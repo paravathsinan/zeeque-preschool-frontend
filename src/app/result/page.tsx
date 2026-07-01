@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronRight, Search, Copy, Printer, Check } from "lucide-react";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -29,7 +29,7 @@ export default function ResultPortalPage() {
             {/* ── Header ── */}
             <div className="w-full relative z-50 flex-none px-4 xl:px-8 pt-4 xl:pt-6">
                 <div className="hidden lg:block w-full bg-white dark:bg-slate-800 rounded-t-[40px] shadow-sm border border-gray-100 dark:border-slate-800 overflow-hidden max-w-[1140px] mx-auto">
-                    <TopHeader />
+
                 </div>
                 <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 lg:border-t-0 rounded-[40px] lg:rounded-t-none">
                     <Navbar />

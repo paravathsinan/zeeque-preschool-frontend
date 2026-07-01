@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import TopHeader from "@/components/TopHeader";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -34,49 +34,82 @@ const WavyDivider = ({ fill = "white", darkFill = "dark:fill-slate-900" }: { fil
 
 export default function ProgramsPage() {
     return (
-        <main className="min-h-screen bg-gradient-to-b from-[#fffcf2] to-[#faeed1] dark:from-slate-900 dark:to-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
+        <main className="min-h-screen bg-white dark:bg-slate-950 font-body selection:bg-secondary selection:text-white relative overflow-hidden transition-colors duration-300">
 
             {/* ── Header ── */}
             <div className="w-full relative z-50">
-                <div className="hidden lg:block w-full bg-white dark:bg-[#020618] transition-colors duration-300">
-                    <TopHeader />
-                </div>
-                <div className="max-w-[1140px] mx-auto bg-white dark:bg-transparent rounded-b-[40px] shadow-sm border border-gray-100 dark:border-slate-800 transition-colors duration-300">
-                    <Navbar />
-                </div>
+                <Navbar />
             </div>
 
             {/* ══════════════════════════════════
                 SECTION 1: Hero
                ══════════════════════════════════ */}
-            <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
-                <div className="absolute inset-0 pointer-events-none">
-                    <div className="absolute top-10 left-[10%] w-20 h-20 rounded-full bg-[#EF4225]/10 animate-pulse" />
-                    <div className="absolute top-24 right-[12%] w-16 h-16 rounded-full bg-[#fbaf01]/10 animate-pulse delay-500" />
-                    <div className="absolute bottom-16 left-[25%] w-14 h-14 rounded-full bg-[#0fb85c]/10 animate-pulse delay-700" />
-                    <div className="absolute top-1/3 right-[5%] w-28 h-28 rounded-full border-4 border-dashed border-[#e83e8c]/10" />
+            <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+                
+                {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
+                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                    <Image
+                        src="/images/assets/images/hero-section-bg.png"
+                        alt="Blue sky background with cityscape"
+                        fill
+                        className="object-cover object-bottom"
+                        priority
+                        sizes="100vw"
+                    />
+                    
+                    {/* Cloud Shape Divider at the bottom of the blue section */}
+                    <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10 translate-y-[1px]">
+                        <svg className="w-full h-[30px] md:h-[45px] lg:h-[60px]" preserveAspectRatio="none" viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0,100 L0,40 Q60,-20 120,40 Q180,-20 240,40 Q300,-20 360,40 Q420,-20 480,40 Q540,-20 600,40 Q660,-20 720,40 Q780,-20 840,40 Q900,-20 960,40 Q1020,-20 1080,40 Q1140,-20 1200,40 Q1260,-20 1320,40 Q1380,-20 1440,40 L1440,100 Z" fill="currentColor" className="text-white dark:text-slate-900" />
+                        </svg>
+                    </div>
                 </div>
 
-                <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 text-center">
-                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm">
-                            <Link href="/about-zeeque-preschool-kerala" className="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">About</Link>
-                            <ChevronRight className="w-4 h-4 text-gray-400" />
-                            <span className="text-primary font-semibold">Programs</span>
+                {/* ===== Floating 3D Objects ===== */}
+                <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
+                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                        <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
+                    </div>
+                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
+                    </div>
+                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
+                    </div>
+                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                        <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
+                    </div>
+                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                        <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
+                    </div>
+                </div>
+
+                {/* ===== Main Content Area ===== */}
+                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, ease: "easeOut" }}
+                        className="text-center"
+                    >
+                        {/* Breadcrumb */}
+                        <div className="flex items-center justify-center gap-2 mb-6 font-body text-sm bg-white/20 backdrop-blur-md px-4 py-1.5 rounded-full w-fit mx-auto border border-white/30 text-white">
+                            <Link href="/" className="hover:text-yellow-300 transition-colors">Home</Link>
+                            <ChevronRight className="w-4 h-4" />
+                            <span className="font-semibold text-yellow-300">Our Programs</span>
                         </div>
-                        <h1 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
-                            ZeeQue Preschool Programs in Kerala <br className="hidden md:block" /> A Complete Learning Ecosystem
+
+                        {/* Heading */}
+                        <h1 className="font-heading font-extrabold text-white text-3xl md:text-5xl lg:text-[52px] max-w-5xl mx-auto leading-[1.1] mb-6 drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]">
+                            Discover Our Comprehensive <br className="hidden md:block" /> Preschool Programs
                         </h1>
-                        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex flex-wrap justify-center gap-4">
-                            {["3 Year KG", "Diploma in ECCE", "Grade Stream", "TTGS", "PEP"].map((tag) => (
-                                <span key={tag} className="bg-[#EF4225]/5 dark:bg-[#EF4225]/10 backdrop-blur-md border border-[#EF4225]/20 dark:border-white/10 rounded-full px-5 py-2 font-heading font-bold text-sm tracking-tight text-[#EF4225] dark:text-[#f87171] shadow-sm hover:bg-[#EF4225]/10 transition-all duration-300">
-                                    {tag}
-                                </span>
-                            ))}
-                        </motion.div>
+
+                        {/* Description */}
+                        <p className="font-body font-medium text-white text-lg md:text-xl max-w-2xl mx-auto mb-8 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] bg-black/10 px-6 py-3 rounded-2xl backdrop-blur-[2px]">
+                            Engaging, age-appropriate programs designed to spark curiosity, build foundational skills, and foster a lifelong love for learning in every child.
+                        </p>
                     </motion.div>
                 </div>
-                <WavyDivider />
             </section>
 
             {/* ══════════════════════════════════
@@ -137,9 +170,6 @@ export default function ProgramsPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeLeft} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#0fb85c] tracking-tight">Flagship Program</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 3 Year <span className="text-[#0fb85c]">Kindergarten</span>
                             </h2>
@@ -247,9 +277,6 @@ export default function ProgramsPage() {
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <div className="flex flex-col lg:flex-row-reverse items-center gap-16">
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#3FB7E5] tracking-tight">Primary Education</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Grade Stream <span className="text-[#3FB7E5]">(I to IV)</span>
                             </h2>
@@ -325,9 +352,6 @@ export default function ProgramsPage() {
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
                     <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="text-center text-white mb-16">
-                        <div className="inline-flex items-center bg-white/10 border border-white/20 px-5 py-2.5 rounded-full mb-8 backdrop-blur-md shadow-lg group hover:bg-white/15 transition-all duration-300 mx-auto w-fit">
-                            <span className="text-sm font-heading font-bold text-white tracking-tight">Center of Excellence</span>
-                        </div>
                         <h2 className="font-heading font-extrabold text-4xl md:text-6xl leading-[1.1] mb-6">
                             Teacher Training <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#f472b6]">Programs</span>
                         </h2>
@@ -449,9 +473,6 @@ export default function ProgramsPage() {
                         </motion.div>
 
                         <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeRight} className="w-full lg:w-1/2">
-                            <div className="inline-flex items-center bg-[#fbaf01]/10 border border-[#fbaf01]/20 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-sm group hover:bg-[#fbaf01]/15 transition-all duration-300 w-fit">
-                                <span className="text-sm font-heading font-bold text-[#fbaf01] tracking-tight">Unique Initiative</span>
-                            </div>
                             <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-4xl md:text-5xl leading-[1.1] mb-6">
                                 Parent Empowerment <span className="text-[#fbaf01]">Programme</span>
                             </h2>
@@ -550,7 +571,7 @@ export default function ProgramsPage() {
                                 <span className="relative z-10">Enquiry Now</span>
                                 <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
                             </Link>
-                             <Link href="/best-preschool-features-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
+                            <Link href="/best-preschool-features-kerala" className="flex items-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all">
                                 Our Features
                             </Link>
                         </div>
