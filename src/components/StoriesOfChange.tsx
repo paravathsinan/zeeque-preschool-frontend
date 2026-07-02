@@ -66,9 +66,6 @@ export default function StoriesOfChange() {
                     viewport={{ once: true }}
                     className="text-center mb-16 relative"
                 >
-                    <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full mb-6 shadow-sm border border-gray-100">
-                        <span className="text-sm font-bold text-[#4CAF50] tracking-widest uppercase">Testimonials</span>
-                    </div>
                     
                     <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4 gap-y-2">
                         <span className="font-courgette font-bold tracking-wide">What our</span> 

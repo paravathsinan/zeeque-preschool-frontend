@@ -64,6 +64,28 @@ export default function Hero() {
                 <div className="absolute top-[58%] right-[1%] xl:right-[4%] z-40 hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
                     <Image src="/images/assets/3d-elements/3d-parachute.png" alt="3D Parachute" width={110} height={140} className="object-contain drop-shadow-lg w-[80px] lg:w-[110px]" />
                 </div>
+
+                {/* ===== Mobile Only Floating Elements ===== */}
+                {/* Sun */}
+                <div className="absolute top-[8%] right-[2%] md:hidden z-10">
+                    <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={80} height={80} className="object-contain drop-shadow-md w-[70px]" />
+                </div>
+                {/* Cloud Left */}
+                <div className="absolute top-[28%] left-[2%] md:hidden z-10" style={{ transform: 'rotate(-10deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={80} height={50} className="object-contain drop-shadow-md opacity-90 w-[80px]" />
+                </div>
+                {/* Airplane */}
+                <div className="absolute top-[35%] right-[4%] md:hidden z-10" style={{ transform: 'rotate(-15deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={80} height={55} className="object-contain drop-shadow-md w-[75px]" />
+                </div>
+                {/* Cube */}
+                <div className="absolute top-[16%] left-[10%] md:hidden z-10" style={{ transform: 'rotate(-20deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={30} height={30} className="object-contain drop-shadow-md w-[25px]" />
+                </div>
+                {/* Parachute */}
+                <div className="absolute top-[62%] left-[5%] md:hidden z-30" style={{ transform: 'rotate(10deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={60} height={80} className="object-contain drop-shadow-md w-[50px]" />
+                </div>
             </div>
 
             {/* ===== Main Content Area (Heading + CTA) ===== */}

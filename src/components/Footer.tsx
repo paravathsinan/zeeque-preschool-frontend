@@ -49,6 +49,41 @@ export default function Footer() {
                     <Image src="/images/assets/icons/Language.svg" alt="Icon" fill className="object-contain" />
                 </div>
 
+                {/* Mobile Background SVG Decor */}
+                <div className="absolute top-[5%] left-4 opacity-10 transform -rotate-12 w-16 h-16 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Test.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute top-[18%] right-6 opacity-10 transform rotate-45 w-20 h-20 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Geology.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute top-[35%] left-8 opacity-10 transform rotate-12 w-24 h-24 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Teaching.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute top-[55%] right-8 opacity-10 transform -rotate-12 w-20 h-20 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Trophy.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute top-[75%] left-[10%] opacity-10 transform rotate-[-20deg] w-16 h-16 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Book pen.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute top-[85%] right-[15%] opacity-10 transform rotate-12 w-20 h-20 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Tools.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute bottom-[30%] left-[15%] opacity-10 transform -rotate-15 w-24 h-24 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Geology.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute bottom-[20%] right-[10%] opacity-10 transform rotate-[25deg] w-16 h-16 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Library.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute bottom-[10%] right-6 opacity-10 transform rotate-12 w-16 h-16 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Language.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute bottom-[5%] left-[10%] opacity-10 transform -rotate-45 w-16 h-16 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Boy Student.svg" alt="Icon" fill className="object-contain" />
+                </div>
+                <div className="absolute bottom-[2%] left-[40%] opacity-10 transform -rotate-15 w-20 h-20 md:hidden z-10 pointer-events-none">
+                    <Image src="/images/assets/icons/Bag.svg" alt="Icon" fill className="object-contain" />
+                </div>
+
                 <div className="max-w-[1300px] mx-auto px-4 xl:px-8 relative z-20">
                     {/* Yellow Subscription Banner */}
                     <div className="max-w-[1050px] mx-auto relative bg-[#FFDE00] rounded-[30px] md:rounded-[40px] px-8 py-4 md:px-12 md:py-6 flex flex-col md:flex-row items-center justify-between mt-40 md:mt-48 mb-10 shadow-xl overflow-visible">

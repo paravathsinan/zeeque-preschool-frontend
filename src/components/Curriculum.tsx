@@ -112,11 +112,11 @@ export default function Curriculum() {
             </div>
 
             {/* Decorative Trees for Section Transition */}
-            <div className="absolute -bottom-[80px] lg:-bottom-[120px] -left-[100px] lg:-left-[160px] z-0 pointer-events-none hidden md:block">
-                <Image src="/images/assets/3d-elements/3d-dark-tree.png" alt="Decorative tree" width={320} height={450} className="object-contain drop-shadow-xl w-[200px] lg:w-[320px] h-auto" />
+            <div className="absolute -bottom-[10px] md:-bottom-[80px] lg:-bottom-[120px] -left-[60px] md:-left-[100px] lg:-left-[160px] z-20 pointer-events-none">
+                <Image src="/images/assets/3d-elements/3d-dark-tree.png" alt="Decorative tree" width={320} height={450} className="object-contain drop-shadow-xl w-[140px] md:w-[200px] lg:w-[320px] h-auto" />
             </div>
-            <div className="absolute -bottom-[80px] lg:-bottom-[120px] -right-[100px] lg:-right-[160px] z-0 pointer-events-none hidden md:block">
-                <Image src="/images/assets/3d-elements/3d-light-tree.png" alt="Decorative tree" width={320} height={450} className="object-contain drop-shadow-xl w-[200px] lg:w-[320px] h-auto" />
+            <div className="absolute -bottom-[10px] md:-bottom-[80px] lg:-bottom-[120px] -right-[60px] md:-right-[100px] lg:-right-[160px] z-20 pointer-events-none">
+                <Image src="/images/assets/3d-elements/3d-light-tree.png" alt="Decorative tree" width={320} height={450} className="object-contain drop-shadow-xl w-[140px] md:w-[200px] lg:w-[320px] h-auto" />
             </div>
         </section>
     );

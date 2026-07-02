@@ -57,7 +57,23 @@ export default function WeOffer() {
                 <div className="absolute top-[180px] -right-[30px] xl:-right-[70px] animate-float-slow hidden lg:block z-20 pointer-events-none">
                     <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={110} height={80} className="object-contain" />
                 </div>
-
+                {/* Mobile Background Icons (around Title & Facilities) */}
+                <div className="absolute top-[3%] left-[5%] animate-float-slow lg:hidden opacity-20 pointer-events-none z-0" style={{ transform: 'rotate(-15deg)' }}>
+                    <Image src="/images/assets/icons/Teaching.svg" alt="" width={50} height={50} className="object-contain" />
+                </div>
+                <div className="absolute top-[8%] right-[8%] animate-float lg:hidden opacity-20 pointer-events-none z-0" style={{ transform: 'rotate(20deg)' }}>
+                    <Image src="/images/assets/icons/Book pen.svg" alt="" width={45} height={45} className="object-contain" />
+                </div>
+                <div className="absolute top-[18%] left-[12%] animate-float-reverse lg:hidden opacity-15 pointer-events-none z-0" style={{ transform: 'rotate(-25deg)' }}>
+                    <Image src="/images/assets/icons/Language.svg" alt="" width={40} height={40} className="object-contain" />
+                </div>
+                <div className="absolute top-[15%] right-[10%] animate-float-medium lg:hidden opacity-20 pointer-events-none z-0" style={{ transform: 'rotate(10deg)' }}>
+                    <Image src="/images/assets/icons/Geology.svg" alt="" width={60} height={60} className="object-contain" />
+                </div>
+                <div className="absolute top-[25%] right-[25%] animate-float-slow lg:hidden opacity-10 pointer-events-none z-0" style={{ transform: 'rotate(-5deg)' }}>
+                    <Image src="/images/assets/icons/Trophy.svg" alt="" width={50} height={50} className="object-contain" />
+                </div>
+                
                 {/* Title */}
                 <motion.h2 
                     initial={{ opacity: 0, y: 20 }}
@@ -191,6 +207,17 @@ export default function WeOffer() {
                 {/* Floating Bottom Right Red Cube */}
                 <div className="absolute bottom-[-30px] -right-[20px] xl:-right-[80px] animate-float-reverse hidden lg:block z-0" style={{ transform: 'rotate(15deg)' }}>
                     <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={100} height={100} className="object-contain drop-shadow-md" />
+                </div>
+
+                {/* Mobile Only Floating Elements */}
+                <div className="absolute top-[25%] -left-[10px] animate-float lg:hidden z-0">
+                    <Image src="/images/assets/3d-elements/3d-cubeB.png" alt="" width={50} height={50} className="object-contain drop-shadow-sm" />
+                </div>
+                <div className="absolute top-[50%] -right-[5px] animate-float-reverse lg:hidden z-0" style={{ transform: 'rotate(-10deg)' }}>
+                    <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={60} height={60} className="object-contain drop-shadow-sm" />
+                </div>
+                <div className="absolute bottom-[2%] left-[10px] animate-float lg:hidden z-0">
+                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={55} height={75} className="object-contain drop-shadow-sm" />
                 </div>
             </div>
         </section>

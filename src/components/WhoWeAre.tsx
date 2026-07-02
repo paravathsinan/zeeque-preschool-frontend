@@ -52,6 +52,17 @@ export default function WhoWeAre() {
                 <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={55} height={40} className="object-contain opacity-60" />
             </div>
 
+            {/* Mobile Only Floating Elements */}
+            <div className="absolute top-[5%] right-[5%] z-[2] animate-float-slow lg:hidden">
+                <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={50} height={30} className="object-contain opacity-70" />
+            </div>
+            <div className="absolute top-[18%] left-[2%] z-[2] animate-float-reverse lg:hidden" style={{ transform: 'rotate(15deg)' }}>
+                <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={30} height={30} className="object-contain" />
+            </div>
+            <div className="absolute bottom-[2%] left-[5%] z-[2] animate-float lg:hidden">
+                <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={45} height={60} className="object-contain" />
+            </div>
+
             <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 xl:gap-20">
 
                 {/* Left — Child Image with blue blob border */}

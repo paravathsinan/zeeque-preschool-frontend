@@ -111,10 +111,6 @@ export default function OurFeatures() {
             <div className="max-w-[1300px] mx-auto px-4 xl:px-8 relative z-20">
                 {/* Header Section */}
                 <div className="text-center mb-16 relative">
-                    <div className="inline-flex items-center gap-2 bg-white px-5 py-2.5 rounded-full mb-6 shadow-sm border border-gray-100">
-                        <span className="text-[#FFC107] text-lg leading-none">✿</span>
-                        <span className="text-sm font-bold text-[#3399FF] tracking-widest uppercase">Our Features</span>
-                    </div>
                     
                     <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4 gap-y-2">
                         <span className="font-courgette font-bold tracking-wide">We bring you the</span> 
