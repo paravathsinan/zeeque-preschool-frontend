@@ -62,7 +62,7 @@ export default function Gallery() {
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     className="text-center max-w-2xl mx-auto mb-14"
                 >
-                    <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap justify-center items-center gap-x-4 gap-y-2">
+                    <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-row flex-wrap justify-center items-center gap-x-3 md:gap-x-4 gap-y-2">
                         <span className="font-courgette font-bold tracking-wide">Our</span> 
                         <span className="relative text-[#0060D6] font-bold font-quicksand z-10">
                             Gallery

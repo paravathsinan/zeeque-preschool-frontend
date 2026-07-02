@@ -28,13 +28,13 @@ export default function EventDetailPage({ params }: { params: Promise<{ slug: st
             </div>
 
             {/* Top Back Link & Breadcrumb Container */}
-            <div className="max-w-[1140px] mx-auto px-4 xl:px-8 pt-24 md:pt-32 pb-4">
-                <div className="flex items-center gap-2 text-sm font-medium text-gray-500 mb-6">
-                    <Link href="/" className="hover:text-[#0060D6] transition-colors">Home</Link>
-                    <ChevronRight className="w-4 h-4" />
-                    <Link href="/events" className="hover:text-[#0060D6] transition-colors">Updates & Events</Link>
-                    <ChevronRight className="w-4 h-4" />
-                    <span className="text-gray-900 line-clamp-1">{item.title}</span>
+            <div className="max-w-[1140px] mx-auto px-4 xl:px-8 pt-28 md:pt-36 pb-4">
+                <div className="flex flex-wrap items-center gap-y-2 gap-x-2 text-sm font-medium text-gray-500 mb-6">
+                    <Link href="/" className="hover:text-[#0060D6] transition-colors whitespace-nowrap">Home</Link>
+                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    <Link href="/events" className="hover:text-[#0060D6] transition-colors whitespace-nowrap">Updates & Events</Link>
+                    <ChevronRight className="w-4 h-4 flex-shrink-0" />
+                    <span className="text-gray-900 line-clamp-1 break-all md:break-normal">{item.title}</span>
                 </div>
 
                 <Link href="/events" className="inline-flex items-center gap-2 text-[#0060D6] font-bold text-sm hover:-translate-x-1 transition-transform bg-white px-4 py-2 rounded-full shadow-sm border border-gray-100">

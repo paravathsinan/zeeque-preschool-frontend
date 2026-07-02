@@ -22,7 +22,7 @@ export default function AdmissionPage() {
                 </div>
             </div>
 
-            <section className="relative overflow-hidden pt-24 pb-8 md:pt-32 md:pb-12 lg:pt-40 lg:pb-16">
+            <section className="relative overflow-hidden pt-32 pb-8 md:pt-40 md:pb-12 lg:pt-48 lg:pb-16">
                 <div className="relative z-10 mx-auto max-w-[1140px] px-4 text-center xl:px-8">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}

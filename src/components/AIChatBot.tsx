@@ -201,8 +201,13 @@ export default function AIChatBot() {
                     >
                         {/* Header */}
                         <div className="bg-primary p-5 flex items-center gap-3 shrink-0">
-                            <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center">
-                                <Bot className="w-5 h-5 text-white" />
+                            <div className="relative w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center overflow-hidden">
+                                <Image
+                                    src="/images/assets/images/aichatbot-icon.png"
+                                    alt="AI Chatbot Icon"
+                                    fill
+                                    className="object-cover scale-[1.2]"
+                                />
                             </div>
                             <div className="flex-1">
                                 <h3 className="font-heading font-bold text-white text-sm">Zeeque AI Assistant</h3>

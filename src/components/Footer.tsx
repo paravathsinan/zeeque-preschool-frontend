@@ -85,9 +85,9 @@ export default function Footer() {
                     </div>
 
                     {/* Footer Content Columns */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16 pt-8">
+                    <div className="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-0 md:gap-12 lg:gap-8 mb-16 pt-8 divide-y divide-white/20 md:divide-y-0 text-center md:text-left">
                         {/* Column 1: Brand & Contact */}
-                        <div className="space-y-6">
+                        <div className="space-y-6 flex flex-col items-center md:items-start pb-8 pt-0 md:py-0">
                             <div className="flex items-center gap-2">
                                 {/* Logo with natural colors */}
                                 <Image
@@ -98,16 +98,16 @@ export default function Footer() {
                                     className="object-contain" 
                                 />
                             </div>
-                            <div className="text-white space-y-3 font-medium text-sm md:text-base pt-2">
-                                <a href="tel:+176355471297" className="block hover:text-[#FFC107] transition-colors">+91 9072 500 435</a>
+                            <div className="text-white space-y-3 font-medium text-sm md:text-base pt-2 flex flex-col items-center md:items-start">
+                                <a href="tel:+919072500435" className="block hover:text-[#FFC107] transition-colors">+91 9072 500 435</a>
                                 <a href="mailto:zqnetwork@zeeque.in" className="block hover:text-[#FFC107] transition-colors">zqnetwork@zeeque.in</a>
                             </div>
                         </div>
 
                         {/* Column 2: Quick Links */}
-                        <div>
+                        <div className="flex flex-col items-center md:items-start py-8 md:py-0">
                             <h3 className="font-bold text-white text-lg mb-6">Quick Links</h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 flex flex-col items-center md:items-start">
                                 <li><Link href="/preschool-programs-kerala" className="text-white/80 hover:text-white transition-colors">Our Programs</Link></li>
                                 <li><Link href="/preschool-curriculum-kerala" className="text-white/80 hover:text-white transition-colors">Curriculum</Link></li>
                                 <li><Link href="/preschool-admission-kerala-2026" className="text-white/80 hover:text-white transition-colors">Admissions 2026</Link></li>
@@ -116,9 +116,9 @@ export default function Footer() {
                         </div>
 
                         {/* Column 3: Company */}
-                        <div>
+                        <div className="flex flex-col items-center md:items-start py-8 md:py-0">
                             <h3 className="font-bold text-white text-lg mb-6">Company</h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 flex flex-col items-center md:items-start">
                                 <li><Link href="/about-zeeque-preschool-kerala" className="text-white/80 hover:text-white transition-colors">About Us</Link></li>
                                 <li><Link href="/best-preschool-features-kerala" className="text-white/80 hover:text-white transition-colors">Our Features</Link></li>
                                 <li><Link href="/events" className="text-white/80 hover:text-white transition-colors">News & Events</Link></li>
@@ -127,9 +127,9 @@ export default function Footer() {
                         </div>
 
                         {/* Column 4: Updates */}
-                        <div>
+                        <div className="flex flex-col items-center md:items-start pt-8 md:pt-0">
                             <h3 className="font-bold text-white text-lg mb-6">Updates</h3>
-                            <ul className="space-y-4">
+                            <ul className="space-y-4 flex flex-col items-center md:items-start">
                                 <li><Link href="/events" className="text-white/80 hover:text-white transition-colors">Events</Link></li>
                                 <li><Link href="/gallery" className="text-white/80 hover:text-white transition-colors">Gallery</Link></li>
                                 <li><Link href="/resources" className="text-white/80 hover:text-white transition-colors">Resources</Link></li>
@@ -139,7 +139,7 @@ export default function Footer() {
                     </div>
 
                     {/* Bottom Bar */}
-                    <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
                         {/* Social Icons */}
                         <div className="flex items-center gap-3">
                             <a href="#" className="w-9 h-9 rounded-full bg-white flex items-center justify-center text-[#0060D6] hover:scale-110 transition-transform shadow-sm">

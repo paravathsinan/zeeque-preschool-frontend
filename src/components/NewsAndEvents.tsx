@@ -23,10 +23,10 @@ export default function NewsAndEvents() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="flex flex-col sm:flex-row sm:items-end justify-between mb-14 gap-4"
+                    className="flex flex-col sm:flex-row sm:items-end items-center justify-between mb-14 gap-6 sm:gap-4"
                 >
-                    <div>
-                        <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-col md:flex-row flex-wrap items-start sm:items-center gap-x-4 gap-y-2">
+                    <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
+                        <h2 className="text-[#1A2B4C] text-4xl md:text-5xl lg:text-6xl mb-6 flex flex-row flex-wrap justify-center sm:justify-start items-center gap-x-3 md:gap-x-4 gap-y-2">
                             <span className="font-courgette font-bold tracking-wide">News &</span> 
                             <span className="relative text-[#0060D6] font-bold font-quicksand z-10">
                                 Events
@@ -42,7 +42,7 @@ export default function NewsAndEvents() {
                     </div>
                     <Link
                         href="/events"
-                        className="inline-flex items-center gap-2 text-[#0060D6] font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
+                        className="hidden sm:inline-flex items-center gap-2 text-[#0060D6] font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
                     >
                         View All Articles
                         <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
@@ -108,6 +108,17 @@ export default function NewsAndEvents() {
                             </div>
                         </motion.div>
                     ))}
+                </div>
+
+                {/* Mobile View All Link */}
+                <div className="mt-10 flex justify-center sm:hidden">
+                    <Link
+                        href="/events"
+                        className="inline-flex items-center gap-2 text-[#0060D6] font-bold text-[15px] hover:gap-3 transition-all whitespace-nowrap"
+                    >
+                        View All Articles
+                        <ArrowRight className="w-4 h-4" strokeWidth={2.5} />
+                    </Link>
                 </div>
             </div>
         </section>

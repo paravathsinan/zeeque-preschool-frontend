@@ -148,6 +148,21 @@ export default function OurFeatures() {
                         bulletClass: "swiper-bullet-custom", 
                         bulletActiveClass: "swiper-bullet-custom-active" 
                     }}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    onTouchEnd={(swiper) => {
+                        if (typeof swiper.params.autoplay === 'object') {
+                            swiper.params.autoplay.delay = 4000;
+                            swiper.autoplay.start();
+                        }
+                    }}
+                    onSlideChangeTransitionEnd={(swiper) => {
+                        if (typeof swiper.params.autoplay === 'object' && swiper.params.autoplay.delay === 4000) {
+                            swiper.params.autoplay.delay = 2500;
+                        }
+                    }}
                     spaceBetween={24}
                     slidesPerView={1}
                     breakpoints={{

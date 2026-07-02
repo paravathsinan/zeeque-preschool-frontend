@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronDown, Menu, X, LogIn, Bell, Facebook, Instagram, Youtube, ArrowRight } from "lucide-react";
 import { useState, useEffect, Suspense } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import LoginModal from "./LoginModal";
 import SignInModal from "./SignInModal";
 import ForgotPasswordModal from "./ForgotPasswordModal";
@@ -29,6 +30,18 @@ function NavbarInner() {
             window.history.replaceState({}, '', newUrl);
         }
     }, [searchParams]);
+
+    // Lock body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMobileMenuOpen]);
 
     const navLinks = [
         { name: "Home", href: "/", hasDropdown: false },
@@ -187,9 +200,16 @@ function NavbarInner() {
                 </div>
 
                 {/* Mobile Navigation Menu */}
-                {isMobileMenuOpen && (
-                    <div className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg border-t border-gray-100 rounded-b-2xl overflow-hidden z-50">
-                        <div className="flex flex-col py-4 px-6 max-h-[70vh] overflow-y-auto">
+                <AnimatePresence>
+                    {isMobileMenuOpen && (
+                        <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                            className="lg:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl shadow-lg border-t border-gray-100 rounded-b-2xl overflow-hidden z-50 origin-top"
+                        >
+                            <div className="flex flex-col py-4 px-6 max-h-[70vh] overflow-y-auto">
                             {navLinks.map((link) => (
                                 <div key={link.name} className="flex flex-col border-b border-gray-50 last:border-0">
                                     <div className="flex items-center justify-between py-3">
@@ -271,8 +291,9 @@ function NavbarInner() {
                                 </button>
                             </div>
                         </div>
-                    </div>
-                )}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </nav>
 
             <LoginModal
