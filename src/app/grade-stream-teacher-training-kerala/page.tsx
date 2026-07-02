@@ -13,10 +13,11 @@ import {
     Send,
     Calendar,
     AlertCircle,
-    CheckCircle
+    CheckCircle,
+    X
 } from "lucide-react";
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm, Controller, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
@@ -24,45 +25,92 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import DatePicker from "@/components/DatePicker";
 import CustomSelect from "@/components/CustomSelect";
+import centersData from "@/data/centers.json";
 
 const gstSchema = z.object({
-    fullName: z.string().min(2, "Full name is required"),
+    fullName: z.string().min(2, "Full name is required").max(100, "Maximum 100 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
     dob: z.string().min(1, "Date of birth is required"),
     gender: z.string().min(1, "Please select gender"),
-    address: z.string().min(5, "Valid address is required"),
-    city: z.string().min(2, "City is required"),
+    address: z.string().min(5, "Valid address is required").max(250, "Maximum 250 characters allowed"),
+    place: z.string().min(2, "Place is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
+    city: z.string().min(2, "City is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
     state: z.string().min(1, "Please select state"),
-    district: z.string().min(1, "Please select district"),
+    personalCountry: z.string().min(1, "Please select country"),
+    pincode: z.string().length(6, "Pincode must be exactly 6 digits").regex(/^\d+$/, "Pincode must contain only numbers"),
     maritalStatus: z.string().min(1, "Please select marital status"),
-    contactNumber: z.string().min(10, "Valid contact number is required"),
-    whatsappNumber: z.string().min(10, "Valid Whatsapp number is required"),
-    email: z.string().email("Please enter a valid email address"),
+    contactNumber: z.string().length(10, "Contact number must be exactly 10 digits").regex(/^\d+$/, "Must contain only numbers"),
+    whatsappNumber: z.string().length(10, "Whatsapp number must be exactly 10 digits").regex(/^\d+$/, "Must contain only numbers"),
+    email: z.string().email("Please enter a valid email address").max(100, "Maximum 100 characters allowed"),
     religiousEdu: z.string().min(1, "Please select religious education"),
     generalEdu: z.string().min(1, "Please select general education"),
-    country: z.string().min(1, "Please select country"),
-    prefState: z.string().min(1, "Please select preferred state"),
-    prefDistrict: z.string().min(1, "District preference is required"),
-    prefCentre: z.string().min(1, "Please select a centre")
+    pref1Country: z.string().min(1, "Please select country"),
+    pref1State: z.string().min(1, "Please select preferred state"),
+    pref1District: z.string().min(1, "District preference is required"),
+    pref1Centre: z.string().min(1, "Please select a centre"),
+    pref2Country: z.string().optional(),
+    pref2State: z.string().optional(),
+    pref2District: z.string().optional().or(z.literal('')),
+    pref2Centre: z.string().optional()
+}).superRefine((data, ctx) => {
+    const hasPref2 = data.pref2Country || data.pref2State || data.pref2District || data.pref2Centre;
+    if (hasPref2) {
+        if (!data.pref2Country) ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Please select country", path: ["pref2Country"] });
+        if (!data.pref2State) ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Please select state", path: ["pref2State"] });
+        if (!data.pref2District) ctx.addIssue({ code: z.ZodIssueCode.custom, message: "District preference is required", path: ["pref2District"] });
+        if (!data.pref2Centre) ctx.addIssue({ code: z.ZodIssueCode.custom, message: "Please select a centre", path: ["pref2Centre"] });
+    }
 });
 
 type GstFormData = z.infer<typeof gstSchema>;
 
 export default function GradeStreamTeacherTraineesPage() {
     const [shakeFields, setShakeFields] = useState<Record<string, boolean>>({});
+    const [showSecondPref, setShowSecondPref] = useState(false);
 
     const {
         register,
         handleSubmit,
         control,
+        trigger,
         formState: { errors, touchedFields, dirtyFields, isSubmitted },
-        reset
+        reset,
+        setValue,
+        clearErrors
     } = useForm<GstFormData>({
         resolver: zodResolver(gstSchema),
         mode: "onTouched",
         defaultValues: {
-            country: "india"
+            personalCountry: "india",
+            pref1Country: "india"
         }
     });
+    const pref1Country = useWatch({ control, name: "pref1Country" });
+    const pref1State = useWatch({ control, name: "pref1State" });
+    const pref1District = useWatch({ control, name: "pref1District" });
+    const pref1Centre = useWatch({ control, name: "pref1Centre" });
+
+    const pref2Country = useWatch({ control, name: "pref2Country" });
+    const pref2State = useWatch({ control, name: "pref2State" });
+    const pref2District = useWatch({ control, name: "pref2District" });
+    const pref2Centre = useWatch({ control, name: "pref2Centre" });
+
+    const isPref1Filled = !!(pref1Country && pref1State && pref1District && pref1Centre);
+
+    // Compute Dropdown Options
+    const getUniqueOptions = (items: any[], key: string) => {
+        return [...new Set(items.map((item: any) => item[key]))].map(val => ({ value: String(val), label: String(val) }));
+    };
+
+    const countries = getUniqueOptions(centersData, 'country');
+    
+    const pref1States = getUniqueOptions(centersData.filter(c => c.country === pref1Country), 'state');
+    const pref1Districts = getUniqueOptions(centersData.filter(c => c.country === pref1Country && c.state === pref1State), 'district');
+    const pref1Centres = getUniqueOptions(centersData.filter(c => c.country === pref1Country && c.state === pref1State && c.district === pref1District), 'center');
+
+    const pref2States = getUniqueOptions(centersData.filter(c => c.country === pref2Country), 'state');
+    const pref2Districts = getUniqueOptions(centersData.filter(c => c.country === pref2Country && c.state === pref2State), 'district');
+    const pref2Centres = getUniqueOptions(centersData.filter(c => c.country === pref2Country && c.state === pref2State && c.district === pref2District), 'center');
+
 
     const onSubmit = (data: GstFormData) => {
         console.log("Form submitted:", data);
@@ -195,6 +243,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 placeholder="Enter your full name"
                                                 {...register("fullName")}
                                                 className={getInputClasses("fullName")}
+                                                maxLength={100}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
                                             />
                                             {renderInputIcons("fullName")}
                                         </div>
@@ -241,7 +291,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                     </div>
 
                                     <div className="col-span-1 md:col-span-2">
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Address with Pin code <span className="text-red-500">*</span></label>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Home address <span className="text-red-500">*</span></label>
                                         <div className="relative">
                                             <textarea
                                                 id="gst-address"
@@ -250,6 +300,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 rows={4}
                                                 {...register("address")}
                                                 className={`${getInputClasses("address")} resize-none pr-12`}
+                                                maxLength={250}
                                             ></textarea>
                                             <div className="absolute right-6 top-6 pointer-events-none">
                                                 {getFieldState("address").isValid && <CheckCircle className="w-[18px] h-[18px] text-green-500" />}
@@ -257,6 +308,23 @@ export default function GradeStreamTeacherTraineesPage() {
                                             </div>
                                         </div>
                                         {renderFieldError("address")}
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Place <span className="text-red-500">*</span></label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-place"
+                                                placeholder="Enter Place"
+                                                {...register("place")}
+                                                className={getInputClasses("place")}
+                                                maxLength={50}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
+                                            />
+                                            {renderInputIcons("place")}
+                                        </div>
+                                        {renderFieldError("place")}
                                     </div>
 
                                     <div>
@@ -269,6 +337,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 placeholder="Nearby City"
                                                 {...register("city")}
                                                 className={getInputClasses("city")}
+                                                maxLength={50}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
                                             />
                                             {renderInputIcons("city")}
                                         </div>
@@ -296,24 +366,40 @@ export default function GradeStreamTeacherTraineesPage() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District <span className="text-red-500">*</span></label>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
                                         <Controller
-                                            name="district"
+                                            name="personalCountry"
                                             control={control}
                                             render={({ field }) => (
                                                 <CustomSelect
                                                     options={[
-                                                        { value: "kozhikode", label: "Kozhikode" },
-                                                        { value: "malappuram", label: "Malappuram" }
+                                                        { value: "india", label: "India" }
                                                     ]}
                                                     value={field.value}
                                                     onChange={field.onChange}
                                                     placeholder="SELECT"
-                                                    hasError={getFieldState("district").hasError}
+                                                    hasError={getFieldState("personalCountry").hasError}
                                                 />
                                             )}
                                         />
-                                        {renderFieldError("district")}
+                                        {renderFieldError("personalCountry")}
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Pincode <span className="text-red-500">*</span></label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-pincode"
+                                                placeholder="Enter Pincode"
+                                                {...register("pincode")}
+                                                className={getInputClasses("pincode")}
+                                                maxLength={6}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ''); }}
+                                            />
+                                            {renderInputIcons("pincode")}
+                                        </div>
+                                        {renderFieldError("pincode")}
                                     </div>
 
                                     <div>
@@ -324,8 +410,11 @@ export default function GradeStreamTeacherTraineesPage() {
                                             render={({ field }) => (
                                                 <CustomSelect
                                                     options={[
-                                                        { value: "single", label: "Single" },
-                                                        { value: "married", label: "Married" }
+                                                        { value: "married", label: "MARRIED" },
+                                                        { value: "widowed", label: "WIDOWED" },
+                                                        { value: "separated", label: "SEPARATED" },
+                                                        { value: "divorced", label: "DIVORCED" },
+                                                        { value: "single", label: "SINGLE" }
                                                     ]}
                                                     value={field.value}
                                                     onChange={field.onChange}
@@ -358,6 +447,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 autoComplete="tel"
                                                 {...register("contactNumber")}
                                                 className={getInputClasses("contactNumber")}
+                                                maxLength={10}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ''); }}
                                             />
                                             {renderInputIcons("contactNumber")}
                                         </div>
@@ -373,6 +464,8 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 autoComplete="tel"
                                                 {...register("whatsappNumber")}
                                                 className={getInputClasses("whatsappNumber")}
+                                                maxLength={10}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/\D/g, ''); }}
                                             />
                                             <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-2">
                                                 <Image src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width={20} height={20} alt="WhatsApp contact icon" className="opacity-40" />
@@ -393,6 +486,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                                 placeholder="Your Email ID"
                                                 {...register("email")}
                                                 className={getInputClasses("email")}
+                                                maxLength={100}
                                             />
                                             {renderInputIcons("email")}
                                         </div>
@@ -458,87 +552,203 @@ export default function GradeStreamTeacherTraineesPage() {
 
                             {/* Centre Preference */}
                             <div className="space-y-6">
-                                <div className="flex items-center gap-3 mb-6">
-                                    <div className="w-10 h-10 rounded-xl bg-green-50 dark:bg-slate-800 flex items-center justify-center text-[#0fb85c]">
-                                        <MapPin className="w-5 h-5" />
-                                    </div>
-                                    <h3 className="text-xl font-heading font-bold text-[#222] dark:text-white">Centre preference</h3>
-                                </div>
-
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <Controller
-                                            name="country"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <CustomSelect
-                                                    options={[
-                                                        { value: "india", label: "India" }
-                                                    ]}
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    placeholder="--SELECT--"
-                                                    hasError={getFieldState("country").hasError}
-                                                />
-                                            )}
-                                        />
-                                        {renderFieldError("country")}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <Controller
-                                            name="prefState"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <CustomSelect
-                                                    options={[
-                                                        { value: "kerala", label: "Kerala" }
-                                                    ]}
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    placeholder="--SELECT--"
-                                                    hasError={getFieldState("prefState").hasError}
-                                                />
-                                            )}
-                                        />
-                                        {renderFieldError("prefState")}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District Preference <span className="text-red-500">*</span></label>
-                                        <div className="relative">
-                                            <input
-                                                type="text"
-                                                id="gst-district-pref"
-                                                placeholder="Enter district"
-                                                {...register("prefDistrict")}
-                                                className={getInputClasses("prefDistrict")}
-                                            />
-                                            {renderInputIcons("prefDistrict")}
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-xl bg-green-50 dark:bg-slate-800 flex items-center justify-center text-[#0fb85c]">
+                                            <MapPin className="w-5 h-5" />
                                         </div>
-                                        {renderFieldError("prefDistrict")}
-                                    </div>
-
-                                    <div className="col-span-1 sm:col-span-2 md:col-span-3 mt-4">
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Centre <span className="text-red-500">*</span></label>
-                                        <Controller
-                                            name="prefCentre"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <CustomSelect
-                                                    options={[]}
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    placeholder="--SELECT--"
-                                                    hasError={getFieldState("prefCentre").hasError}
-                                                />
-                                            )}
-                                        />
-                                        {renderFieldError("prefCentre")}
+                                        <h3 className="text-xl font-heading font-bold text-[#222] dark:text-white">Centre preference</h3>
                                     </div>
                                 </div>
+
+                                {/* Preference 1 */}
+                                <div className="bg-gray-50/50 dark:bg-slate-800/50 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 space-y-6">
+                                    <h4 className="text-lg font-bold text-gray-700 dark:text-gray-200">Preference 1</h4>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
+                                            <Controller
+                                                name="pref1Country"
+                                                control={control}
+                                                render={({ field }) => (
+                                                    <CustomSelect
+                                                        options={countries}
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                        placeholder="--SELECT--"
+                                                        hasError={getFieldState("pref1Country").hasError}
+                                                    />
+                                                )}
+                                            />
+                                            {renderFieldError("pref1Country")}
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
+                                            <Controller
+                                                name="pref1State"
+                                                control={control}
+                                                render={({ field }) => (
+                                                    <CustomSelect
+                                                        options={pref1States}
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                        placeholder="--SELECT--"
+                                                        hasError={getFieldState("pref1State").hasError}
+                                                    />
+                                                )}
+                                            />
+                                            {renderFieldError("pref1State")}
+                                        </div>
+
+                                        <div>
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District Preference <span className="text-red-500">*</span></label>
+                                            <Controller
+                                                name="pref1District"
+                                                control={control}
+                                                render={({ field }) => (
+                                                    <CustomSelect
+                                                        options={pref1Districts}
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                        placeholder="--SELECT--"
+                                                        hasError={getFieldState("pref1District").hasError}
+                                                    />
+                                                )}
+                                            />
+                                            {renderFieldError("pref1District")}
+                                        </div>
+
+                                        <div className="col-span-1 sm:col-span-2 md:col-span-3 mt-2">
+                                            <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Centre <span className="text-red-500">*</span></label>
+                                            <Controller
+                                                name="pref1Centre"
+                                                control={control}
+                                                render={({ field }) => (
+                                                    <CustomSelect
+                                                        options={pref1Centres}
+                                                        value={field.value}
+                                                        onChange={field.onChange}
+                                                        placeholder="--SELECT--"
+                                                        hasError={getFieldState("pref1Centre").hasError}
+                                                    />
+                                                )}
+                                            />
+                                            {renderFieldError("pref1Centre")}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Add Second Preference Button */}
+                                {!showSecondPref && (
+                                    <div className="flex justify-center mt-4">
+                                        <button
+                                            type="button"
+                                            onClick={async () => {
+                                                const isValid = await trigger(["pref1Country", "pref1State", "pref1District", "pref1Centre"]);
+                                                if (isValid) {
+                                                    setShowSecondPref(true);
+                                                }
+                                            }}
+                                            className="text-primary font-bold hover:underline flex items-center gap-2"
+                                        >
+                                            + Add Second Preference (Optional)
+                                        </button>
+                                    </div>
+                                )}
+
+                                {/* Preference 2 */}
+                                {showSecondPref && (
+                                    <div className="bg-gray-50/50 dark:bg-slate-800/50 p-6 rounded-2xl border border-gray-100 dark:border-slate-800 space-y-6 relative mt-6">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setShowSecondPref(false);
+                                                setValue("pref2Country", "");
+                                                setValue("pref2State", "");
+                                                setValue("pref2District", "");
+                                                setValue("pref2Centre", "");
+                                                clearErrors(["pref2Country", "pref2State", "pref2District", "pref2Centre"]);
+                                            }}
+                                            className="absolute top-6 right-6 text-gray-400 hover:text-red-500 transition-colors"
+                                        >
+                                            <X className="w-5 h-5" />
+                                        </button>
+                                        <h4 className="text-lg font-bold text-gray-700 dark:text-gray-200">Preference 2</h4>
+                                        
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
+                                                <Controller
+                                                    name="pref2Country"
+                                                    control={control}
+                                                    render={({ field }) => (
+                                                        <CustomSelect
+                                                            options={countries}
+                                                            value={field.value || ""}
+                                                            onChange={field.onChange}
+                                                            placeholder="--SELECT--"
+                                                            hasError={getFieldState("pref2Country").hasError}
+                                                        />
+                                                    )}
+                                                />
+                                                {renderFieldError("pref2Country")}
+                                            </div>
+
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
+                                                <Controller
+                                                    name="pref2State"
+                                                    control={control}
+                                                    render={({ field }) => (
+                                                        <CustomSelect
+                                                            options={pref2States}
+                                                            value={field.value || ""}
+                                                            onChange={field.onChange}
+                                                            placeholder="--SELECT--"
+                                                            hasError={getFieldState("pref2State").hasError}
+                                                        />
+                                                    )}
+                                                />
+                                                {renderFieldError("pref2State")}
+                                            </div>
+
+                                            <div>
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">District Preference <span className="text-red-500">*</span></label>
+                                                <div className="relative">
+                                                    <input
+                                                        type="text"
+                                                        placeholder="Enter district"
+                                                        {...register("pref2District")}
+                                                        className={getInputClasses("pref2District")}
+                                                        maxLength={50}
+                                                        onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
+                                                    />
+                                                    {renderInputIcons("pref2District")}
+                                                </div>
+                                                {renderFieldError("pref2District")}
+                                            </div>
+
+                                            <div className="col-span-1 sm:col-span-2 md:col-span-3 mt-2">
+                                                <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Centre <span className="text-red-500">*</span></label>
+                                                <Controller
+                                                    name="pref2Centre"
+                                                    control={control}
+                                                    render={({ field }) => (
+                                                        <CustomSelect
+                                                            options={pref2Centres}
+                                                            value={field.value || ""}
+                                                            onChange={field.onChange}
+                                                            placeholder="--SELECT--"
+                                                            hasError={getFieldState("pref2Centre").hasError}
+                                                        />
+                                                    )}
+                                                />
+                                                {renderFieldError("pref2Centre")}
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
                             </div>
 
                             {/* Submit Button */}

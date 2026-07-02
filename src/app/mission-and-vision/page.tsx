@@ -170,9 +170,7 @@ export default function MissionVisionPage() {
                                         <Target className="w-8 h-8 text-white" />
                                     </div>
                                     <div>
-                                        <div className="inline-flex items-center bg-[#0fb85c]/10 border border-[#0fb85c]/20 px-3 py-1 rounded-full mb-3 backdrop-blur-md shadow-sm group hover:bg-[#0fb85c]/15 transition-all duration-300">
-                                            <span className="text-xs font-heading font-bold text-[#0fb85c] tracking-tight">Our Mission</span>
-                                        </div>
+
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Nurturing Growth</h3>
                                     </div>
                                 </div>
@@ -194,13 +192,7 @@ export default function MissionVisionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="flex flex-wrap gap-2">
-                                    {["Safe", "Growth", "Learning", "Inclusive"].map((tag) => (
-                                        <span key={tag} className="bg-[#0fb85c]/5 text-[#0fb85c] font-heading font-bold text-sm px-4 py-2 rounded-full border border-[#0fb85c]/20 backdrop-blur-md shadow-sm">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
+
                             </div>
                         </motion.div>
 
@@ -214,9 +206,7 @@ export default function MissionVisionPage() {
                                         <Eye className="w-8 h-8 text-white" />
                                     </div>
                                     <div>
-                                        <div className="inline-flex items-center bg-[#3FB7E5]/10 border border-[#3FB7E5]/20 px-3 py-1 rounded-full mb-3 backdrop-blur-md shadow-sm group hover:bg-[#3FB7E5]/15 transition-all duration-300">
-                                            <span className="text-xs font-heading font-bold text-[#3FB7E5] tracking-tight">Our Vision</span>
-                                        </div>
+
                                         <h3 className="font-heading font-extrabold text-[#222] dark:text-white text-2xl md:text-3xl">Bright Futures</h3>
                                     </div>
                                 </div>
@@ -238,13 +228,7 @@ export default function MissionVisionPage() {
                                     </ul>
                                 </div>
 
-                                <div className="flex flex-wrap gap-2">
-                                    {["Togetherness", "Learning", "Values", "Impact"].map((tag) => (
-                                        <span key={tag} className="bg-[#3FB7E5]/5 text-[#3FB7E5] font-heading font-bold text-sm px-4 py-2 rounded-full border border-[#3FB7E5]/20 backdrop-blur-md shadow-sm">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
+
                             </div>
                         </motion.div>
                     </div>
