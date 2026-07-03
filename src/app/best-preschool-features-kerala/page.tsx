@@ -55,10 +55,10 @@ export default function FeaturesPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative w-full h-[500px] sm:h-[600px] md:h-[750px] lg:h-[800px] overflow-hidden z-0 bg-white dark:bg-slate-900">
+            <section className="relative w-full h-[420px] sm:h-[480px] md:h-[560px] lg:h-[600px] overflow-hidden z-0 bg-white dark:bg-slate-900">
                 
                 {/* Background — hero-section-bg.png (blue sky + cityscape + clouds) */}
-                <div className="absolute top-0 left-0 w-full h-[82%] sm:h-[78%] md:h-[75%] -z-10 bg-[#1ba8e5]">
+                <div className="absolute top-0 left-0 w-full h-full -z-10 bg-[#1ba8e5]">
                     <Image
                         src="/images/assets/images/hero-section-bg.png"
                         alt="Blue sky background with cityscape"
@@ -78,25 +78,25 @@ export default function FeaturesPage() {
 
                 {/* ===== Floating 3D Objects ===== */}
                 <div className="absolute inset-0 w-full h-full max-w-[1440px] mx-auto pointer-events-none z-10">
-                    <div className="absolute top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
+                    <div className="absolute top-[35%] xl:top-[28%] left-[2%] xl:left-[6%] hidden md:block" style={{ transform: 'rotate(-5deg)' }}>
                         <Image src="/images/assets/3d-elements/3d-airplane.png" alt="" width={160} height={110} className="object-contain drop-shadow-lg w-[120px] lg:w-[150px]" />
                     </div>
-                    <div className="absolute top-[18%] right-[2%] xl:right-[6%] hidden md:block">
+                    <div className="absolute top-[25%] xl:top-[18%] right-[2%] xl:right-[6%] hidden md:block">
                         <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={220} height={220} className="object-contain drop-shadow-md w-[160px] lg:w-[210px]" />
                     </div>
-                    <div className="absolute top-[42%] left-[4%] xl:left-[8%] hidden md:block">
+                    <div className="absolute top-[55%] xl:top-[42%] left-[4%] xl:left-[8%] hidden md:block">
                         <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={200} height={120} className="object-contain opacity-95 w-[140px] lg:w-[190px]" />
                     </div>
-                    <div className="absolute top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
+                    <div className="absolute top-[50%] xl:top-[38%] right-[1%] xl:right-[4%] hidden md:block" style={{ transform: 'scaleX(-1)' }}>
                         <Image src="/images/assets/3d-elements/3d-cloud.png" alt="" width={220} height={130} className="object-contain opacity-95 w-[160px] lg:w-[200px]" />
                     </div>
-                    <div className="absolute bottom-[24%] right-[8%] xl:right-[15%] z-40 hidden md:block">
+                    <div className="absolute bottom-0 lg:bottom-0 right-[8%] xl:right-[15%] z-40 hidden md:block">
                         <Image src="/images/assets/3d-elements/3d-kid.png" alt="Happy student" width={180} height={250} className="object-contain drop-shadow-lg w-[140px] lg:w-[200px]" />
                     </div>
                 </div>
 
                 {/* ===== Main Content Area ===== */}
-                <div className="absolute top-[32%] sm:top-[28%] md:top-[22%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
+                <div className="absolute top-[38%] sm:top-[33%] md:top-[30%] left-1/2 -translate-x-1/2 w-full z-20 flex flex-col items-center px-4 max-w-[1140px]">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -522,11 +522,11 @@ export default function FeaturesPage() {
                             Give your child the best possible start with our proven ECCE program. Visit your nearest ZeeQue center or enroll online today!
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4 sm:px-0">
-                            <Link href="https://admission.zeeque.in/" className="group flex items-center justify-center gap-3 px-10 py-4 rounded-2xl font-heading font-bold text-lg tracking-wide transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] bg-white/20 dark:bg-slate-800/40 backdrop-blur-[16px] border border-white/40 dark:border-white/10 text-gray-900 dark:text-white shadow-[0_8px_32px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.5)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.4),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:scale-[1.04] hover:-translate-y-[1px] hover:bg-white/35 dark:hover:bg-slate-800/60 hover:shadow-[0_16px_40px_rgba(255,182,6,0.3),inset_0_1px_1px_rgba(255,255,255,0.6)] active:scale-[0.98] active:opacity-90 ring-2 ring-transparent focus-visible:ring-primary/50 relative overflow-hidden whitespace-nowrap w-full sm:w-auto">
-                                {/* Subtle micro-pulse inner highlight */}
-                                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
-                                <span className="relative z-10 whitespace-nowrap">Enquiry Now</span>
-                                <ArrowRight className="w-5 h-5 stroke-[2.5] relative z-10" />
+                            <Link href="https://admission.zeeque.in/" className="flex items-center justify-center gap-2 bg-[#FFCB05] text-[#222] px-9 py-3.5 rounded-full font-heading font-bold text-base shadow-[4px_4px_0_0_#0060D6] hover:shadow-[2px_2px_0_0_#0060D6] hover:translate-y-[2px] hover:translate-x-[2px] transition-all whitespace-nowrap w-full sm:w-auto relative overflow-hidden group">
+                                {/* Shimmer effect */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+                                <span className="relative z-10">Enquiry Now</span>
+                                <ArrowRight className="w-4 h-4 stroke-[2.5] relative z-10" />
                             </Link>
                             <Link href="/about-zeeque-preschool-kerala" className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-10 py-4 rounded-2xl font-heading font-bold text-lg border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all whitespace-nowrap w-full sm:w-auto">
                                 About Us

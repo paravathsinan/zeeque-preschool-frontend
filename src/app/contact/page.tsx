@@ -39,7 +39,7 @@ export default function ContactPage() {
 
 
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8 relative z-10">
-                    <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-20">
                         {/* Hero Text */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}

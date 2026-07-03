@@ -34,13 +34,13 @@ const gstSchema = z.object({
     address: z.string().min(5, "Valid address is required").max(250, "Maximum 250 characters allowed"),
     place: z.string().min(2, "Place is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
     city: z.string().min(2, "City is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
-    state: z.string().min(1, "Please select state"),
-    personalCountry: z.string().min(1, "Please select country"),
+    state: z.string().min(2, "State is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
+    personalCountry: z.string().min(2, "Country is required").max(50, "Maximum 50 characters allowed").regex(/^[A-Za-z\s.-]+$/, "Only letters and spaces are allowed"),
     pincode: z.string().length(6, "Pincode must be exactly 6 digits").regex(/^\d+$/, "Pincode must contain only numbers"),
     maritalStatus: z.string().min(1, "Please select marital status"),
     contactNumber: z.string().length(10, "Contact number must be exactly 10 digits").regex(/^\d+$/, "Must contain only numbers"),
     whatsappNumber: z.string().length(10, "Whatsapp number must be exactly 10 digits").regex(/^\d+$/, "Must contain only numbers"),
-    email: z.string().email("Please enter a valid email address").max(100, "Maximum 100 characters allowed"),
+    email: z.string().email("Please enter a valid email address").max(100, "Maximum 100 characters allowed").optional().or(z.literal('')),
     religiousEdu: z.string().min(1, "Please select religious education"),
     generalEdu: z.string().min(1, "Please select general education"),
     pref1Country: z.string().min(1, "Please select country"),
@@ -80,7 +80,6 @@ export default function GradeStreamTeacherTraineesPage() {
         resolver: zodResolver(gstSchema),
         mode: "onTouched",
         defaultValues: {
-            personalCountry: "india",
             pref1Country: "india"
         }
     });
@@ -311,20 +310,37 @@ export default function GradeStreamTeacherTraineesPage() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Place <span className="text-red-500">*</span></label>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
                                         <div className="relative">
                                             <input
                                                 type="text"
-                                                id="gst-place"
-                                                placeholder="Enter Place"
-                                                {...register("place")}
-                                                className={getInputClasses("place")}
+                                                id="gst-country"
+                                                placeholder="Enter Country"
+                                                {...register("personalCountry")}
+                                                className={getInputClasses("personalCountry")}
                                                 maxLength={50}
                                                 onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
                                             />
-                                            {renderInputIcons("place")}
+                                            {renderInputIcons("personalCountry")}
                                         </div>
-                                        {renderFieldError("place")}
+                                        {renderFieldError("personalCountry")}
+                                    </div>
+
+                                    <div>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-state"
+                                                placeholder="Enter State"
+                                                {...register("state")}
+                                                className={getInputClasses("state")}
+                                                maxLength={50}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
+                                            />
+                                            {renderInputIcons("state")}
+                                        </div>
+                                        {renderFieldError("state")}
                                     </div>
 
                                     <div>
@@ -346,43 +362,20 @@ export default function GradeStreamTeacherTraineesPage() {
                                     </div>
 
                                     <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">State <span className="text-red-500">*</span></label>
-                                        <Controller
-                                            name="state"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <CustomSelect
-                                                    options={[
-                                                        { value: "kerala", label: "Kerala" }
-                                                    ]}
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    placeholder="SELECT"
-                                                    hasError={getFieldState("state").hasError}
-                                                />
-                                            )}
-                                        />
-                                        {renderFieldError("state")}
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Country <span className="text-red-500">*</span></label>
-                                        <Controller
-                                            name="personalCountry"
-                                            control={control}
-                                            render={({ field }) => (
-                                                <CustomSelect
-                                                    options={[
-                                                        { value: "india", label: "India" }
-                                                    ]}
-                                                    value={field.value}
-                                                    onChange={field.onChange}
-                                                    placeholder="SELECT"
-                                                    hasError={getFieldState("personalCountry").hasError}
-                                                />
-                                            )}
-                                        />
-                                        {renderFieldError("personalCountry")}
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Place <span className="text-red-500">*</span></label>
+                                        <div className="relative">
+                                            <input
+                                                type="text"
+                                                id="gst-place"
+                                                placeholder="Enter Place"
+                                                {...register("place")}
+                                                className={getInputClasses("place")}
+                                                maxLength={50}
+                                                onInput={(e) => { e.currentTarget.value = e.currentTarget.value.replace(/[^A-Za-z\s.-]/g, ''); }}
+                                            />
+                                            {renderInputIcons("place")}
+                                        </div>
+                                        {renderFieldError("place")}
                                     </div>
 
                                     <div>
@@ -477,7 +470,7 @@ export default function GradeStreamTeacherTraineesPage() {
                                     </div>
 
                                     <div className="col-span-1 md:col-span-2">
-                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Email Id <span className="text-red-500">*</span></label>
+                                        <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-2">Email Id <span className="text-gray-400 font-normal ml-1">(Optional)</span></label>
                                         <div className="relative">
                                             <input
                                                 type="email"

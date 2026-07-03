@@ -192,7 +192,7 @@ export default function AdmissionApplicationForm() {
         setIsSubmitting(true);
         setSubmitError(null);
         try {
-            const apiBase =
+            const apiBase = typeof window !== "undefined" ? "" :
                 process.env.NEXT_PUBLIC_ADMISSION_API_URL?.replace(/\/$/, "") ??
                 process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.replace(/\/$/, "") ??
                 "http://127.0.0.1:8000";
@@ -406,11 +406,8 @@ export default function AdmissionApplicationForm() {
                                             />
                                             <Err name={errors.email?.message} />
                                         </div>
-                                        <div>
+                                        <div className="relative">
                                             <label className="mb-2 block text-sm font-bold">School name</label>
-                                            {schoolsError ? (
-                                                <p className="mb-2 text-xs font-medium text-red-500">{schoolsError}</p>
-                                            ) : null}
                                             <Controller
                                                 name="schoolName"
                                                 control={control}
@@ -432,6 +429,9 @@ export default function AdmissionApplicationForm() {
                                                 )}
                                             />
                                             <Err name={errors.schoolName?.message} />
+                                            {schoolsError ? (
+                                                <p className="mt-1 text-xs font-medium text-red-500">{schoolsError}</p>
+                                            ) : null}
                                         </div>
                                         <div>
                                             <label className="mb-2 block text-sm font-bold">WhatsApp number</label>

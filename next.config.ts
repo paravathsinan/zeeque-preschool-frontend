@@ -49,6 +49,17 @@ const nextConfig: NextConfig = {
       { source: '/grade-stream-teacher-trainees', destination: '/grade-stream-teacher-training-kerala', permanent: true },
     ];
   },
+  async rewrites() {
+    const apiBase = process.env.NEXT_PUBLIC_ADMISSION_API_URL?.replace(/\/$/, "") ?? 
+                    process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.replace(/\/$/, "") ?? 
+                    "http://127.0.0.1:8000";
+    return [
+      {
+        source: '/api/v1/:path*',
+        destination: `${apiBase}/api/v1/:path*`,
+      },
+    ];
+  },
   async headers() {
     const connectSrc = `'self' ws: wss: https://*.google.com https://*.gstatic.com https://*.googleapis.com ${connectSrcAllowlist()}`;
     const csp = [

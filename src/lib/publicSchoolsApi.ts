@@ -9,6 +9,7 @@ export type SelectOption = { value: string; label: string };
 
 /** Django ERP API base (zeeapi) — not the legacy FastAPI web backend. */
 export function getMainApiBase(): string {
+  if (typeof window !== "undefined") return "";
   return (
     process.env.NEXT_PUBLIC_ADMISSION_API_URL?.replace(/\/$/, "") ??
     process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.replace(/\/$/, "") ??

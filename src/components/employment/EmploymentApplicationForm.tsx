@@ -542,7 +542,7 @@ export default function EmploymentApplicationForm() {
         setIsSubmitting(true);
         setSubmitError(null);
         try {
-            const apiBase =
+            const apiBase = typeof window !== "undefined" ? "" :
                 process.env.NEXT_PUBLIC_EMPLOYMENT_API_URL?.replace(/\/$/, "") ?? "http://127.0.0.1:8000";
             const fd = new FormData();
             fd.append("payload", JSON.stringify(toEmploymentApiPayload(values)));

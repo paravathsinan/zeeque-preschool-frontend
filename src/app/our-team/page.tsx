@@ -65,7 +65,7 @@ export default function OurTeamPage() {
             {/* ══════════════════════════════════
                 SECTION 1: Custom Team Hero Banner
                ══════════════════════════════════ */}
-            <section className="relative w-full pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white dark:from-slate-900 dark:to-slate-950">
+            <section className="relative w-full pt-16 pb-24 md:pt-20 md:pb-32 overflow-hidden bg-gradient-to-b from-[#f0f7ff] to-white dark:from-slate-900 dark:to-slate-950">
                 
                 {/* Abstract Background Shapes */}
                 <div className="absolute inset-0 pointer-events-none overflow-hidden max-w-[1440px] mx-auto">
@@ -114,7 +114,7 @@ export default function OurTeamPage() {
             {/* ══════════════════════════════════
                 CHIEF PATRONS
                ══════════════════════════════════ */}
-            <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
+            <section className="pt-16 lg:pt-24 pb-0 bg-white dark:bg-slate-900">
                 <div className="max-w-[1140px] mx-auto px-4 xl:px-8">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="mb-12">
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl">Chief Patrons</h2>
@@ -251,7 +251,7 @@ export default function OurTeamPage() {
             {/* ══════════════════════════════════
                 CTA
                ══════════════════════════════════ */}
-            <section className="py-16 lg:py-24 bg-white dark:bg-slate-900">
+            <section className="py-0 bg-white dark:bg-slate-900">
                 <div className="max-w-[700px] mx-auto px-4 xl:px-8 text-center">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
                         <h2 className="font-heading font-extrabold text-[#222] dark:text-white text-3xl md:text-4xl leading-[1.15] mb-4">
@@ -261,8 +261,11 @@ export default function OurTeamPage() {
                             Whether you&apos;re a parent looking for the best start for your child, or an educator passionate about shaping young minds — we&apos;d love to hear from you.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <Link href="https://admission.zeeque.in/" className="flex items-center justify-center gap-2 bg-[#ffb606] text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base hover:bg-[#ffa000] shadow-[4px_4px_0_0_#ef4225] hover:shadow-[2px_2px_0_0_#ef4225] hover:translate-y-[2px] hover:translate-x-[2px] transition-all whitespace-nowrap w-full sm:w-auto">
-                                Enquiry Now <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+                            <Link href="https://admission.zeeque.in/" className="flex items-center justify-center gap-2 bg-[#FFCB05] text-[#222] px-9 py-3.5 rounded-full font-heading font-bold text-base shadow-[4px_4px_0_0_#0060D6] hover:shadow-[2px_2px_0_0_#0060D6] hover:translate-y-[2px] hover:translate-x-[2px] transition-all whitespace-nowrap w-full sm:w-auto relative overflow-hidden group">
+                                {/* Shimmer effect */}
+                                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/40 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-in-out" />
+                                <span className="relative z-10">Enquiry Now</span>
+                                <ArrowRight className="w-4 h-4 stroke-[2.5] relative z-10" />
                             </Link>
                             <Link href="/contact" className="flex items-center justify-center gap-2 bg-white dark:bg-slate-800 text-[#222] dark:text-white px-9 py-3.5 rounded-2xl font-heading font-bold text-base border-2 border-gray-200 dark:border-slate-700 hover:border-primary hover:text-primary transition-all whitespace-nowrap w-full sm:w-auto">
                                 <Mail className="w-4 h-4" /> Contact Us
