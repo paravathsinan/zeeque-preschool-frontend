@@ -349,20 +349,21 @@ export default function AdmissionApplicationForm() {
                                     </h3>
                                     <div className="grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-2">
                                         <div>
-                                            <label className="mb-2 block text-sm font-bold">Name</label>
+                                            <label className="mb-2 block text-sm font-bold">Name <span className="text-red-500">*</span></label>
                                             <input
                                                 {...register("studentName", {
                                                     onChange: (e) => {
-                                                        e.target.value = e.target.value.toUpperCase();
+                                                        e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '').toUpperCase();
                                                     },
                                                 })}
+                                                maxLength={50}
                                                 className={capsFieldClass(inputClass(!!errors.studentName))}
                                                 placeholder="STUDENT'S FULL NAME"
                                             />
                                             <Err name={errors.studentName?.message} />
                                         </div>
                                         <div>
-                                            <label className="mb-2 block text-sm font-bold">Date of birth</label>
+                                            <label className="mb-2 block text-sm font-bold">Date of birth <span className="text-red-500">*</span></label>
                                             <Controller
                                                 name="dob"
                                                 control={control}
@@ -379,13 +380,14 @@ export default function AdmissionApplicationForm() {
                                             <Err name={errors.dob?.message} />
                                         </div>
                                         <div>
-                                            <label className="mb-2 block text-sm font-bold">Place</label>
+                                            <label className="mb-2 block text-sm font-bold">Place <span className="text-red-500">*</span></label>
                                             <input
                                                 {...register("place", {
                                                     onChange: (e) => {
-                                                        e.target.value = e.target.value.toUpperCase();
+                                                        e.target.value = e.target.value.replace(/[^A-Za-z0-9\s,\.-]/g, '').toUpperCase();
                                                     },
                                                 })}
+                                                maxLength={50}
                                                 className={capsFieldClass(inputClass(!!errors.place))}
                                                 placeholder="TOWN / AREA"
                                             />
@@ -401,13 +403,14 @@ export default function AdmissionApplicationForm() {
                                                         e.target.value = e.target.value.toLowerCase();
                                                     },
                                                 })}
+                                                maxLength={100}
                                                 className={`${inputClass(!!errors.email)} normal-case`}
                                                 placeholder="parent@email.com"
                                             />
                                             <Err name={errors.email?.message} />
                                         </div>
                                         <div className="relative">
-                                            <label className="mb-2 block text-sm font-bold">School name</label>
+                                            <label className="mb-2 block text-sm font-bold">School name <span className="text-red-500">*</span></label>
                                             <Controller
                                                 name="schoolName"
                                                 control={control}
@@ -434,13 +437,14 @@ export default function AdmissionApplicationForm() {
                                             ) : null}
                                         </div>
                                         <div>
-                                            <label className="mb-2 block text-sm font-bold">WhatsApp number</label>
+                                            <label className="mb-2 block text-sm font-bold">WhatsApp number <span className="text-red-500">*</span></label>
                                             <input
                                                 {...register("whatsapp", {
                                                     onChange: (e) => {
                                                         e.target.value = sanitizePhoneTyping(e.target.value);
                                                     },
                                                 })}
+                                                maxLength={15}
                                                 className={inputClass(!!errors.whatsapp)}
                                                 placeholder="+91..."
                                             />

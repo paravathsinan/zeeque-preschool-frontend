@@ -117,9 +117,10 @@ function NavbarInner() {
                              <Image
                                  src="/images/logo/logo-new.svg"
                                  alt="Zeeque Preschool - Islamic Studies & Montessori Education in Kozhikode, Kerala."
-                                 width={70}
-                                 height={20}
+                                 width={180}
+                                 height={55}
                                  className="object-contain"
+                                 style={{ width: "auto", height: "55px" }}
                                  priority
                              />
                         </Link>

@@ -93,6 +93,7 @@ export default function Footer() {
                                 src="/images/assets/images/kid-footer.png" 
                                 alt="Kid" 
                                 fill 
+                                sizes="(max-width: 1024px) 260px, 380px"
                                 className="object-contain object-bottom drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)]"
                             />
                         </div>
@@ -128,9 +129,10 @@ export default function Footer() {
                                 <Image
                                     src="/images/logo/logo-new.svg"
                                     alt="Zeeque Preschool"
-                                    width={120}
-                                    height={35}
+                                    width={240}
+                                    height={80}
                                     className="object-contain" 
+                                    style={{ width: "auto", height: "80px" }}
                                 />
                             </div>
                             <div className="text-white space-y-3 font-medium text-sm md:text-base pt-2 flex flex-col items-center md:items-start">

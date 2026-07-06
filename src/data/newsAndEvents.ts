@@ -31,11 +31,19 @@ export const newsAndEventsData: NewsEventItem[] = [
         content: `
             <p>We are thrilled to officially announce that admissions for the 2026-27 academic year are now open at Zeeque Preschool! At Zeeque, we are committed to providing a holistic early childhood education that blends modern learning with core values.</p>
             <br/>
-            <p>Our curriculum is thoughtfully designed to ignite curiosity, foster creativity, and build a strong foundation for lifelong learning. With our state-of-the-art facilities and a passionate team of educators, we ensure every child receives personalized attention in a safe and nurturing environment.</p>
+            <p>Our curriculum is thoughtfully designed to ignite curiosity, foster creativity, and build a strong foundation for lifelong learning. With our state-of-the-art facilities and a passionate team of educators, we ensure every child receives personalized attention in a safe and nurturing environment. From sensory play to advanced cognitive exercises, our daily routines are crafted to bring out the very best in our young learners.</p>
             <br/>
-            <p><strong>Enrollment Details:</strong> Parents can register their children for playgroup, nursery, and kindergarten levels. We encourage you to schedule a campus tour and meet our faculty to understand our teaching methodology better.</p>
+            <p><strong>What Makes Zeeque Different?</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>Experienced and compassionate educators dedicated to child-centric teaching.</li>
+                <li>Safe, hygienic, and secure campus with continuous monitoring.</li>
+                <li>A perfect balance of academics, sports, and creative arts.</li>
+                <li>Value-based Islamic Montessori education tailored for holistic growth.</li>
+            </ul>
             <br/>
-            <p>Seats are limited, so hurry up and secure a bright future for your child today!</p>
+            <p><strong>Enrollment Details:</strong> Parents can register their children for playgroup, nursery, and kindergarten levels. We encourage you to schedule a campus tour and meet our faculty to understand our teaching methodology better. During the tour, you'll have the chance to see our classrooms in action and speak directly with our principal.</p>
+            <br/>
+            <p>Seats are limited and fill up quickly, so hurry up and secure a bright future for your child today! Please visit our admissions page to fill out the online registration form or contact our administration office for further assistance.</p>
         `,
         image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?q=80&w=600&auto=format&fit=crop",
         alt: "Admissions open announcement with smiling preschool students at ZeeQue Preschool in Kerala."
@@ -52,9 +60,19 @@ export const newsAndEventsData: NewsEventItem[] = [
         content: `
             <p>Education is evolving, and at Zeeque Preschool, we believe in staying ahead! We have successfully upgraded our campus by introducing child-friendly smart classrooms to make learning more engaging and interactive.</p>
             <br/>
-            <p>These classrooms are equipped with the latest multimedia learning tools, interactive whiteboards, and vibrant, colorful decor designed to stimulate young minds. The integration of technology helps in delivering visual and auditory lessons that enhance comprehension and memory.</p>
+            <p>These classrooms are equipped with the latest multimedia learning tools, interactive whiteboards, and vibrant, colorful decor designed to stimulate young minds. The integration of technology helps in delivering visual and auditory lessons that enhance comprehension and memory. For instance, our new digital storytelling sessions allow children to see their favorite characters come alive on screen, bridging the gap between imagination and reality.</p>
             <br/>
-            <p>Furthermore, the physical layout of these rooms encourages collaborative play and group activities, ensuring a perfect balance between digital learning and physical interaction.</p>
+            <p>Furthermore, the physical layout of these rooms encourages collaborative play and group activities. We have introduced modular seating arrangements that can easily be shifted from individual focused learning setups to large group circles for interactive discussions.</p>
+            <br/>
+            <p><strong>Benefits of our Smart Classrooms:</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>Enhanced engagement through visual and interactive learning.</li>
+                <li>Ability to cater to different learning styles (auditory, visual, kinesthetic).</li>
+                <li>Access to a wealth of educational digital resources globally.</li>
+                <li>Preparation for a technology-driven future in a safe, controlled environment.</li>
+            </ul>
+            <br/>
+            <p>We invite all parents to come and witness a live demonstration of how these tools are being utilized by our teachers to create an unforgettable learning experience.</p>
         `,
         image: "https://images.unsplash.com/photo-1588075592446-265fd1e6e76f?q=80&w=600&auto=format&fit=crop",
         alt: "Newly designed, child-friendly smart classrooms ready for students at ZeeQue Preschool in Kerala."
@@ -96,7 +114,17 @@ export const newsAndEventsData: NewsEventItem[] = [
             <br/>
             <p>Our students have been practicing diligently for various track and field events, including the classic sack race, lemon and spoon race, and relay. The emphasis of our sports day is not just on winning, but on participation, teamwork, and developing a healthy sporting spirit from a young age.</p>
             <br/>
-            <p>Parents are warmly invited to attend, encourage the participants, and even join in on a few special parent-child games. Let's celebrate health and happiness together!</p>
+            <p>Physical education is a core component of our curriculum. Regular physical activity helps in the development of gross motor skills, cardiovascular health, and muscle strength. It also plays a vital role in building self-confidence and reducing anxiety in children. By organizing events like these, we ensure that every child gets an opportunity to shine and experience the joy of outdoor play.</p>
+            <br/>
+            <p><strong>Event Highlights:</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>Grand Opening March Past by our senior kindergarten students.</li>
+                <li>Exciting track events including hurdles, relays, and sprint races.</li>
+                <li>Fun novelty races like the three-legged race and sack race.</li>
+                <li>Medal and certificate distribution ceremony to honor participation.</li>
+            </ul>
+            <br/>
+            <p>Parents are warmly invited to attend, encourage the participants, and even join in on a few special parent-child games. Let's celebrate health and happiness together! Don't forget to wear comfortable clothing and bring along your loudest cheers.</p>
         `,
         image: "/images/gallery/gallery photos/IMG_6290 - Copy.JPG",
         alt: "Little champions participating in Annual Sports Day on the main playground at ZeeQue Preschool in Kerala."
@@ -188,7 +216,17 @@ export const newsAndEventsData: NewsEventItem[] = [
             <br/>
             <p>During the meeting, teachers will share detailed progress reports, highlighting each child's strengths, areas for improvement, and overall social development. It is also a great time for parents to ask questions, share observations from home, and understand the upcoming curriculum plans.</p>
             <br/>
-            <p>We highly encourage all parents to book a slot and participate actively in shaping their child's educational journey.</p>
+            <p>We view parents as our vital partners in education. When parents and teachers collaborate, children exhibit better academic achievement, improved behavior, and greater social competence. These conferences are designed not as a one-way evaluation, but as a mutual sharing of insights that help us tailor our educational approach to your child's unique needs.</p>
+            <br/>
+            <p><strong>What to Expect:</strong></p>
+            <ul style="list-style-type: disc; margin-left: 20px;">
+                <li>A review of your child's portfolio containing their recent artwork and assignments.</li>
+                <li>A discussion on behavioral and social milestones achieved.</li>
+                <li>Guidance on activities you can do at home to support classroom learning.</li>
+                <li>An opportunity to set collaborative goals for the next term.</li>
+            </ul>
+            <br/>
+            <p>We highly encourage all parents to book a slot through our online portal and participate actively in shaping their child's educational journey. Each slot will be 20 minutes long to ensure a comprehensive discussion without rush.</p>
         `,
         image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?q=80&w=800&auto=format&fit=crop",
         alt: "Parents and teachers discussing child development securely at our leading Kerala preschool."

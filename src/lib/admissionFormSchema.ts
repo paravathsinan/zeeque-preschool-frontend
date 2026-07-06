@@ -22,14 +22,25 @@ const fullIntlPhone = (label: string) =>
 
 const emailField = z
     .string()
-    .min(1, "Email is required")
-    .email("Enter a valid email address")
-    .transform((v) => v.trim().toLowerCase());
+    .max(100, "Email cannot exceed 100 characters")
+    .trim()
+    .toLowerCase()
+    .refine((val) => val === "" || z.string().email().safeParse(val).success, {
+        message: "Enter a valid email address",
+    });
 
 export const admissionApplicationSchema = z.object({
-    studentName: z.string().min(2, "Student name is required"),
+    studentName: z
+        .string()
+        .min(2, "Student name must be at least 2 characters")
+        .max(50, "Student name cannot exceed 50 characters")
+        .regex(/^[A-Za-z\s]+$/, "Only letters and spaces are allowed"),
     dob: dateStr("Date of birth"),
-    place: z.string().min(1, "Place is required"),
+    place: z
+        .string()
+        .min(1, "Place is required")
+        .max(50, "Place cannot exceed 50 characters")
+        .regex(/^[A-Za-z0-9\s,\.-]+$/, "Only letters, numbers, spaces, commas, periods, and hyphens are allowed"),
     schoolName: z.string().min(1, "Please select a school"),
     email: emailField,
     whatsapp: fullIntlPhone("WhatsApp number"),

@@ -37,7 +37,7 @@ const testimonials = [
 
 export default function StoriesOfChange() {
     return (
-        <section className="py-20 lg:py-28 bg-[#FFF8E6] relative overflow-hidden">
+        <section className="pt-20 pb-10 lg:pt-28 lg:pb-14 bg-[#FFF8E6] relative overflow-hidden">
             {/* Background SVG Decor */}
             <div className="absolute top-20 left-10 opacity-[0.05] transform -rotate-12 w-24 h-24 hidden md:block">
                 <Image src="/images/assets/icons/Test.svg" alt="Test" fill className="object-contain" />

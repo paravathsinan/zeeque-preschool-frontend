@@ -167,10 +167,10 @@ export default function WeOffer() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.7 }}
-                        className="bg-[#F4F9FF] rounded-[32px] border border-[#E6F0FF] relative flex items-end justify-center min-h-[280px] mt-8 lg:mt-0"
+                        className="bg-[#F4F9FF] rounded-[32px] border border-[#E6F0FF] relative flex items-end justify-center min-h-[280px] mt-8 lg:mt-0 z-10"
                     >
-                        <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-[140%] z-10 flex items-end justify-center pointer-events-none">
-                            <Image src="/images/assets/3d-elements/3d-kid2.png" alt="Jumping student" width={320} height={400} className="object-contain drop-shadow-2xl pointer-events-auto" />
+                        <div className="relative w-full h-[280px] flex items-end justify-center">
+                            <Image src="/images/assets/3d-elements/3d-kid2.png" alt="Jumping student" width={500} height={600} className="object-contain drop-shadow-2xl w-full h-full scale-[1.15] origin-bottom translate-y-[3%] z-20" style={{ width: 'auto', height: 'auto' }} />
                         </div>
                     </motion.div>
                     
@@ -180,9 +180,9 @@ export default function WeOffer() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.8 }}
-                        className="lg:col-span-2 rounded-[32px] relative overflow-hidden min-h-[280px] shadow-sm hover:shadow-md transition-shadow"
+                        className="lg:col-span-2 rounded-[32px] overflow-hidden shadow-sm hover:shadow-md transition-shadow flex items-center justify-center bg-[#FFDF22]"
                     >
-                        <Image src="/images/assets/images/admission.png" alt="Admission Open" fill className="object-cover" />
+                        <Image src="/images/assets/images/admission.png" alt="Admission Open" width={800} height={400} className="w-full h-auto object-contain" />
                     </motion.div>
                     
                     {/* Right Kid (Pointing) */}
@@ -191,33 +191,33 @@ export default function WeOffer() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.9 }}
-                        className="bg-[#F4F9FF] rounded-[32px] border border-[#E6F0FF] relative flex items-end justify-center min-h-[280px] mt-8 lg:mt-0"
+                        className="bg-[#F4F9FF] rounded-[32px] border border-[#E6F0FF] relative flex items-end justify-center min-h-[280px] mt-8 lg:mt-0 z-10"
                     >
-                        <div className="absolute bottom-[-30px] left-1/2 -translate-x-1/2 w-[140%] z-10 flex items-end justify-center pointer-events-none">
-                            <Image src="/images/assets/3d-elements/3d-kid1.png" alt="Pointing student" width={320} height={400} className="object-contain drop-shadow-2xl pointer-events-auto" />
+                        <div className="relative w-full h-[280px] flex items-end justify-center">
+                            <Image src="/images/assets/3d-elements/3d-kid1.png" alt="Pointing student" width={500} height={600} className="object-contain drop-shadow-2xl w-full h-full scale-[1.15] origin-bottom translate-y-[3%] z-20" style={{ width: 'auto', height: 'auto' }} />
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Floating Bottom Left Parachute */}
                 <div className="absolute bottom-[20px] -left-[20px] xl:-left-[80px] animate-float hidden lg:block z-0">
-                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={90} height={120} className="object-contain drop-shadow-md" />
+                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={90} height={120} className="object-contain drop-shadow-md" style={{ width: 'auto', height: 'auto' }} />
                 </div>
 
                 {/* Floating Bottom Right Red Cube */}
                 <div className="absolute bottom-[-30px] -right-[20px] xl:-right-[80px] animate-float-reverse hidden lg:block z-0" style={{ transform: 'rotate(15deg)' }}>
-                    <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={100} height={100} className="object-contain drop-shadow-md" />
+                    <Image src="/images/assets/3d-elements/3d-cubeA.png" alt="" width={100} height={100} className="object-contain drop-shadow-md" style={{ width: 'auto', height: 'auto' }} />
                 </div>
 
                 {/* Mobile Only Floating Elements */}
                 <div className="absolute top-[25%] -left-[10px] animate-float lg:hidden z-0">
-                    <Image src="/images/assets/3d-elements/3d-cubeB.png" alt="" width={50} height={50} className="object-contain drop-shadow-sm" />
+                    <Image src="/images/assets/3d-elements/3d-cubeB.png" alt="" width={50} height={50} className="object-contain drop-shadow-sm" style={{ width: 'auto', height: 'auto' }} />
                 </div>
                 <div className="absolute top-[50%] -right-[5px] animate-float-reverse lg:hidden z-0" style={{ transform: 'rotate(-10deg)' }}>
-                    <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={60} height={60} className="object-contain drop-shadow-sm" />
+                    <Image src="/images/assets/3d-elements/3d-sun.png" alt="" width={60} height={60} className="object-contain drop-shadow-sm" style={{ width: 'auto', height: 'auto' }} />
                 </div>
                 <div className="absolute bottom-[2%] left-[10px] animate-float lg:hidden z-0">
-                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={55} height={75} className="object-contain drop-shadow-sm" />
+                    <Image src="/images/assets/3d-elements/3d-parachute.png" alt="" width={55} height={75} className="object-contain drop-shadow-sm" style={{ width: 'auto', height: 'auto' }} />
                 </div>
             </div>
         </section>

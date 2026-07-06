@@ -419,6 +419,7 @@ export default function AIChatBot() {
                                 src="/images/assets/images/aichatbot-icon.png"
                                 alt="AI Chatbot Icon"
                                 fill
+                                sizes="60px"
                                 className="object-cover scale-[1.35]"
                             />
                         </motion.div>

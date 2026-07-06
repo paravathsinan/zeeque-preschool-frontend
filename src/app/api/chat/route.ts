@@ -26,6 +26,17 @@ ${context}
 
 export async function POST(req: NextRequest) {
   try {
+    const apiKey = process.env.GEMINI_API_KEY;
+
+    // Fail fast if API key is not configured
+    if (!apiKey) {
+      console.error("GEMINI_API_KEY is not set in environment variables.");
+      return NextResponse.json(
+        { error: "AI assistant is not configured. Please contact support." },
+        { status: 503 }
+      );
+    }
+
     const { message, history = [] } = (await req.json()) as {
       message: string;
       history: ChatMessage[];
@@ -73,8 +84,8 @@ export async function POST(req: NextRequest) {
     }));
 
     // 3. Start a Gemini chat session with the grounding system prompt
-    const model = new GoogleGenerativeAI(process.env.GEMINI_API_KEY ?? "").getGenerativeModel({
-      model: "gemini-2.5-flash",
+    const model = new GoogleGenerativeAI(apiKey).getGenerativeModel({
+      model: "gemini-2.0-flash",
       systemInstruction: buildSystemPrompt(contextText),
       safetySettings: [
         {
@@ -132,7 +143,8 @@ export async function POST(req: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Chat API error:", error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error("Chat API error:", errorMessage, error);
     return NextResponse.json(
       {
         error:

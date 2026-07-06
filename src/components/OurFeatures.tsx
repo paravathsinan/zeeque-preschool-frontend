@@ -64,7 +64,7 @@ const features = [
 
 export default function OurFeatures() {
     return (
-        <section className="relative bg-[#F4F9FF] pt-12 md:pt-16 pb-24 z-10">
+        <section className="relative bg-[#F4F9FF] pt-12 md:pt-16 pb-12 z-10">
             {/* Background SVG Decor */}
             <div className="absolute top-32 left-10 opacity-[0.05] transform -rotate-12 w-24 h-24 hidden md:block">
                 <Image src="/images/assets/icons/Test.svg" alt="Test" fill className="object-contain" />
@@ -227,6 +227,12 @@ export default function OurFeatures() {
             </div>
 
             <style jsx global>{`
+                .swiper-wrapper {
+                    align-items: stretch;
+                }
+                .swiper-slide {
+                    height: auto !important;
+                }
                 .swiper-bullet-custom {
                     width: 8px;
                     height: 8px;
